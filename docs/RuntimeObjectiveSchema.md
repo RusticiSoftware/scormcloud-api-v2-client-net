@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **ScoreMin** | **string** |  | [optional] 
 **ScoreMax** | **string** |  | [optional] 
 **ScoreRaw** | **string** |  | [optional] 
-**RuntimeObjectiveSuccessStatus** | **string** |  | [optional] [default to "UNKNOWN"]
-**RuntimeObjectiveCompletionStatus** | **string** |  | [optional] [default to "UNKNOWN"]
+**RuntimeObjectiveSuccessStatus** | **string** |  | [optional] [default to RuntimeObjectiveSuccessStatusEnum.UNKNOWN]
+**RuntimeObjectiveCompletionStatus** | **string** |  | [optional] [default to RuntimeObjectiveCompletionStatusEnum.UNKNOWN]
 **ProgressMeasure** | **string** |  | [optional] 
 **Description** | **string** |  | [optional] 
 

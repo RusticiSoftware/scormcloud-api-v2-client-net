@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **ScoreMax** | **string** |  | [optional] 
 **TotalTime** | **string** |  | [optional] 
 **TimeTracked** | **string** |  | [optional] 
-**RuntimeSuccessStatus** | **string** |  | [optional] [default to "UNKNOWN"]
+**RuntimeSuccessStatus** | **string** |  | [optional] [default to RuntimeSuccessStatusEnum.UNKNOWN]
 **SuspendData** | **string** |  | [optional] 
 **LearnerComments** | [**List&lt;CommentSchema&gt;**](CommentSchema.md) |  | [optional] 
 **LmsComments** | [**List&lt;CommentSchema&gt;**](CommentSchema.md) |  | [optional] 

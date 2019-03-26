@@ -1,6 +1,6 @@
 # Com.RusticiSoftware.Cloud.V2.Api.RegistrationApi
 
-All URIs are relative to *https://dev.cloud.scorm.com/api/v2/*
+All URIs are relative to *https://cloud.scorm.com/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**DeleteRegistrationConfigurationSetting**](RegistrationApi.md#deleteregistrationconfigurationsetting) | **DELETE** /registrations/{registrationId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this registration
 [**DeleteRegistrationInstanceConfigurationSetting**](RegistrationApi.md#deleteregistrationinstanceconfigurationsetting) | **DELETE** /registrations/{registrationId}/instances/{instanceId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this registration instance
 [**DeleteRegistrationProgress**](RegistrationApi.md#deleteregistrationprogress) | **DELETE** /registrations/{registrationId}/progress | Delete registration progress (clear registration)
+[**DeleteRegistrationTags**](RegistrationApi.md#deleteregistrationtags) | **DELETE** /registrations/{registrationId}/tags | Delete tags for this registration
 [**DeleteRegistrationsGlobalData**](RegistrationApi.md#deleteregistrationsglobaldata) | **DELETE** /registrations/{registrationId}/globalData | Delete global data associated with &#x60;registrationId&#x60;
 [**GetRegistrationConfiguration**](RegistrationApi.md#getregistrationconfiguration) | **GET** /registrations/{registrationId}/configuration | Returns all configuration settings for this registration
 [**GetRegistrationInstanceConfiguration**](RegistrationApi.md#getregistrationinstanceconfiguration) | **GET** /registrations/{registrationId}/instances/{instanceId}/configuration | Returns all configuration settings for this registration instance
@@ -21,7 +22,10 @@ Method | HTTP request | Description
 [**GetRegistrationLaunchLink**](RegistrationApi.md#getregistrationlaunchlink) | **POST** /registrations/{registrationId}/launchLink | Returns the link to use to launch this registration
 [**GetRegistrationProgress**](RegistrationApi.md#getregistrationprogress) | **GET** /registrations/{registrationId} | Get registration progress for &#x60;registrationId&#x60;
 [**GetRegistrationStatements**](RegistrationApi.md#getregistrationstatements) | **GET** /registrations/{registrationId}/xAPIStatements | Get xAPI statements for &#x60;registrationId&#x60;
+[**GetRegistrationTags**](RegistrationApi.md#getregistrationtags) | **GET** /registrations/{registrationId}/tags | Get the tags for this registration
 [**GetRegistrations**](RegistrationApi.md#getregistrations) | **GET** /registrations | Gets a list of registrations including a summary of the status of each registration.
+[**PutRegistrationTags**](RegistrationApi.md#putregistrationtags) | **PUT** /registrations/{registrationId}/tags | Set the tags for this registration
+[**PutRegistrationTagsBatch**](RegistrationApi.md#putregistrationtagsbatch) | **PUT** /registrations/tags | Sets all of the provided tags on all of the provided registrations
 [**RegistrationExists**](RegistrationApi.md#registrationexists) | **HEAD** /registrations/{registrationId} | Does this registration exist?
 [**SetRegistrationConfiguration**](RegistrationApi.md#setregistrationconfiguration) | **POST** /registrations/{registrationId}/configuration | Set configuration settings for this registration.
 [**SetRegistrationInstanceConfiguration**](RegistrationApi.md#setregistrationinstanceconfiguration) | **POST** /registrations/{registrationId}/instances/{instanceId}/configuration | Set configuration settings for this registration instance.
@@ -47,7 +51,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -112,7 +115,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -179,7 +181,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -244,7 +245,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -311,7 +311,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -380,7 +379,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -425,6 +423,72 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deleteregistrationtags"></a>
+# **DeleteRegistrationTags**
+> void DeleteRegistrationTags (string registrationId, TagListSchema tags)
+
+Delete tags for this registration
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Com.RusticiSoftware.Cloud.V2.Api;
+using Com.RusticiSoftware.Cloud.V2.Client;
+using Com.RusticiSoftware.Cloud.V2.Model;
+
+namespace Example
+{
+    public class DeleteRegistrationTagsExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: APP_NORMAL
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAUTH
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RegistrationApi();
+            var registrationId = registrationId_example;  // string | id for this registration
+            var tags = new TagListSchema(); // TagListSchema | 
+
+            try
+            {
+                // Delete tags for this registration
+                apiInstance.DeleteRegistrationTags(registrationId, tags);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RegistrationApi.DeleteRegistrationTags: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registrationId** | **string**| id for this registration | 
+ **tags** | [**TagListSchema**](TagListSchema.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="deleteregistrationsglobaldata"></a>
 # **DeleteRegistrationsGlobalData**
 > void DeleteRegistrationsGlobalData (string registrationId)
@@ -445,7 +509,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -510,7 +573,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -578,7 +640,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -648,7 +709,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -718,7 +778,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -792,7 +851,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -866,7 +924,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -944,7 +1001,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1012,7 +1068,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1080,7 +1135,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1152,7 +1206,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1204,6 +1257,71 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getregistrationtags"></a>
+# **GetRegistrationTags**
+> TagListSchema GetRegistrationTags (string registrationId)
+
+Get the tags for this registration
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Com.RusticiSoftware.Cloud.V2.Api;
+using Com.RusticiSoftware.Cloud.V2.Client;
+using Com.RusticiSoftware.Cloud.V2.Model;
+
+namespace Example
+{
+    public class GetRegistrationTagsExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: APP_NORMAL
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAUTH
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RegistrationApi();
+            var registrationId = registrationId_example;  // string | id for this registration
+
+            try
+            {
+                // Get the tags for this registration
+                TagListSchema result = apiInstance.GetRegistrationTags(registrationId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RegistrationApi.GetRegistrationTags: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registrationId** | **string**| id for this registration | 
+
+### Return type
+
+[**TagListSchema**](TagListSchema.md)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getregistrations"></a>
 # **GetRegistrations**
 > RegistrationListSchema GetRegistrations (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null)
@@ -1224,7 +1342,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1284,6 +1401,136 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="putregistrationtags"></a>
+# **PutRegistrationTags**
+> void PutRegistrationTags (string registrationId, TagListSchema tags)
+
+Set the tags for this registration
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Com.RusticiSoftware.Cloud.V2.Api;
+using Com.RusticiSoftware.Cloud.V2.Client;
+using Com.RusticiSoftware.Cloud.V2.Model;
+
+namespace Example
+{
+    public class PutRegistrationTagsExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: APP_NORMAL
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAUTH
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RegistrationApi();
+            var registrationId = registrationId_example;  // string | id for this registration
+            var tags = new TagListSchema(); // TagListSchema | 
+
+            try
+            {
+                // Set the tags for this registration
+                apiInstance.PutRegistrationTags(registrationId, tags);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RegistrationApi.PutRegistrationTags: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registrationId** | **string**| id for this registration | 
+ **tags** | [**TagListSchema**](TagListSchema.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="putregistrationtagsbatch"></a>
+# **PutRegistrationTagsBatch**
+> void PutRegistrationTagsBatch (RegistrationTagsBatchSchema batch)
+
+Sets all of the provided tags on all of the provided registrations
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Com.RusticiSoftware.Cloud.V2.Api;
+using Com.RusticiSoftware.Cloud.V2.Client;
+using Com.RusticiSoftware.Cloud.V2.Model;
+
+namespace Example
+{
+    public class PutRegistrationTagsBatchExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: APP_NORMAL
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAUTH
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new RegistrationApi();
+            var batch = new RegistrationTagsBatchSchema(); // RegistrationTagsBatchSchema | 
+
+            try
+            {
+                // Sets all of the provided tags on all of the provided registrations
+                apiInstance.PutRegistrationTagsBatch(batch);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RegistrationApi.PutRegistrationTagsBatch: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch** | [**RegistrationTagsBatchSchema**](RegistrationTagsBatchSchema.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="registrationexists"></a>
 # **RegistrationExists**
 > void RegistrationExists (string registrationId)
@@ -1304,7 +1551,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1369,7 +1615,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1436,7 +1681,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";

@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **FirstScoreScaled** | **double?** |  | [optional] 
 **ProgressMeasure** | **double?** |  | [optional] 
 **FirstSuccessTimeStamp** | **string** |  | [optional] 
-**ObjectiveCompletion** | **string** |  | [optional] [default to "UNKNOWN"]
-**ObjectiveSuccess** | **string** |  | [optional] [default to "UNKNOWN"]
-**PreviousObjectiveSuccess** | **string** |  | [optional] [default to "UNKNOWN"]
+**ObjectiveCompletion** | **string** |  | [optional] [default to ObjectiveCompletionEnum.UNKNOWN]
+**ObjectiveSuccess** | **string** |  | [optional] [default to ObjectiveSuccessEnum.UNKNOWN]
+**PreviousObjectiveSuccess** | **string** |  | [optional] [default to PreviousObjectiveSuccessEnum.UNKNOWN]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

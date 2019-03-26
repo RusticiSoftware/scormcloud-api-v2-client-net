@@ -1,6 +1,6 @@
 # Com.RusticiSoftware.Cloud.V2.Api.CourseApi
 
-All URIs are relative to *https://dev.cloud.scorm.com/api/v2/*
+All URIs are relative to *https://cloud.scorm.com/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,17 +10,21 @@ Method | HTTP request | Description
 [**CreateUploadAndImportCourseJob**](CourseApi.md#createuploadandimportcoursejob) | **POST** /courses/importJobs/upload | Upload a course and start an import job for it.
 [**DeleteCourse**](CourseApi.md#deletecourse) | **DELETE** /courses/{courseId} | Delete &#x60;courseId&#x60;
 [**DeleteCourseConfigurationSetting**](CourseApi.md#deletecourseconfigurationsetting) | **DELETE** /courses/{courseId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course
+[**DeleteCourseTags**](CourseApi.md#deletecoursetags) | **DELETE** /courses/{courseId}/tags | Delete tags for this course
 [**DeleteCourseVersion**](CourseApi.md#deletecourseversion) | **DELETE** /courses/{courseId}/versions/{versionId} | Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
 [**DeleteCourseVersionConfigurationSetting**](CourseApi.md#deletecourseversionconfigurationsetting) | **DELETE** /courses/{courseId}/versions/{versionId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course and version.
 [**GetCourse**](CourseApi.md#getcourse) | **GET** /courses/{courseId} | Get information about &#x60;courseId&#x60;
 [**GetCourseConfiguration**](CourseApi.md#getcourseconfiguration) | **GET** /courses/{courseId}/configuration | Returns all configuration settings for this course
 [**GetCourseStatements**](CourseApi.md#getcoursestatements) | **GET** /courses/{courseId}/xAPIStatements | Get xAPI statements for &#x60;courseId&#x60;
+[**GetCourseTags**](CourseApi.md#getcoursetags) | **GET** /courses/{courseId}/tags | Get the tags for this course
 [**GetCourseVersionConfiguration**](CourseApi.md#getcourseversionconfiguration) | **GET** /courses/{courseId}/versions/{versionId}/configuration | Returns all configuration settings for this course and version.
 [**GetCourseVersionInfo**](CourseApi.md#getcourseversioninfo) | **GET** /courses/{courseId}/versions/{versionId} | Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
 [**GetCourseVersionStatements**](CourseApi.md#getcourseversionstatements) | **GET** /courses/{courseId}/versions/{versionId}/xAPIStatements | Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
 [**GetCourseVersions**](CourseApi.md#getcourseversions) | **GET** /courses/{courseId}/versions | Get all versions of &#x60;courseId&#x60;
 [**GetCourses**](CourseApi.md#getcourses) | **GET** /courses | Get all courses for &#x60;appId&#x60;
 [**GetImportJobStatus**](CourseApi.md#getimportjobstatus) | **GET** /courses/importJobs/{importJobId} | Check the status of an import job.
+[**PutCourseTags**](CourseApi.md#putcoursetags) | **PUT** /courses/{courseId}/tags | Set the tags for this course
+[**PutCourseTagsBatch**](CourseApi.md#putcoursetagsbatch) | **PUT** /courses/tags | Sets all of the provided tags on all of the provided courses
 [**SetCourseConfiguration**](CourseApi.md#setcourseconfiguration) | **POST** /courses/{courseId}/configuration | Set configuration settings for this course.
 [**SetCourseTitle**](CourseApi.md#setcoursetitle) | **PUT** /courses/{courseId}/title | Sets the course title for &#x60;courseId&#x60;
 [**SetCourseVersionConfiguration**](CourseApi.md#setcourseversionconfiguration) | **POST** /courses/{courseId}/versions/{versionId}/configuration | Set configuration settings for this course and version.
@@ -46,7 +50,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -116,7 +119,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -188,7 +190,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -262,7 +263,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -334,7 +334,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -399,7 +398,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -446,6 +444,72 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deletecoursetags"></a>
+# **DeleteCourseTags**
+> void DeleteCourseTags (string courseId, TagListSchema tags)
+
+Delete tags for this course
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Com.RusticiSoftware.Cloud.V2.Api;
+using Com.RusticiSoftware.Cloud.V2.Client;
+using Com.RusticiSoftware.Cloud.V2.Model;
+
+namespace Example
+{
+    public class DeleteCourseTagsExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: APP_NORMAL
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAUTH
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CourseApi();
+            var courseId = courseId_example;  // string | 
+            var tags = new TagListSchema(); // TagListSchema | 
+
+            try
+            {
+                // Delete tags for this course
+                apiInstance.DeleteCourseTags(courseId, tags);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CourseApi.DeleteCourseTags: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **courseId** | **string**|  | 
+ **tags** | [**TagListSchema**](TagListSchema.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="deletecourseversion"></a>
 # **DeleteCourseVersion**
 > void DeleteCourseVersion (string courseId, int? versionId)
@@ -466,7 +530,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -533,7 +596,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -602,7 +664,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -672,7 +733,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -740,7 +800,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -794,6 +853,71 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getcoursetags"></a>
+# **GetCourseTags**
+> TagListSchema GetCourseTags (string courseId)
+
+Get the tags for this course
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Com.RusticiSoftware.Cloud.V2.Api;
+using Com.RusticiSoftware.Cloud.V2.Client;
+using Com.RusticiSoftware.Cloud.V2.Model;
+
+namespace Example
+{
+    public class GetCourseTagsExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: APP_NORMAL
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAUTH
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CourseApi();
+            var courseId = courseId_example;  // string | 
+
+            try
+            {
+                // Get the tags for this course
+                TagListSchema result = apiInstance.GetCourseTags(courseId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CourseApi.GetCourseTags: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **courseId** | **string**|  | 
+
+### Return type
+
+[**TagListSchema**](TagListSchema.md)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getcourseversionconfiguration"></a>
 # **GetCourseVersionConfiguration**
 > SettingListSchema GetCourseVersionConfiguration (string courseId, int? versionId, bool? includeMetadata = null)
@@ -814,7 +938,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -884,7 +1007,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -956,7 +1078,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1032,7 +1153,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1106,7 +1226,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1151,7 +1270,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string**| Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. | [optional] 
  **includeRegistrationCount** | **bool?**| Include the registration count in the results | [optional] [default to false]
  **includeCourseMetadata** | **bool?**| Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. | [optional] [default to false]
- **tags** | [**List<string>**](string.md)|  | [optional] 
+ **tags** | [**List&lt;string&gt;**](string.md)|  | [optional] 
 
 ### Return type
 
@@ -1170,7 +1289,7 @@ Name | Type | Description  | Notes
 
 <a name="getimportjobstatus"></a>
 # **GetImportJobStatus**
-> ImportResultSchema GetImportJobStatus (string importJobId)
+> ImportJobResultSchema GetImportJobStatus (string importJobId)
 
 Check the status of an import job.
 
@@ -1188,7 +1307,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1201,7 +1319,7 @@ namespace Example
             try
             {
                 // Check the status of an import job.
-                ImportResultSchema result = apiInstance.GetImportJobStatus(importJobId);
+                ImportJobResultSchema result = apiInstance.GetImportJobStatus(importJobId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1221,7 +1339,137 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ImportResultSchema**](ImportResultSchema.md)
+[**ImportJobResultSchema**](ImportJobResultSchema.md)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="putcoursetags"></a>
+# **PutCourseTags**
+> void PutCourseTags (string courseId, TagListSchema tags)
+
+Set the tags for this course
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Com.RusticiSoftware.Cloud.V2.Api;
+using Com.RusticiSoftware.Cloud.V2.Client;
+using Com.RusticiSoftware.Cloud.V2.Model;
+
+namespace Example
+{
+    public class PutCourseTagsExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: APP_NORMAL
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAUTH
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CourseApi();
+            var courseId = courseId_example;  // string | 
+            var tags = new TagListSchema(); // TagListSchema | 
+
+            try
+            {
+                // Set the tags for this course
+                apiInstance.PutCourseTags(courseId, tags);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CourseApi.PutCourseTags: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **courseId** | **string**|  | 
+ **tags** | [**TagListSchema**](TagListSchema.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[APP_NORMAL](../README.md#APP_NORMAL), [OAUTH](../README.md#OAUTH)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="putcoursetagsbatch"></a>
+# **PutCourseTagsBatch**
+> void PutCourseTagsBatch (CourseTagsBatchSchema batch)
+
+Sets all of the provided tags on all of the provided courses
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Com.RusticiSoftware.Cloud.V2.Api;
+using Com.RusticiSoftware.Cloud.V2.Client;
+using Com.RusticiSoftware.Cloud.V2.Model;
+
+namespace Example
+{
+    public class PutCourseTagsBatchExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: APP_NORMAL
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAUTH
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CourseApi();
+            var batch = new CourseTagsBatchSchema(); // CourseTagsBatchSchema | 
+
+            try
+            {
+                // Sets all of the provided tags on all of the provided courses
+                apiInstance.PutCourseTagsBatch(batch);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CourseApi.PutCourseTagsBatch: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch** | [**CourseTagsBatchSchema**](CourseTagsBatchSchema.md)|  | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -1254,7 +1502,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1321,7 +1568,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -1389,7 +1635,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";

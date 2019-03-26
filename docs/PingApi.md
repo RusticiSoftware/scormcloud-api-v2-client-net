@@ -1,6 +1,6 @@
 # Com.RusticiSoftware.Cloud.V2.Api.PingApi
 
-All URIs are relative to *https://dev.cloud.scorm.com/api/v2/*
+All URIs are relative to *https://cloud.scorm.com/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure HTTP basic authorization: APP_NORMAL
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
