@@ -27,27 +27,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     /// <summary>
     /// Defines RegistrationCompletion
     /// </summary>
-    
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum RegistrationCompletion
     {
-        
+
         /// <summary>
         /// Enum UNKNOWN for value: UNKNOWN
         /// </summary>
-        
-        UNKNOWN = UNKNOWN,
-        
+        [EnumMember(Value = "UNKNOWN")]
+        UNKNOWN = 1,
+
         /// <summary>
         /// Enum COMPLETED for value: COMPLETED
         /// </summary>
-        
-        COMPLETED = COMPLETED,
-        
+        [EnumMember(Value = "COMPLETED")]
+        COMPLETED = 2,
+
         /// <summary>
         /// Enum INCOMPLETE for value: INCOMPLETE
         /// </summary>
-        
-        INCOMPLETE = INCOMPLETE
+        [EnumMember(Value = "INCOMPLETE")]
+        INCOMPLETE = 3
     }
 
 }
