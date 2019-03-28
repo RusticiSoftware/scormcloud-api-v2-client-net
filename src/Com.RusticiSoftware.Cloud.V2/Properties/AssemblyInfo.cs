@@ -28,5 +28,8 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0-beta")]
-[assembly: AssemblyFileVersion("1.0.0-beta")]
+//
+// Specifying 1.0.0.0 for now, even though more accurate version would be
+// 1.0.0-beta. However that value breaks the build.
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
