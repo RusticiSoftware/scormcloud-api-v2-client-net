@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -38,62 +37,62 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiAttachment" /> class.
         /// </summary>
-        /// <param name="usageType">usageType (required).</param>
-        /// <param name="display">display (required).</param>
-        /// <param name="description">description.</param>
-        /// <param name="contentType">contentType (required).</param>
-        /// <param name="length">length (required).</param>
-        /// <param name="sha2">sha2 (required).</param>
-        /// <param name="fileUrl">fileUrl.</param>
-        public XapiAttachment(string usageType = default(string), Dictionary<string, string> display = default(Dictionary<string, string>), Dictionary<string, string> description = default(Dictionary<string, string>), string contentType = default(string), long? length = default(long?), string sha2 = default(string), string fileUrl = default(string))
+        /// <param name="UsageType">UsageType (required).</param>
+        /// <param name="Display">Display (required).</param>
+        /// <param name="Description">Description.</param>
+        /// <param name="ContentType">ContentType (required).</param>
+        /// <param name="Length">Length (required).</param>
+        /// <param name="Sha2">Sha2 (required).</param>
+        /// <param name="FileUrl">FileUrl.</param>
+        public XapiAttachment(string UsageType = default(string), Dictionary<string, string> Display = default(Dictionary<string, string>), Dictionary<string, string> Description = default(Dictionary<string, string>), string ContentType = default(string), long? Length = default(long?), string Sha2 = default(string), string FileUrl = default(string))
         {
-            // to ensure "usageType" is required (not null)
-            if (usageType == null)
+            // to ensure "UsageType" is required (not null)
+            if (UsageType == null)
             {
-                throw new InvalidDataException("usageType is a required property for XapiAttachment and cannot be null");
+                throw new InvalidDataException("UsageType is a required property for XapiAttachment and cannot be null");
             }
             else
             {
-                this.UsageType = usageType;
+                this.UsageType = UsageType;
             }
-            // to ensure "display" is required (not null)
-            if (display == null)
+            // to ensure "Display" is required (not null)
+            if (Display == null)
             {
-                throw new InvalidDataException("display is a required property for XapiAttachment and cannot be null");
+                throw new InvalidDataException("Display is a required property for XapiAttachment and cannot be null");
             }
             else
             {
-                this.Display = display;
+                this.Display = Display;
             }
-            // to ensure "contentType" is required (not null)
-            if (contentType == null)
+            // to ensure "ContentType" is required (not null)
+            if (ContentType == null)
             {
-                throw new InvalidDataException("contentType is a required property for XapiAttachment and cannot be null");
+                throw new InvalidDataException("ContentType is a required property for XapiAttachment and cannot be null");
             }
             else
             {
-                this.ContentType = contentType;
+                this.ContentType = ContentType;
             }
-            // to ensure "length" is required (not null)
-            if (length == null)
+            // to ensure "Length" is required (not null)
+            if (Length == null)
             {
-                throw new InvalidDataException("length is a required property for XapiAttachment and cannot be null");
+                throw new InvalidDataException("Length is a required property for XapiAttachment and cannot be null");
             }
             else
             {
-                this.Length = length;
+                this.Length = Length;
             }
-            // to ensure "sha2" is required (not null)
-            if (sha2 == null)
+            // to ensure "Sha2" is required (not null)
+            if (Sha2 == null)
             {
-                throw new InvalidDataException("sha2 is a required property for XapiAttachment and cannot be null");
+                throw new InvalidDataException("Sha2 is a required property for XapiAttachment and cannot be null");
             }
             else
             {
-                this.Sha2 = sha2;
+                this.Sha2 = Sha2;
             }
-            this.Description = description;
-            this.FileUrl = fileUrl;
+            this.Description = Description;
+            this.FileUrl = FileUrl;
         }
         
         /// <summary>
@@ -101,43 +100,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="usageType", EmitDefaultValue=false)]
         public string UsageType { get; set; }
-
         /// <summary>
         /// Gets or Sets Display
         /// </summary>
         [DataMember(Name="display", EmitDefaultValue=false)]
         public Dictionary<string, string> Display { get; set; }
-
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public Dictionary<string, string> Description { get; set; }
-
         /// <summary>
         /// Gets or Sets ContentType
         /// </summary>
         [DataMember(Name="contentType", EmitDefaultValue=false)]
         public string ContentType { get; set; }
-
         /// <summary>
         /// Gets or Sets Length
         /// </summary>
         [DataMember(Name="length", EmitDefaultValue=false)]
         public long? Length { get; set; }
-
         /// <summary>
         /// Gets or Sets Sha2
         /// </summary>
         [DataMember(Name="sha2", EmitDefaultValue=false)]
         public string Sha2 { get; set; }
-
         /// <summary>
         /// Gets or Sets FileUrl
         /// </summary>
         [DataMember(Name="fileUrl", EmitDefaultValue=false)]
         public string FileUrl { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -161,7 +153,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -169,58 +161,60 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as XapiAttachment);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as XapiAttachment);
         }
 
         /// <summary>
         /// Returns true if XapiAttachment instances are equal
         /// </summary>
-        /// <param name="input">Instance of XapiAttachment to be compared</param>
+        /// <param name="other">Instance of XapiAttachment to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiAttachment input)
+        public bool Equals(XapiAttachment other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.UsageType == input.UsageType ||
-                    (this.UsageType != null &&
-                    this.UsageType.Equals(input.UsageType))
+                    this.UsageType == other.UsageType ||
+                    this.UsageType != null &&
+                    this.UsageType.Equals(other.UsageType)
                 ) && 
                 (
-                    this.Display == input.Display ||
+                    this.Display == other.Display ||
                     this.Display != null &&
-                    this.Display.SequenceEqual(input.Display)
+                    this.Display.SequenceEqual(other.Display)
                 ) && 
                 (
-                    this.Description == input.Description ||
+                    this.Description == other.Description ||
                     this.Description != null &&
-                    this.Description.SequenceEqual(input.Description)
+                    this.Description.SequenceEqual(other.Description)
                 ) && 
                 (
-                    this.ContentType == input.ContentType ||
-                    (this.ContentType != null &&
-                    this.ContentType.Equals(input.ContentType))
+                    this.ContentType == other.ContentType ||
+                    this.ContentType != null &&
+                    this.ContentType.Equals(other.ContentType)
                 ) && 
                 (
-                    this.Length == input.Length ||
-                    (this.Length != null &&
-                    this.Length.Equals(input.Length))
+                    this.Length == other.Length ||
+                    this.Length != null &&
+                    this.Length.Equals(other.Length)
                 ) && 
                 (
-                    this.Sha2 == input.Sha2 ||
-                    (this.Sha2 != null &&
-                    this.Sha2.Equals(input.Sha2))
+                    this.Sha2 == other.Sha2 ||
+                    this.Sha2 != null &&
+                    this.Sha2.Equals(other.Sha2)
                 ) && 
                 (
-                    this.FileUrl == input.FileUrl ||
-                    (this.FileUrl != null &&
-                    this.FileUrl.Equals(input.FileUrl))
+                    this.FileUrl == other.FileUrl ||
+                    this.FileUrl != null &&
+                    this.FileUrl.Equals(other.FileUrl)
                 );
         }
 
@@ -230,34 +224,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.UsageType != null)
-                    hashCode = hashCode * 59 + this.UsageType.GetHashCode();
+                    hash = hash * 59 + this.UsageType.GetHashCode();
                 if (this.Display != null)
-                    hashCode = hashCode * 59 + this.Display.GetHashCode();
+                    hash = hash * 59 + this.Display.GetHashCode();
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                    hash = hash * 59 + this.Description.GetHashCode();
                 if (this.ContentType != null)
-                    hashCode = hashCode * 59 + this.ContentType.GetHashCode();
+                    hash = hash * 59 + this.ContentType.GetHashCode();
                 if (this.Length != null)
-                    hashCode = hashCode * 59 + this.Length.GetHashCode();
+                    hash = hash * 59 + this.Length.GetHashCode();
                 if (this.Sha2 != null)
-                    hashCode = hashCode * 59 + this.Sha2.GetHashCode();
+                    hash = hash * 59 + this.Sha2.GetHashCode();
                 if (this.FileUrl != null)
-                    hashCode = hashCode * 59 + this.FileUrl.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.FileUrl.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

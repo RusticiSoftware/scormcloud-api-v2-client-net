@@ -25,31 +25,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create a new application
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// A call to this method will create a new application and return a basic object describing it.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationName"></param>
         /// <returns>ApplicationSchema</returns>
-        ApplicationSchema CreateApplication (string applicationName);
+        ApplicationSchema CreateApplication (ApplicationSchema applicationName);
 
         /// <summary>
-        /// Create a new application
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// A call to this method will create a new application and return a basic object describing it.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationName"></param>
         /// <returns>ApiResponse of ApplicationSchema</returns>
-        ApiResponse<ApplicationSchema> CreateApplicationWithHttpInfo (string applicationName);
+        ApiResponse<ApplicationSchema> CreateApplicationWithHttpInfo (ApplicationSchema applicationName);
         /// <summary>
-        /// Create credential
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -58,10 +58,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         CredentialCreatedSchema CreateCredential (string childAppId, CredentialRequestSchema credentialRequest);
 
         /// <summary>
-        /// Create credential
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -69,10 +69,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of CredentialCreatedSchema</returns>
         ApiResponse<CredentialCreatedSchema> CreateCredentialWithHttpInfo (string childAppId, CredentialRequestSchema credentialRequest);
         /// <summary>
-        /// Create token
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns a token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -80,20 +80,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         StringResultSchema CreateToken (TokenRequestSchema tokenRequest);
 
         /// <summary>
-        /// Create token
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns a token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> CreateTokenWithHttpInfo (TokenRequestSchema tokenRequest);
         /// <summary>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -101,20 +101,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteApplication (string childAppId);
 
         /// <summary>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteApplicationWithHttpInfo (string childAppId);
         /// <summary>
-        /// Removes &#x60;credentialId&#x60; credentials
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -123,10 +123,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCredential (string childAppId, string credentialId);
 
         /// <summary>
-        /// Removes &#x60;credentialId&#x60; credentials
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -134,10 +134,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCredentialWithHttpInfo (string childAppId, string credentialId);
         /// <summary>
-        /// Returns all configuration settings for this level
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
@@ -147,10 +147,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         SettingListSchema GetApplicationConfiguration (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
 
         /// <summary>
-        /// Returns all configuration settings for this level
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
@@ -159,29 +159,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of SettingListSchema</returns>
         ApiResponse<SettingListSchema> GetApplicationConfigurationWithHttpInfo (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
         /// <summary>
-        /// Get list of all applications in this realm.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get list of all applications in this realm.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApplicationListSchema</returns>
         ApplicationListSchema GetApplicationList ();
 
         /// <summary>
-        /// Get list of all applications in this realm.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get list of all applications in this realm.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApplicationListSchema</returns>
         ApiResponse<ApplicationListSchema> GetApplicationListWithHttpInfo ();
         /// <summary>
-        /// List of credentials
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieve a list of all credentials (aka secret keys) and their statuses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -189,20 +189,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         CredentialListSchema GetCredentials (string childAppId);
 
         /// <summary>
-        /// List of credentials
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieve a list of all credentials (aka secret keys) and their statuses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
         /// <returns>ApiResponse of CredentialListSchema</returns>
         ApiResponse<CredentialListSchema> GetCredentialsWithHttpInfo (string childAppId);
         /// <summary>
-        /// Set configuration settings for this level.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -212,10 +212,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetApplicationConfiguration (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null);
 
         /// <summary>
-        /// Set configuration settings for this level.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -224,10 +224,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetApplicationConfigurationWithHttpInfo (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null);
         /// <summary>
-        /// Update the name or status associated with &#x60;credentialId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -237,10 +237,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void UpdateCredential (string childAppId, string credentialId, CredentialRequestSchema credentialUpdate);
 
         /// <summary>
-        /// Update the name or status associated with &#x60;credentialId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -251,31 +251,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create a new application
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// A call to this method will create a new application and return a basic object describing it.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationName"></param>
         /// <returns>Task of ApplicationSchema</returns>
-        System.Threading.Tasks.Task<ApplicationSchema> CreateApplicationAsync (string applicationName);
+        System.Threading.Tasks.Task<ApplicationSchema> CreateApplicationAsync (ApplicationSchema applicationName);
 
         /// <summary>
-        /// Create a new application
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// A call to this method will create a new application and return a basic object describing it.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationName"></param>
         /// <returns>Task of ApiResponse (ApplicationSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationSchema>> CreateApplicationAsyncWithHttpInfo (string applicationName);
+        System.Threading.Tasks.Task<ApiResponse<ApplicationSchema>> CreateApplicationAsyncWithHttpInfo (ApplicationSchema applicationName);
         /// <summary>
-        /// Create credential
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -284,10 +284,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<CredentialCreatedSchema> CreateCredentialAsync (string childAppId, CredentialRequestSchema credentialRequest);
 
         /// <summary>
-        /// Create credential
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -295,10 +295,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (CredentialCreatedSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CredentialCreatedSchema>> CreateCredentialAsyncWithHttpInfo (string childAppId, CredentialRequestSchema credentialRequest);
         /// <summary>
-        /// Create token
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns a token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -306,20 +306,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<StringResultSchema> CreateTokenAsync (TokenRequestSchema tokenRequest);
 
         /// <summary>
-        /// Create token
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns a token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateTokenAsyncWithHttpInfo (TokenRequestSchema tokenRequest);
         /// <summary>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -327,20 +327,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteApplicationAsync (string childAppId);
 
         /// <summary>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteApplicationAsyncWithHttpInfo (string childAppId);
         /// <summary>
-        /// Removes &#x60;credentialId&#x60; credentials
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -349,10 +349,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCredentialAsync (string childAppId, string credentialId);
 
         /// <summary>
-        /// Removes &#x60;credentialId&#x60; credentials
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -360,10 +360,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCredentialAsyncWithHttpInfo (string childAppId, string credentialId);
         /// <summary>
-        /// Returns all configuration settings for this level
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
@@ -373,10 +373,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<SettingListSchema> GetApplicationConfigurationAsync (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
 
         /// <summary>
-        /// Returns all configuration settings for this level
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
@@ -385,29 +385,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetApplicationConfigurationAsyncWithHttpInfo (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
         /// <summary>
-        /// Get list of all applications in this realm.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get list of all applications in this realm.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApplicationListSchema</returns>
         System.Threading.Tasks.Task<ApplicationListSchema> GetApplicationListAsync ();
 
         /// <summary>
-        /// Get list of all applications in this realm.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get list of all applications in this realm.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApplicationListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationListSchema>> GetApplicationListAsyncWithHttpInfo ();
         /// <summary>
-        /// List of credentials
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieve a list of all credentials (aka secret keys) and their statuses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -415,20 +415,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<CredentialListSchema> GetCredentialsAsync (string childAppId);
 
         /// <summary>
-        /// List of credentials
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieve a list of all credentials (aka secret keys) and their statuses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
         /// <returns>Task of ApiResponse (CredentialListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CredentialListSchema>> GetCredentialsAsyncWithHttpInfo (string childAppId);
         /// <summary>
-        /// Set configuration settings for this level.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -438,10 +438,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetApplicationConfigurationAsync (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null);
 
         /// <summary>
-        /// Set configuration settings for this level.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -450,10 +450,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetApplicationConfigurationAsyncWithHttpInfo (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null);
         /// <summary>
-        /// Update the name or status associated with &#x60;credentialId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -463,10 +463,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task UpdateCredentialAsync (string childAppId, string credentialId, CredentialRequestSchema credentialUpdate);
 
         /// <summary>
-        /// Update the name or status associated with &#x60;credentialId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -490,9 +490,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns></returns>
         public ApplicationManagementApi(String basePath)
         {
-            this.Configuration = new Com.RusticiSoftware.Cloud.V2.Client.Configuration { BasePath = basePath };
+            this.Configuration = new Configuration(new ApiClient(basePath));
 
             ExceptionFactory = Com.RusticiSoftware.Cloud.V2.Client.Configuration.DefaultExceptionFactory;
+
+            // ensure API client has configuration ready
+            if (Configuration.ApiClient.Configuration == null)
+            {
+                this.Configuration.ApiClient.Configuration = this.Configuration;
+            }
         }
 
         /// <summary>
@@ -501,14 +507,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ApplicationManagementApi(Com.RusticiSoftware.Cloud.V2.Client.Configuration configuration = null)
+        public ApplicationManagementApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Com.RusticiSoftware.Cloud.V2.Client.Configuration.Default;
+                this.Configuration = Configuration.Default;
             else
                 this.Configuration = configuration;
 
             ExceptionFactory = Com.RusticiSoftware.Cloud.V2.Client.Configuration.DefaultExceptionFactory;
+
+            // ensure API client has configuration ready
+            if (Configuration.ApiClient.Configuration == null)
+            {
+                this.Configuration.ApiClient.Configuration = this.Configuration;
+            }
         }
 
         /// <summary>
@@ -534,7 +546,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Com.RusticiSoftware.Cloud.V2.Client.Configuration Configuration {get; set;}
+        public Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -557,9 +569,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public IDictionary<String, String> DefaultHeader()
+        public Dictionary<String, String> DefaultHeader()
         {
-            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
+            return this.Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -575,33 +587,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a new application 
+        ///  A call to this method will create a new application and return a basic object describing it.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationName"></param>
         /// <returns>ApplicationSchema</returns>
-        public ApplicationSchema CreateApplication (string applicationName)
+        public ApplicationSchema CreateApplication (ApplicationSchema applicationName)
         {
              ApiResponse<ApplicationSchema> localVarResponse = CreateApplicationWithHttpInfo(applicationName);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a new application 
+        ///  A call to this method will create a new application and return a basic object describing it.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationName"></param>
         /// <returns>ApiResponse of ApplicationSchema</returns>
-        public ApiResponse< ApplicationSchema > CreateApplicationWithHttpInfo (string applicationName)
+        public ApiResponse< ApplicationSchema > CreateApplicationWithHttpInfo (ApplicationSchema applicationName)
         {
             // verify the required parameter 'applicationName' is set
             if (applicationName == null)
                 throw new ApiException(400, "Missing required parameter 'applicationName' when calling ApplicationManagementApi->CreateApplication");
 
-            var localVarPath = "/appManagement/applications/{applicationName}";
+            var localVarPath = "/appManagement/applications";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -610,34 +622,45 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (applicationName != null) localVarPathParams.Add("applicationName", this.Configuration.ApiClient.ParameterToString(applicationName)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (applicationName != null && applicationName.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(applicationName); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = applicationName; // byte array
+            }
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -650,16 +673,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<ApplicationSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApplicationSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationSchema)));
+                (ApplicationSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationSchema)));
+            
         }
 
         /// <summary>
-        /// Create a new application 
+        ///  A call to this method will create a new application and return a basic object describing it.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationName"></param>
         /// <returns>Task of ApplicationSchema</returns>
-        public async System.Threading.Tasks.Task<ApplicationSchema> CreateApplicationAsync (string applicationName)
+        public async System.Threading.Tasks.Task<ApplicationSchema> CreateApplicationAsync (ApplicationSchema applicationName)
         {
              ApiResponse<ApplicationSchema> localVarResponse = await CreateApplicationAsyncWithHttpInfo(applicationName);
              return localVarResponse.Data;
@@ -667,21 +691,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a new application 
+        ///  A call to this method will create a new application and return a basic object describing it.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationName"></param>
         /// <returns>Task of ApiResponse (ApplicationSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApplicationSchema>> CreateApplicationAsyncWithHttpInfo (string applicationName)
+        public async System.Threading.Tasks.Task<ApiResponse<ApplicationSchema>> CreateApplicationAsyncWithHttpInfo (ApplicationSchema applicationName)
         {
             // verify the required parameter 'applicationName' is set
             if (applicationName == null)
                 throw new ApiException(400, "Missing required parameter 'applicationName' when calling ApplicationManagementApi->CreateApplication");
 
-            var localVarPath = "/appManagement/applications/{applicationName}";
+            var localVarPath = "/appManagement/applications";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -690,34 +714,44 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (applicationName != null) localVarPathParams.Add("applicationName", this.Configuration.ApiClient.ParameterToString(applicationName)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (applicationName != null && applicationName.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(applicationName); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = applicationName; // byte array
+            }
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -730,11 +764,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<ApplicationSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApplicationSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationSchema)));
+                (ApplicationSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationSchema)));
+            
         }
 
         /// <summary>
-        /// Create credential 
+        ///  Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -747,7 +782,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create credential 
+        ///  Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -764,8 +799,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/{childAppId}/credentials";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -774,20 +809,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
             if (credentialRequest != null && credentialRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(credentialRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(credentialRequest); // http body (model) parameter
             }
             else
             {
@@ -796,19 +834,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -822,11 +861,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CredentialCreatedSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CredentialCreatedSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CredentialCreatedSchema)));
+                (CredentialCreatedSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CredentialCreatedSchema)));
+            
         }
 
         /// <summary>
-        /// Create credential 
+        ///  Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -840,7 +880,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create credential 
+        ///  Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -857,8 +897,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/{childAppId}/credentials";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -867,20 +907,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
             if (credentialRequest != null && credentialRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(credentialRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(credentialRequest); // http body (model) parameter
             }
             else
             {
@@ -889,19 +932,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -915,11 +958,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CredentialCreatedSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CredentialCreatedSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CredentialCreatedSchema)));
+                (CredentialCreatedSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CredentialCreatedSchema)));
+            
         }
 
         /// <summary>
-        /// Create token Creates, signs and returns a token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        ///  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -931,7 +975,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create token Creates, signs and returns a token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        ///  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -944,8 +988,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/token";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -954,19 +998,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (tokenRequest != null && tokenRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(tokenRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(tokenRequest); // http body (model) parameter
             }
             else
             {
@@ -975,13 +1022,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
 
+
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -995,11 +1043,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<StringResultSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (StringResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+                (StringResultSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+            
         }
 
         /// <summary>
-        /// Create token Creates, signs and returns a token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        ///  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -1012,7 +1061,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create token Creates, signs and returns a token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        ///  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -1025,8 +1074,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/token";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1035,19 +1084,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (tokenRequest != null && tokenRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(tokenRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(tokenRequest); // http body (model) parameter
             }
             else
             {
@@ -1056,13 +1108,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1076,11 +1128,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<StringResultSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (StringResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+                (StringResultSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+            
         }
 
         /// <summary>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown. 
+        ///  Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1091,7 +1144,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown. 
+        ///  Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1104,8 +1157,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/applications/{childAppId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1114,33 +1167,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1152,13 +1209,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown. 
+        ///  Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1170,7 +1228,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown. 
+        ///  Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1183,8 +1241,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/applications/{childAppId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1193,33 +1251,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1231,13 +1292,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Removes &#x60;credentialId&#x60; credentials 
+        ///  Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1249,7 +1311,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Removes &#x60;credentialId&#x60; credentials 
+        ///  Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1266,8 +1328,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/{childAppId}/credentials/{credentialId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1276,34 +1338,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
-            if (credentialId != null) localVarPathParams.Add("credentialId", this.Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            if (credentialId != null) localVarPathParams.Add("credentialId", Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1315,13 +1381,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Removes &#x60;credentialId&#x60; credentials 
+        ///  Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1334,7 +1401,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Removes &#x60;credentialId&#x60; credentials 
+        ///  Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1351,8 +1418,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/{childAppId}/credentials/{credentialId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1361,34 +1428,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
-            if (credentialId != null) localVarPathParams.Add("credentialId", this.Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            if (credentialId != null) localVarPathParams.Add("credentialId", Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1400,13 +1470,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Returns all configuration settings for this level 
+        ///  Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
@@ -1420,7 +1491,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns all configuration settings for this level 
+        ///  Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
@@ -1432,8 +1503,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1442,35 +1513,39 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (learningStandard != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learningStandard", learningStandard)); // query parameter
-            if (singleSco != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "singleSco", singleSco)); // query parameter
-            if (includeMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeMetadata", includeMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (learningStandard != null) localVarQueryParams.Add("learningStandard", Configuration.ApiClient.ParameterToString(learningStandard)); // query parameter
+            if (singleSco != null) localVarQueryParams.Add("singleSco", Configuration.ApiClient.ParameterToString(singleSco)); // query parameter
+            if (includeMetadata != null) localVarQueryParams.Add("includeMetadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1484,11 +1559,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<SettingListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (SettingListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+                (SettingListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+            
         }
 
         /// <summary>
-        /// Returns all configuration settings for this level 
+        ///  Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
@@ -1503,7 +1579,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns all configuration settings for this level 
+        ///  Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
@@ -1515,8 +1591,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1525,35 +1601,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (learningStandard != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learningStandard", learningStandard)); // query parameter
-            if (singleSco != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "singleSco", singleSco)); // query parameter
-            if (includeMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeMetadata", includeMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (learningStandard != null) localVarQueryParams.Add("learningStandard", Configuration.ApiClient.ParameterToString(learningStandard)); // query parameter
+            if (singleSco != null) localVarQueryParams.Add("singleSco", Configuration.ApiClient.ParameterToString(singleSco)); // query parameter
+            if (includeMetadata != null) localVarQueryParams.Add("includeMetadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1567,11 +1646,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<SettingListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (SettingListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+                (SettingListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+            
         }
 
         /// <summary>
-        /// Get list of all applications in this realm. 
+        ///  Get list of all applications in this realm.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApplicationListSchema</returns>
@@ -1582,7 +1662,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get list of all applications in this realm. 
+        ///  Get list of all applications in this realm.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApplicationListSchema</returns>
@@ -1591,8 +1671,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/applications";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1601,32 +1681,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1640,11 +1724,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<ApplicationListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApplicationListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationListSchema)));
+                (ApplicationListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationListSchema)));
+            
         }
 
         /// <summary>
-        /// Get list of all applications in this realm. 
+        ///  Get list of all applications in this realm.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApplicationListSchema</returns>
@@ -1656,7 +1741,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get list of all applications in this realm. 
+        ///  Get list of all applications in this realm.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApplicationListSchema)</returns>
@@ -1665,8 +1750,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/applications";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1675,32 +1760,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1714,11 +1802,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<ApplicationListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApplicationListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationListSchema)));
+                (ApplicationListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationListSchema)));
+            
         }
 
         /// <summary>
-        /// List of credentials 
+        ///  Retrieve a list of all credentials (aka secret keys) and their statuses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1730,7 +1819,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// List of credentials 
+        ///  Retrieve a list of all credentials (aka secret keys) and their statuses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1743,8 +1832,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/{childAppId}/credentials";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1753,33 +1842,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1793,11 +1886,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CredentialListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CredentialListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CredentialListSchema)));
+                (CredentialListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CredentialListSchema)));
+            
         }
 
         /// <summary>
-        /// List of credentials 
+        ///  Retrieve a list of all credentials (aka secret keys) and their statuses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1810,7 +1904,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// List of credentials 
+        ///  Retrieve a list of all credentials (aka secret keys) and their statuses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1823,8 +1917,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/{childAppId}/credentials";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1833,33 +1927,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1873,11 +1970,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CredentialListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CredentialListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CredentialListSchema)));
+                (CredentialListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CredentialListSchema)));
+            
         }
 
         /// <summary>
-        /// Set configuration settings for this level. 
+        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -1890,7 +1988,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration settings for this level. 
+        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -1905,8 +2003,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1915,21 +2013,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (learningStandard != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learningStandard", learningStandard)); // query parameter
-            if (singleSco != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "singleSco", singleSco)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (learningStandard != null) localVarQueryParams.Add("learningStandard", Configuration.ApiClient.ParameterToString(learningStandard)); // query parameter
+            if (singleSco != null) localVarQueryParams.Add("singleSco", Configuration.ApiClient.ParameterToString(singleSco)); // query parameter
             if (configurationSettings != null && configurationSettings.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
             }
             else
             {
@@ -1938,19 +2039,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1962,13 +2064,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Set configuration settings for this level. 
+        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -1982,7 +2085,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration settings for this level. 
+        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -1997,8 +2100,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2007,21 +2110,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (learningStandard != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learningStandard", learningStandard)); // query parameter
-            if (singleSco != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "singleSco", singleSco)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (learningStandard != null) localVarQueryParams.Add("learningStandard", Configuration.ApiClient.ParameterToString(learningStandard)); // query parameter
+            if (singleSco != null) localVarQueryParams.Add("singleSco", Configuration.ApiClient.ParameterToString(singleSco)); // query parameter
             if (configurationSettings != null && configurationSettings.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
             }
             else
             {
@@ -2030,19 +2136,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2054,13 +2160,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Update the name or status associated with &#x60;credentialId&#x60; 
+        ///  Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2073,7 +2180,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update the name or status associated with &#x60;credentialId&#x60; 
+        ///  Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2094,8 +2201,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/{childAppId}/credentials/{credentialId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2104,21 +2211,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
-            if (credentialId != null) localVarPathParams.Add("credentialId", this.Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            if (credentialId != null) localVarPathParams.Add("credentialId", Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
             if (credentialUpdate != null && credentialUpdate.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(credentialUpdate); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(credentialUpdate); // http body (model) parameter
             }
             else
             {
@@ -2127,19 +2237,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2151,13 +2262,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Update the name or status associated with &#x60;credentialId&#x60; 
+        ///  Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2171,7 +2283,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update the name or status associated with &#x60;credentialId&#x60; 
+        ///  Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2192,8 +2304,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/appManagement/{childAppId}/credentials/{credentialId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2202,21 +2314,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
-            if (credentialId != null) localVarPathParams.Add("credentialId", this.Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            if (credentialId != null) localVarPathParams.Add("credentialId", Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
             if (credentialUpdate != null && credentialUpdate.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(credentialUpdate); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(credentialUpdate); // http body (model) parameter
             }
             else
             {
@@ -2225,19 +2340,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2249,6 +2364,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);

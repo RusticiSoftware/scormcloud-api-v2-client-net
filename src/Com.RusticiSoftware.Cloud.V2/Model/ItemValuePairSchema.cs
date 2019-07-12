@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,12 +32,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemValuePairSchema" /> class.
         /// </summary>
-        /// <param name="item">item.</param>
-        /// <param name="value">value.</param>
-        public ItemValuePairSchema(string item = default(string), string value = default(string))
+        /// <param name="Item">Item.</param>
+        /// <param name="Value">Value.</param>
+        public ItemValuePairSchema(string Item = default(string), string Value = default(string))
         {
-            this.Item = item;
-            this.Value = value;
+            this.Item = Item;
+            this.Value = Value;
         }
         
         /// <summary>
@@ -46,13 +45,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="item", EmitDefaultValue=false)]
         public string Item { get; set; }
-
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -71,7 +68,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -79,33 +76,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as ItemValuePairSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as ItemValuePairSchema);
         }
 
         /// <summary>
         /// Returns true if ItemValuePairSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of ItemValuePairSchema to be compared</param>
+        /// <param name="other">Instance of ItemValuePairSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemValuePairSchema input)
+        public bool Equals(ItemValuePairSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Item == input.Item ||
-                    (this.Item != null &&
-                    this.Item.Equals(input.Item))
+                    this.Item == other.Item ||
+                    this.Item != null &&
+                    this.Item.Equals(other.Item)
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Value == other.Value ||
+                    this.Value != null &&
+                    this.Value.Equals(other.Value)
                 );
         }
 
@@ -115,24 +114,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Item != null)
-                    hashCode = hashCode * 59 + this.Item.GetHashCode();
+                    hash = hash * 59 + this.Item.GetHashCode();
                 if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Value.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

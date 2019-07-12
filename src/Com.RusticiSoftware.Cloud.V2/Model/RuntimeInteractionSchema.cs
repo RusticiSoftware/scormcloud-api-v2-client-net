@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -31,71 +30,71 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class RuntimeInteractionSchema :  IEquatable<RuntimeInteractionSchema>, IValidatableObject
     {
         /// <summary>
-        /// Defines Type
+        /// Gets or Sets Type
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
             
             /// <summary>
-            /// Enum TrueFalse for value: TrueFalse
+            /// Enum TrueFalse for "TrueFalse"
             /// </summary>
             [EnumMember(Value = "TrueFalse")]
-            TrueFalse = 1,
+            TrueFalse,
             
             /// <summary>
-            /// Enum Choice for value: Choice
+            /// Enum Choice for "Choice"
             /// </summary>
             [EnumMember(Value = "Choice")]
-            Choice = 2,
+            Choice,
             
             /// <summary>
-            /// Enum FillIn for value: FillIn
+            /// Enum FillIn for "FillIn"
             /// </summary>
             [EnumMember(Value = "FillIn")]
-            FillIn = 3,
+            FillIn,
             
             /// <summary>
-            /// Enum LongFillIn for value: LongFillIn
+            /// Enum LongFillIn for "LongFillIn"
             /// </summary>
             [EnumMember(Value = "LongFillIn")]
-            LongFillIn = 4,
+            LongFillIn,
             
             /// <summary>
-            /// Enum Likert for value: Likert
+            /// Enum Likert for "Likert"
             /// </summary>
             [EnumMember(Value = "Likert")]
-            Likert = 5,
+            Likert,
             
             /// <summary>
-            /// Enum Matching for value: Matching
+            /// Enum Matching for "Matching"
             /// </summary>
             [EnumMember(Value = "Matching")]
-            Matching = 6,
+            Matching,
             
             /// <summary>
-            /// Enum Performance for value: Performance
+            /// Enum Performance for "Performance"
             /// </summary>
             [EnumMember(Value = "Performance")]
-            Performance = 7,
+            Performance,
             
             /// <summary>
-            /// Enum Sequencing for value: Sequencing
+            /// Enum Sequencing for "Sequencing"
             /// </summary>
             [EnumMember(Value = "Sequencing")]
-            Sequencing = 8,
+            Sequencing,
             
             /// <summary>
-            /// Enum Numeric for value: Numeric
+            /// Enum Numeric for "Numeric"
             /// </summary>
             [EnumMember(Value = "Numeric")]
-            Numeric = 9,
+            Numeric,
             
             /// <summary>
-            /// Enum Other for value: Other
+            /// Enum Other for "Other"
             /// </summary>
             [EnumMember(Value = "Other")]
-            Other = 10
+            Other
         }
 
         /// <summary>
@@ -106,30 +105,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RuntimeInteractionSchema" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="type">type.</param>
-        /// <param name="objectives">objectives.</param>
-        /// <param name="timestamp">timestamp.</param>
-        /// <param name="timestampUtc">timestampUtc.</param>
-        /// <param name="correctResponses">correctResponses.</param>
-        /// <param name="weighting">weighting.</param>
-        /// <param name="learnerResponse">learnerResponse.</param>
-        /// <param name="result">result.</param>
-        /// <param name="latency">latency.</param>
-        /// <param name="description">description.</param>
-        public RuntimeInteractionSchema(string id = default(string), TypeEnum? type = default(TypeEnum?), List<string> objectives = default(List<string>), string timestamp = default(string), string timestampUtc = default(string), List<string> correctResponses = default(List<string>), string weighting = default(string), string learnerResponse = default(string), string result = default(string), string latency = default(string), string description = default(string))
+        /// <param name="Id">Id.</param>
+        /// <param name="Type">Type.</param>
+        /// <param name="Objectives">Objectives.</param>
+        /// <param name="Timestamp">Timestamp.</param>
+        /// <param name="TimestampUtc">TimestampUtc.</param>
+        /// <param name="CorrectResponses">CorrectResponses.</param>
+        /// <param name="Weighting">Weighting.</param>
+        /// <param name="LearnerResponse">LearnerResponse.</param>
+        /// <param name="Result">Result.</param>
+        /// <param name="Latency">Latency.</param>
+        /// <param name="Description">Description.</param>
+        public RuntimeInteractionSchema(string Id = default(string), TypeEnum? Type = default(TypeEnum?), List<string> Objectives = default(List<string>), string Timestamp = default(string), string TimestampUtc = default(string), List<string> CorrectResponses = default(List<string>), string Weighting = default(string), string LearnerResponse = default(string), string Result = default(string), string Latency = default(string), string Description = default(string))
         {
-            this.Id = id;
-            this.Type = type;
-            this.Objectives = objectives;
-            this.Timestamp = timestamp;
-            this.TimestampUtc = timestampUtc;
-            this.CorrectResponses = correctResponses;
-            this.Weighting = weighting;
-            this.LearnerResponse = learnerResponse;
-            this.Result = result;
-            this.Latency = latency;
-            this.Description = description;
+            this.Id = Id;
+            this.Type = Type;
+            this.Objectives = Objectives;
+            this.Timestamp = Timestamp;
+            this.TimestampUtc = TimestampUtc;
+            this.CorrectResponses = CorrectResponses;
+            this.Weighting = Weighting;
+            this.LearnerResponse = LearnerResponse;
+            this.Result = Result;
+            this.Latency = Latency;
+            this.Description = Description;
         }
         
         /// <summary>
@@ -137,62 +136,51 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-
-
         /// <summary>
         /// Gets or Sets Objectives
         /// </summary>
         [DataMember(Name="objectives", EmitDefaultValue=false)]
         public List<string> Objectives { get; set; }
-
         /// <summary>
         /// Gets or Sets Timestamp
         /// </summary>
         [DataMember(Name="timestamp", EmitDefaultValue=false)]
         public string Timestamp { get; set; }
-
         /// <summary>
         /// Gets or Sets TimestampUtc
         /// </summary>
         [DataMember(Name="timestampUtc", EmitDefaultValue=false)]
         public string TimestampUtc { get; set; }
-
         /// <summary>
         /// Gets or Sets CorrectResponses
         /// </summary>
         [DataMember(Name="correctResponses", EmitDefaultValue=false)]
         public List<string> CorrectResponses { get; set; }
-
         /// <summary>
         /// Gets or Sets Weighting
         /// </summary>
         [DataMember(Name="weighting", EmitDefaultValue=false)]
         public string Weighting { get; set; }
-
         /// <summary>
         /// Gets or Sets LearnerResponse
         /// </summary>
         [DataMember(Name="learnerResponse", EmitDefaultValue=false)]
         public string LearnerResponse { get; set; }
-
         /// <summary>
         /// Gets or Sets Result
         /// </summary>
         [DataMember(Name="result", EmitDefaultValue=false)]
         public string Result { get; set; }
-
         /// <summary>
         /// Gets or Sets Latency
         /// </summary>
         [DataMember(Name="latency", EmitDefaultValue=false)]
         public string Latency { get; set; }
-
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -220,7 +208,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -228,78 +216,80 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as RuntimeInteractionSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as RuntimeInteractionSchema);
         }
 
         /// <summary>
         /// Returns true if RuntimeInteractionSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of RuntimeInteractionSchema to be compared</param>
+        /// <param name="other">Instance of RuntimeInteractionSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RuntimeInteractionSchema input)
+        public bool Equals(RuntimeInteractionSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 ) && 
                 (
-                    this.Objectives == input.Objectives ||
+                    this.Objectives == other.Objectives ||
                     this.Objectives != null &&
-                    this.Objectives.SequenceEqual(input.Objectives)
+                    this.Objectives.SequenceEqual(other.Objectives)
                 ) && 
                 (
-                    this.Timestamp == input.Timestamp ||
-                    (this.Timestamp != null &&
-                    this.Timestamp.Equals(input.Timestamp))
+                    this.Timestamp == other.Timestamp ||
+                    this.Timestamp != null &&
+                    this.Timestamp.Equals(other.Timestamp)
                 ) && 
                 (
-                    this.TimestampUtc == input.TimestampUtc ||
-                    (this.TimestampUtc != null &&
-                    this.TimestampUtc.Equals(input.TimestampUtc))
+                    this.TimestampUtc == other.TimestampUtc ||
+                    this.TimestampUtc != null &&
+                    this.TimestampUtc.Equals(other.TimestampUtc)
                 ) && 
                 (
-                    this.CorrectResponses == input.CorrectResponses ||
+                    this.CorrectResponses == other.CorrectResponses ||
                     this.CorrectResponses != null &&
-                    this.CorrectResponses.SequenceEqual(input.CorrectResponses)
+                    this.CorrectResponses.SequenceEqual(other.CorrectResponses)
                 ) && 
                 (
-                    this.Weighting == input.Weighting ||
-                    (this.Weighting != null &&
-                    this.Weighting.Equals(input.Weighting))
+                    this.Weighting == other.Weighting ||
+                    this.Weighting != null &&
+                    this.Weighting.Equals(other.Weighting)
                 ) && 
                 (
-                    this.LearnerResponse == input.LearnerResponse ||
-                    (this.LearnerResponse != null &&
-                    this.LearnerResponse.Equals(input.LearnerResponse))
+                    this.LearnerResponse == other.LearnerResponse ||
+                    this.LearnerResponse != null &&
+                    this.LearnerResponse.Equals(other.LearnerResponse)
                 ) && 
                 (
-                    this.Result == input.Result ||
-                    (this.Result != null &&
-                    this.Result.Equals(input.Result))
+                    this.Result == other.Result ||
+                    this.Result != null &&
+                    this.Result.Equals(other.Result)
                 ) && 
                 (
-                    this.Latency == input.Latency ||
-                    (this.Latency != null &&
-                    this.Latency.Equals(input.Latency))
+                    this.Latency == other.Latency ||
+                    this.Latency != null &&
+                    this.Latency.Equals(other.Latency)
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Description == other.Description ||
+                    this.Description != null &&
+                    this.Description.Equals(other.Description)
                 );
         }
 
@@ -309,42 +299,39 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                    hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Objectives != null)
-                    hashCode = hashCode * 59 + this.Objectives.GetHashCode();
+                    hash = hash * 59 + this.Objectives.GetHashCode();
                 if (this.Timestamp != null)
-                    hashCode = hashCode * 59 + this.Timestamp.GetHashCode();
+                    hash = hash * 59 + this.Timestamp.GetHashCode();
                 if (this.TimestampUtc != null)
-                    hashCode = hashCode * 59 + this.TimestampUtc.GetHashCode();
+                    hash = hash * 59 + this.TimestampUtc.GetHashCode();
                 if (this.CorrectResponses != null)
-                    hashCode = hashCode * 59 + this.CorrectResponses.GetHashCode();
+                    hash = hash * 59 + this.CorrectResponses.GetHashCode();
                 if (this.Weighting != null)
-                    hashCode = hashCode * 59 + this.Weighting.GetHashCode();
+                    hash = hash * 59 + this.Weighting.GetHashCode();
                 if (this.LearnerResponse != null)
-                    hashCode = hashCode * 59 + this.LearnerResponse.GetHashCode();
+                    hash = hash * 59 + this.LearnerResponse.GetHashCode();
                 if (this.Result != null)
-                    hashCode = hashCode * 59 + this.Result.GetHashCode();
+                    hash = hash * 59 + this.Result.GetHashCode();
                 if (this.Latency != null)
-                    hashCode = hashCode * 59 + this.Latency.GetHashCode();
+                    hash = hash * 59 + this.Latency.GetHashCode();
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Description.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

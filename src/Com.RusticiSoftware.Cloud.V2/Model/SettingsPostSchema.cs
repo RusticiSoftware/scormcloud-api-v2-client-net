@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,10 +32,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsPostSchema" /> class.
         /// </summary>
-        /// <param name="settings">settings.</param>
-        public SettingsPostSchema(List<SettingsIndividualSchema> settings = default(List<SettingsIndividualSchema>))
+        /// <param name="Settings">Settings.</param>
+        public SettingsPostSchema(List<SettingsIndividualSchema> Settings = default(List<SettingsIndividualSchema>))
         {
-            this.Settings = settings;
+            this.Settings = Settings;
         }
         
         /// <summary>
@@ -44,7 +43,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="settings", EmitDefaultValue=false)]
         public List<SettingsIndividualSchema> Settings { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -62,7 +60,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -70,28 +68,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as SettingsPostSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as SettingsPostSchema);
         }
 
         /// <summary>
         /// Returns true if SettingsPostSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of SettingsPostSchema to be compared</param>
+        /// <param name="other">Instance of SettingsPostSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SettingsPostSchema input)
+        public bool Equals(SettingsPostSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Settings == input.Settings ||
+                    this.Settings == other.Settings ||
                     this.Settings != null &&
-                    this.Settings.SequenceEqual(input.Settings)
+                    this.Settings.SequenceEqual(other.Settings)
                 );
         }
 
@@ -101,22 +101,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Settings != null)
-                    hashCode = hashCode * 59 + this.Settings.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Settings.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

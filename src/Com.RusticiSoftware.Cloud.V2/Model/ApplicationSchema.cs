@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,12 +32,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationSchema" /> class.
         /// </summary>
-        /// <param name="id">The application id for this application..</param>
-        /// <param name="name">The name of this application..</param>
-        public ApplicationSchema(string id = default(string), string name = default(string))
+        /// <param name="Id">The application id for this application..</param>
+        /// <param name="Name">The name of this application..</param>
+        public ApplicationSchema(string Id = default(string), string Name = default(string))
         {
-            this.Id = id;
-            this.Name = name;
+            this.Id = Id;
+            this.Name = Name;
         }
         
         /// <summary>
@@ -47,14 +46,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>The application id for this application.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-
         /// <summary>
         /// The name of this application.
         /// </summary>
         /// <value>The name of this application.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -73,7 +70,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -81,33 +78,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as ApplicationSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as ApplicationSchema);
         }
 
         /// <summary>
         /// Returns true if ApplicationSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of ApplicationSchema to be compared</param>
+        /// <param name="other">Instance of ApplicationSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApplicationSchema input)
+        public bool Equals(ApplicationSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
                 );
         }
 
@@ -117,24 +116,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Name.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

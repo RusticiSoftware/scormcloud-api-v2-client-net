@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -31,29 +30,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class ImportJobResultSchema :  IEquatable<ImportJobResultSchema>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// Gets or Sets Status
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
             
             /// <summary>
-            /// Enum RUNNING for value: RUNNING
+            /// Enum RUNNING for "RUNNING"
             /// </summary>
             [EnumMember(Value = "RUNNING")]
-            RUNNING = 1,
+            RUNNING,
             
             /// <summary>
-            /// Enum COMPLETE for value: COMPLETE
+            /// Enum COMPLETE for "COMPLETE"
             /// </summary>
             [EnumMember(Value = "COMPLETE")]
-            COMPLETE = 2,
+            COMPLETE,
             
             /// <summary>
-            /// Enum ERROR for value: ERROR
+            /// Enum ERROR for "ERROR"
             /// </summary>
             [EnumMember(Value = "ERROR")]
-            ERROR = 3
+            ERROR
         }
 
         /// <summary>
@@ -64,16 +63,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImportJobResultSchema" /> class.
         /// </summary>
-        /// <param name="jobId">jobId.</param>
-        /// <param name="status">status.</param>
-        /// <param name="message">message.</param>
-        /// <param name="importResult">importResult.</param>
-        public ImportJobResultSchema(string jobId = default(string), StatusEnum? status = default(StatusEnum?), string message = default(string), ImportResultSchema importResult = default(ImportResultSchema))
+        /// <param name="JobId">JobId.</param>
+        /// <param name="Status">Status.</param>
+        /// <param name="Message">Message.</param>
+        /// <param name="ImportResult">ImportResult.</param>
+        public ImportJobResultSchema(string JobId = default(string), StatusEnum? Status = default(StatusEnum?), string Message = default(string), ImportResultSchema ImportResult = default(ImportResultSchema))
         {
-            this.JobId = jobId;
-            this.Status = status;
-            this.Message = message;
-            this.ImportResult = importResult;
+            this.JobId = JobId;
+            this.Status = Status;
+            this.Message = Message;
+            this.ImportResult = ImportResult;
         }
         
         /// <summary>
@@ -81,20 +80,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="jobId", EmitDefaultValue=false)]
         public string JobId { get; set; }
-
-
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
-
         /// <summary>
         /// Gets or Sets ImportResult
         /// </summary>
         [DataMember(Name="importResult", EmitDefaultValue=false)]
         public ImportResultSchema ImportResult { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -115,7 +110,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -123,43 +118,45 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as ImportJobResultSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as ImportJobResultSchema);
         }
 
         /// <summary>
         /// Returns true if ImportJobResultSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImportJobResultSchema to be compared</param>
+        /// <param name="other">Instance of ImportJobResultSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImportJobResultSchema input)
+        public bool Equals(ImportJobResultSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.JobId == input.JobId ||
-                    (this.JobId != null &&
-                    this.JobId.Equals(input.JobId))
+                    this.JobId == other.JobId ||
+                    this.JobId != null &&
+                    this.JobId.Equals(other.JobId)
                 ) && 
                 (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.Message == other.Message ||
+                    this.Message != null &&
+                    this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.ImportResult == input.ImportResult ||
-                    (this.ImportResult != null &&
-                    this.ImportResult.Equals(input.ImportResult))
+                    this.ImportResult == other.ImportResult ||
+                    this.ImportResult != null &&
+                    this.ImportResult.Equals(other.ImportResult)
                 );
         }
 
@@ -169,28 +166,25 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.JobId != null)
-                    hashCode = hashCode * 59 + this.JobId.GetHashCode();
+                    hash = hash * 59 + this.JobId.GetHashCode();
                 if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                    hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                    hash = hash * 59 + this.Message.GetHashCode();
                 if (this.ImportResult != null)
-                    hashCode = hashCode * 59 + this.ImportResult.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.ImportResult.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

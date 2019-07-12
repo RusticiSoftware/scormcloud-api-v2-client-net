@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,10 +32,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaunchHistoryListSchema" /> class.
         /// </summary>
-        /// <param name="launchHistory">launchHistory.</param>
-        public LaunchHistoryListSchema(List<LaunchHistorySchema> launchHistory = default(List<LaunchHistorySchema>))
+        /// <param name="LaunchHistory">LaunchHistory.</param>
+        public LaunchHistoryListSchema(List<LaunchHistorySchema> LaunchHistory = default(List<LaunchHistorySchema>))
         {
-            this.LaunchHistory = launchHistory;
+            this.LaunchHistory = LaunchHistory;
         }
         
         /// <summary>
@@ -44,7 +43,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="launchHistory", EmitDefaultValue=false)]
         public List<LaunchHistorySchema> LaunchHistory { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -62,7 +60,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -70,28 +68,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as LaunchHistoryListSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as LaunchHistoryListSchema);
         }
 
         /// <summary>
         /// Returns true if LaunchHistoryListSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of LaunchHistoryListSchema to be compared</param>
+        /// <param name="other">Instance of LaunchHistoryListSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LaunchHistoryListSchema input)
+        public bool Equals(LaunchHistoryListSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.LaunchHistory == input.LaunchHistory ||
+                    this.LaunchHistory == other.LaunchHistory ||
                     this.LaunchHistory != null &&
-                    this.LaunchHistory.SequenceEqual(input.LaunchHistory)
+                    this.LaunchHistory.SequenceEqual(other.LaunchHistory)
                 );
         }
 
@@ -101,22 +101,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.LaunchHistory != null)
-                    hashCode = hashCode * 59 + this.LaunchHistory.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.LaunchHistory.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

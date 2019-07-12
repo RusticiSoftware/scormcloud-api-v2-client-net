@@ -25,10 +25,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Returns the launch link to use to preview this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the launch link to use to preview this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -38,10 +38,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         LaunchLinkSchema BuildCoursePreviewLaunchLink (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null);
 
         /// <summary>
-        /// Returns the launch link to use to preview this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the launch link to use to preview this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -50,10 +50,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
         ApiResponse<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null);
         /// <summary>
-        /// Returns the link to use to preview this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the link to use to preview a particular version of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -63,10 +63,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         LaunchLinkSchema BuildCoursePreviewLaunchLinkWithVersion (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
-        /// Returns the link to use to preview this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the link to use to preview a particular version of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -75,10 +75,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
         ApiResponse<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
-        /// Start a job to fetch and import a course.
+        /// 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
+        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -89,10 +89,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         StringResultSchema CreateFetchAndImportCourseJob (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
 
         /// <summary>
-        /// Start a job to fetch and import a course.
+        /// 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
+        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -102,37 +102,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> CreateFetchAndImportCourseJobWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
         /// <summary>
-        /// Upload a course and start an import job for it.
+        /// 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
+        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
-        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <returns>StringResultSchema</returns>
-        StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, System.IO.Stream file = null, string postbackUrl = null);
+        StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream file = null);
 
         /// <summary>
-        /// Upload a course and start an import job for it.
+        /// 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
+        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
-        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        ApiResponse<StringResultSchema> CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, System.IO.Stream file = null, string postbackUrl = null);
+        ApiResponse<StringResultSchema> CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream file = null);
         /// <summary>
-        /// Delete &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -140,20 +140,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCourse (string courseId);
 
         /// <summary>
-        /// Delete &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseWithHttpInfo (string courseId);
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -162,10 +162,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCourseConfigurationSetting (string courseId, string settingId);
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -173,10 +173,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseConfigurationSettingWithHttpInfo (string courseId, string settingId);
         /// <summary>
-        /// Delete tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the provided tags from this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -185,10 +185,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCourseTags (string courseId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the provided tags from this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -196,10 +196,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseTagsWithHttpInfo (string courseId, TagListSchema tags);
         /// <summary>
-        /// Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -208,10 +208,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCourseVersion (string courseId, int? versionId);
 
         /// <summary>
-        /// Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -219,10 +219,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseVersionWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the &#x60;settingId&#x60; value for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -232,10 +232,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCourseVersionConfigurationSetting (string courseId, int? versionId, string settingId);
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the &#x60;settingId&#x60; value for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -244,10 +244,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseVersionConfigurationSettingWithHttpInfo (string courseId, int? versionId, string settingId);
         /// <summary>
-        /// Get information about &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -257,10 +257,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         CourseSchema GetCourse (string courseId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get information about &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -269,10 +269,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of CourseSchema</returns>
         ApiResponse<CourseSchema> GetCourseWithHttpInfo (string courseId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Returns all configuration settings for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -281,10 +281,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         SettingListSchema GetCourseConfiguration (string courseId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Returns all configuration settings for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -292,10 +292,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of SettingListSchema</returns>
         ApiResponse<SettingListSchema> GetCourseConfigurationWithHttpInfo (string courseId, bool? includeMetadata = null);
         /// <summary>
-        /// Get xAPI statements for &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get xAPI statements for &#x60;courseId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -307,10 +307,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         XapiStatementResult GetCourseStatements (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get xAPI statements for &#x60;courseId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -321,10 +321,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of XapiStatementResult</returns>
         ApiResponse<XapiStatementResult> GetCourseStatementsWithHttpInfo (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get the tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a list of the tags for this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -332,20 +332,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         TagListSchema GetCourseTags (string courseId);
 
         /// <summary>
-        /// Get the tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a list of the tags for this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <returns>ApiResponse of TagListSchema</returns>
         ApiResponse<TagListSchema> GetCourseTagsWithHttpInfo (string courseId);
         /// <summary>
-        /// Returns all configuration settings for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all configuration settings for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -355,10 +355,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         SettingListSchema GetCourseVersionConfiguration (string courseId, int? versionId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Returns all configuration settings for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all configuration settings for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -367,10 +367,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of SettingListSchema</returns>
         ApiResponse<SettingListSchema> GetCourseVersionConfigurationWithHttpInfo (string courseId, int? versionId, bool? includeMetadata = null);
         /// <summary>
-        /// Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -381,10 +381,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         CourseSchema GetCourseVersionInfo (string courseId, int? versionId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -394,10 +394,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of CourseSchema</returns>
         ApiResponse<CourseSchema> GetCourseVersionInfoWithHttpInfo (string courseId, int? versionId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -410,10 +410,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         XapiStatementResult GetCourseVersionStatements (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -425,10 +425,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of XapiStatementResult</returns>
         ApiResponse<XapiStatementResult> GetCourseVersionStatementsWithHttpInfo (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get all versions of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -440,10 +440,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         CourseListNonPagedSchema GetCourseVersions (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get all versions of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -454,10 +454,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of CourseListNonPagedSchema</returns>
         ApiResponse<CourseListNonPagedSchema> GetCourseVersionsWithHttpInfo (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get all courses for &#x60;appId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
@@ -473,10 +473,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         CourseListSchema GetCourses (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null);
 
         /// <summary>
-        /// Get all courses for &#x60;appId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
@@ -491,10 +491,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of CourseListSchema</returns>
         ApiResponse<CourseListSchema> GetCoursesWithHttpInfo (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null);
         /// <summary>
-        /// Check the status of an import job.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -502,20 +502,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         ImportJobResultSchema GetImportJobStatus (string importJobId);
 
         /// <summary>
-        /// Check the status of an import job.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
         /// <returns>ApiResponse of ImportJobResultSchema</returns>
         ApiResponse<ImportJobResultSchema> GetImportJobStatusWithHttpInfo (string importJobId);
         /// <summary>
-        /// Set the tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -524,10 +524,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutCourseTags (string courseId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -535,31 +535,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutCourseTagsWithHttpInfo (string courseId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided courses
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided courses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch"></param>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns></returns>
-        void PutCourseTagsBatch (CourseTagsBatchSchema batch);
+        void PutCourseTagsBatch (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided courses
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided courses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch"></param>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> PutCourseTagsBatchWithHttpInfo (CourseTagsBatchSchema batch);
+        ApiResponse<Object> PutCourseTagsBatchWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set configuration settings for this course.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -568,10 +568,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetCourseConfiguration (string courseId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set configuration settings for this course.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -579,33 +579,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetCourseConfigurationWithHttpInfo (string courseId, SettingsPostSchema configurationSettings);
         /// <summary>
-        /// Sets the course title for &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the course title for the provided courseId. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="title"></param>
-        /// <returns>string</returns>
-        string SetCourseTitle (string courseId, TitleSchema title);
+        /// <returns></returns>
+        void SetCourseTitle (string courseId, TitleSchema title);
 
         /// <summary>
-        /// Sets the course title for &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the course title for the provided courseId. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="title"></param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> SetCourseTitleWithHttpInfo (string courseId, TitleSchema title);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SetCourseTitleWithHttpInfo (string courseId, TitleSchema title);
         /// <summary>
-        /// Set configuration settings for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -615,10 +615,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetCourseVersionConfiguration (string courseId, int? versionId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set configuration settings for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -629,10 +629,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Returns the launch link to use to preview this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the launch link to use to preview this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -642,10 +642,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkAsync (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null);
 
         /// <summary>
-        /// Returns the launch link to use to preview this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the launch link to use to preview this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -654,10 +654,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkAsyncWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null);
         /// <summary>
-        /// Returns the link to use to preview this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the link to use to preview a particular version of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -667,10 +667,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionAsync (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
-        /// Returns the link to use to preview this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the link to use to preview a particular version of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -679,10 +679,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkWithVersionAsyncWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
-        /// Start a job to fetch and import a course.
+        /// 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
+        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -693,10 +693,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<StringResultSchema> CreateFetchAndImportCourseJobAsync (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
 
         /// <summary>
-        /// Start a job to fetch and import a course.
+        /// 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
+        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -706,37 +706,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateFetchAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
         /// <summary>
-        /// Upload a course and start an import job for it.
+        /// 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
+        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
-        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, System.IO.Stream file = null, string postbackUrl = null);
+        System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream file = null);
 
         /// <summary>
-        /// Upload a course and start an import job for it.
+        /// 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
+        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
-        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, System.IO.Stream file = null, string postbackUrl = null);
+        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream file = null);
         /// <summary>
-        /// Delete &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -744,20 +744,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCourseAsync (string courseId);
 
         /// <summary>
-        /// Delete &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseAsyncWithHttpInfo (string courseId);
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -766,10 +766,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCourseConfigurationSettingAsync (string courseId, string settingId);
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -777,10 +777,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseConfigurationSettingAsyncWithHttpInfo (string courseId, string settingId);
         /// <summary>
-        /// Delete tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the provided tags from this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -789,10 +789,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCourseTagsAsync (string courseId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the provided tags from this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -800,10 +800,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseTagsAsyncWithHttpInfo (string courseId, TagListSchema tags);
         /// <summary>
-        /// Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -812,10 +812,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCourseVersionAsync (string courseId, int? versionId);
 
         /// <summary>
-        /// Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -823,10 +823,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseVersionAsyncWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the &#x60;settingId&#x60; value for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -836,10 +836,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCourseVersionConfigurationSettingAsync (string courseId, int? versionId, string settingId);
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Clears the &#x60;settingId&#x60; value for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -848,10 +848,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseVersionConfigurationSettingAsyncWithHttpInfo (string courseId, int? versionId, string settingId);
         /// <summary>
-        /// Get information about &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -861,10 +861,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<CourseSchema> GetCourseAsync (string courseId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get information about &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -873,10 +873,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (CourseSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CourseSchema>> GetCourseAsyncWithHttpInfo (string courseId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Returns all configuration settings for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -885,10 +885,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<SettingListSchema> GetCourseConfigurationAsync (string courseId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Returns all configuration settings for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -896,10 +896,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetCourseConfigurationAsyncWithHttpInfo (string courseId, bool? includeMetadata = null);
         /// <summary>
-        /// Get xAPI statements for &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get xAPI statements for &#x60;courseId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -911,10 +911,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<XapiStatementResult> GetCourseStatementsAsync (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get xAPI statements for &#x60;courseId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -925,10 +925,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetCourseStatementsAsyncWithHttpInfo (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get the tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a list of the tags for this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -936,20 +936,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<TagListSchema> GetCourseTagsAsync (string courseId);
 
         /// <summary>
-        /// Get the tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a list of the tags for this course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetCourseTagsAsyncWithHttpInfo (string courseId);
         /// <summary>
-        /// Returns all configuration settings for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all configuration settings for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -959,10 +959,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<SettingListSchema> GetCourseVersionConfigurationAsync (string courseId, int? versionId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Returns all configuration settings for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all configuration settings for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -971,10 +971,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetCourseVersionConfigurationAsyncWithHttpInfo (string courseId, int? versionId, bool? includeMetadata = null);
         /// <summary>
-        /// Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -985,10 +985,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<CourseSchema> GetCourseVersionInfoAsync (string courseId, int? versionId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -998,10 +998,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (CourseSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CourseSchema>> GetCourseVersionInfoAsyncWithHttpInfo (string courseId, int? versionId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1014,10 +1014,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<XapiStatementResult> GetCourseVersionStatementsAsync (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1029,10 +1029,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetCourseVersionStatementsAsyncWithHttpInfo (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get all versions of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1044,10 +1044,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<CourseListNonPagedSchema> GetCourseVersionsAsync (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get all versions of &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1058,10 +1058,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (CourseListNonPagedSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CourseListNonPagedSchema>> GetCourseVersionsAsyncWithHttpInfo (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get all courses for &#x60;appId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
@@ -1077,10 +1077,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<CourseListSchema> GetCoursesAsync (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null);
 
         /// <summary>
-        /// Get all courses for &#x60;appId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
@@ -1095,10 +1095,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (CourseListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CourseListSchema>> GetCoursesAsyncWithHttpInfo (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null);
         /// <summary>
-        /// Check the status of an import job.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -1106,20 +1106,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<ImportJobResultSchema> GetImportJobStatusAsync (string importJobId);
 
         /// <summary>
-        /// Check the status of an import job.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
         /// <returns>Task of ApiResponse (ImportJobResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<ImportJobResultSchema>> GetImportJobStatusAsyncWithHttpInfo (string importJobId);
         /// <summary>
-        /// Set the tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1128,10 +1128,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutCourseTagsAsync (string courseId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this course
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1139,31 +1139,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutCourseTagsAsyncWithHttpInfo (string courseId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided courses
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided courses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch"></param>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task PutCourseTagsBatchAsync (CourseTagsBatchSchema batch);
+        System.Threading.Tasks.Task PutCourseTagsBatchAsync (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided courses
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided courses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch"></param>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PutCourseTagsBatchAsyncWithHttpInfo (CourseTagsBatchSchema batch);
+        System.Threading.Tasks.Task<ApiResponse<Object>> PutCourseTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set configuration settings for this course.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1172,10 +1172,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetCourseConfigurationAsync (string courseId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set configuration settings for this course.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1183,33 +1183,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseConfigurationAsyncWithHttpInfo (string courseId, SettingsPostSchema configurationSettings);
         /// <summary>
-        /// Sets the course title for &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the course title for the provided courseId. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="title"></param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> SetCourseTitleAsync (string courseId, TitleSchema title);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task SetCourseTitleAsync (string courseId, TitleSchema title);
 
         /// <summary>
-        /// Sets the course title for &#x60;courseId&#x60;
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the course title for the provided courseId. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="title"></param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> SetCourseTitleAsyncWithHttpInfo (string courseId, TitleSchema title);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseTitleAsyncWithHttpInfo (string courseId, TitleSchema title);
         /// <summary>
-        /// Set configuration settings for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1219,10 +1219,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetCourseVersionConfigurationAsync (string courseId, int? versionId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set configuration settings for this course and version.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set configuration settings for this course and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1246,9 +1246,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns></returns>
         public CourseApi(String basePath)
         {
-            this.Configuration = new Com.RusticiSoftware.Cloud.V2.Client.Configuration { BasePath = basePath };
+            this.Configuration = new Configuration(new ApiClient(basePath));
 
             ExceptionFactory = Com.RusticiSoftware.Cloud.V2.Client.Configuration.DefaultExceptionFactory;
+
+            // ensure API client has configuration ready
+            if (Configuration.ApiClient.Configuration == null)
+            {
+                this.Configuration.ApiClient.Configuration = this.Configuration;
+            }
         }
 
         /// <summary>
@@ -1257,14 +1263,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public CourseApi(Com.RusticiSoftware.Cloud.V2.Client.Configuration configuration = null)
+        public CourseApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Com.RusticiSoftware.Cloud.V2.Client.Configuration.Default;
+                this.Configuration = Configuration.Default;
             else
                 this.Configuration = configuration;
 
             ExceptionFactory = Com.RusticiSoftware.Cloud.V2.Client.Configuration.DefaultExceptionFactory;
+
+            // ensure API client has configuration ready
+            if (Configuration.ApiClient.Configuration == null)
+            {
+                this.Configuration.ApiClient.Configuration = this.Configuration;
+            }
         }
 
         /// <summary>
@@ -1290,7 +1302,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Com.RusticiSoftware.Cloud.V2.Client.Configuration Configuration {get; set;}
+        public Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -1313,9 +1325,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public IDictionary<String, String> DefaultHeader()
+        public Dictionary<String, String> DefaultHeader()
         {
-            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
+            return this.Configuration.DefaultHeader;
         }
 
         /// <summary>
@@ -1331,7 +1343,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns the launch link to use to preview this course 
+        ///  Returns the launch link to use to preview this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1345,7 +1357,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns the launch link to use to preview this course 
+        ///  Returns the launch link to use to preview this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1363,8 +1375,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/preview";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1373,21 +1385,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (cssUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "cssUrl", cssUrl)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (cssUrl != null) localVarQueryParams.Add("cssUrl", Configuration.ApiClient.ParameterToString(cssUrl)); // query parameter
             if (launchLinkRequest != null && launchLinkRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
             }
             else
             {
@@ -1396,19 +1411,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1422,11 +1438,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<LaunchLinkSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (LaunchLinkSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LaunchLinkSchema)));
+                (LaunchLinkSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(LaunchLinkSchema)));
+            
         }
 
         /// <summary>
-        /// Returns the launch link to use to preview this course 
+        ///  Returns the launch link to use to preview this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1441,7 +1458,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns the launch link to use to preview this course 
+        ///  Returns the launch link to use to preview this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1459,8 +1476,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/preview";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1469,21 +1486,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (cssUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "cssUrl", cssUrl)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (cssUrl != null) localVarQueryParams.Add("cssUrl", Configuration.ApiClient.ParameterToString(cssUrl)); // query parameter
             if (launchLinkRequest != null && launchLinkRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
             }
             else
             {
@@ -1492,19 +1512,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1518,11 +1538,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<LaunchLinkSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (LaunchLinkSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LaunchLinkSchema)));
+                (LaunchLinkSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(LaunchLinkSchema)));
+            
         }
 
         /// <summary>
-        /// Returns the link to use to preview this course 
+        ///  Returns the link to use to preview a particular version of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1536,7 +1557,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns the link to use to preview this course 
+        ///  Returns the link to use to preview a particular version of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1557,8 +1578,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/preview";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1567,21 +1588,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
             if (launchLinkRequest != null && launchLinkRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
             }
             else
             {
@@ -1590,19 +1614,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1616,11 +1641,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<LaunchLinkSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (LaunchLinkSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LaunchLinkSchema)));
+                (LaunchLinkSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(LaunchLinkSchema)));
+            
         }
 
         /// <summary>
-        /// Returns the link to use to preview this course 
+        ///  Returns the link to use to preview a particular version of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1635,7 +1661,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns the link to use to preview this course 
+        ///  Returns the link to use to preview a particular version of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1656,8 +1682,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/preview";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1666,21 +1692,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
             if (launchLinkRequest != null && launchLinkRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
             }
             else
             {
@@ -1689,19 +1718,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1715,11 +1744,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<LaunchLinkSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (LaunchLinkSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LaunchLinkSchema)));
+                (LaunchLinkSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(LaunchLinkSchema)));
+            
         }
 
         /// <summary>
-        /// Start a job to fetch and import a course. An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
+        ///  An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1734,7 +1764,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Start a job to fetch and import a course. An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
+        ///  An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1753,8 +1783,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/importJobs";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1763,22 +1793,25 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
-            if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarQueryParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // query parameter
+            if (mayCreateNewVersion != null) localVarQueryParams.Add("mayCreateNewVersion", Configuration.ApiClient.ParameterToString(mayCreateNewVersion)); // query parameter
+            if (postbackUrl != null) localVarQueryParams.Add("postbackUrl", Configuration.ApiClient.ParameterToString(postbackUrl)); // query parameter
             if (importRequest != null && importRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
             }
             else
             {
@@ -1787,19 +1820,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1813,11 +1847,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<StringResultSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (StringResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+                (StringResultSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+            
         }
 
         /// <summary>
-        /// Start a job to fetch and import a course. An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
+        ///  An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1833,7 +1868,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Start a job to fetch and import a course. An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.\&quot;
+        ///  An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1852,8 +1887,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/importJobs";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1862,22 +1897,25 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
-            if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarQueryParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // query parameter
+            if (mayCreateNewVersion != null) localVarQueryParams.Add("mayCreateNewVersion", Configuration.ApiClient.ParameterToString(mayCreateNewVersion)); // query parameter
+            if (postbackUrl != null) localVarQueryParams.Add("postbackUrl", Configuration.ApiClient.ParameterToString(postbackUrl)); // query parameter
             if (importRequest != null && importRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
             }
             else
             {
@@ -1886,19 +1924,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1912,34 +1950,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<StringResultSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (StringResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+                (StringResultSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+            
         }
 
         /// <summary>
-        /// Upload a course and start an import job for it. An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
+        ///  An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
-        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <returns>StringResultSchema</returns>
-        public StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, System.IO.Stream file = null, string postbackUrl = null)
+        public StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream file = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = CreateUploadAndImportCourseJobWithHttpInfo(courseId, mayCreateNewVersion, file, postbackUrl);
+             ApiResponse<StringResultSchema> localVarResponse = CreateUploadAndImportCourseJobWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, file);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Upload a course and start an import job for it. An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
+        ///  An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
-        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        public ApiResponse< StringResultSchema > CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, System.IO.Stream file = null, string postbackUrl = null)
+        public ApiResponse< StringResultSchema > CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream file = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -1947,8 +1986,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/importJobs/upload";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1957,36 +1996,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
-            if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
-            if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarQueryParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // query parameter
+            if (mayCreateNewVersion != null) localVarQueryParams.Add("mayCreateNewVersion", Configuration.ApiClient.ParameterToString(mayCreateNewVersion)); // query parameter
+            if (postbackUrl != null) localVarQueryParams.Add("postbackUrl", Configuration.ApiClient.ParameterToString(postbackUrl)); // query parameter
+            if (file != null) localVarFileParams.Add("file", Configuration.ApiClient.ParameterToFile("file", file));
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2000,35 +2043,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<StringResultSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (StringResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+                (StringResultSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+            
         }
 
         /// <summary>
-        /// Upload a course and start an import job for it. An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
+        ///  An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
-        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        public async System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, System.IO.Stream file = null, string postbackUrl = null)
+        public async System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream file = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = await CreateUploadAndImportCourseJobAsyncWithHttpInfo(courseId, mayCreateNewVersion, file, postbackUrl);
+             ApiResponse<StringResultSchema> localVarResponse = await CreateUploadAndImportCourseJobAsyncWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, file);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Upload a course and start an import job for it. An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.
+        ///  An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
-        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="file">The zip file of the course contents to import. (optional)</param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, System.IO.Stream file = null, string postbackUrl = null)
+        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream file = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2036,8 +2080,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/importJobs/upload";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2046,36 +2090,39 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
-            if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
-            if (file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", file));
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarQueryParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // query parameter
+            if (mayCreateNewVersion != null) localVarQueryParams.Add("mayCreateNewVersion", Configuration.ApiClient.ParameterToString(mayCreateNewVersion)); // query parameter
+            if (postbackUrl != null) localVarQueryParams.Add("postbackUrl", Configuration.ApiClient.ParameterToString(postbackUrl)); // query parameter
+            if (file != null) localVarFileParams.Add("file", Configuration.ApiClient.ParameterToFile("file", file));
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2089,11 +2136,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<StringResultSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (StringResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+                (StringResultSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+            
         }
 
         /// <summary>
-        /// Delete &#x60;courseId&#x60; 
+        ///  Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2104,7 +2152,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete &#x60;courseId&#x60; 
+        ///  Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2117,8 +2165,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2127,33 +2175,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2165,13 +2217,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Delete &#x60;courseId&#x60; 
+        ///  Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2183,7 +2236,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete &#x60;courseId&#x60; 
+        ///  Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2196,8 +2249,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2206,33 +2259,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2244,13 +2300,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course 
+        ///  Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2262,7 +2319,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course 
+        ///  Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2279,8 +2336,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/configuration/{settingId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2289,34 +2346,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (settingId != null) localVarPathParams.Add("settingId", this.Configuration.ApiClient.ParameterToString(settingId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (settingId != null) localVarPathParams.Add("settingId", Configuration.ApiClient.ParameterToString(settingId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2328,13 +2389,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course 
+        ///  Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2347,7 +2409,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course 
+        ///  Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2364,8 +2426,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/configuration/{settingId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2374,34 +2436,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (settingId != null) localVarPathParams.Add("settingId", this.Configuration.ApiClient.ParameterToString(settingId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (settingId != null) localVarPathParams.Add("settingId", Configuration.ApiClient.ParameterToString(settingId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2413,13 +2478,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Delete tags for this course 
+        ///  Delete the provided tags from this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2431,7 +2497,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this course 
+        ///  Delete the provided tags from this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2448,8 +2514,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/tags";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2458,20 +2524,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (tags != null && tags.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(tags); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(tags); // http body (model) parameter
             }
             else
             {
@@ -2480,19 +2549,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2504,13 +2574,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Delete tags for this course 
+        ///  Delete the provided tags from this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2523,7 +2594,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this course 
+        ///  Delete the provided tags from this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2540,8 +2611,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/tags";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2550,20 +2621,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (tags != null && tags.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(tags); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(tags); // http body (model) parameter
             }
             else
             {
@@ -2572,19 +2646,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2596,13 +2670,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2614,7 +2689,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2631,8 +2706,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2641,34 +2716,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2680,13 +2759,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2699,7 +2779,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2716,8 +2796,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2726,34 +2806,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2765,13 +2848,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course and version. 
+        ///  Clears the &#x60;settingId&#x60; value for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2784,7 +2868,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course and version. 
+        ///  Clears the &#x60;settingId&#x60; value for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2805,8 +2889,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/configuration/{settingId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2815,35 +2899,39 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (settingId != null) localVarPathParams.Add("settingId", this.Configuration.ApiClient.ParameterToString(settingId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (settingId != null) localVarPathParams.Add("settingId", Configuration.ApiClient.ParameterToString(settingId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2855,13 +2943,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course and version. 
+        ///  Clears the &#x60;settingId&#x60; value for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2875,7 +2964,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this course and version. 
+        ///  Clears the &#x60;settingId&#x60; value for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2896,8 +2985,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/configuration/{settingId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2906,35 +2995,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (settingId != null) localVarPathParams.Add("settingId", this.Configuration.ApiClient.ParameterToString(settingId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (settingId != null) localVarPathParams.Add("settingId", Configuration.ApiClient.ParameterToString(settingId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2946,13 +3038,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Get information about &#x60;courseId&#x60; 
+        ///  Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2966,7 +3059,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get information about &#x60;courseId&#x60; 
+        ///  Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2981,8 +3074,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2991,35 +3084,39 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
-            if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (includeRegistrationCount != null) localVarQueryParams.Add("includeRegistrationCount", Configuration.ApiClient.ParameterToString(includeRegistrationCount)); // query parameter
+            if (includeCourseMetadata != null) localVarQueryParams.Add("includeCourseMetadata", Configuration.ApiClient.ParameterToString(includeCourseMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3033,11 +3130,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CourseSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CourseSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseSchema)));
+                (CourseSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseSchema)));
+            
         }
 
         /// <summary>
-        /// Get information about &#x60;courseId&#x60; 
+        ///  Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3052,7 +3150,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get information about &#x60;courseId&#x60; 
+        ///  Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3067,8 +3165,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3077,35 +3175,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
-            if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (includeRegistrationCount != null) localVarQueryParams.Add("includeRegistrationCount", Configuration.ApiClient.ParameterToString(includeRegistrationCount)); // query parameter
+            if (includeCourseMetadata != null) localVarQueryParams.Add("includeCourseMetadata", Configuration.ApiClient.ParameterToString(includeCourseMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3119,11 +3220,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CourseSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CourseSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseSchema)));
+                (CourseSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseSchema)));
+            
         }
 
         /// <summary>
-        /// Returns all configuration settings for this course 
+        ///  Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3136,7 +3238,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns all configuration settings for this course 
+        ///  Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3150,8 +3252,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3160,34 +3262,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (includeMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeMetadata", includeMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (includeMetadata != null) localVarQueryParams.Add("includeMetadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3201,11 +3307,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<SettingListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (SettingListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+                (SettingListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+            
         }
 
         /// <summary>
-        /// Returns all configuration settings for this course 
+        ///  Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3219,7 +3326,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns all configuration settings for this course 
+        ///  Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3233,8 +3340,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3243,34 +3350,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (includeMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeMetadata", includeMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (includeMetadata != null) localVarQueryParams.Add("includeMetadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3284,11 +3394,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<SettingListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (SettingListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+                (SettingListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+            
         }
 
         /// <summary>
-        /// Get xAPI statements for &#x60;courseId&#x60; 
+        ///  Get xAPI statements for &#x60;courseId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3304,7 +3415,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for &#x60;courseId&#x60; 
+        ///  Get xAPI statements for &#x60;courseId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3321,8 +3432,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/xAPIStatements";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3331,37 +3442,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (learnerId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learnerId", learnerId)); // query parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
-            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (learnerId != null) localVarQueryParams.Add("learnerId", Configuration.ApiClient.ParameterToString(learnerId)); // query parameter
+            if (since != null) localVarQueryParams.Add("since", Configuration.ApiClient.ParameterToString(since)); // query parameter
+            if (until != null) localVarQueryParams.Add("until", Configuration.ApiClient.ParameterToString(until)); // query parameter
+            if (more != null) localVarQueryParams.Add("more", Configuration.ApiClient.ParameterToString(more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3375,11 +3490,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<XapiStatementResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (XapiStatementResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(XapiStatementResult)));
+                (XapiStatementResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(XapiStatementResult)));
+            
         }
 
         /// <summary>
-        /// Get xAPI statements for &#x60;courseId&#x60; 
+        ///  Get xAPI statements for &#x60;courseId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3396,7 +3512,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for &#x60;courseId&#x60; 
+        ///  Get xAPI statements for &#x60;courseId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3413,8 +3529,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/xAPIStatements";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3423,37 +3539,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (learnerId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learnerId", learnerId)); // query parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
-            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (learnerId != null) localVarQueryParams.Add("learnerId", Configuration.ApiClient.ParameterToString(learnerId)); // query parameter
+            if (since != null) localVarQueryParams.Add("since", Configuration.ApiClient.ParameterToString(since)); // query parameter
+            if (until != null) localVarQueryParams.Add("until", Configuration.ApiClient.ParameterToString(until)); // query parameter
+            if (more != null) localVarQueryParams.Add("more", Configuration.ApiClient.ParameterToString(more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3467,11 +3586,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<XapiStatementResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (XapiStatementResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(XapiStatementResult)));
+                (XapiStatementResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(XapiStatementResult)));
+            
         }
 
         /// <summary>
-        /// Get the tags for this course 
+        ///  Get a list of the tags for this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3483,7 +3603,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this course 
+        ///  Get a list of the tags for this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3496,8 +3616,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/tags";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3506,33 +3626,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3546,11 +3670,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<TagListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TagListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TagListSchema)));
+                (TagListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TagListSchema)));
+            
         }
 
         /// <summary>
-        /// Get the tags for this course 
+        ///  Get a list of the tags for this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3563,7 +3688,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this course 
+        ///  Get a list of the tags for this course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3576,8 +3701,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/tags";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3586,33 +3711,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3626,11 +3754,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<TagListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TagListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TagListSchema)));
+                (TagListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TagListSchema)));
+            
         }
 
         /// <summary>
-        /// Returns all configuration settings for this course and version. 
+        ///  Returns all configuration settings for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3644,7 +3773,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns all configuration settings for this course and version. 
+        ///  Returns all configuration settings for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3662,8 +3791,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3672,35 +3801,39 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (includeMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeMetadata", includeMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (includeMetadata != null) localVarQueryParams.Add("includeMetadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3714,11 +3847,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<SettingListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (SettingListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+                (SettingListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+            
         }
 
         /// <summary>
-        /// Returns all configuration settings for this course and version. 
+        ///  Returns all configuration settings for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3733,7 +3867,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Returns all configuration settings for this course and version. 
+        ///  Returns all configuration settings for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3751,8 +3885,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3761,35 +3895,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (includeMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeMetadata", includeMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (includeMetadata != null) localVarQueryParams.Add("includeMetadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3803,11 +3940,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<SettingListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (SettingListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+                (SettingListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(SettingListSchema)));
+            
         }
 
         /// <summary>
-        /// Get version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3822,7 +3960,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3841,8 +3979,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3851,36 +3989,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
-            if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (includeRegistrationCount != null) localVarQueryParams.Add("includeRegistrationCount", Configuration.ApiClient.ParameterToString(includeRegistrationCount)); // query parameter
+            if (includeCourseMetadata != null) localVarQueryParams.Add("includeCourseMetadata", Configuration.ApiClient.ParameterToString(includeCourseMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3894,11 +4036,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CourseSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CourseSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseSchema)));
+                (CourseSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseSchema)));
+            
         }
 
         /// <summary>
-        /// Get version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3914,7 +4057,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3933,8 +4076,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -3943,36 +4086,39 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
-            if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (includeRegistrationCount != null) localVarQueryParams.Add("includeRegistrationCount", Configuration.ApiClient.ParameterToString(includeRegistrationCount)); // query parameter
+            if (includeCourseMetadata != null) localVarQueryParams.Add("includeCourseMetadata", Configuration.ApiClient.ParameterToString(includeCourseMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3986,11 +4132,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CourseSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CourseSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseSchema)));
+                (CourseSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseSchema)));
+            
         }
 
         /// <summary>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4007,7 +4154,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4028,8 +4175,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/xAPIStatements";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4038,38 +4185,42 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (learnerId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learnerId", learnerId)); // query parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
-            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (learnerId != null) localVarQueryParams.Add("learnerId", Configuration.ApiClient.ParameterToString(learnerId)); // query parameter
+            if (since != null) localVarQueryParams.Add("since", Configuration.ApiClient.ParameterToString(since)); // query parameter
+            if (until != null) localVarQueryParams.Add("until", Configuration.ApiClient.ParameterToString(until)); // query parameter
+            if (more != null) localVarQueryParams.Add("more", Configuration.ApiClient.ParameterToString(more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4083,11 +4234,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<XapiStatementResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (XapiStatementResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(XapiStatementResult)));
+                (XapiStatementResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(XapiStatementResult)));
+            
         }
 
         /// <summary>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4105,7 +4257,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        ///  Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4126,8 +4278,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/xAPIStatements";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4136,38 +4288,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (learnerId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learnerId", learnerId)); // query parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
-            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (learnerId != null) localVarQueryParams.Add("learnerId", Configuration.ApiClient.ParameterToString(learnerId)); // query parameter
+            if (since != null) localVarQueryParams.Add("since", Configuration.ApiClient.ParameterToString(since)); // query parameter
+            if (until != null) localVarQueryParams.Add("until", Configuration.ApiClient.ParameterToString(until)); // query parameter
+            if (more != null) localVarQueryParams.Add("more", Configuration.ApiClient.ParameterToString(more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4181,11 +4336,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<XapiStatementResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (XapiStatementResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(XapiStatementResult)));
+                (XapiStatementResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(XapiStatementResult)));
+            
         }
 
         /// <summary>
-        /// Get all versions of &#x60;courseId&#x60; 
+        ///  Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4201,7 +4357,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all versions of &#x60;courseId&#x60; 
+        ///  Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4218,8 +4374,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4228,37 +4384,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
-            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
-            if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (since != null) localVarQueryParams.Add("since", Configuration.ApiClient.ParameterToString(since)); // query parameter
+            if (until != null) localVarQueryParams.Add("until", Configuration.ApiClient.ParameterToString(until)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.Add("includeRegistrationCount", Configuration.ApiClient.ParameterToString(includeRegistrationCount)); // query parameter
+            if (includeCourseMetadata != null) localVarQueryParams.Add("includeCourseMetadata", Configuration.ApiClient.ParameterToString(includeCourseMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4272,11 +4432,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CourseListNonPagedSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CourseListNonPagedSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseListNonPagedSchema)));
+                (CourseListNonPagedSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseListNonPagedSchema)));
+            
         }
 
         /// <summary>
-        /// Get all versions of &#x60;courseId&#x60; 
+        ///  Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4293,7 +4454,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all versions of &#x60;courseId&#x60; 
+        ///  Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4310,8 +4471,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4320,37 +4481,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
-            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
-            if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (since != null) localVarQueryParams.Add("since", Configuration.ApiClient.ParameterToString(since)); // query parameter
+            if (until != null) localVarQueryParams.Add("until", Configuration.ApiClient.ParameterToString(until)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.Add("includeRegistrationCount", Configuration.ApiClient.ParameterToString(includeRegistrationCount)); // query parameter
+            if (includeCourseMetadata != null) localVarQueryParams.Add("includeCourseMetadata", Configuration.ApiClient.ParameterToString(includeCourseMetadata)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4364,11 +4528,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CourseListNonPagedSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CourseListNonPagedSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseListNonPagedSchema)));
+                (CourseListNonPagedSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseListNonPagedSchema)));
+            
         }
 
         /// <summary>
-        /// Get all courses for &#x60;appId&#x60; 
+        ///  Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
@@ -4388,7 +4553,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all courses for &#x60;appId&#x60; 
+        ///  Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
@@ -4406,8 +4571,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4416,41 +4581,45 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
-            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
-            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
-            if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("ssv", "tags", tags)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (more != null) localVarQueryParams.Add("more", Configuration.ApiClient.ParameterToString(more)); // query parameter
+            if (since != null) localVarQueryParams.Add("since", Configuration.ApiClient.ParameterToString(since)); // query parameter
+            if (until != null) localVarQueryParams.Add("until", Configuration.ApiClient.ParameterToString(until)); // query parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.Add("filterBy", Configuration.ApiClient.ParameterToString(filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.Add("orderBy", Configuration.ApiClient.ParameterToString(orderBy)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.Add("includeRegistrationCount", Configuration.ApiClient.ParameterToString(includeRegistrationCount)); // query parameter
+            if (includeCourseMetadata != null) localVarQueryParams.Add("includeCourseMetadata", Configuration.ApiClient.ParameterToString(includeCourseMetadata)); // query parameter
+            if (tags != null) localVarQueryParams.Add("tags", Configuration.ApiClient.ParameterToString(tags)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4464,11 +4633,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CourseListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CourseListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseListSchema)));
+                (CourseListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseListSchema)));
+            
         }
 
         /// <summary>
-        /// Get all courses for &#x60;appId&#x60; 
+        ///  Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
@@ -4489,7 +4659,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all courses for &#x60;appId&#x60; 
+        ///  Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
@@ -4507,8 +4677,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4517,41 +4687,44 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
-            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
-            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
-            if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("ssv", "tags", tags)); // query parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (more != null) localVarQueryParams.Add("more", Configuration.ApiClient.ParameterToString(more)); // query parameter
+            if (since != null) localVarQueryParams.Add("since", Configuration.ApiClient.ParameterToString(since)); // query parameter
+            if (until != null) localVarQueryParams.Add("until", Configuration.ApiClient.ParameterToString(until)); // query parameter
+            if (filter != null) localVarQueryParams.Add("filter", Configuration.ApiClient.ParameterToString(filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.Add("filterBy", Configuration.ApiClient.ParameterToString(filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.Add("orderBy", Configuration.ApiClient.ParameterToString(orderBy)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.Add("includeRegistrationCount", Configuration.ApiClient.ParameterToString(includeRegistrationCount)); // query parameter
+            if (includeCourseMetadata != null) localVarQueryParams.Add("includeCourseMetadata", Configuration.ApiClient.ParameterToString(includeCourseMetadata)); // query parameter
+            if (tags != null) localVarQueryParams.Add("tags", Configuration.ApiClient.ParameterToString(tags)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4565,11 +4738,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<CourseListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CourseListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseListSchema)));
+                (CourseListSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CourseListSchema)));
+            
         }
 
         /// <summary>
-        /// Check the status of an import job. 
+        ///  Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -4581,7 +4755,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Check the status of an import job. 
+        ///  Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -4594,8 +4768,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/importJobs/{importJobId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4604,33 +4778,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (importJobId != null) localVarPathParams.Add("importJobId", this.Configuration.ApiClient.ParameterToString(importJobId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (importJobId != null) localVarPathParams.Add("importJobId", Configuration.ApiClient.ParameterToString(importJobId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4644,11 +4822,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<ImportJobResultSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImportJobResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImportJobResultSchema)));
+                (ImportJobResultSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImportJobResultSchema)));
+            
         }
 
         /// <summary>
-        /// Check the status of an import job. 
+        ///  Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -4661,7 +4840,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Check the status of an import job. 
+        ///  Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -4674,8 +4853,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/importJobs/{importJobId}";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4684,33 +4863,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (importJobId != null) localVarPathParams.Add("importJobId", this.Configuration.ApiClient.ParameterToString(importJobId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (importJobId != null) localVarPathParams.Add("importJobId", Configuration.ApiClient.ParameterToString(importJobId)); // path parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4724,11 +4906,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             return new ApiResponse<ImportJobResultSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImportJobResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImportJobResultSchema)));
+                (ImportJobResultSchema) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImportJobResultSchema)));
+            
         }
 
         /// <summary>
-        /// Set the tags for this course 
+        ///  Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4740,7 +4923,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this course 
+        ///  Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4757,8 +4940,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/tags";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4767,20 +4950,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (tags != null && tags.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(tags); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(tags); // http body (model) parameter
             }
             else
             {
@@ -4789,19 +4975,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4813,13 +5000,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Set the tags for this course 
+        ///  Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4832,7 +5020,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this course 
+        ///  Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4849,8 +5037,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/tags";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4859,20 +5047,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (tags != null && tags.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(tags); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(tags); // http body (model) parameter
             }
             else
             {
@@ -4881,19 +5072,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4905,29 +5096,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided courses 
+        ///  Sets all of the provided tags on all of the provided courses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch"></param>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns></returns>
-        public void PutCourseTagsBatch (CourseTagsBatchSchema batch)
+        public void PutCourseTagsBatch (BatchTagsSchema batch)
         {
              PutCourseTagsBatchWithHttpInfo(batch);
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided courses 
+        ///  Sets all of the provided tags on all of the provided courses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch"></param>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> PutCourseTagsBatchWithHttpInfo (CourseTagsBatchSchema batch)
+        public ApiResponse<Object> PutCourseTagsBatchWithHttpInfo (BatchTagsSchema batch)
         {
             // verify the required parameter 'batch' is set
             if (batch == null)
@@ -4935,8 +5127,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/tags";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -4945,19 +5137,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (batch != null && batch.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batch); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(batch); // http body (model) parameter
             }
             else
             {
@@ -4966,19 +5161,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -4990,30 +5186,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided courses 
+        ///  Sets all of the provided tags on all of the provided courses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch"></param>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PutCourseTagsBatchAsync (CourseTagsBatchSchema batch)
+        public async System.Threading.Tasks.Task PutCourseTagsBatchAsync (BatchTagsSchema batch)
         {
              await PutCourseTagsBatchAsyncWithHttpInfo(batch);
 
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided courses 
+        ///  Sets all of the provided tags on all of the provided courses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch"></param>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> PutCourseTagsBatchAsyncWithHttpInfo (CourseTagsBatchSchema batch)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> PutCourseTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch)
         {
             // verify the required parameter 'batch' is set
             if (batch == null)
@@ -5021,8 +5218,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/tags";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -5031,19 +5228,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (batch != null && batch.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(batch); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(batch); // http body (model) parameter
             }
             else
             {
@@ -5052,19 +5252,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -5076,13 +5276,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Set configuration settings for this course. 
+        ///  Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5094,7 +5295,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration settings for this course. 
+        ///  Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5111,8 +5312,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -5121,20 +5322,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (configurationSettings != null && configurationSettings.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
             }
             else
             {
@@ -5143,19 +5347,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -5167,13 +5372,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Set configuration settings for this course. 
+        ///  Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5186,7 +5392,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration settings for this course. 
+        ///  Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5203,8 +5409,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -5213,20 +5419,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (configurationSettings != null && configurationSettings.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
             }
             else
             {
@@ -5235,19 +5444,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -5259,32 +5468,32 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Sets the course title for &#x60;courseId&#x60; 
+        ///  Sets the course title for the provided courseId. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="title"></param>
-        /// <returns>string</returns>
-        public string SetCourseTitle (string courseId, TitleSchema title)
+        /// <returns></returns>
+        public void SetCourseTitle (string courseId, TitleSchema title)
         {
-             ApiResponse<string> localVarResponse = SetCourseTitleWithHttpInfo(courseId, title);
-             return localVarResponse.Data;
+             SetCourseTitleWithHttpInfo(courseId, title);
         }
 
         /// <summary>
-        /// Sets the course title for &#x60;courseId&#x60; 
+        ///  Sets the course title for the provided courseId. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="title"></param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > SetCourseTitleWithHttpInfo (string courseId, TitleSchema title)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SetCourseTitleWithHttpInfo (string courseId, TitleSchema title)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -5295,8 +5504,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/title";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -5305,20 +5514,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (title != null && title.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(title); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(title); // http body (model) parameter
             }
             else
             {
@@ -5327,19 +5539,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -5351,33 +5564,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                null);
         }
 
         /// <summary>
-        /// Sets the course title for &#x60;courseId&#x60; 
+        ///  Sets the course title for the provided courseId. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="title"></param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> SetCourseTitleAsync (string courseId, TitleSchema title)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task SetCourseTitleAsync (string courseId, TitleSchema title)
         {
-             ApiResponse<string> localVarResponse = await SetCourseTitleAsyncWithHttpInfo(courseId, title);
-             return localVarResponse.Data;
+             await SetCourseTitleAsyncWithHttpInfo(courseId, title);
 
         }
 
         /// <summary>
-        /// Sets the course title for &#x60;courseId&#x60; 
+        ///  Sets the course title for the provided courseId. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="title"></param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> SetCourseTitleAsyncWithHttpInfo (string courseId, TitleSchema title)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseTitleAsyncWithHttpInfo (string courseId, TitleSchema title)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -5388,8 +5601,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/title";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -5398,20 +5611,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (title != null && title.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(title); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(title); // http body (model) parameter
             }
             else
             {
@@ -5420,19 +5636,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -5444,13 +5660,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
+            
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+                null);
         }
 
         /// <summary>
-        /// Set configuration settings for this course and version. 
+        ///  Set configuration settings for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5463,7 +5680,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration settings for this course and version. 
+        ///  Set configuration settings for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5484,8 +5701,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -5494,21 +5711,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
             if (configurationSettings != null && configurationSettings.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
             }
             else
             {
@@ -5517,19 +5737,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
+
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -5541,13 +5762,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// Set configuration settings for this course and version. 
+        ///  Set configuration settings for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5561,7 +5783,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration settings for this course and version. 
+        ///  Set configuration settings for this course and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5582,8 +5804,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             var localVarPath = "/courses/{courseId}/versions/{versionId}/configuration";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -5592,21 +5814,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             String[] localVarHttpContentTypes = new String[] {
                 "application/json"
             };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/json"
             };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (courseId != null) localVarPathParams.Add("courseId", Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", Configuration.ApiClient.ParameterToString(versionId)); // path parameter
             if (configurationSettings != null && configurationSettings.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(configurationSettings); // http body (model) parameter
             }
             else
             {
@@ -5615,19 +5840,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
             }
             // authentication (OAUTH) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -5639,6 +5864,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
+            
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);

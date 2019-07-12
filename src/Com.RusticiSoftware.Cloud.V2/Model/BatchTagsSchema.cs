@@ -24,33 +24,53 @@ using System.ComponentModel.DataAnnotations;
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// SettingValidValue
+    /// BatchTagsSchema
     /// </summary>
     [DataContract]
-    public partial class SettingValidValue :  IEquatable<SettingValidValue>, IValidatableObject
+    public partial class BatchTagsSchema :  IEquatable<BatchTagsSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SettingValidValue" /> class.
+        /// Initializes a new instance of the <see cref="BatchTagsSchema" /> class.
         /// </summary>
-        /// <param name="Value">Value.</param>
-        /// <param name="ValueDescription">Description of what this valid value means, how it will be applied if used in a setting.</param>
-        public SettingValidValue(string Value = default(string), string ValueDescription = default(string))
+        [JsonConstructorAttribute]
+        protected BatchTagsSchema() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BatchTagsSchema" /> class.
+        /// </summary>
+        /// <param name="Ids">Ids (required).</param>
+        /// <param name="Tags">Tags (required).</param>
+        public BatchTagsSchema(List<string> Ids = default(List<string>), List<string> Tags = default(List<string>))
         {
-            this.Value = Value;
-            this.ValueDescription = ValueDescription;
+            // to ensure "Ids" is required (not null)
+            if (Ids == null)
+            {
+                throw new InvalidDataException("Ids is a required property for BatchTagsSchema and cannot be null");
+            }
+            else
+            {
+                this.Ids = Ids;
+            }
+            // to ensure "Tags" is required (not null)
+            if (Tags == null)
+            {
+                throw new InvalidDataException("Tags is a required property for BatchTagsSchema and cannot be null");
+            }
+            else
+            {
+                this.Tags = Tags;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets Value
+        /// Gets or Sets Ids
         /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public string Value { get; set; }
+        [DataMember(Name="ids", EmitDefaultValue=false)]
+        public List<string> Ids { get; set; }
         /// <summary>
-        /// Description of what this valid value means, how it will be applied if used in a setting
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value>Description of what this valid value means, how it will be applied if used in a setting</value>
-        [DataMember(Name="valueDescription", EmitDefaultValue=false)]
-        public string ValueDescription { get; set; }
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public List<string> Tags { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -58,9 +78,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SettingValidValue {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  ValueDescription: ").Append(ValueDescription).Append("\n");
+            sb.Append("class BatchTagsSchema {\n");
+            sb.Append("  Ids: ").Append(Ids).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +102,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as SettingValidValue);
+            return this.Equals(obj as BatchTagsSchema);
         }
 
         /// <summary>
-        /// Returns true if SettingValidValue instances are equal
+        /// Returns true if BatchTagsSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of SettingValidValue to be compared</param>
+        /// <param name="other">Instance of BatchTagsSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SettingValidValue other)
+        public bool Equals(BatchTagsSchema other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -98,14 +118,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
 
             return 
                 (
-                    this.Value == other.Value ||
-                    this.Value != null &&
-                    this.Value.Equals(other.Value)
+                    this.Ids == other.Ids ||
+                    this.Ids != null &&
+                    this.Ids.SequenceEqual(other.Ids)
                 ) && 
                 (
-                    this.ValueDescription == other.ValueDescription ||
-                    this.ValueDescription != null &&
-                    this.ValueDescription.Equals(other.ValueDescription)
+                    this.Tags == other.Tags ||
+                    this.Tags != null &&
+                    this.Tags.SequenceEqual(other.Tags)
                 );
         }
 
@@ -120,10 +140,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Value != null)
-                    hash = hash * 59 + this.Value.GetHashCode();
-                if (this.ValueDescription != null)
-                    hash = hash * 59 + this.ValueDescription.GetHashCode();
+                if (this.Ids != null)
+                    hash = hash * 59 + this.Ids.GetHashCode();
+                if (this.Tags != null)
+                    hash = hash * 59 + this.Tags.GetHashCode();
                 return hash;
             }
         }

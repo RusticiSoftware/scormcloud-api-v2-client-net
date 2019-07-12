@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,14 +32,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationToken" /> class.
         /// </summary>
-        /// <param name="accessToken">accessToken.</param>
-        /// <param name="expiresIn">expiresIn.</param>
-        /// <param name="tokenType">tokenType.</param>
-        public ApplicationToken(string accessToken = default(string), int? expiresIn = default(int?), string tokenType = default(string))
+        /// <param name="AccessToken">AccessToken.</param>
+        /// <param name="ExpiresIn">ExpiresIn.</param>
+        /// <param name="TokenType">TokenType.</param>
+        public ApplicationToken(string AccessToken = default(string), int? ExpiresIn = default(int?), string TokenType = default(string))
         {
-            this.AccessToken = accessToken;
-            this.ExpiresIn = expiresIn;
-            this.TokenType = tokenType;
+            this.AccessToken = AccessToken;
+            this.ExpiresIn = ExpiresIn;
+            this.TokenType = TokenType;
         }
         
         /// <summary>
@@ -48,19 +47,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="access_token", EmitDefaultValue=false)]
         public string AccessToken { get; set; }
-
         /// <summary>
         /// Gets or Sets ExpiresIn
         /// </summary>
         [DataMember(Name="expires_in", EmitDefaultValue=false)]
         public int? ExpiresIn { get; set; }
-
         /// <summary>
         /// Gets or Sets TokenType
         /// </summary>
         [DataMember(Name="token_type", EmitDefaultValue=false)]
         public string TokenType { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -80,7 +76,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -88,38 +84,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as ApplicationToken);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as ApplicationToken);
         }
 
         /// <summary>
         /// Returns true if ApplicationToken instances are equal
         /// </summary>
-        /// <param name="input">Instance of ApplicationToken to be compared</param>
+        /// <param name="other">Instance of ApplicationToken to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApplicationToken input)
+        public bool Equals(ApplicationToken other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.AccessToken == input.AccessToken ||
-                    (this.AccessToken != null &&
-                    this.AccessToken.Equals(input.AccessToken))
+                    this.AccessToken == other.AccessToken ||
+                    this.AccessToken != null &&
+                    this.AccessToken.Equals(other.AccessToken)
                 ) && 
                 (
-                    this.ExpiresIn == input.ExpiresIn ||
-                    (this.ExpiresIn != null &&
-                    this.ExpiresIn.Equals(input.ExpiresIn))
+                    this.ExpiresIn == other.ExpiresIn ||
+                    this.ExpiresIn != null &&
+                    this.ExpiresIn.Equals(other.ExpiresIn)
                 ) && 
                 (
-                    this.TokenType == input.TokenType ||
-                    (this.TokenType != null &&
-                    this.TokenType.Equals(input.TokenType))
+                    this.TokenType == other.TokenType ||
+                    this.TokenType != null &&
+                    this.TokenType.Equals(other.TokenType)
                 );
         }
 
@@ -129,26 +127,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.AccessToken != null)
-                    hashCode = hashCode * 59 + this.AccessToken.GetHashCode();
+                    hash = hash * 59 + this.AccessToken.GetHashCode();
                 if (this.ExpiresIn != null)
-                    hashCode = hashCode * 59 + this.ExpiresIn.GetHashCode();
+                    hash = hash * 59 + this.ExpiresIn.GetHashCode();
                 if (this.TokenType != null)
-                    hashCode = hashCode * 59 + this.TokenType.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.TokenType.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

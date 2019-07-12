@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -38,27 +37,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiAccount" /> class.
         /// </summary>
-        /// <param name="homePage">homePage (required).</param>
-        /// <param name="name">name (required).</param>
-        public XapiAccount(string homePage = default(string), string name = default(string))
+        /// <param name="HomePage">HomePage (required).</param>
+        /// <param name="Name">Name (required).</param>
+        public XapiAccount(string HomePage = default(string), string Name = default(string))
         {
-            // to ensure "homePage" is required (not null)
-            if (homePage == null)
+            // to ensure "HomePage" is required (not null)
+            if (HomePage == null)
             {
-                throw new InvalidDataException("homePage is a required property for XapiAccount and cannot be null");
+                throw new InvalidDataException("HomePage is a required property for XapiAccount and cannot be null");
             }
             else
             {
-                this.HomePage = homePage;
+                this.HomePage = HomePage;
             }
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "Name" is required (not null)
+            if (Name == null)
             {
-                throw new InvalidDataException("name is a required property for XapiAccount and cannot be null");
+                throw new InvalidDataException("Name is a required property for XapiAccount and cannot be null");
             }
             else
             {
-                this.Name = name;
+                this.Name = Name;
             }
         }
         
@@ -67,13 +66,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="homePage", EmitDefaultValue=false)]
         public string HomePage { get; set; }
-
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -92,7 +89,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -100,33 +97,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as XapiAccount);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as XapiAccount);
         }
 
         /// <summary>
         /// Returns true if XapiAccount instances are equal
         /// </summary>
-        /// <param name="input">Instance of XapiAccount to be compared</param>
+        /// <param name="other">Instance of XapiAccount to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiAccount input)
+        public bool Equals(XapiAccount other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.HomePage == input.HomePage ||
-                    (this.HomePage != null &&
-                    this.HomePage.Equals(input.HomePage))
+                    this.HomePage == other.HomePage ||
+                    this.HomePage != null &&
+                    this.HomePage.Equals(other.HomePage)
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
                 );
         }
 
@@ -136,24 +135,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.HomePage != null)
-                    hashCode = hashCode * 59 + this.HomePage.GetHashCode();
+                    hash = hash * 59 + this.HomePage.GetHashCode();
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Name.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

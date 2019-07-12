@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,34 +32,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiStatement" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="actor">actor.</param>
-        /// <param name="verb">verb.</param>
-        /// <param name="objectActivity">objectActivity.</param>
-        /// <param name="objectAgentGroup">objectAgentGroup.</param>
-        /// <param name="objectStatementReference">objectStatementReference.</param>
-        /// <param name="objectSubStatement">objectSubStatement.</param>
-        /// <param name="result">result.</param>
-        /// <param name="context">context.</param>
-        /// <param name="timestamp">timestamp.</param>
-        /// <param name="stored">stored.</param>
-        /// <param name="authority">authority.</param>
-        /// <param name="attachments">attachments.</param>
-        public XapiStatement(string id = default(string), XapiAgentGroup actor = default(XapiAgentGroup), XapiVerb verb = default(XapiVerb), XapiActivity objectActivity = default(XapiActivity), XapiAgentGroup objectAgentGroup = default(XapiAgentGroup), XapiStatementReference objectStatementReference = default(XapiStatementReference), XapiStatement objectSubStatement = default(XapiStatement), XapiResult result = default(XapiResult), XapiContext context = default(XapiContext), DateTime? timestamp = default(DateTime?), DateTime? stored = default(DateTime?), XapiAgentGroup authority = default(XapiAgentGroup), List<XapiAttachment> attachments = default(List<XapiAttachment>))
+        /// <param name="Id">Id.</param>
+        /// <param name="Actor">Actor.</param>
+        /// <param name="Verb">Verb.</param>
+        /// <param name="ObjectActivity">ObjectActivity.</param>
+        /// <param name="ObjectAgentGroup">ObjectAgentGroup.</param>
+        /// <param name="ObjectStatementReference">ObjectStatementReference.</param>
+        /// <param name="ObjectSubStatement">ObjectSubStatement.</param>
+        /// <param name="Result">Result.</param>
+        /// <param name="Context">Context.</param>
+        /// <param name="Timestamp">Timestamp.</param>
+        /// <param name="Stored">Stored.</param>
+        /// <param name="Authority">Authority.</param>
+        /// <param name="Attachments">Attachments.</param>
+        public XapiStatement(string Id = default(string), XapiAgentGroup Actor = default(XapiAgentGroup), XapiVerb Verb = default(XapiVerb), XapiActivity ObjectActivity = default(XapiActivity), XapiAgentGroup ObjectAgentGroup = default(XapiAgentGroup), XapiStatementReference ObjectStatementReference = default(XapiStatementReference), XapiStatement ObjectSubStatement = default(XapiStatement), XapiResult Result = default(XapiResult), XapiContext Context = default(XapiContext), DateTime? Timestamp = default(DateTime?), DateTime? Stored = default(DateTime?), XapiAgentGroup Authority = default(XapiAgentGroup), List<XapiAttachment> Attachments = default(List<XapiAttachment>))
         {
-            this.Id = id;
-            this.Actor = actor;
-            this.Verb = verb;
-            this.ObjectActivity = objectActivity;
-            this.ObjectAgentGroup = objectAgentGroup;
-            this.ObjectStatementReference = objectStatementReference;
-            this.ObjectSubStatement = objectSubStatement;
-            this.Result = result;
-            this.Context = context;
-            this.Timestamp = timestamp;
-            this.Stored = stored;
-            this.Authority = authority;
-            this.Attachments = attachments;
+            this.Id = Id;
+            this.Actor = Actor;
+            this.Verb = Verb;
+            this.ObjectActivity = ObjectActivity;
+            this.ObjectAgentGroup = ObjectAgentGroup;
+            this.ObjectStatementReference = ObjectStatementReference;
+            this.ObjectSubStatement = ObjectSubStatement;
+            this.Result = Result;
+            this.Context = Context;
+            this.Timestamp = Timestamp;
+            this.Stored = Stored;
+            this.Authority = Authority;
+            this.Attachments = Attachments;
         }
         
         /// <summary>
@@ -68,79 +67,66 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-
         /// <summary>
         /// Gets or Sets Actor
         /// </summary>
         [DataMember(Name="actor", EmitDefaultValue=false)]
         public XapiAgentGroup Actor { get; set; }
-
         /// <summary>
         /// Gets or Sets Verb
         /// </summary>
         [DataMember(Name="verb", EmitDefaultValue=false)]
         public XapiVerb Verb { get; set; }
-
         /// <summary>
         /// Gets or Sets ObjectActivity
         /// </summary>
         [DataMember(Name="objectActivity", EmitDefaultValue=false)]
         public XapiActivity ObjectActivity { get; set; }
-
         /// <summary>
         /// Gets or Sets ObjectAgentGroup
         /// </summary>
         [DataMember(Name="objectAgentGroup", EmitDefaultValue=false)]
         public XapiAgentGroup ObjectAgentGroup { get; set; }
-
         /// <summary>
         /// Gets or Sets ObjectStatementReference
         /// </summary>
         [DataMember(Name="objectStatementReference", EmitDefaultValue=false)]
         public XapiStatementReference ObjectStatementReference { get; set; }
-
         /// <summary>
         /// Gets or Sets ObjectSubStatement
         /// </summary>
         [DataMember(Name="objectSubStatement", EmitDefaultValue=false)]
         public XapiStatement ObjectSubStatement { get; set; }
-
         /// <summary>
         /// Gets or Sets Result
         /// </summary>
         [DataMember(Name="result", EmitDefaultValue=false)]
         public XapiResult Result { get; set; }
-
         /// <summary>
         /// Gets or Sets Context
         /// </summary>
         [DataMember(Name="context", EmitDefaultValue=false)]
         public XapiContext Context { get; set; }
-
         /// <summary>
         /// Gets or Sets Timestamp
         /// </summary>
         [DataMember(Name="timestamp", EmitDefaultValue=false)]
         public DateTime? Timestamp { get; set; }
-
         /// <summary>
         /// Gets or Sets Stored
         /// </summary>
         [DataMember(Name="stored", EmitDefaultValue=false)]
         public DateTime? Stored { get; set; }
-
         /// <summary>
         /// Gets or Sets Authority
         /// </summary>
         [DataMember(Name="authority", EmitDefaultValue=false)]
         public XapiAgentGroup Authority { get; set; }
-
         /// <summary>
         /// Gets or Sets Attachments
         /// </summary>
         [DataMember(Name="attachments", EmitDefaultValue=false)]
         public List<XapiAttachment> Attachments { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -170,7 +156,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -178,88 +164,90 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as XapiStatement);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as XapiStatement);
         }
 
         /// <summary>
         /// Returns true if XapiStatement instances are equal
         /// </summary>
-        /// <param name="input">Instance of XapiStatement to be compared</param>
+        /// <param name="other">Instance of XapiStatement to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiStatement input)
+        public bool Equals(XapiStatement other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Actor == input.Actor ||
-                    (this.Actor != null &&
-                    this.Actor.Equals(input.Actor))
+                    this.Actor == other.Actor ||
+                    this.Actor != null &&
+                    this.Actor.Equals(other.Actor)
                 ) && 
                 (
-                    this.Verb == input.Verb ||
-                    (this.Verb != null &&
-                    this.Verb.Equals(input.Verb))
+                    this.Verb == other.Verb ||
+                    this.Verb != null &&
+                    this.Verb.Equals(other.Verb)
                 ) && 
                 (
-                    this.ObjectActivity == input.ObjectActivity ||
-                    (this.ObjectActivity != null &&
-                    this.ObjectActivity.Equals(input.ObjectActivity))
+                    this.ObjectActivity == other.ObjectActivity ||
+                    this.ObjectActivity != null &&
+                    this.ObjectActivity.Equals(other.ObjectActivity)
                 ) && 
                 (
-                    this.ObjectAgentGroup == input.ObjectAgentGroup ||
-                    (this.ObjectAgentGroup != null &&
-                    this.ObjectAgentGroup.Equals(input.ObjectAgentGroup))
+                    this.ObjectAgentGroup == other.ObjectAgentGroup ||
+                    this.ObjectAgentGroup != null &&
+                    this.ObjectAgentGroup.Equals(other.ObjectAgentGroup)
                 ) && 
                 (
-                    this.ObjectStatementReference == input.ObjectStatementReference ||
-                    (this.ObjectStatementReference != null &&
-                    this.ObjectStatementReference.Equals(input.ObjectStatementReference))
+                    this.ObjectStatementReference == other.ObjectStatementReference ||
+                    this.ObjectStatementReference != null &&
+                    this.ObjectStatementReference.Equals(other.ObjectStatementReference)
                 ) && 
                 (
-                    this.ObjectSubStatement == input.ObjectSubStatement ||
-                    (this.ObjectSubStatement != null &&
-                    this.ObjectSubStatement.Equals(input.ObjectSubStatement))
+                    this.ObjectSubStatement == other.ObjectSubStatement ||
+                    this.ObjectSubStatement != null &&
+                    this.ObjectSubStatement.Equals(other.ObjectSubStatement)
                 ) && 
                 (
-                    this.Result == input.Result ||
-                    (this.Result != null &&
-                    this.Result.Equals(input.Result))
+                    this.Result == other.Result ||
+                    this.Result != null &&
+                    this.Result.Equals(other.Result)
                 ) && 
                 (
-                    this.Context == input.Context ||
-                    (this.Context != null &&
-                    this.Context.Equals(input.Context))
+                    this.Context == other.Context ||
+                    this.Context != null &&
+                    this.Context.Equals(other.Context)
                 ) && 
                 (
-                    this.Timestamp == input.Timestamp ||
-                    (this.Timestamp != null &&
-                    this.Timestamp.Equals(input.Timestamp))
+                    this.Timestamp == other.Timestamp ||
+                    this.Timestamp != null &&
+                    this.Timestamp.Equals(other.Timestamp)
                 ) && 
                 (
-                    this.Stored == input.Stored ||
-                    (this.Stored != null &&
-                    this.Stored.Equals(input.Stored))
+                    this.Stored == other.Stored ||
+                    this.Stored != null &&
+                    this.Stored.Equals(other.Stored)
                 ) && 
                 (
-                    this.Authority == input.Authority ||
-                    (this.Authority != null &&
-                    this.Authority.Equals(input.Authority))
+                    this.Authority == other.Authority ||
+                    this.Authority != null &&
+                    this.Authority.Equals(other.Authority)
                 ) && 
                 (
-                    this.Attachments == input.Attachments ||
+                    this.Attachments == other.Attachments ||
                     this.Attachments != null &&
-                    this.Attachments.SequenceEqual(input.Attachments)
+                    this.Attachments.SequenceEqual(other.Attachments)
                 );
         }
 
@@ -269,46 +257,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Actor != null)
-                    hashCode = hashCode * 59 + this.Actor.GetHashCode();
+                    hash = hash * 59 + this.Actor.GetHashCode();
                 if (this.Verb != null)
-                    hashCode = hashCode * 59 + this.Verb.GetHashCode();
+                    hash = hash * 59 + this.Verb.GetHashCode();
                 if (this.ObjectActivity != null)
-                    hashCode = hashCode * 59 + this.ObjectActivity.GetHashCode();
+                    hash = hash * 59 + this.ObjectActivity.GetHashCode();
                 if (this.ObjectAgentGroup != null)
-                    hashCode = hashCode * 59 + this.ObjectAgentGroup.GetHashCode();
+                    hash = hash * 59 + this.ObjectAgentGroup.GetHashCode();
                 if (this.ObjectStatementReference != null)
-                    hashCode = hashCode * 59 + this.ObjectStatementReference.GetHashCode();
+                    hash = hash * 59 + this.ObjectStatementReference.GetHashCode();
                 if (this.ObjectSubStatement != null)
-                    hashCode = hashCode * 59 + this.ObjectSubStatement.GetHashCode();
+                    hash = hash * 59 + this.ObjectSubStatement.GetHashCode();
                 if (this.Result != null)
-                    hashCode = hashCode * 59 + this.Result.GetHashCode();
+                    hash = hash * 59 + this.Result.GetHashCode();
                 if (this.Context != null)
-                    hashCode = hashCode * 59 + this.Context.GetHashCode();
+                    hash = hash * 59 + this.Context.GetHashCode();
                 if (this.Timestamp != null)
-                    hashCode = hashCode * 59 + this.Timestamp.GetHashCode();
+                    hash = hash * 59 + this.Timestamp.GetHashCode();
                 if (this.Stored != null)
-                    hashCode = hashCode * 59 + this.Stored.GetHashCode();
+                    hash = hash * 59 + this.Stored.GetHashCode();
                 if (this.Authority != null)
-                    hashCode = hashCode * 59 + this.Authority.GetHashCode();
+                    hash = hash * 59 + this.Authority.GetHashCode();
                 if (this.Attachments != null)
-                    hashCode = hashCode * 59 + this.Attachments.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Attachments.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

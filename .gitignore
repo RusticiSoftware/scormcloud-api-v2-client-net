@@ -184,3 +184,7 @@ $RECYCLE.BIN/
 
 # Visual Studio 2014 CTP
 **/*.sln.ide
+
+.swagger-codegen-ignore
+.swagger-codegen
+

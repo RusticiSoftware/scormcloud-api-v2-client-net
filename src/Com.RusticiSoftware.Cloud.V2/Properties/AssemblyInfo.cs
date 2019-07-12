@@ -4,14 +4,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swagger Library")]
-[assembly: AssemblyDescription("A library generated from a Swagger doc")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Swagger")]
-[assembly: AssemblyProduct("SwaggerLibrary")]
-[assembly: AssemblyCopyright("No Copyright")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyTitle("SCORM Cloud v2 API C# Client Library")]
+[assembly: AssemblyDescription("Swagger Generated C# Client for SCORM Cloud API v2")]
+[assembly: AssemblyCompany("Rustici Software")]
+[assembly: AssemblyProduct("SCORM Cloud v2 API Client Library")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
@@ -28,8 +24,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-//
-// Specifying 1.0.0.0 for now, even though more accurate version would be
-// 1.0.0-beta. However that value breaks the build.
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.2.0")]
+[assembly: AssemblyFileVersion("0.2.0")]

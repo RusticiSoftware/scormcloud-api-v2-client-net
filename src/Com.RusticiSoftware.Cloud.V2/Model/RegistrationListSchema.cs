@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -38,20 +37,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RegistrationListSchema" /> class.
         /// </summary>
-        /// <param name="registrations">registrations (required).</param>
-        /// <param name="more">more.</param>
-        public RegistrationListSchema(List<RegistrationSchema> registrations = default(List<RegistrationSchema>), string more = default(string))
+        /// <param name="Registrations">Registrations (required).</param>
+        /// <param name="More">More.</param>
+        public RegistrationListSchema(List<RegistrationSchema> Registrations = default(List<RegistrationSchema>), string More = default(string))
         {
-            // to ensure "registrations" is required (not null)
-            if (registrations == null)
+            // to ensure "Registrations" is required (not null)
+            if (Registrations == null)
             {
-                throw new InvalidDataException("registrations is a required property for RegistrationListSchema and cannot be null");
+                throw new InvalidDataException("Registrations is a required property for RegistrationListSchema and cannot be null");
             }
             else
             {
-                this.Registrations = registrations;
+                this.Registrations = Registrations;
             }
-            this.More = more;
+            this.More = More;
         }
         
         /// <summary>
@@ -59,13 +58,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="registrations", EmitDefaultValue=false)]
         public List<RegistrationSchema> Registrations { get; set; }
-
         /// <summary>
         /// Gets or Sets More
         /// </summary>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public string More { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -84,7 +81,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -92,33 +89,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as RegistrationListSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as RegistrationListSchema);
         }
 
         /// <summary>
         /// Returns true if RegistrationListSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of RegistrationListSchema to be compared</param>
+        /// <param name="other">Instance of RegistrationListSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RegistrationListSchema input)
+        public bool Equals(RegistrationListSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Registrations == input.Registrations ||
+                    this.Registrations == other.Registrations ||
                     this.Registrations != null &&
-                    this.Registrations.SequenceEqual(input.Registrations)
+                    this.Registrations.SequenceEqual(other.Registrations)
                 ) && 
                 (
-                    this.More == input.More ||
-                    (this.More != null &&
-                    this.More.Equals(input.More))
+                    this.More == other.More ||
+                    this.More != null &&
+                    this.More.Equals(other.More)
                 );
         }
 
@@ -128,24 +127,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Registrations != null)
-                    hashCode = hashCode * 59 + this.Registrations.GetHashCode();
+                    hash = hash * 59 + this.Registrations.GetHashCode();
                 if (this.More != null)
-                    hashCode = hashCode * 59 + this.More.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.More.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

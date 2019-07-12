@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -31,101 +30,101 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class PostBackSchema :  IEquatable<PostBackSchema>, IValidatableObject
     {
         /// <summary>
-        /// Optional parameter to specify how to authorize against the given postbackurl, can be &#39;form&#39; or &#39;httpbasic&#39;. If form authentication, the username and password for authentication are submitted as form fields &#39;username&#39; and &#39;password&#39;, and the registration data as the form field &#39;data&#39;. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to &#39;form&#39; by default.
+        /// Optional parameter to specify how to authorize against the given postbackurl, can be 'form' or 'httpbasic'. If form authentication, the username and password for authentication are submitted as form fields 'username' and 'password', and the registration data as the form field 'data'. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to 'form' by default.
         /// </summary>
-        /// <value>Optional parameter to specify how to authorize against the given postbackurl, can be &#39;form&#39; or &#39;httpbasic&#39;. If form authentication, the username and password for authentication are submitted as form fields &#39;username&#39; and &#39;password&#39;, and the registration data as the form field &#39;data&#39;. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to &#39;form&#39; by default.</value>
+        /// <value>Optional parameter to specify how to authorize against the given postbackurl, can be 'form' or 'httpbasic'. If form authentication, the username and password for authentication are submitted as form fields 'username' and 'password', and the registration data as the form field 'data'. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to 'form' by default.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AuthTypeEnum
         {
             
             /// <summary>
-            /// Enum UNDEFINED for value: UNDEFINED
+            /// Enum UNDEFINED for "UNDEFINED"
             /// </summary>
             [EnumMember(Value = "UNDEFINED")]
-            UNDEFINED = 1,
+            UNDEFINED,
             
             /// <summary>
-            /// Enum FORM for value: FORM
+            /// Enum FORM for "FORM"
             /// </summary>
             [EnumMember(Value = "FORM")]
-            FORM = 2,
+            FORM,
             
             /// <summary>
-            /// Enum HTTPBASIC for value: HTTPBASIC
+            /// Enum HTTPBASIC for "HTTPBASIC"
             /// </summary>
             [EnumMember(Value = "HTTPBASIC")]
-            HTTPBASIC = 3
+            HTTPBASIC
         }
 
         /// <summary>
-        /// Optional parameter to specify how to authorize against the given postbackurl, can be &#39;form&#39; or &#39;httpbasic&#39;. If form authentication, the username and password for authentication are submitted as form fields &#39;username&#39; and &#39;password&#39;, and the registration data as the form field &#39;data&#39;. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to &#39;form&#39; by default.
+        /// This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: 'course' (course summary), 'activity' (activity summary, or 'full' (full detail), and is set to 'course' by default. The information will be posted as xml, and the format of that xml is specified below under the method 'getRegistrationResult'
         /// </summary>
-        /// <value>Optional parameter to specify how to authorize against the given postbackurl, can be &#39;form&#39; or &#39;httpbasic&#39;. If form authentication, the username and password for authentication are submitted as form fields &#39;username&#39; and &#39;password&#39;, and the registration data as the form field &#39;data&#39;. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to &#39;form&#39; by default.</value>
-        [DataMember(Name="authType", EmitDefaultValue=false)]
-        public AuthTypeEnum? AuthType { get; set; }
-        /// <summary>
-        /// This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: &#39;course&#39; (course summary), &#39;activity&#39; (activity summary, or &#39;full&#39; (full detail), and is set to &#39;course&#39; by default. The information will be posted as xml, and the format of that xml is specified below under the method &#39;getRegistrationResult&#39;
-        /// </summary>
-        /// <value>This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: &#39;course&#39; (course summary), &#39;activity&#39; (activity summary, or &#39;full&#39; (full detail), and is set to &#39;course&#39; by default. The information will be posted as xml, and the format of that xml is specified below under the method &#39;getRegistrationResult&#39;</value>
+        /// <value>This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: 'course' (course summary), 'activity' (activity summary, or 'full' (full detail), and is set to 'course' by default. The information will be posted as xml, and the format of that xml is specified below under the method 'getRegistrationResult'</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ResultsFormatEnum
         {
             
             /// <summary>
-            /// Enum COURSE for value: COURSE
+            /// Enum COURSE for "COURSE"
             /// </summary>
             [EnumMember(Value = "COURSE")]
-            COURSE = 1,
+            COURSE,
             
             /// <summary>
-            /// Enum ACTIVITY for value: ACTIVITY
+            /// Enum ACTIVITY for "ACTIVITY"
             /// </summary>
             [EnumMember(Value = "ACTIVITY")]
-            ACTIVITY = 2,
+            ACTIVITY,
             
             /// <summary>
-            /// Enum FULL for value: FULL
+            /// Enum FULL for "FULL"
             /// </summary>
             [EnumMember(Value = "FULL")]
-            FULL = 3
+            FULL
         }
 
         /// <summary>
-        /// This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: &#39;course&#39; (course summary), &#39;activity&#39; (activity summary, or &#39;full&#39; (full detail), and is set to &#39;course&#39; by default. The information will be posted as xml, and the format of that xml is specified below under the method &#39;getRegistrationResult&#39;
+        /// Optional parameter to specify how to authorize against the given postbackurl, can be 'form' or 'httpbasic'. If form authentication, the username and password for authentication are submitted as form fields 'username' and 'password', and the registration data as the form field 'data'. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to 'form' by default.
         /// </summary>
-        /// <value>This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: &#39;course&#39; (course summary), &#39;activity&#39; (activity summary, or &#39;full&#39; (full detail), and is set to &#39;course&#39; by default. The information will be posted as xml, and the format of that xml is specified below under the method &#39;getRegistrationResult&#39;</value>
+        /// <value>Optional parameter to specify how to authorize against the given postbackurl, can be 'form' or 'httpbasic'. If form authentication, the username and password for authentication are submitted as form fields 'username' and 'password', and the registration data as the form field 'data'. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to 'form' by default.</value>
+        [DataMember(Name="authType", EmitDefaultValue=false)]
+        public AuthTypeEnum? AuthType { get; set; }
+        /// <summary>
+        /// This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: 'course' (course summary), 'activity' (activity summary, or 'full' (full detail), and is set to 'course' by default. The information will be posted as xml, and the format of that xml is specified below under the method 'getRegistrationResult'
+        /// </summary>
+        /// <value>This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: 'course' (course summary), 'activity' (activity summary, or 'full' (full detail), and is set to 'course' by default. The information will be posted as xml, and the format of that xml is specified below under the method 'getRegistrationResult'</value>
         [DataMember(Name="resultsFormat", EmitDefaultValue=false)]
         public ResultsFormatEnum? ResultsFormat { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PostBackSchema" /> class.
         /// </summary>
-        /// <param name="url">url.</param>
-        /// <param name="authType">Optional parameter to specify how to authorize against the given postbackurl, can be &#39;form&#39; or &#39;httpbasic&#39;. If form authentication, the username and password for authentication are submitted as form fields &#39;username&#39; and &#39;password&#39;, and the registration data as the form field &#39;data&#39;. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to &#39;form&#39; by default. (default to AuthTypeEnum.UNDEFINED).</param>
-        /// <param name="userName">The user name to be used in authorizing the postback of data to the URL specified by postback url..</param>
-        /// <param name="password">The password to be used in authorizing the postback of data to the URL specified by postback url..</param>
-        /// <param name="resultsFormat">This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: &#39;course&#39; (course summary), &#39;activity&#39; (activity summary, or &#39;full&#39; (full detail), and is set to &#39;course&#39; by default. The information will be posted as xml, and the format of that xml is specified below under the method &#39;getRegistrationResult&#39; (default to ResultsFormatEnum.COURSE).</param>
-        public PostBackSchema(string url = default(string), AuthTypeEnum? authType = AuthTypeEnum.UNDEFINED, string userName = default(string), string password = default(string), ResultsFormatEnum? resultsFormat = ResultsFormatEnum.COURSE)
+        /// <param name="Url">Url.</param>
+        /// <param name="AuthType">Optional parameter to specify how to authorize against the given postbackurl, can be &#39;form&#39; or &#39;httpbasic&#39;. If form authentication, the username and password for authentication are submitted as form fields &#39;username&#39; and &#39;password&#39;, and the registration data as the form field &#39;data&#39;. If httpbasic authentication is used, the username and password are placed in the standard Authorization HTTP header, and the registration data is the body of the message (sent as text/xml content type). This field is set to &#39;form&#39; by default. (default to AuthTypeEnum.UNDEFINED).</param>
+        /// <param name="UserName">The user name to be used in authorizing the postback of data to the URL specified by postback url..</param>
+        /// <param name="Password">The password to be used in authorizing the postback of data to the URL specified by postback url..</param>
+        /// <param name="ResultsFormat">This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: &#39;course&#39; (course summary), &#39;activity&#39; (activity summary, or &#39;full&#39; (full detail), and is set to &#39;course&#39; by default. The information will be posted as xml, and the format of that xml is specified below under the method &#39;getRegistrationResult&#39; (default to ResultsFormatEnum.COURSE).</param>
+        public PostBackSchema(string Url = default(string), AuthTypeEnum? AuthType = AuthTypeEnum.UNDEFINED, string UserName = default(string), string Password = default(string), ResultsFormatEnum? ResultsFormat = ResultsFormatEnum.COURSE)
         {
-            this.Url = url;
-            // use default value if no "authType" provided
-            if (authType == null)
+            this.Url = Url;
+            // use default value if no "AuthType" provided
+            if (AuthType == null)
             {
                 this.AuthType = AuthTypeEnum.UNDEFINED;
             }
             else
             {
-                this.AuthType = authType;
+                this.AuthType = AuthType;
             }
-            this.UserName = userName;
-            this.Password = password;
-            // use default value if no "resultsFormat" provided
-            if (resultsFormat == null)
+            this.UserName = UserName;
+            this.Password = Password;
+            // use default value if no "ResultsFormat" provided
+            if (ResultsFormat == null)
             {
                 this.ResultsFormat = ResultsFormatEnum.COURSE;
             }
             else
             {
-                this.ResultsFormat = resultsFormat;
+                this.ResultsFormat = ResultsFormat;
             }
         }
         
@@ -134,23 +133,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
-
-
         /// <summary>
         /// The user name to be used in authorizing the postback of data to the URL specified by postback url.
         /// </summary>
         /// <value>The user name to be used in authorizing the postback of data to the URL specified by postback url.</value>
         [DataMember(Name="userName", EmitDefaultValue=false)]
         public string UserName { get; set; }
-
         /// <summary>
         /// The password to be used in authorizing the postback of data to the URL specified by postback url.
         /// </summary>
         /// <value>The password to be used in authorizing the postback of data to the URL specified by postback url.</value>
         [DataMember(Name="password", EmitDefaultValue=false)]
         public string Password { get; set; }
-
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -172,7 +166,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -180,48 +174,50 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as PostBackSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as PostBackSchema);
         }
 
         /// <summary>
         /// Returns true if PostBackSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of PostBackSchema to be compared</param>
+        /// <param name="other">Instance of PostBackSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PostBackSchema input)
+        public bool Equals(PostBackSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
+                    this.Url == other.Url ||
+                    this.Url != null &&
+                    this.Url.Equals(other.Url)
                 ) && 
                 (
-                    this.AuthType == input.AuthType ||
-                    (this.AuthType != null &&
-                    this.AuthType.Equals(input.AuthType))
+                    this.AuthType == other.AuthType ||
+                    this.AuthType != null &&
+                    this.AuthType.Equals(other.AuthType)
                 ) && 
                 (
-                    this.UserName == input.UserName ||
-                    (this.UserName != null &&
-                    this.UserName.Equals(input.UserName))
+                    this.UserName == other.UserName ||
+                    this.UserName != null &&
+                    this.UserName.Equals(other.UserName)
                 ) && 
                 (
-                    this.Password == input.Password ||
-                    (this.Password != null &&
-                    this.Password.Equals(input.Password))
+                    this.Password == other.Password ||
+                    this.Password != null &&
+                    this.Password.Equals(other.Password)
                 ) && 
                 (
-                    this.ResultsFormat == input.ResultsFormat ||
-                    (this.ResultsFormat != null &&
-                    this.ResultsFormat.Equals(input.ResultsFormat))
+                    this.ResultsFormat == other.ResultsFormat ||
+                    this.ResultsFormat != null &&
+                    this.ResultsFormat.Equals(other.ResultsFormat)
                 );
         }
 
@@ -231,30 +227,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                    hash = hash * 59 + this.Url.GetHashCode();
                 if (this.AuthType != null)
-                    hashCode = hashCode * 59 + this.AuthType.GetHashCode();
+                    hash = hash * 59 + this.AuthType.GetHashCode();
                 if (this.UserName != null)
-                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
+                    hash = hash * 59 + this.UserName.GetHashCode();
                 if (this.Password != null)
-                    hashCode = hashCode * 59 + this.Password.GetHashCode();
+                    hash = hash * 59 + this.Password.GetHashCode();
                 if (this.ResultsFormat != null)
-                    hashCode = hashCode * 59 + this.ResultsFormat.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.ResultsFormat.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -31,29 +30,81 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class ObjectiveSchema :  IEquatable<ObjectiveSchema>, IValidatableObject
     {
         /// <summary>
-        /// Defines ObjectiveCompletion
+        /// Gets or Sets ObjectiveCompletion
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ObjectiveCompletionEnum
         {
             
             /// <summary>
-            /// Enum UNKNOWN for value: UNKNOWN
+            /// Enum UNKNOWN for "UNKNOWN"
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN = 1,
+            UNKNOWN,
             
             /// <summary>
-            /// Enum COMPLETED for value: COMPLETED
+            /// Enum COMPLETED for "COMPLETED"
             /// </summary>
             [EnumMember(Value = "COMPLETED")]
-            COMPLETED = 2,
+            COMPLETED,
             
             /// <summary>
-            /// Enum INCOMPLETE for value: INCOMPLETE
+            /// Enum INCOMPLETE for "INCOMPLETE"
             /// </summary>
             [EnumMember(Value = "INCOMPLETE")]
-            INCOMPLETE = 3
+            INCOMPLETE
+        }
+
+        /// <summary>
+        /// Gets or Sets ObjectiveSuccess
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ObjectiveSuccessEnum
+        {
+            
+            /// <summary>
+            /// Enum UNKNOWN for "UNKNOWN"
+            /// </summary>
+            [EnumMember(Value = "UNKNOWN")]
+            UNKNOWN,
+            
+            /// <summary>
+            /// Enum PASSED for "PASSED"
+            /// </summary>
+            [EnumMember(Value = "PASSED")]
+            PASSED,
+            
+            /// <summary>
+            /// Enum FAILED for "FAILED"
+            /// </summary>
+            [EnumMember(Value = "FAILED")]
+            FAILED
+        }
+
+        /// <summary>
+        /// Gets or Sets PreviousObjectiveSuccess
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PreviousObjectiveSuccessEnum
+        {
+            
+            /// <summary>
+            /// Enum UNKNOWN for "UNKNOWN"
+            /// </summary>
+            [EnumMember(Value = "UNKNOWN")]
+            UNKNOWN,
+            
+            /// <summary>
+            /// Enum PASSED for "PASSED"
+            /// </summary>
+            [EnumMember(Value = "PASSED")]
+            PASSED,
+            
+            /// <summary>
+            /// Enum FAILED for "FAILED"
+            /// </summary>
+            [EnumMember(Value = "FAILED")]
+            FAILED
         }
 
         /// <summary>
@@ -62,62 +113,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         [DataMember(Name="objectiveCompletion", EmitDefaultValue=false)]
         public ObjectiveCompletionEnum? ObjectiveCompletion { get; set; }
         /// <summary>
-        /// Defines ObjectiveSuccess
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ObjectiveSuccessEnum
-        {
-            
-            /// <summary>
-            /// Enum UNKNOWN for value: UNKNOWN
-            /// </summary>
-            [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN = 1,
-            
-            /// <summary>
-            /// Enum PASSED for value: PASSED
-            /// </summary>
-            [EnumMember(Value = "PASSED")]
-            PASSED = 2,
-            
-            /// <summary>
-            /// Enum FAILED for value: FAILED
-            /// </summary>
-            [EnumMember(Value = "FAILED")]
-            FAILED = 3
-        }
-
-        /// <summary>
         /// Gets or Sets ObjectiveSuccess
         /// </summary>
         [DataMember(Name="objectiveSuccess", EmitDefaultValue=false)]
         public ObjectiveSuccessEnum? ObjectiveSuccess { get; set; }
-        /// <summary>
-        /// Defines PreviousObjectiveSuccess
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum PreviousObjectiveSuccessEnum
-        {
-            
-            /// <summary>
-            /// Enum UNKNOWN for value: UNKNOWN
-            /// </summary>
-            [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN = 1,
-            
-            /// <summary>
-            /// Enum PASSED for value: PASSED
-            /// </summary>
-            [EnumMember(Value = "PASSED")]
-            PASSED = 2,
-            
-            /// <summary>
-            /// Enum FAILED for value: FAILED
-            /// </summary>
-            [EnumMember(Value = "FAILED")]
-            FAILED = 3
-        }
-
         /// <summary>
         /// Gets or Sets PreviousObjectiveSuccess
         /// </summary>
@@ -126,57 +125,57 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectiveSchema" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="primary">primary.</param>
-        /// <param name="score">score.</param>
-        /// <param name="scoreMax">scoreMax.</param>
-        /// <param name="scoreMin">scoreMin.</param>
-        /// <param name="scoreRaw">scoreRaw.</param>
-        /// <param name="previousScoreScaled">previousScoreScaled.</param>
-        /// <param name="firstScoreScaled">firstScoreScaled.</param>
-        /// <param name="progressMeasure">progressMeasure.</param>
-        /// <param name="firstSuccessTimeStamp">firstSuccessTimeStamp.</param>
-        /// <param name="objectiveCompletion">objectiveCompletion (default to ObjectiveCompletionEnum.UNKNOWN).</param>
-        /// <param name="objectiveSuccess">objectiveSuccess (default to ObjectiveSuccessEnum.UNKNOWN).</param>
-        /// <param name="previousObjectiveSuccess">previousObjectiveSuccess (default to PreviousObjectiveSuccessEnum.UNKNOWN).</param>
-        public ObjectiveSchema(string id = default(string), bool? primary = default(bool?), ScoreSchema score = default(ScoreSchema), double? scoreMax = default(double?), double? scoreMin = default(double?), double? scoreRaw = default(double?), double? previousScoreScaled = default(double?), double? firstScoreScaled = default(double?), double? progressMeasure = default(double?), string firstSuccessTimeStamp = default(string), ObjectiveCompletionEnum? objectiveCompletion = ObjectiveCompletionEnum.UNKNOWN, ObjectiveSuccessEnum? objectiveSuccess = ObjectiveSuccessEnum.UNKNOWN, PreviousObjectiveSuccessEnum? previousObjectiveSuccess = PreviousObjectiveSuccessEnum.UNKNOWN)
+        /// <param name="Id">Id.</param>
+        /// <param name="Primary">Primary.</param>
+        /// <param name="Score">Score.</param>
+        /// <param name="ScoreMax">ScoreMax.</param>
+        /// <param name="ScoreMin">ScoreMin.</param>
+        /// <param name="ScoreRaw">ScoreRaw.</param>
+        /// <param name="PreviousScoreScaled">PreviousScoreScaled.</param>
+        /// <param name="FirstScoreScaled">FirstScoreScaled.</param>
+        /// <param name="ProgressMeasure">ProgressMeasure.</param>
+        /// <param name="FirstSuccessTimeStamp">FirstSuccessTimeStamp.</param>
+        /// <param name="ObjectiveCompletion">ObjectiveCompletion (default to ObjectiveCompletionEnum.UNKNOWN).</param>
+        /// <param name="ObjectiveSuccess">ObjectiveSuccess (default to ObjectiveSuccessEnum.UNKNOWN).</param>
+        /// <param name="PreviousObjectiveSuccess">PreviousObjectiveSuccess (default to PreviousObjectiveSuccessEnum.UNKNOWN).</param>
+        public ObjectiveSchema(string Id = default(string), bool? Primary = default(bool?), ScoreSchema Score = default(ScoreSchema), double? ScoreMax = default(double?), double? ScoreMin = default(double?), double? ScoreRaw = default(double?), double? PreviousScoreScaled = default(double?), double? FirstScoreScaled = default(double?), double? ProgressMeasure = default(double?), string FirstSuccessTimeStamp = default(string), ObjectiveCompletionEnum? ObjectiveCompletion = ObjectiveCompletionEnum.UNKNOWN, ObjectiveSuccessEnum? ObjectiveSuccess = ObjectiveSuccessEnum.UNKNOWN, PreviousObjectiveSuccessEnum? PreviousObjectiveSuccess = PreviousObjectiveSuccessEnum.UNKNOWN)
         {
-            this.Id = id;
-            this.Primary = primary;
-            this.Score = score;
-            this.ScoreMax = scoreMax;
-            this.ScoreMin = scoreMin;
-            this.ScoreRaw = scoreRaw;
-            this.PreviousScoreScaled = previousScoreScaled;
-            this.FirstScoreScaled = firstScoreScaled;
-            this.ProgressMeasure = progressMeasure;
-            this.FirstSuccessTimeStamp = firstSuccessTimeStamp;
-            // use default value if no "objectiveCompletion" provided
-            if (objectiveCompletion == null)
+            this.Id = Id;
+            this.Primary = Primary;
+            this.Score = Score;
+            this.ScoreMax = ScoreMax;
+            this.ScoreMin = ScoreMin;
+            this.ScoreRaw = ScoreRaw;
+            this.PreviousScoreScaled = PreviousScoreScaled;
+            this.FirstScoreScaled = FirstScoreScaled;
+            this.ProgressMeasure = ProgressMeasure;
+            this.FirstSuccessTimeStamp = FirstSuccessTimeStamp;
+            // use default value if no "ObjectiveCompletion" provided
+            if (ObjectiveCompletion == null)
             {
                 this.ObjectiveCompletion = ObjectiveCompletionEnum.UNKNOWN;
             }
             else
             {
-                this.ObjectiveCompletion = objectiveCompletion;
+                this.ObjectiveCompletion = ObjectiveCompletion;
             }
-            // use default value if no "objectiveSuccess" provided
-            if (objectiveSuccess == null)
+            // use default value if no "ObjectiveSuccess" provided
+            if (ObjectiveSuccess == null)
             {
                 this.ObjectiveSuccess = ObjectiveSuccessEnum.UNKNOWN;
             }
             else
             {
-                this.ObjectiveSuccess = objectiveSuccess;
+                this.ObjectiveSuccess = ObjectiveSuccess;
             }
-            // use default value if no "previousObjectiveSuccess" provided
-            if (previousObjectiveSuccess == null)
+            // use default value if no "PreviousObjectiveSuccess" provided
+            if (PreviousObjectiveSuccess == null)
             {
                 this.PreviousObjectiveSuccess = PreviousObjectiveSuccessEnum.UNKNOWN;
             }
             else
             {
-                this.PreviousObjectiveSuccess = previousObjectiveSuccess;
+                this.PreviousObjectiveSuccess = PreviousObjectiveSuccess;
             }
         }
         
@@ -185,64 +184,51 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-
         /// <summary>
         /// Gets or Sets Primary
         /// </summary>
         [DataMember(Name="primary", EmitDefaultValue=false)]
         public bool? Primary { get; set; }
-
         /// <summary>
         /// Gets or Sets Score
         /// </summary>
         [DataMember(Name="score", EmitDefaultValue=false)]
         public ScoreSchema Score { get; set; }
-
         /// <summary>
         /// Gets or Sets ScoreMax
         /// </summary>
         [DataMember(Name="scoreMax", EmitDefaultValue=false)]
         public double? ScoreMax { get; set; }
-
         /// <summary>
         /// Gets or Sets ScoreMin
         /// </summary>
         [DataMember(Name="scoreMin", EmitDefaultValue=false)]
         public double? ScoreMin { get; set; }
-
         /// <summary>
         /// Gets or Sets ScoreRaw
         /// </summary>
         [DataMember(Name="scoreRaw", EmitDefaultValue=false)]
         public double? ScoreRaw { get; set; }
-
         /// <summary>
         /// Gets or Sets PreviousScoreScaled
         /// </summary>
         [DataMember(Name="previousScoreScaled", EmitDefaultValue=false)]
         public double? PreviousScoreScaled { get; set; }
-
         /// <summary>
         /// Gets or Sets FirstScoreScaled
         /// </summary>
         [DataMember(Name="firstScoreScaled", EmitDefaultValue=false)]
         public double? FirstScoreScaled { get; set; }
-
         /// <summary>
         /// Gets or Sets ProgressMeasure
         /// </summary>
         [DataMember(Name="progressMeasure", EmitDefaultValue=false)]
         public double? ProgressMeasure { get; set; }
-
         /// <summary>
         /// Gets or Sets FirstSuccessTimeStamp
         /// </summary>
         [DataMember(Name="firstSuccessTimeStamp", EmitDefaultValue=false)]
         public string FirstSuccessTimeStamp { get; set; }
-
-
-
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -272,7 +258,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -280,88 +266,90 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as ObjectiveSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as ObjectiveSchema);
         }
 
         /// <summary>
         /// Returns true if ObjectiveSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of ObjectiveSchema to be compared</param>
+        /// <param name="other">Instance of ObjectiveSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ObjectiveSchema input)
+        public bool Equals(ObjectiveSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Primary == input.Primary ||
-                    (this.Primary != null &&
-                    this.Primary.Equals(input.Primary))
+                    this.Primary == other.Primary ||
+                    this.Primary != null &&
+                    this.Primary.Equals(other.Primary)
                 ) && 
                 (
-                    this.Score == input.Score ||
-                    (this.Score != null &&
-                    this.Score.Equals(input.Score))
+                    this.Score == other.Score ||
+                    this.Score != null &&
+                    this.Score.Equals(other.Score)
                 ) && 
                 (
-                    this.ScoreMax == input.ScoreMax ||
-                    (this.ScoreMax != null &&
-                    this.ScoreMax.Equals(input.ScoreMax))
+                    this.ScoreMax == other.ScoreMax ||
+                    this.ScoreMax != null &&
+                    this.ScoreMax.Equals(other.ScoreMax)
                 ) && 
                 (
-                    this.ScoreMin == input.ScoreMin ||
-                    (this.ScoreMin != null &&
-                    this.ScoreMin.Equals(input.ScoreMin))
+                    this.ScoreMin == other.ScoreMin ||
+                    this.ScoreMin != null &&
+                    this.ScoreMin.Equals(other.ScoreMin)
                 ) && 
                 (
-                    this.ScoreRaw == input.ScoreRaw ||
-                    (this.ScoreRaw != null &&
-                    this.ScoreRaw.Equals(input.ScoreRaw))
+                    this.ScoreRaw == other.ScoreRaw ||
+                    this.ScoreRaw != null &&
+                    this.ScoreRaw.Equals(other.ScoreRaw)
                 ) && 
                 (
-                    this.PreviousScoreScaled == input.PreviousScoreScaled ||
-                    (this.PreviousScoreScaled != null &&
-                    this.PreviousScoreScaled.Equals(input.PreviousScoreScaled))
+                    this.PreviousScoreScaled == other.PreviousScoreScaled ||
+                    this.PreviousScoreScaled != null &&
+                    this.PreviousScoreScaled.Equals(other.PreviousScoreScaled)
                 ) && 
                 (
-                    this.FirstScoreScaled == input.FirstScoreScaled ||
-                    (this.FirstScoreScaled != null &&
-                    this.FirstScoreScaled.Equals(input.FirstScoreScaled))
+                    this.FirstScoreScaled == other.FirstScoreScaled ||
+                    this.FirstScoreScaled != null &&
+                    this.FirstScoreScaled.Equals(other.FirstScoreScaled)
                 ) && 
                 (
-                    this.ProgressMeasure == input.ProgressMeasure ||
-                    (this.ProgressMeasure != null &&
-                    this.ProgressMeasure.Equals(input.ProgressMeasure))
+                    this.ProgressMeasure == other.ProgressMeasure ||
+                    this.ProgressMeasure != null &&
+                    this.ProgressMeasure.Equals(other.ProgressMeasure)
                 ) && 
                 (
-                    this.FirstSuccessTimeStamp == input.FirstSuccessTimeStamp ||
-                    (this.FirstSuccessTimeStamp != null &&
-                    this.FirstSuccessTimeStamp.Equals(input.FirstSuccessTimeStamp))
+                    this.FirstSuccessTimeStamp == other.FirstSuccessTimeStamp ||
+                    this.FirstSuccessTimeStamp != null &&
+                    this.FirstSuccessTimeStamp.Equals(other.FirstSuccessTimeStamp)
                 ) && 
                 (
-                    this.ObjectiveCompletion == input.ObjectiveCompletion ||
-                    (this.ObjectiveCompletion != null &&
-                    this.ObjectiveCompletion.Equals(input.ObjectiveCompletion))
+                    this.ObjectiveCompletion == other.ObjectiveCompletion ||
+                    this.ObjectiveCompletion != null &&
+                    this.ObjectiveCompletion.Equals(other.ObjectiveCompletion)
                 ) && 
                 (
-                    this.ObjectiveSuccess == input.ObjectiveSuccess ||
-                    (this.ObjectiveSuccess != null &&
-                    this.ObjectiveSuccess.Equals(input.ObjectiveSuccess))
+                    this.ObjectiveSuccess == other.ObjectiveSuccess ||
+                    this.ObjectiveSuccess != null &&
+                    this.ObjectiveSuccess.Equals(other.ObjectiveSuccess)
                 ) && 
                 (
-                    this.PreviousObjectiveSuccess == input.PreviousObjectiveSuccess ||
-                    (this.PreviousObjectiveSuccess != null &&
-                    this.PreviousObjectiveSuccess.Equals(input.PreviousObjectiveSuccess))
+                    this.PreviousObjectiveSuccess == other.PreviousObjectiveSuccess ||
+                    this.PreviousObjectiveSuccess != null &&
+                    this.PreviousObjectiveSuccess.Equals(other.PreviousObjectiveSuccess)
                 );
         }
 
@@ -371,46 +359,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Primary != null)
-                    hashCode = hashCode * 59 + this.Primary.GetHashCode();
+                    hash = hash * 59 + this.Primary.GetHashCode();
                 if (this.Score != null)
-                    hashCode = hashCode * 59 + this.Score.GetHashCode();
+                    hash = hash * 59 + this.Score.GetHashCode();
                 if (this.ScoreMax != null)
-                    hashCode = hashCode * 59 + this.ScoreMax.GetHashCode();
+                    hash = hash * 59 + this.ScoreMax.GetHashCode();
                 if (this.ScoreMin != null)
-                    hashCode = hashCode * 59 + this.ScoreMin.GetHashCode();
+                    hash = hash * 59 + this.ScoreMin.GetHashCode();
                 if (this.ScoreRaw != null)
-                    hashCode = hashCode * 59 + this.ScoreRaw.GetHashCode();
+                    hash = hash * 59 + this.ScoreRaw.GetHashCode();
                 if (this.PreviousScoreScaled != null)
-                    hashCode = hashCode * 59 + this.PreviousScoreScaled.GetHashCode();
+                    hash = hash * 59 + this.PreviousScoreScaled.GetHashCode();
                 if (this.FirstScoreScaled != null)
-                    hashCode = hashCode * 59 + this.FirstScoreScaled.GetHashCode();
+                    hash = hash * 59 + this.FirstScoreScaled.GetHashCode();
                 if (this.ProgressMeasure != null)
-                    hashCode = hashCode * 59 + this.ProgressMeasure.GetHashCode();
+                    hash = hash * 59 + this.ProgressMeasure.GetHashCode();
                 if (this.FirstSuccessTimeStamp != null)
-                    hashCode = hashCode * 59 + this.FirstSuccessTimeStamp.GetHashCode();
+                    hash = hash * 59 + this.FirstSuccessTimeStamp.GetHashCode();
                 if (this.ObjectiveCompletion != null)
-                    hashCode = hashCode * 59 + this.ObjectiveCompletion.GetHashCode();
+                    hash = hash * 59 + this.ObjectiveCompletion.GetHashCode();
                 if (this.ObjectiveSuccess != null)
-                    hashCode = hashCode * 59 + this.ObjectiveSuccess.GetHashCode();
+                    hash = hash * 59 + this.ObjectiveSuccess.GetHashCode();
                 if (this.PreviousObjectiveSuccess != null)
-                    hashCode = hashCode * 59 + this.PreviousObjectiveSuccess.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.PreviousObjectiveSuccess.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -31,29 +30,55 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class LaunchHistorySchema :  IEquatable<LaunchHistorySchema>, IValidatableObject
     {
         /// <summary>
-        /// Defines CompletionStatus
+        /// Gets or Sets CompletionStatus
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CompletionStatusEnum
         {
             
             /// <summary>
-            /// Enum UNKNOWN for value: UNKNOWN
+            /// Enum UNKNOWN for "UNKNOWN"
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN = 1,
+            UNKNOWN,
             
             /// <summary>
-            /// Enum COMPLETED for value: COMPLETED
+            /// Enum COMPLETED for "COMPLETED"
             /// </summary>
             [EnumMember(Value = "COMPLETED")]
-            COMPLETED = 2,
+            COMPLETED,
             
             /// <summary>
-            /// Enum INCOMPLETE for value: INCOMPLETE
+            /// Enum INCOMPLETE for "INCOMPLETE"
             /// </summary>
             [EnumMember(Value = "INCOMPLETE")]
-            INCOMPLETE = 3
+            INCOMPLETE
+        }
+
+        /// <summary>
+        /// Gets or Sets SuccessStatus
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SuccessStatusEnum
+        {
+            
+            /// <summary>
+            /// Enum UNKNOWN for "UNKNOWN"
+            /// </summary>
+            [EnumMember(Value = "UNKNOWN")]
+            UNKNOWN,
+            
+            /// <summary>
+            /// Enum PASSED for "PASSED"
+            /// </summary>
+            [EnumMember(Value = "PASSED")]
+            PASSED,
+            
+            /// <summary>
+            /// Enum FAILED for "FAILED"
+            /// </summary>
+            [EnumMember(Value = "FAILED")]
+            FAILED
         }
 
         /// <summary>
@@ -62,32 +87,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         [DataMember(Name="completionStatus", EmitDefaultValue=false)]
         public CompletionStatusEnum? CompletionStatus { get; set; }
         /// <summary>
-        /// Defines SuccessStatus
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SuccessStatusEnum
-        {
-            
-            /// <summary>
-            /// Enum UNKNOWN for value: UNKNOWN
-            /// </summary>
-            [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN = 1,
-            
-            /// <summary>
-            /// Enum PASSED for value: PASSED
-            /// </summary>
-            [EnumMember(Value = "PASSED")]
-            PASSED = 2,
-            
-            /// <summary>
-            /// Enum FAILED for value: FAILED
-            /// </summary>
-            [EnumMember(Value = "FAILED")]
-            FAILED = 3
-        }
-
-        /// <summary>
         /// Gets or Sets SuccessStatus
         /// </summary>
         [DataMember(Name="successStatus", EmitDefaultValue=false)]
@@ -95,44 +94,44 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaunchHistorySchema" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="instance">instance.</param>
-        /// <param name="score">score.</param>
-        /// <param name="completionStatus">completionStatus (default to CompletionStatusEnum.UNKNOWN).</param>
-        /// <param name="successStatus">successStatus (default to SuccessStatusEnum.UNKNOWN).</param>
-        /// <param name="historyLog">historyLog.</param>
-        /// <param name="totalSecondsTracked">totalSecondsTracked.</param>
-        /// <param name="launchTime">The time of the launch in UTC.</param>
-        /// <param name="exitTime">The time of the exit in UTC.</param>
-        /// <param name="lastRuntimeUpdate">The time of the last runtime update in UTC.</param>
-        public LaunchHistorySchema(string id = default(string), int? instance = default(int?), ScoreSchema score = default(ScoreSchema), CompletionStatusEnum? completionStatus = CompletionStatusEnum.UNKNOWN, SuccessStatusEnum? successStatus = SuccessStatusEnum.UNKNOWN, string historyLog = default(string), double? totalSecondsTracked = default(double?), DateTime? launchTime = default(DateTime?), DateTime? exitTime = default(DateTime?), DateTime? lastRuntimeUpdate = default(DateTime?))
+        /// <param name="Id">Id.</param>
+        /// <param name="Instance">Instance.</param>
+        /// <param name="Score">Score.</param>
+        /// <param name="CompletionStatus">CompletionStatus (default to CompletionStatusEnum.UNKNOWN).</param>
+        /// <param name="SuccessStatus">SuccessStatus (default to SuccessStatusEnum.UNKNOWN).</param>
+        /// <param name="HistoryLog">HistoryLog.</param>
+        /// <param name="TotalSecondsTracked">TotalSecondsTracked.</param>
+        /// <param name="LaunchTime">The time of the launch in UTC.</param>
+        /// <param name="ExitTime">The time of the exit in UTC.</param>
+        /// <param name="LastRuntimeUpdate">The time of the last runtime update in UTC.</param>
+        public LaunchHistorySchema(string Id = default(string), int? Instance = default(int?), ScoreSchema Score = default(ScoreSchema), CompletionStatusEnum? CompletionStatus = CompletionStatusEnum.UNKNOWN, SuccessStatusEnum? SuccessStatus = SuccessStatusEnum.UNKNOWN, string HistoryLog = default(string), double? TotalSecondsTracked = default(double?), DateTime? LaunchTime = default(DateTime?), DateTime? ExitTime = default(DateTime?), DateTime? LastRuntimeUpdate = default(DateTime?))
         {
-            this.Id = id;
-            this.Instance = instance;
-            this.Score = score;
-            // use default value if no "completionStatus" provided
-            if (completionStatus == null)
+            this.Id = Id;
+            this.Instance = Instance;
+            this.Score = Score;
+            // use default value if no "CompletionStatus" provided
+            if (CompletionStatus == null)
             {
                 this.CompletionStatus = CompletionStatusEnum.UNKNOWN;
             }
             else
             {
-                this.CompletionStatus = completionStatus;
+                this.CompletionStatus = CompletionStatus;
             }
-            // use default value if no "successStatus" provided
-            if (successStatus == null)
+            // use default value if no "SuccessStatus" provided
+            if (SuccessStatus == null)
             {
                 this.SuccessStatus = SuccessStatusEnum.UNKNOWN;
             }
             else
             {
-                this.SuccessStatus = successStatus;
+                this.SuccessStatus = SuccessStatus;
             }
-            this.HistoryLog = historyLog;
-            this.TotalSecondsTracked = totalSecondsTracked;
-            this.LaunchTime = launchTime;
-            this.ExitTime = exitTime;
-            this.LastRuntimeUpdate = lastRuntimeUpdate;
+            this.HistoryLog = HistoryLog;
+            this.TotalSecondsTracked = TotalSecondsTracked;
+            this.LaunchTime = LaunchTime;
+            this.ExitTime = ExitTime;
+            this.LastRuntimeUpdate = LastRuntimeUpdate;
         }
         
         /// <summary>
@@ -140,54 +139,44 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-
         /// <summary>
         /// Gets or Sets Instance
         /// </summary>
         [DataMember(Name="instance", EmitDefaultValue=false)]
         public int? Instance { get; set; }
-
         /// <summary>
         /// Gets or Sets Score
         /// </summary>
         [DataMember(Name="score", EmitDefaultValue=false)]
         public ScoreSchema Score { get; set; }
-
-
-
         /// <summary>
         /// Gets or Sets HistoryLog
         /// </summary>
         [DataMember(Name="historyLog", EmitDefaultValue=false)]
         public string HistoryLog { get; set; }
-
         /// <summary>
         /// Gets or Sets TotalSecondsTracked
         /// </summary>
         [DataMember(Name="totalSecondsTracked", EmitDefaultValue=false)]
         public double? TotalSecondsTracked { get; set; }
-
         /// <summary>
         /// The time of the launch in UTC
         /// </summary>
         /// <value>The time of the launch in UTC</value>
         [DataMember(Name="launchTime", EmitDefaultValue=false)]
         public DateTime? LaunchTime { get; set; }
-
         /// <summary>
         /// The time of the exit in UTC
         /// </summary>
         /// <value>The time of the exit in UTC</value>
         [DataMember(Name="exitTime", EmitDefaultValue=false)]
         public DateTime? ExitTime { get; set; }
-
         /// <summary>
         /// The time of the last runtime update in UTC
         /// </summary>
         /// <value>The time of the last runtime update in UTC</value>
         [DataMember(Name="lastRuntimeUpdate", EmitDefaultValue=false)]
         public DateTime? LastRuntimeUpdate { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -214,7 +203,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -222,73 +211,75 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as LaunchHistorySchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as LaunchHistorySchema);
         }
 
         /// <summary>
         /// Returns true if LaunchHistorySchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of LaunchHistorySchema to be compared</param>
+        /// <param name="other">Instance of LaunchHistorySchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LaunchHistorySchema input)
+        public bool Equals(LaunchHistorySchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Instance == input.Instance ||
-                    (this.Instance != null &&
-                    this.Instance.Equals(input.Instance))
+                    this.Instance == other.Instance ||
+                    this.Instance != null &&
+                    this.Instance.Equals(other.Instance)
                 ) && 
                 (
-                    this.Score == input.Score ||
-                    (this.Score != null &&
-                    this.Score.Equals(input.Score))
+                    this.Score == other.Score ||
+                    this.Score != null &&
+                    this.Score.Equals(other.Score)
                 ) && 
                 (
-                    this.CompletionStatus == input.CompletionStatus ||
-                    (this.CompletionStatus != null &&
-                    this.CompletionStatus.Equals(input.CompletionStatus))
+                    this.CompletionStatus == other.CompletionStatus ||
+                    this.CompletionStatus != null &&
+                    this.CompletionStatus.Equals(other.CompletionStatus)
                 ) && 
                 (
-                    this.SuccessStatus == input.SuccessStatus ||
-                    (this.SuccessStatus != null &&
-                    this.SuccessStatus.Equals(input.SuccessStatus))
+                    this.SuccessStatus == other.SuccessStatus ||
+                    this.SuccessStatus != null &&
+                    this.SuccessStatus.Equals(other.SuccessStatus)
                 ) && 
                 (
-                    this.HistoryLog == input.HistoryLog ||
-                    (this.HistoryLog != null &&
-                    this.HistoryLog.Equals(input.HistoryLog))
+                    this.HistoryLog == other.HistoryLog ||
+                    this.HistoryLog != null &&
+                    this.HistoryLog.Equals(other.HistoryLog)
                 ) && 
                 (
-                    this.TotalSecondsTracked == input.TotalSecondsTracked ||
-                    (this.TotalSecondsTracked != null &&
-                    this.TotalSecondsTracked.Equals(input.TotalSecondsTracked))
+                    this.TotalSecondsTracked == other.TotalSecondsTracked ||
+                    this.TotalSecondsTracked != null &&
+                    this.TotalSecondsTracked.Equals(other.TotalSecondsTracked)
                 ) && 
                 (
-                    this.LaunchTime == input.LaunchTime ||
-                    (this.LaunchTime != null &&
-                    this.LaunchTime.Equals(input.LaunchTime))
+                    this.LaunchTime == other.LaunchTime ||
+                    this.LaunchTime != null &&
+                    this.LaunchTime.Equals(other.LaunchTime)
                 ) && 
                 (
-                    this.ExitTime == input.ExitTime ||
-                    (this.ExitTime != null &&
-                    this.ExitTime.Equals(input.ExitTime))
+                    this.ExitTime == other.ExitTime ||
+                    this.ExitTime != null &&
+                    this.ExitTime.Equals(other.ExitTime)
                 ) && 
                 (
-                    this.LastRuntimeUpdate == input.LastRuntimeUpdate ||
-                    (this.LastRuntimeUpdate != null &&
-                    this.LastRuntimeUpdate.Equals(input.LastRuntimeUpdate))
+                    this.LastRuntimeUpdate == other.LastRuntimeUpdate ||
+                    this.LastRuntimeUpdate != null &&
+                    this.LastRuntimeUpdate.Equals(other.LastRuntimeUpdate)
                 );
         }
 
@@ -298,40 +289,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Instance != null)
-                    hashCode = hashCode * 59 + this.Instance.GetHashCode();
+                    hash = hash * 59 + this.Instance.GetHashCode();
                 if (this.Score != null)
-                    hashCode = hashCode * 59 + this.Score.GetHashCode();
+                    hash = hash * 59 + this.Score.GetHashCode();
                 if (this.CompletionStatus != null)
-                    hashCode = hashCode * 59 + this.CompletionStatus.GetHashCode();
+                    hash = hash * 59 + this.CompletionStatus.GetHashCode();
                 if (this.SuccessStatus != null)
-                    hashCode = hashCode * 59 + this.SuccessStatus.GetHashCode();
+                    hash = hash * 59 + this.SuccessStatus.GetHashCode();
                 if (this.HistoryLog != null)
-                    hashCode = hashCode * 59 + this.HistoryLog.GetHashCode();
+                    hash = hash * 59 + this.HistoryLog.GetHashCode();
                 if (this.TotalSecondsTracked != null)
-                    hashCode = hashCode * 59 + this.TotalSecondsTracked.GetHashCode();
+                    hash = hash * 59 + this.TotalSecondsTracked.GetHashCode();
                 if (this.LaunchTime != null)
-                    hashCode = hashCode * 59 + this.LaunchTime.GetHashCode();
+                    hash = hash * 59 + this.LaunchTime.GetHashCode();
                 if (this.ExitTime != null)
-                    hashCode = hashCode * 59 + this.ExitTime.GetHashCode();
+                    hash = hash * 59 + this.ExitTime.GetHashCode();
                 if (this.LastRuntimeUpdate != null)
-                    hashCode = hashCode * 59 + this.LastRuntimeUpdate.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.LastRuntimeUpdate.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

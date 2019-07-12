@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,31 +32,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PingSchema" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PingSchema() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PingSchema" /> class.
-        /// </summary>
-        /// <param name="message">message (required).</param>
-        public PingSchema(string message = default(string))
+        /// <param name="ApiMessage">ApiMessage.</param>
+        /// <param name="CurrentTime">CurrentTime.</param>
+        public PingSchema(string ApiMessage = default(string), string CurrentTime = default(string))
         {
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new InvalidDataException("message is a required property for PingSchema and cannot be null");
-            }
-            else
-            {
-                this.Message = message;
-            }
+            this.ApiMessage = ApiMessage;
+            this.CurrentTime = CurrentTime;
         }
         
         /// <summary>
-        /// Gets or Sets Message
+        /// Gets or Sets ApiMessage
         /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
+        [DataMember(Name="apiMessage", EmitDefaultValue=false)]
+        public string ApiMessage { get; set; }
+        /// <summary>
+        /// Gets or Sets CurrentTime
+        /// </summary>
+        [DataMember(Name="currentTime", EmitDefaultValue=false)]
+        public string CurrentTime { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -66,7 +58,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PingSchema {\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  ApiMessage: ").Append(ApiMessage).Append("\n");
+            sb.Append("  CurrentTime: ").Append(CurrentTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,7 +68,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -83,28 +76,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as PingSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as PingSchema);
         }
 
         /// <summary>
         /// Returns true if PingSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of PingSchema to be compared</param>
+        /// <param name="other">Instance of PingSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PingSchema input)
+        public bool Equals(PingSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.ApiMessage == other.ApiMessage ||
+                    this.ApiMessage != null &&
+                    this.ApiMessage.Equals(other.ApiMessage)
+                ) && 
+                (
+                    this.CurrentTime == other.CurrentTime ||
+                    this.CurrentTime != null &&
+                    this.CurrentTime.Equals(other.CurrentTime)
                 );
         }
 
@@ -114,22 +114,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                return hashCode;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
+                if (this.ApiMessage != null)
+                    hash = hash * 59 + this.ApiMessage.GetHashCode();
+                if (this.CurrentTime != null)
+                    hash = hash * 59 + this.CurrentTime.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

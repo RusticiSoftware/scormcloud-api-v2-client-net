@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -31,60 +30,52 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class RegistrationSchema :  IEquatable<RegistrationSchema>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets RegistrationCompletion
-        /// </summary>
-        [DataMember(Name="registrationCompletion", EmitDefaultValue=false)]
-        public RegistrationCompletion? RegistrationCompletion { get; set; }
-        /// <summary>
-        /// Gets or Sets RegistrationSuccess
-        /// </summary>
-        [DataMember(Name="registrationSuccess", EmitDefaultValue=false)]
-        public RegistrationSuccess? RegistrationSuccess { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="RegistrationSchema" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="instance">instance.</param>
-        /// <param name="xapiRegistrationId">xAPI registration id associated with this registration.</param>
-        /// <param name="dispatchId">Dispatch ID for this registration, if applicable.</param>
-        /// <param name="updated">updated.</param>
-        /// <param name="registrationCompletion">registrationCompletion.</param>
-        /// <param name="registrationCompletionAmount">registrationCompletionAmount.</param>
-        /// <param name="registrationSuccess">registrationSuccess.</param>
-        /// <param name="score">score.</param>
-        /// <param name="totalSecondsTracked">totalSecondsTracked.</param>
-        /// <param name="firstAccessDate">firstAccessDate.</param>
-        /// <param name="lastAccessDate">lastAccessDate.</param>
-        /// <param name="completedDate">completedDate.</param>
-        /// <param name="createdDate">createdDate.</param>
-        /// <param name="course">course.</param>
-        /// <param name="learner">learner.</param>
-        /// <param name="globalObjectives">globalObjectives.</param>
-        /// <param name="sharedData">sharedData.</param>
-        /// <param name="suspendedActivityId">suspendedActivityId.</param>
-        /// <param name="activityDetails">activityDetails.</param>
-        public RegistrationSchema(string id = default(string), int? instance = default(int?), string xapiRegistrationId = default(string), string dispatchId = default(string), DateTime? updated = default(DateTime?), RegistrationCompletion? registrationCompletion = default(RegistrationCompletion?), double? registrationCompletionAmount = default(double?), RegistrationSuccess? registrationSuccess = default(RegistrationSuccess?), ScoreSchema score = default(ScoreSchema), double? totalSecondsTracked = default(double?), DateTime? firstAccessDate = default(DateTime?), DateTime? lastAccessDate = default(DateTime?), DateTime? completedDate = default(DateTime?), DateTime? createdDate = default(DateTime?), CourseReferenceSchema course = default(CourseReferenceSchema), LearnerSchema learner = default(LearnerSchema), List<ObjectiveSchema> globalObjectives = default(List<ObjectiveSchema>), List<SharedDataEntrySchema> sharedData = default(List<SharedDataEntrySchema>), string suspendedActivityId = default(string), ActivityResultSchema activityDetails = default(ActivityResultSchema))
+        /// <param name="Id">Id.</param>
+        /// <param name="Instance">Instance.</param>
+        /// <param name="XapiRegistrationId">xAPI registration id associated with this registration.</param>
+        /// <param name="DispatchId">Dispatch ID for this registration, if applicable.</param>
+        /// <param name="Updated">Updated.</param>
+        /// <param name="RegistrationCompletion">RegistrationCompletion.</param>
+        /// <param name="RegistrationCompletionAmount">RegistrationCompletionAmount.</param>
+        /// <param name="RegistrationSuccess">RegistrationSuccess.</param>
+        /// <param name="Score">Score.</param>
+        /// <param name="TotalSecondsTracked">TotalSecondsTracked.</param>
+        /// <param name="FirstAccessDate">FirstAccessDate.</param>
+        /// <param name="LastAccessDate">LastAccessDate.</param>
+        /// <param name="CompletedDate">CompletedDate.</param>
+        /// <param name="CreatedDate">CreatedDate.</param>
+        /// <param name="Course">Course.</param>
+        /// <param name="Learner">Learner.</param>
+        /// <param name="Tags">Tags.</param>
+        /// <param name="GlobalObjectives">GlobalObjectives.</param>
+        /// <param name="SharedData">SharedData.</param>
+        /// <param name="SuspendedActivityId">SuspendedActivityId.</param>
+        /// <param name="ActivityDetails">ActivityDetails.</param>
+        public RegistrationSchema(string Id = default(string), int? Instance = default(int?), string XapiRegistrationId = default(string), string DispatchId = default(string), DateTime? Updated = default(DateTime?), RegistrationCompletion RegistrationCompletion = default(RegistrationCompletion), double? RegistrationCompletionAmount = default(double?), RegistrationSuccess RegistrationSuccess = default(RegistrationSuccess), ScoreSchema Score = default(ScoreSchema), double? TotalSecondsTracked = default(double?), DateTime? FirstAccessDate = default(DateTime?), DateTime? LastAccessDate = default(DateTime?), DateTime? CompletedDate = default(DateTime?), DateTime? CreatedDate = default(DateTime?), CourseReferenceSchema Course = default(CourseReferenceSchema), LearnerSchema Learner = default(LearnerSchema), List<string> Tags = default(List<string>), List<ObjectiveSchema> GlobalObjectives = default(List<ObjectiveSchema>), List<SharedDataEntrySchema> SharedData = default(List<SharedDataEntrySchema>), string SuspendedActivityId = default(string), ActivityResultSchema ActivityDetails = default(ActivityResultSchema))
         {
-            this.Id = id;
-            this.Instance = instance;
-            this.XapiRegistrationId = xapiRegistrationId;
-            this.DispatchId = dispatchId;
-            this.Updated = updated;
-            this.RegistrationCompletion = registrationCompletion;
-            this.RegistrationCompletionAmount = registrationCompletionAmount;
-            this.RegistrationSuccess = registrationSuccess;
-            this.Score = score;
-            this.TotalSecondsTracked = totalSecondsTracked;
-            this.FirstAccessDate = firstAccessDate;
-            this.LastAccessDate = lastAccessDate;
-            this.CompletedDate = completedDate;
-            this.CreatedDate = createdDate;
-            this.Course = course;
-            this.Learner = learner;
-            this.GlobalObjectives = globalObjectives;
-            this.SharedData = sharedData;
-            this.SuspendedActivityId = suspendedActivityId;
-            this.ActivityDetails = activityDetails;
+            this.Id = Id;
+            this.Instance = Instance;
+            this.XapiRegistrationId = XapiRegistrationId;
+            this.DispatchId = DispatchId;
+            this.Updated = Updated;
+            this.RegistrationCompletion = RegistrationCompletion;
+            this.RegistrationCompletionAmount = RegistrationCompletionAmount;
+            this.RegistrationSuccess = RegistrationSuccess;
+            this.Score = Score;
+            this.TotalSecondsTracked = TotalSecondsTracked;
+            this.FirstAccessDate = FirstAccessDate;
+            this.LastAccessDate = LastAccessDate;
+            this.CompletedDate = CompletedDate;
+            this.CreatedDate = CreatedDate;
+            this.Course = Course;
+            this.Learner = Learner;
+            this.Tags = Tags;
+            this.GlobalObjectives = GlobalObjectives;
+            this.SharedData = SharedData;
+            this.SuspendedActivityId = SuspendedActivityId;
+            this.ActivityDetails = ActivityDetails;
         }
         
         /// <summary>
@@ -92,113 +83,108 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-
         /// <summary>
         /// Gets or Sets Instance
         /// </summary>
         [DataMember(Name="instance", EmitDefaultValue=false)]
         public int? Instance { get; set; }
-
         /// <summary>
         /// xAPI registration id associated with this registration
         /// </summary>
         /// <value>xAPI registration id associated with this registration</value>
         [DataMember(Name="xapiRegistrationId", EmitDefaultValue=false)]
         public string XapiRegistrationId { get; set; }
-
         /// <summary>
         /// Dispatch ID for this registration, if applicable
         /// </summary>
         /// <value>Dispatch ID for this registration, if applicable</value>
         [DataMember(Name="dispatchId", EmitDefaultValue=false)]
         public string DispatchId { get; set; }
-
         /// <summary>
         /// Gets or Sets Updated
         /// </summary>
         [DataMember(Name="updated", EmitDefaultValue=false)]
         public DateTime? Updated { get; set; }
-
-
+        /// <summary>
+        /// Gets or Sets RegistrationCompletion
+        /// </summary>
+        [DataMember(Name="registrationCompletion", EmitDefaultValue=false)]
+        public RegistrationCompletion RegistrationCompletion { get; set; }
         /// <summary>
         /// Gets or Sets RegistrationCompletionAmount
         /// </summary>
         [DataMember(Name="registrationCompletionAmount", EmitDefaultValue=false)]
         public double? RegistrationCompletionAmount { get; set; }
-
-
+        /// <summary>
+        /// Gets or Sets RegistrationSuccess
+        /// </summary>
+        [DataMember(Name="registrationSuccess", EmitDefaultValue=false)]
+        public RegistrationSuccess RegistrationSuccess { get; set; }
         /// <summary>
         /// Gets or Sets Score
         /// </summary>
         [DataMember(Name="score", EmitDefaultValue=false)]
         public ScoreSchema Score { get; set; }
-
         /// <summary>
         /// Gets or Sets TotalSecondsTracked
         /// </summary>
         [DataMember(Name="totalSecondsTracked", EmitDefaultValue=false)]
         public double? TotalSecondsTracked { get; set; }
-
         /// <summary>
         /// Gets or Sets FirstAccessDate
         /// </summary>
         [DataMember(Name="firstAccessDate", EmitDefaultValue=false)]
         public DateTime? FirstAccessDate { get; set; }
-
         /// <summary>
         /// Gets or Sets LastAccessDate
         /// </summary>
         [DataMember(Name="lastAccessDate", EmitDefaultValue=false)]
         public DateTime? LastAccessDate { get; set; }
-
         /// <summary>
         /// Gets or Sets CompletedDate
         /// </summary>
         [DataMember(Name="completedDate", EmitDefaultValue=false)]
         public DateTime? CompletedDate { get; set; }
-
         /// <summary>
         /// Gets or Sets CreatedDate
         /// </summary>
         [DataMember(Name="createdDate", EmitDefaultValue=false)]
         public DateTime? CreatedDate { get; set; }
-
         /// <summary>
         /// Gets or Sets Course
         /// </summary>
         [DataMember(Name="course", EmitDefaultValue=false)]
         public CourseReferenceSchema Course { get; set; }
-
         /// <summary>
         /// Gets or Sets Learner
         /// </summary>
         [DataMember(Name="learner", EmitDefaultValue=false)]
         public LearnerSchema Learner { get; set; }
-
+        /// <summary>
+        /// Gets or Sets Tags
+        /// </summary>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public List<string> Tags { get; set; }
         /// <summary>
         /// Gets or Sets GlobalObjectives
         /// </summary>
         [DataMember(Name="globalObjectives", EmitDefaultValue=false)]
         public List<ObjectiveSchema> GlobalObjectives { get; set; }
-
         /// <summary>
         /// Gets or Sets SharedData
         /// </summary>
         [DataMember(Name="sharedData", EmitDefaultValue=false)]
         public List<SharedDataEntrySchema> SharedData { get; set; }
-
         /// <summary>
         /// Gets or Sets SuspendedActivityId
         /// </summary>
         [DataMember(Name="suspendedActivityId", EmitDefaultValue=false)]
         public string SuspendedActivityId { get; set; }
-
         /// <summary>
         /// Gets or Sets ActivityDetails
         /// </summary>
         [DataMember(Name="activityDetails", EmitDefaultValue=false)]
         public ActivityResultSchema ActivityDetails { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -223,6 +209,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  CreatedDate: ").Append(CreatedDate).Append("\n");
             sb.Append("  Course: ").Append(Course).Append("\n");
             sb.Append("  Learner: ").Append(Learner).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  GlobalObjectives: ").Append(GlobalObjectives).Append("\n");
             sb.Append("  SharedData: ").Append(SharedData).Append("\n");
             sb.Append("  SuspendedActivityId: ").Append(SuspendedActivityId).Append("\n");
@@ -235,7 +222,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -243,123 +230,130 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as RegistrationSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as RegistrationSchema);
         }
 
         /// <summary>
         /// Returns true if RegistrationSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of RegistrationSchema to be compared</param>
+        /// <param name="other">Instance of RegistrationSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RegistrationSchema input)
+        public bool Equals(RegistrationSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Instance == input.Instance ||
-                    (this.Instance != null &&
-                    this.Instance.Equals(input.Instance))
+                    this.Instance == other.Instance ||
+                    this.Instance != null &&
+                    this.Instance.Equals(other.Instance)
                 ) && 
                 (
-                    this.XapiRegistrationId == input.XapiRegistrationId ||
-                    (this.XapiRegistrationId != null &&
-                    this.XapiRegistrationId.Equals(input.XapiRegistrationId))
+                    this.XapiRegistrationId == other.XapiRegistrationId ||
+                    this.XapiRegistrationId != null &&
+                    this.XapiRegistrationId.Equals(other.XapiRegistrationId)
                 ) && 
                 (
-                    this.DispatchId == input.DispatchId ||
-                    (this.DispatchId != null &&
-                    this.DispatchId.Equals(input.DispatchId))
+                    this.DispatchId == other.DispatchId ||
+                    this.DispatchId != null &&
+                    this.DispatchId.Equals(other.DispatchId)
                 ) && 
                 (
-                    this.Updated == input.Updated ||
-                    (this.Updated != null &&
-                    this.Updated.Equals(input.Updated))
+                    this.Updated == other.Updated ||
+                    this.Updated != null &&
+                    this.Updated.Equals(other.Updated)
                 ) && 
                 (
-                    this.RegistrationCompletion == input.RegistrationCompletion ||
-                    (this.RegistrationCompletion != null &&
-                    this.RegistrationCompletion.Equals(input.RegistrationCompletion))
+                    this.RegistrationCompletion == other.RegistrationCompletion ||
+                    this.RegistrationCompletion != null &&
+                    this.RegistrationCompletion.Equals(other.RegistrationCompletion)
                 ) && 
                 (
-                    this.RegistrationCompletionAmount == input.RegistrationCompletionAmount ||
-                    (this.RegistrationCompletionAmount != null &&
-                    this.RegistrationCompletionAmount.Equals(input.RegistrationCompletionAmount))
+                    this.RegistrationCompletionAmount == other.RegistrationCompletionAmount ||
+                    this.RegistrationCompletionAmount != null &&
+                    this.RegistrationCompletionAmount.Equals(other.RegistrationCompletionAmount)
                 ) && 
                 (
-                    this.RegistrationSuccess == input.RegistrationSuccess ||
-                    (this.RegistrationSuccess != null &&
-                    this.RegistrationSuccess.Equals(input.RegistrationSuccess))
+                    this.RegistrationSuccess == other.RegistrationSuccess ||
+                    this.RegistrationSuccess != null &&
+                    this.RegistrationSuccess.Equals(other.RegistrationSuccess)
                 ) && 
                 (
-                    this.Score == input.Score ||
-                    (this.Score != null &&
-                    this.Score.Equals(input.Score))
+                    this.Score == other.Score ||
+                    this.Score != null &&
+                    this.Score.Equals(other.Score)
                 ) && 
                 (
-                    this.TotalSecondsTracked == input.TotalSecondsTracked ||
-                    (this.TotalSecondsTracked != null &&
-                    this.TotalSecondsTracked.Equals(input.TotalSecondsTracked))
+                    this.TotalSecondsTracked == other.TotalSecondsTracked ||
+                    this.TotalSecondsTracked != null &&
+                    this.TotalSecondsTracked.Equals(other.TotalSecondsTracked)
                 ) && 
                 (
-                    this.FirstAccessDate == input.FirstAccessDate ||
-                    (this.FirstAccessDate != null &&
-                    this.FirstAccessDate.Equals(input.FirstAccessDate))
+                    this.FirstAccessDate == other.FirstAccessDate ||
+                    this.FirstAccessDate != null &&
+                    this.FirstAccessDate.Equals(other.FirstAccessDate)
                 ) && 
                 (
-                    this.LastAccessDate == input.LastAccessDate ||
-                    (this.LastAccessDate != null &&
-                    this.LastAccessDate.Equals(input.LastAccessDate))
+                    this.LastAccessDate == other.LastAccessDate ||
+                    this.LastAccessDate != null &&
+                    this.LastAccessDate.Equals(other.LastAccessDate)
                 ) && 
                 (
-                    this.CompletedDate == input.CompletedDate ||
-                    (this.CompletedDate != null &&
-                    this.CompletedDate.Equals(input.CompletedDate))
+                    this.CompletedDate == other.CompletedDate ||
+                    this.CompletedDate != null &&
+                    this.CompletedDate.Equals(other.CompletedDate)
                 ) && 
                 (
-                    this.CreatedDate == input.CreatedDate ||
-                    (this.CreatedDate != null &&
-                    this.CreatedDate.Equals(input.CreatedDate))
+                    this.CreatedDate == other.CreatedDate ||
+                    this.CreatedDate != null &&
+                    this.CreatedDate.Equals(other.CreatedDate)
                 ) && 
                 (
-                    this.Course == input.Course ||
-                    (this.Course != null &&
-                    this.Course.Equals(input.Course))
+                    this.Course == other.Course ||
+                    this.Course != null &&
+                    this.Course.Equals(other.Course)
                 ) && 
                 (
-                    this.Learner == input.Learner ||
-                    (this.Learner != null &&
-                    this.Learner.Equals(input.Learner))
+                    this.Learner == other.Learner ||
+                    this.Learner != null &&
+                    this.Learner.Equals(other.Learner)
                 ) && 
                 (
-                    this.GlobalObjectives == input.GlobalObjectives ||
+                    this.Tags == other.Tags ||
+                    this.Tags != null &&
+                    this.Tags.SequenceEqual(other.Tags)
+                ) && 
+                (
+                    this.GlobalObjectives == other.GlobalObjectives ||
                     this.GlobalObjectives != null &&
-                    this.GlobalObjectives.SequenceEqual(input.GlobalObjectives)
+                    this.GlobalObjectives.SequenceEqual(other.GlobalObjectives)
                 ) && 
                 (
-                    this.SharedData == input.SharedData ||
+                    this.SharedData == other.SharedData ||
                     this.SharedData != null &&
-                    this.SharedData.SequenceEqual(input.SharedData)
+                    this.SharedData.SequenceEqual(other.SharedData)
                 ) && 
                 (
-                    this.SuspendedActivityId == input.SuspendedActivityId ||
-                    (this.SuspendedActivityId != null &&
-                    this.SuspendedActivityId.Equals(input.SuspendedActivityId))
+                    this.SuspendedActivityId == other.SuspendedActivityId ||
+                    this.SuspendedActivityId != null &&
+                    this.SuspendedActivityId.Equals(other.SuspendedActivityId)
                 ) && 
                 (
-                    this.ActivityDetails == input.ActivityDetails ||
-                    (this.ActivityDetails != null &&
-                    this.ActivityDetails.Equals(input.ActivityDetails))
+                    this.ActivityDetails == other.ActivityDetails ||
+                    this.ActivityDetails != null &&
+                    this.ActivityDetails.Equals(other.ActivityDetails)
                 );
         }
 
@@ -369,60 +363,59 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Instance != null)
-                    hashCode = hashCode * 59 + this.Instance.GetHashCode();
+                    hash = hash * 59 + this.Instance.GetHashCode();
                 if (this.XapiRegistrationId != null)
-                    hashCode = hashCode * 59 + this.XapiRegistrationId.GetHashCode();
+                    hash = hash * 59 + this.XapiRegistrationId.GetHashCode();
                 if (this.DispatchId != null)
-                    hashCode = hashCode * 59 + this.DispatchId.GetHashCode();
+                    hash = hash * 59 + this.DispatchId.GetHashCode();
                 if (this.Updated != null)
-                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
+                    hash = hash * 59 + this.Updated.GetHashCode();
                 if (this.RegistrationCompletion != null)
-                    hashCode = hashCode * 59 + this.RegistrationCompletion.GetHashCode();
+                    hash = hash * 59 + this.RegistrationCompletion.GetHashCode();
                 if (this.RegistrationCompletionAmount != null)
-                    hashCode = hashCode * 59 + this.RegistrationCompletionAmount.GetHashCode();
+                    hash = hash * 59 + this.RegistrationCompletionAmount.GetHashCode();
                 if (this.RegistrationSuccess != null)
-                    hashCode = hashCode * 59 + this.RegistrationSuccess.GetHashCode();
+                    hash = hash * 59 + this.RegistrationSuccess.GetHashCode();
                 if (this.Score != null)
-                    hashCode = hashCode * 59 + this.Score.GetHashCode();
+                    hash = hash * 59 + this.Score.GetHashCode();
                 if (this.TotalSecondsTracked != null)
-                    hashCode = hashCode * 59 + this.TotalSecondsTracked.GetHashCode();
+                    hash = hash * 59 + this.TotalSecondsTracked.GetHashCode();
                 if (this.FirstAccessDate != null)
-                    hashCode = hashCode * 59 + this.FirstAccessDate.GetHashCode();
+                    hash = hash * 59 + this.FirstAccessDate.GetHashCode();
                 if (this.LastAccessDate != null)
-                    hashCode = hashCode * 59 + this.LastAccessDate.GetHashCode();
+                    hash = hash * 59 + this.LastAccessDate.GetHashCode();
                 if (this.CompletedDate != null)
-                    hashCode = hashCode * 59 + this.CompletedDate.GetHashCode();
+                    hash = hash * 59 + this.CompletedDate.GetHashCode();
                 if (this.CreatedDate != null)
-                    hashCode = hashCode * 59 + this.CreatedDate.GetHashCode();
+                    hash = hash * 59 + this.CreatedDate.GetHashCode();
                 if (this.Course != null)
-                    hashCode = hashCode * 59 + this.Course.GetHashCode();
+                    hash = hash * 59 + this.Course.GetHashCode();
                 if (this.Learner != null)
-                    hashCode = hashCode * 59 + this.Learner.GetHashCode();
+                    hash = hash * 59 + this.Learner.GetHashCode();
+                if (this.Tags != null)
+                    hash = hash * 59 + this.Tags.GetHashCode();
                 if (this.GlobalObjectives != null)
-                    hashCode = hashCode * 59 + this.GlobalObjectives.GetHashCode();
+                    hash = hash * 59 + this.GlobalObjectives.GetHashCode();
                 if (this.SharedData != null)
-                    hashCode = hashCode * 59 + this.SharedData.GetHashCode();
+                    hash = hash * 59 + this.SharedData.GetHashCode();
                 if (this.SuspendedActivityId != null)
-                    hashCode = hashCode * 59 + this.SuspendedActivityId.GetHashCode();
+                    hash = hash * 59 + this.SuspendedActivityId.GetHashCode();
                 if (this.ActivityDetails != null)
-                    hashCode = hashCode * 59 + this.ActivityDetails.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.ActivityDetails.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

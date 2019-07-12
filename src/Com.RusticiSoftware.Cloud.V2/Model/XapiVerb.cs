@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -38,20 +37,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiVerb" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="display">display.</param>
-        public XapiVerb(string id = default(string), Dictionary<string, string> display = default(Dictionary<string, string>))
+        /// <param name="Id">Id (required).</param>
+        /// <param name="Display">Display.</param>
+        public XapiVerb(string Id = default(string), Dictionary<string, string> Display = default(Dictionary<string, string>))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
+            // to ensure "Id" is required (not null)
+            if (Id == null)
             {
-                throw new InvalidDataException("id is a required property for XapiVerb and cannot be null");
+                throw new InvalidDataException("Id is a required property for XapiVerb and cannot be null");
             }
             else
             {
-                this.Id = id;
+                this.Id = Id;
             }
-            this.Display = display;
+            this.Display = Display;
         }
         
         /// <summary>
@@ -59,13 +58,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-
         /// <summary>
         /// Gets or Sets Display
         /// </summary>
         [DataMember(Name="display", EmitDefaultValue=false)]
         public Dictionary<string, string> Display { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -84,7 +81,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -92,33 +89,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as XapiVerb);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as XapiVerb);
         }
 
         /// <summary>
         /// Returns true if XapiVerb instances are equal
         /// </summary>
-        /// <param name="input">Instance of XapiVerb to be compared</param>
+        /// <param name="other">Instance of XapiVerb to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiVerb input)
+        public bool Equals(XapiVerb other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Display == input.Display ||
+                    this.Display == other.Display ||
                     this.Display != null &&
-                    this.Display.SequenceEqual(input.Display)
+                    this.Display.SequenceEqual(other.Display)
                 );
         }
 
@@ -128,24 +127,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Display != null)
-                    hashCode = hashCode * 59 + this.Display.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Display.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

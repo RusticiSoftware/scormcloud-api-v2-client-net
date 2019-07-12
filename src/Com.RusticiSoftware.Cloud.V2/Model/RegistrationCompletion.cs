@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -30,24 +29,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     [JsonConverter(typeof(StringEnumConverter))]
     public enum RegistrationCompletion
     {
-
+        
         /// <summary>
-        /// Enum UNKNOWN for value: UNKNOWN
+        /// Enum UNKNOWN for "UNKNOWN"
         /// </summary>
         [EnumMember(Value = "UNKNOWN")]
-        UNKNOWN = 1,
-
+        UNKNOWN,
+        
         /// <summary>
-        /// Enum COMPLETED for value: COMPLETED
+        /// Enum COMPLETED for "COMPLETED"
         /// </summary>
         [EnumMember(Value = "COMPLETED")]
-        COMPLETED = 2,
-
+        COMPLETED,
+        
         /// <summary>
-        /// Enum INCOMPLETE for value: INCOMPLETE
+        /// Enum INCOMPLETE for "INCOMPLETE"
         /// </summary>
         [EnumMember(Value = "INCOMPLETE")]
-        INCOMPLETE = 3
+        INCOMPLETE
     }
 
 }

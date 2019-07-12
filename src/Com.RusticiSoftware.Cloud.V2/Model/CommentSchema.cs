@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,14 +32,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CommentSchema" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
-        /// <param name="location">location.</param>
-        /// <param name="dateTime">dateTime.</param>
-        public CommentSchema(string value = default(string), string location = default(string), string dateTime = default(string))
+        /// <param name="Value">Value.</param>
+        /// <param name="Location">Location.</param>
+        /// <param name="DateTime">DateTime.</param>
+        public CommentSchema(string Value = default(string), string Location = default(string), string DateTime = default(string))
         {
-            this.Value = value;
-            this.Location = location;
-            this.DateTime = dateTime;
+            this.Value = Value;
+            this.Location = Location;
+            this.DateTime = DateTime;
         }
         
         /// <summary>
@@ -48,19 +47,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
-
         /// <summary>
         /// Gets or Sets Location
         /// </summary>
         [DataMember(Name="location", EmitDefaultValue=false)]
         public string Location { get; set; }
-
         /// <summary>
         /// Gets or Sets DateTime
         /// </summary>
         [DataMember(Name="dateTime", EmitDefaultValue=false)]
         public string DateTime { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -80,7 +76,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -88,38 +84,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as CommentSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as CommentSchema);
         }
 
         /// <summary>
         /// Returns true if CommentSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of CommentSchema to be compared</param>
+        /// <param name="other">Instance of CommentSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CommentSchema input)
+        public bool Equals(CommentSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Value == other.Value ||
+                    this.Value != null &&
+                    this.Value.Equals(other.Value)
                 ) && 
                 (
-                    this.Location == input.Location ||
-                    (this.Location != null &&
-                    this.Location.Equals(input.Location))
+                    this.Location == other.Location ||
+                    this.Location != null &&
+                    this.Location.Equals(other.Location)
                 ) && 
                 (
-                    this.DateTime == input.DateTime ||
-                    (this.DateTime != null &&
-                    this.DateTime.Equals(input.DateTime))
+                    this.DateTime == other.DateTime ||
+                    this.DateTime != null &&
+                    this.DateTime.Equals(other.DateTime)
                 );
         }
 
@@ -129,26 +127,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                    hash = hash * 59 + this.Value.GetHashCode();
                 if (this.Location != null)
-                    hashCode = hashCode * 59 + this.Location.GetHashCode();
+                    hash = hash * 59 + this.Location.GetHashCode();
                 if (this.DateTime != null)
-                    hashCode = hashCode * 59 + this.DateTime.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.DateTime.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

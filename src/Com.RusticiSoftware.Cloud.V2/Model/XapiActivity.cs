@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -38,30 +37,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiActivity" /> class.
         /// </summary>
-        /// <param name="objectType">objectType (default to &quot;Activity&quot;).</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="definition">definition.</param>
-        public XapiActivity(string objectType = "Activity", string id = default(string), XapiActivityDefinition definition = default(XapiActivityDefinition))
+        /// <param name="ObjectType">ObjectType (default to &quot;Activity&quot;).</param>
+        /// <param name="Id">Id (required).</param>
+        /// <param name="Definition">Definition.</param>
+        public XapiActivity(string ObjectType = "Activity", string Id = default(string), XapiActivityDefinition Definition = default(XapiActivityDefinition))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
+            // to ensure "Id" is required (not null)
+            if (Id == null)
             {
-                throw new InvalidDataException("id is a required property for XapiActivity and cannot be null");
+                throw new InvalidDataException("Id is a required property for XapiActivity and cannot be null");
             }
             else
             {
-                this.Id = id;
+                this.Id = Id;
             }
-            // use default value if no "objectType" provided
-            if (objectType == null)
+            // use default value if no "ObjectType" provided
+            if (ObjectType == null)
             {
                 this.ObjectType = "Activity";
             }
             else
             {
-                this.ObjectType = objectType;
+                this.ObjectType = ObjectType;
             }
-            this.Definition = definition;
+            this.Definition = Definition;
         }
         
         /// <summary>
@@ -69,19 +68,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="objectType", EmitDefaultValue=false)]
         public string ObjectType { get; set; }
-
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
-
         /// <summary>
         /// Gets or Sets Definition
         /// </summary>
         [DataMember(Name="definition", EmitDefaultValue=false)]
         public XapiActivityDefinition Definition { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -101,7 +97,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -109,38 +105,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as XapiActivity);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as XapiActivity);
         }
 
         /// <summary>
         /// Returns true if XapiActivity instances are equal
         /// </summary>
-        /// <param name="input">Instance of XapiActivity to be compared</param>
+        /// <param name="other">Instance of XapiActivity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiActivity input)
+        public bool Equals(XapiActivity other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.ObjectType == input.ObjectType ||
-                    (this.ObjectType != null &&
-                    this.ObjectType.Equals(input.ObjectType))
+                    this.ObjectType == other.ObjectType ||
+                    this.ObjectType != null &&
+                    this.ObjectType.Equals(other.ObjectType)
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Definition == input.Definition ||
-                    (this.Definition != null &&
-                    this.Definition.Equals(input.Definition))
+                    this.Definition == other.Definition ||
+                    this.Definition != null &&
+                    this.Definition.Equals(other.Definition)
                 );
         }
 
@@ -150,26 +148,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.ObjectType != null)
-                    hashCode = hashCode * 59 + this.ObjectType.GetHashCode();
+                    hash = hash * 59 + this.ObjectType.GetHashCode();
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Definition != null)
-                    hashCode = hashCode * 59 + this.Definition.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Definition.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

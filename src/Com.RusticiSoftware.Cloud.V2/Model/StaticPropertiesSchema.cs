@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,20 +32,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StaticPropertiesSchema" /> class.
         /// </summary>
-        /// <param name="completionThreshold">completionThreshold.</param>
-        /// <param name="launchData">launchData.</param>
-        /// <param name="maxTimeAllowed">maxTimeAllowed.</param>
-        /// <param name="scaledPassingScore">scaledPassingScore.</param>
-        /// <param name="scaledPassingScoreUsed">scaledPassingScoreUsed.</param>
-        /// <param name="timeLimitAction">timeLimitAction.</param>
-        public StaticPropertiesSchema(string completionThreshold = default(string), string launchData = default(string), string maxTimeAllowed = default(string), double? scaledPassingScore = default(double?), bool? scaledPassingScoreUsed = default(bool?), string timeLimitAction = default(string))
+        /// <param name="CompletionThreshold">CompletionThreshold.</param>
+        /// <param name="LaunchData">LaunchData.</param>
+        /// <param name="MaxTimeAllowed">MaxTimeAllowed.</param>
+        /// <param name="ScaledPassingScore">ScaledPassingScore.</param>
+        /// <param name="ScaledPassingScoreUsed">ScaledPassingScoreUsed.</param>
+        /// <param name="TimeLimitAction">TimeLimitAction.</param>
+        public StaticPropertiesSchema(string CompletionThreshold = default(string), string LaunchData = default(string), string MaxTimeAllowed = default(string), double? ScaledPassingScore = default(double?), bool? ScaledPassingScoreUsed = default(bool?), string TimeLimitAction = default(string))
         {
-            this.CompletionThreshold = completionThreshold;
-            this.LaunchData = launchData;
-            this.MaxTimeAllowed = maxTimeAllowed;
-            this.ScaledPassingScore = scaledPassingScore;
-            this.ScaledPassingScoreUsed = scaledPassingScoreUsed;
-            this.TimeLimitAction = timeLimitAction;
+            this.CompletionThreshold = CompletionThreshold;
+            this.LaunchData = LaunchData;
+            this.MaxTimeAllowed = MaxTimeAllowed;
+            this.ScaledPassingScore = ScaledPassingScore;
+            this.ScaledPassingScoreUsed = ScaledPassingScoreUsed;
+            this.TimeLimitAction = TimeLimitAction;
         }
         
         /// <summary>
@@ -54,37 +53,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="completionThreshold", EmitDefaultValue=false)]
         public string CompletionThreshold { get; set; }
-
         /// <summary>
         /// Gets or Sets LaunchData
         /// </summary>
         [DataMember(Name="launchData", EmitDefaultValue=false)]
         public string LaunchData { get; set; }
-
         /// <summary>
         /// Gets or Sets MaxTimeAllowed
         /// </summary>
         [DataMember(Name="maxTimeAllowed", EmitDefaultValue=false)]
         public string MaxTimeAllowed { get; set; }
-
         /// <summary>
         /// Gets or Sets ScaledPassingScore
         /// </summary>
         [DataMember(Name="scaledPassingScore", EmitDefaultValue=false)]
         public double? ScaledPassingScore { get; set; }
-
         /// <summary>
         /// Gets or Sets ScaledPassingScoreUsed
         /// </summary>
         [DataMember(Name="scaledPassingScoreUsed", EmitDefaultValue=false)]
         public bool? ScaledPassingScoreUsed { get; set; }
-
         /// <summary>
         /// Gets or Sets TimeLimitAction
         /// </summary>
         [DataMember(Name="timeLimitAction", EmitDefaultValue=false)]
         public string TimeLimitAction { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -107,7 +100,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -115,53 +108,55 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as StaticPropertiesSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as StaticPropertiesSchema);
         }
 
         /// <summary>
         /// Returns true if StaticPropertiesSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of StaticPropertiesSchema to be compared</param>
+        /// <param name="other">Instance of StaticPropertiesSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StaticPropertiesSchema input)
+        public bool Equals(StaticPropertiesSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.CompletionThreshold == input.CompletionThreshold ||
-                    (this.CompletionThreshold != null &&
-                    this.CompletionThreshold.Equals(input.CompletionThreshold))
+                    this.CompletionThreshold == other.CompletionThreshold ||
+                    this.CompletionThreshold != null &&
+                    this.CompletionThreshold.Equals(other.CompletionThreshold)
                 ) && 
                 (
-                    this.LaunchData == input.LaunchData ||
-                    (this.LaunchData != null &&
-                    this.LaunchData.Equals(input.LaunchData))
+                    this.LaunchData == other.LaunchData ||
+                    this.LaunchData != null &&
+                    this.LaunchData.Equals(other.LaunchData)
                 ) && 
                 (
-                    this.MaxTimeAllowed == input.MaxTimeAllowed ||
-                    (this.MaxTimeAllowed != null &&
-                    this.MaxTimeAllowed.Equals(input.MaxTimeAllowed))
+                    this.MaxTimeAllowed == other.MaxTimeAllowed ||
+                    this.MaxTimeAllowed != null &&
+                    this.MaxTimeAllowed.Equals(other.MaxTimeAllowed)
                 ) && 
                 (
-                    this.ScaledPassingScore == input.ScaledPassingScore ||
-                    (this.ScaledPassingScore != null &&
-                    this.ScaledPassingScore.Equals(input.ScaledPassingScore))
+                    this.ScaledPassingScore == other.ScaledPassingScore ||
+                    this.ScaledPassingScore != null &&
+                    this.ScaledPassingScore.Equals(other.ScaledPassingScore)
                 ) && 
                 (
-                    this.ScaledPassingScoreUsed == input.ScaledPassingScoreUsed ||
-                    (this.ScaledPassingScoreUsed != null &&
-                    this.ScaledPassingScoreUsed.Equals(input.ScaledPassingScoreUsed))
+                    this.ScaledPassingScoreUsed == other.ScaledPassingScoreUsed ||
+                    this.ScaledPassingScoreUsed != null &&
+                    this.ScaledPassingScoreUsed.Equals(other.ScaledPassingScoreUsed)
                 ) && 
                 (
-                    this.TimeLimitAction == input.TimeLimitAction ||
-                    (this.TimeLimitAction != null &&
-                    this.TimeLimitAction.Equals(input.TimeLimitAction))
+                    this.TimeLimitAction == other.TimeLimitAction ||
+                    this.TimeLimitAction != null &&
+                    this.TimeLimitAction.Equals(other.TimeLimitAction)
                 );
         }
 
@@ -171,32 +166,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.CompletionThreshold != null)
-                    hashCode = hashCode * 59 + this.CompletionThreshold.GetHashCode();
+                    hash = hash * 59 + this.CompletionThreshold.GetHashCode();
                 if (this.LaunchData != null)
-                    hashCode = hashCode * 59 + this.LaunchData.GetHashCode();
+                    hash = hash * 59 + this.LaunchData.GetHashCode();
                 if (this.MaxTimeAllowed != null)
-                    hashCode = hashCode * 59 + this.MaxTimeAllowed.GetHashCode();
+                    hash = hash * 59 + this.MaxTimeAllowed.GetHashCode();
                 if (this.ScaledPassingScore != null)
-                    hashCode = hashCode * 59 + this.ScaledPassingScore.GetHashCode();
+                    hash = hash * 59 + this.ScaledPassingScore.GetHashCode();
                 if (this.ScaledPassingScoreUsed != null)
-                    hashCode = hashCode * 59 + this.ScaledPassingScoreUsed.GetHashCode();
+                    hash = hash * 59 + this.ScaledPassingScoreUsed.GetHashCode();
                 if (this.TimeLimitAction != null)
-                    hashCode = hashCode * 59 + this.TimeLimitAction.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.TimeLimitAction.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,12 +32,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PermissionsSchema" /> class.
         /// </summary>
-        /// <param name="scopes">scopes.</param>
-        /// <param name="applicationName">application these permissions apply to.</param>
-        public PermissionsSchema(List<string> scopes = default(List<string>), string applicationName = default(string))
+        /// <param name="Scopes">Scopes.</param>
+        /// <param name="ApplicationName">application these permissions apply to.</param>
+        public PermissionsSchema(List<string> Scopes = default(List<string>), string ApplicationName = default(string))
         {
-            this.Scopes = scopes;
-            this.ApplicationName = applicationName;
+            this.Scopes = Scopes;
+            this.ApplicationName = ApplicationName;
         }
         
         /// <summary>
@@ -46,14 +45,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="scopes", EmitDefaultValue=false)]
         public List<string> Scopes { get; set; }
-
         /// <summary>
         /// application these permissions apply to
         /// </summary>
         /// <value>application these permissions apply to</value>
         [DataMember(Name="applicationName", EmitDefaultValue=false)]
         public string ApplicationName { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -72,7 +69,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -80,33 +77,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as PermissionsSchema);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as PermissionsSchema);
         }
 
         /// <summary>
         /// Returns true if PermissionsSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of PermissionsSchema to be compared</param>
+        /// <param name="other">Instance of PermissionsSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PermissionsSchema input)
+        public bool Equals(PermissionsSchema other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Scopes == input.Scopes ||
+                    this.Scopes == other.Scopes ||
                     this.Scopes != null &&
-                    this.Scopes.SequenceEqual(input.Scopes)
+                    this.Scopes.SequenceEqual(other.Scopes)
                 ) && 
                 (
-                    this.ApplicationName == input.ApplicationName ||
-                    (this.ApplicationName != null &&
-                    this.ApplicationName.Equals(input.ApplicationName))
+                    this.ApplicationName == other.ApplicationName ||
+                    this.ApplicationName != null &&
+                    this.ApplicationName.Equals(other.ApplicationName)
                 );
         }
 
@@ -116,24 +115,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Scopes != null)
-                    hashCode = hashCode * 59 + this.Scopes.GetHashCode();
+                    hash = hash * 59 + this.Scopes.GetHashCode();
                 if (this.ApplicationName != null)
-                    hashCode = hashCode * 59 + this.ApplicationName.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.ApplicationName.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

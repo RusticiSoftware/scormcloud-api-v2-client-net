@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -33,20 +32,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiResult" /> class.
         /// </summary>
-        /// <param name="score">score.</param>
-        /// <param name="success">success.</param>
-        /// <param name="completion">completion.</param>
-        /// <param name="response">response.</param>
-        /// <param name="duration">duration.</param>
-        /// <param name="extensions">extensions.</param>
-        public XapiResult(XapiScore score = default(XapiScore), bool? success = default(bool?), bool? completion = default(bool?), string response = default(string), string duration = default(string), Dictionary<string, Object> extensions = default(Dictionary<string, Object>))
+        /// <param name="Score">Score.</param>
+        /// <param name="Success">Success.</param>
+        /// <param name="Completion">Completion.</param>
+        /// <param name="Response">Response.</param>
+        /// <param name="Duration">Duration.</param>
+        /// <param name="Extensions">Extensions.</param>
+        public XapiResult(XapiScore Score = default(XapiScore), bool? Success = default(bool?), bool? Completion = default(bool?), string Response = default(string), string Duration = default(string), Dictionary<string, Object> Extensions = default(Dictionary<string, Object>))
         {
-            this.Score = score;
-            this.Success = success;
-            this.Completion = completion;
-            this.Response = response;
-            this.Duration = duration;
-            this.Extensions = extensions;
+            this.Score = Score;
+            this.Success = Success;
+            this.Completion = Completion;
+            this.Response = Response;
+            this.Duration = Duration;
+            this.Extensions = Extensions;
         }
         
         /// <summary>
@@ -54,37 +53,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="score", EmitDefaultValue=false)]
         public XapiScore Score { get; set; }
-
         /// <summary>
         /// Gets or Sets Success
         /// </summary>
         [DataMember(Name="success", EmitDefaultValue=false)]
         public bool? Success { get; set; }
-
         /// <summary>
         /// Gets or Sets Completion
         /// </summary>
         [DataMember(Name="completion", EmitDefaultValue=false)]
         public bool? Completion { get; set; }
-
         /// <summary>
         /// Gets or Sets Response
         /// </summary>
         [DataMember(Name="response", EmitDefaultValue=false)]
         public string Response { get; set; }
-
         /// <summary>
         /// Gets or Sets Duration
         /// </summary>
         [DataMember(Name="duration", EmitDefaultValue=false)]
         public string Duration { get; set; }
-
         /// <summary>
         /// Gets or Sets Extensions
         /// </summary>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public Dictionary<string, Object> Extensions { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -107,7 +100,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -115,53 +108,55 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as XapiResult);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as XapiResult);
         }
 
         /// <summary>
         /// Returns true if XapiResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of XapiResult to be compared</param>
+        /// <param name="other">Instance of XapiResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiResult input)
+        public bool Equals(XapiResult other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Score == input.Score ||
-                    (this.Score != null &&
-                    this.Score.Equals(input.Score))
+                    this.Score == other.Score ||
+                    this.Score != null &&
+                    this.Score.Equals(other.Score)
                 ) && 
                 (
-                    this.Success == input.Success ||
-                    (this.Success != null &&
-                    this.Success.Equals(input.Success))
+                    this.Success == other.Success ||
+                    this.Success != null &&
+                    this.Success.Equals(other.Success)
                 ) && 
                 (
-                    this.Completion == input.Completion ||
-                    (this.Completion != null &&
-                    this.Completion.Equals(input.Completion))
+                    this.Completion == other.Completion ||
+                    this.Completion != null &&
+                    this.Completion.Equals(other.Completion)
                 ) && 
                 (
-                    this.Response == input.Response ||
-                    (this.Response != null &&
-                    this.Response.Equals(input.Response))
+                    this.Response == other.Response ||
+                    this.Response != null &&
+                    this.Response.Equals(other.Response)
                 ) && 
                 (
-                    this.Duration == input.Duration ||
-                    (this.Duration != null &&
-                    this.Duration.Equals(input.Duration))
+                    this.Duration == other.Duration ||
+                    this.Duration != null &&
+                    this.Duration.Equals(other.Duration)
                 ) && 
                 (
-                    this.Extensions == input.Extensions ||
+                    this.Extensions == other.Extensions ||
                     this.Extensions != null &&
-                    this.Extensions.SequenceEqual(input.Extensions)
+                    this.Extensions.SequenceEqual(other.Extensions)
                 );
         }
 
@@ -171,32 +166,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Score != null)
-                    hashCode = hashCode * 59 + this.Score.GetHashCode();
+                    hash = hash * 59 + this.Score.GetHashCode();
                 if (this.Success != null)
-                    hashCode = hashCode * 59 + this.Success.GetHashCode();
+                    hash = hash * 59 + this.Success.GetHashCode();
                 if (this.Completion != null)
-                    hashCode = hashCode * 59 + this.Completion.GetHashCode();
+                    hash = hash * 59 + this.Completion.GetHashCode();
                 if (this.Response != null)
-                    hashCode = hashCode * 59 + this.Response.GetHashCode();
+                    hash = hash * 59 + this.Response.GetHashCode();
                 if (this.Duration != null)
-                    hashCode = hashCode * 59 + this.Duration.GetHashCode();
+                    hash = hash * 59 + this.Duration.GetHashCode();
                 if (this.Extensions != null)
-                    hashCode = hashCode * 59 + this.Extensions.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Extensions.GetHashCode();
+                return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }
