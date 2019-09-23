@@ -4,14 +4,14 @@ SCORM Cloud Rest API
 
 REST API used for SCORM Cloud integrations.
 
-OpenAPI spec version: 2.0 beta
+OpenAPI spec version: 2.0
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CA09D861-D517-4E79-B50E-04FE3949A4F3}</ProjectGuid>
+    <ProjectGuid>{14BA2121-9D9F-48CA-A39A-F440637E3DDB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Com.RusticiSoftware.Cloud.V2</RootNamespace>
