@@ -184,7 +184,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of SettingListSchema</returns>
         ApiResponse<SettingListSchema> GetApplicationConfigurationWithHttpInfo (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
         /// <summary>
-        /// 
+        /// Get a list of all applications for the realm.
         /// </summary>
         /// <remarks>
         /// Get list of all applications in this realm.
@@ -194,7 +194,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         ApplicationListSchema GetApplicationList ();
 
         /// <summary>
-        /// 
+        /// Get a list of all applications for the realm.
         /// </summary>
         /// <remarks>
         /// Get list of all applications in this realm.
@@ -206,7 +206,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all credentials (aka secret keys) and their statuses. 
+        /// Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -217,7 +217,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all credentials (aka secret keys) and their statuses. 
+        /// Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -227,7 +227,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
+        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -240,7 +240,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
+        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -435,7 +435,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetApplicationConfigurationAsyncWithHttpInfo (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
         /// <summary>
-        /// 
+        /// Get a list of all applications for the realm.
         /// </summary>
         /// <remarks>
         /// Get list of all applications in this realm.
@@ -445,7 +445,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<ApplicationListSchema> GetApplicationListAsync ();
 
         /// <summary>
-        /// 
+        /// Get a list of all applications for the realm.
         /// </summary>
         /// <remarks>
         /// Get list of all applications in this realm.
@@ -457,7 +457,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all credentials (aka secret keys) and their statuses. 
+        /// Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -468,7 +468,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all credentials (aka secret keys) and their statuses. 
+        /// Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -478,7 +478,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
+        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -491,7 +491,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
+        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -694,7 +694,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarPostBody = applicationName; // byte array
             }
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -786,7 +786,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarPostBody = applicationName; // byte array
             }
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -882,7 +882,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarPostBody = credentialRequest; // byte array
             }
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -980,7 +980,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarPostBody = credentialRequest; // byte array
             }
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -1232,7 +1232,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             localVarPathParams.Add("format", "json");
             if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -1316,7 +1316,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             localVarPathParams.Add("format", "json");
             if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -1582,7 +1582,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
             if (credentialId != null) localVarPathParams.Add("credentialId", Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -1672,7 +1672,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
             if (credentialId != null) localVarPathParams.Add("credentialId", Configuration.ApiClient.ParameterToString(credentialId)); // path parameter
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -1879,7 +1879,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Get list of all applications in this realm.
+        /// Get a list of all applications for the realm. Get list of all applications in this realm.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApplicationListSchema</returns>
@@ -1890,7 +1890,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Get list of all applications in this realm.
+        /// Get a list of all applications for the realm. Get list of all applications in this realm.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApplicationListSchema</returns>
@@ -1923,7 +1923,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -1957,7 +1957,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Get list of all applications in this realm.
+        /// Get a list of all applications for the realm. Get list of all applications in this realm.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApplicationListSchema</returns>
@@ -1969,7 +1969,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Get list of all applications in this realm.
+        /// Get a list of all applications for the realm. Get list of all applications in this realm.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApplicationListSchema)</returns>
@@ -2002,7 +2002,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -2035,7 +2035,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Retrieve a list of all credentials (aka secret keys) and their statuses. 
+        ///  Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2047,7 +2047,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Retrieve a list of all credentials (aka secret keys) and their statuses. 
+        ///  Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2085,7 +2085,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             localVarPathParams.Add("format", "json");
             if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -2119,7 +2119,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Retrieve a list of all credentials (aka secret keys) and their statuses. 
+        ///  Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2132,7 +2132,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Retrieve a list of all credentials (aka secret keys) and their statuses. 
+        ///  Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2170,7 +2170,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             localVarPathParams.Add("format", "json");
             if (childAppId != null) localVarPathParams.Add("childAppId", Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -2203,7 +2203,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
+        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -2216,7 +2216,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
+        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -2299,7 +2299,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
+        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -2313,7 +2313,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults.
+        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
@@ -2463,7 +2463,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarPostBody = credentialUpdate; // byte array
             }
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {
@@ -2566,7 +2566,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarPostBody = credentialUpdate; // byte array
             }
 
-            // authentication (APP_NORMAL) required
+            // authentication (APP_MANAGEMENT) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
             {

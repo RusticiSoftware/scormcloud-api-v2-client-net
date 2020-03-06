@@ -24,33 +24,20 @@ using System.ComponentModel.DataAnnotations;
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// XapiStatementPipePostSchema
+    /// XapiStatementPipePutSchema
     /// </summary>
     [DataContract]
-    public partial class XapiStatementPipePostSchema :  IEquatable<XapiStatementPipePostSchema>, IValidatableObject
+    public partial class XapiStatementPipePutSchema :  IEquatable<XapiStatementPipePutSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="XapiStatementPipePostSchema" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected XapiStatementPipePostSchema() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="XapiStatementPipePostSchema" /> class.
+        /// Initializes a new instance of the <see cref="XapiStatementPipePutSchema" /> class.
         /// </summary>
         /// <param name="Source">Source.</param>
-        /// <param name="Target">Target (required).</param>
-        public XapiStatementPipePostSchema(XapiEndpointSchema Source = default(XapiEndpointSchema), XapiEndpointSchema Target = default(XapiEndpointSchema))
+        /// <param name="Target">Target.</param>
+        public XapiStatementPipePutSchema(XapiEndpointSchema Source = default(XapiEndpointSchema), XapiEndpointSchema Target = default(XapiEndpointSchema))
         {
-            // to ensure "Target" is required (not null)
-            if (Target == null)
-            {
-                throw new InvalidDataException("Target is a required property for XapiStatementPipePostSchema and cannot be null");
-            }
-            else
-            {
-                this.Target = Target;
-            }
             this.Source = Source;
+            this.Target = Target;
         }
         
         /// <summary>
@@ -70,7 +57,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class XapiStatementPipePostSchema {\n");
+            sb.Append("class XapiStatementPipePutSchema {\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("}\n");
@@ -94,15 +81,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiStatementPipePostSchema);
+            return this.Equals(obj as XapiStatementPipePutSchema);
         }
 
         /// <summary>
-        /// Returns true if XapiStatementPipePostSchema instances are equal
+        /// Returns true if XapiStatementPipePutSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiStatementPipePostSchema to be compared</param>
+        /// <param name="other">Instance of XapiStatementPipePutSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiStatementPipePostSchema other)
+        public bool Equals(XapiStatementPipePutSchema other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

@@ -28,7 +28,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create an xAPI statement pipe.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create an xAPI statement pipe.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -39,7 +39,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create an xAPI statement pipe.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create an xAPI statement pipe.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -49,7 +49,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create a xAPI credential.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a xAPI credential.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -60,7 +60,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create a xAPI credential.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a xAPI credential.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -70,7 +70,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Deletes this xAPI pipe.
         /// </summary>
         /// <remarks>
-        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor.
+        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -81,7 +81,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Deletes this xAPI pipe.
         /// </summary>
         /// <remarks>
-        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor.
+        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -91,7 +91,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Deletes the xAPI credentials specified by the xAPI credentials id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes the xAPI credentials specified by the xAPI credentials id
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -102,7 +102,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Deletes the xAPI credentials specified by the xAPI credentials id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes the xAPI credentials specified by the xAPI credentials id
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -112,7 +112,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -123,7 +123,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -133,7 +133,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get all of the xapiPipes for &#x60;appId&#x60;
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all of the xapiPipes for &#x60;appId&#x60;
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>XapiStatementPipeListSchema</returns>
@@ -143,7 +143,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get all of the xapiPipes for &#x60;appId&#x60;
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all of the xapiPipes for &#x60;appId&#x60;
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of XapiStatementPipeListSchema</returns>
@@ -152,7 +152,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -163,7 +163,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -173,7 +173,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the list of xapiCredentials
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the list of xapiCredentials
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
@@ -185,7 +185,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the list of xapiCredentials
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the list of xapiCredentials
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
@@ -196,30 +196,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Edit an existing xAPI pipe or create a new one.
         /// </summary>
         /// <remarks>
-        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409.
+        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>StringResultSchema</returns>
-        StringResultSchema SetStatementPipe (string statementPipeId, XapiStatementPipeSchema xapiStatementPipe);
+        StringResultSchema SetStatementPipe (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe);
 
         /// <summary>
         /// Edit an existing xAPI pipe or create a new one.
         /// </summary>
         /// <remarks>
-        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409.
+        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        ApiResponse<StringResultSchema> SetStatementPipeWithHttpInfo (string statementPipeId, XapiStatementPipeSchema xapiStatementPipe);
+        ApiResponse<StringResultSchema> SetStatementPipeWithHttpInfo (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe);
         /// <summary>
         /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -231,7 +231,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -244,7 +244,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create an xAPI statement pipe.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create an xAPI statement pipe.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -255,7 +255,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create an xAPI statement pipe.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create an xAPI statement pipe.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -265,7 +265,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create a xAPI credential.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a xAPI credential.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -276,7 +276,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create a xAPI credential.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a xAPI credential.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -286,7 +286,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Deletes this xAPI pipe.
         /// </summary>
         /// <remarks>
-        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor.
+        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -297,7 +297,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Deletes this xAPI pipe.
         /// </summary>
         /// <remarks>
-        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor.
+        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -307,7 +307,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Deletes the xAPI credentials specified by the xAPI credentials id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes the xAPI credentials specified by the xAPI credentials id
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -318,7 +318,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Deletes the xAPI credentials specified by the xAPI credentials id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes the xAPI credentials specified by the xAPI credentials id
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -328,7 +328,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -339,7 +339,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -349,7 +349,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get all of the xapiPipes for &#x60;appId&#x60;
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all of the xapiPipes for &#x60;appId&#x60;
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of XapiStatementPipeListSchema</returns>
@@ -359,7 +359,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get all of the xapiPipes for &#x60;appId&#x60;
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all of the xapiPipes for &#x60;appId&#x60;
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (XapiStatementPipeListSchema)</returns>
@@ -368,7 +368,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -379,7 +379,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -389,7 +389,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the list of xapiCredentials
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the list of xapiCredentials
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
@@ -401,7 +401,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the list of xapiCredentials
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the list of xapiCredentials
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
@@ -412,30 +412,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Edit an existing xAPI pipe or create a new one.
         /// </summary>
         /// <remarks>
-        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409.
+        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>Task of StringResultSchema</returns>
-        System.Threading.Tasks.Task<StringResultSchema> SetStatementPipeAsync (string statementPipeId, XapiStatementPipeSchema xapiStatementPipe);
+        System.Threading.Tasks.Task<StringResultSchema> SetStatementPipeAsync (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe);
 
         /// <summary>
         /// Edit an existing xAPI pipe or create a new one.
         /// </summary>
         /// <remarks>
-        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409.
+        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> SetStatementPipeAsyncWithHttpInfo (string statementPipeId, XapiStatementPipeSchema xapiStatementPipe);
+        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> SetStatementPipeAsyncWithHttpInfo (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe);
         /// <summary>
         /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -447,7 +447,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -567,7 +567,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create an xAPI statement pipe. 
+        /// Create an xAPI statement pipe. Create an xAPI statement pipe.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -579,7 +579,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create an xAPI statement pipe. 
+        /// Create an xAPI statement pipe. Create an xAPI statement pipe.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -658,7 +658,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create an xAPI statement pipe. 
+        /// Create an xAPI statement pipe. Create an xAPI statement pipe.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -671,7 +671,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create an xAPI statement pipe. 
+        /// Create an xAPI statement pipe. Create an xAPI statement pipe.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -749,7 +749,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a xAPI credential. 
+        /// Create a xAPI credential. Create a xAPI credential.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -761,7 +761,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a xAPI credential. 
+        /// Create a xAPI credential. Create a xAPI credential.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -840,7 +840,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a xAPI credential. 
+        /// Create a xAPI credential. Create a xAPI credential.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -853,7 +853,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a xAPI credential. 
+        /// Create a xAPI credential. Create a xAPI credential.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -931,7 +931,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor.
+        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -942,7 +942,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor.
+        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -1014,7 +1014,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor.
+        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -1026,7 +1026,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor.
+        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -1097,7 +1097,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id 
+        /// Deletes the xAPI credentials specified by the xAPI credentials id Deletes the xAPI credentials specified by the xAPI credentials id
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -1108,7 +1108,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id 
+        /// Deletes the xAPI credentials specified by the xAPI credentials id Deletes the xAPI credentials specified by the xAPI credentials id
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -1180,7 +1180,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id 
+        /// Deletes the xAPI credentials specified by the xAPI credentials id Deletes the xAPI credentials specified by the xAPI credentials id
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -1192,7 +1192,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id 
+        /// Deletes the xAPI credentials specified by the xAPI credentials id Deletes the xAPI credentials specified by the xAPI credentials id
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -1263,7 +1263,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; 
+        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -1275,7 +1275,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; 
+        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -1347,7 +1347,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; 
+        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -1360,7 +1360,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; 
+        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
@@ -1431,7 +1431,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60; 
+        /// Get all of the xapiPipes for &#x60;appId&#x60; Get all of the xapiPipes for &#x60;appId&#x60;
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>XapiStatementPipeListSchema</returns>
@@ -1442,7 +1442,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60; 
+        /// Get all of the xapiPipes for &#x60;appId&#x60; Get all of the xapiPipes for &#x60;appId&#x60;
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of XapiStatementPipeListSchema</returns>
@@ -1509,7 +1509,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60; 
+        /// Get all of the xapiPipes for &#x60;appId&#x60; Get all of the xapiPipes for &#x60;appId&#x60;
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of XapiStatementPipeListSchema</returns>
@@ -1521,7 +1521,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60; 
+        /// Get all of the xapiPipes for &#x60;appId&#x60; Get all of the xapiPipes for &#x60;appId&#x60;
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (XapiStatementPipeListSchema)</returns>
@@ -1587,7 +1587,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id. 
+        /// Retrieves the xAPI credentials specified by the xAPI credentials id. Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -1599,7 +1599,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id. 
+        /// Retrieves the xAPI credentials specified by the xAPI credentials id. Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -1671,7 +1671,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id. 
+        /// Retrieves the xAPI credentials specified by the xAPI credentials id. Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -1684,7 +1684,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id. 
+        /// Retrieves the xAPI credentials specified by the xAPI credentials id. Retrieves the xAPI credentials specified by the xAPI credentials id.
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -1755,7 +1755,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the list of xapiCredentials 
+        /// Get the list of xapiCredentials Get the list of xapiCredentials
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
@@ -1768,7 +1768,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the list of xapiCredentials 
+        /// Get the list of xapiCredentials Get the list of xapiCredentials
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
@@ -1839,7 +1839,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the list of xapiCredentials 
+        /// Get the list of xapiCredentials Get the list of xapiCredentials
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
@@ -1853,7 +1853,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the list of xapiCredentials 
+        /// Get the list of xapiCredentials Get the list of xapiCredentials
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
@@ -1923,26 +1923,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409.
+        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>StringResultSchema</returns>
-        public StringResultSchema SetStatementPipe (string statementPipeId, XapiStatementPipeSchema xapiStatementPipe)
+        public StringResultSchema SetStatementPipe (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe)
         {
              ApiResponse<StringResultSchema> localVarResponse = SetStatementPipeWithHttpInfo(statementPipeId, xapiStatementPipe);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409.
+        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        public ApiResponse< StringResultSchema > SetStatementPipeWithHttpInfo (string statementPipeId, XapiStatementPipeSchema xapiStatementPipe)
+        public ApiResponse< StringResultSchema > SetStatementPipeWithHttpInfo (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe)
         {
             // verify the required parameter 'statementPipeId' is set
             if (statementPipeId == null)
@@ -2020,13 +2020,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409.
+        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>Task of StringResultSchema</returns>
-        public async System.Threading.Tasks.Task<StringResultSchema> SetStatementPipeAsync (string statementPipeId, XapiStatementPipeSchema xapiStatementPipe)
+        public async System.Threading.Tasks.Task<StringResultSchema> SetStatementPipeAsync (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe)
         {
              ApiResponse<StringResultSchema> localVarResponse = await SetStatementPipeAsyncWithHttpInfo(statementPipeId, xapiStatementPipe);
              return localVarResponse.Data;
@@ -2034,13 +2034,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409.
+        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statementPipeId">id for this xAPI statement pipe</param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> SetStatementPipeAsyncWithHttpInfo (string statementPipeId, XapiStatementPipeSchema xapiStatementPipe)
+        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> SetStatementPipeAsyncWithHttpInfo (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe)
         {
             // verify the required parameter 'statementPipeId' is set
             if (statementPipeId == null)
@@ -2117,7 +2117,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id 
+        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -2129,7 +2129,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id 
+        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -2213,7 +2213,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id 
+        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>
@@ -2226,7 +2226,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id 
+        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredentialId">id for this xAPI credential</param>

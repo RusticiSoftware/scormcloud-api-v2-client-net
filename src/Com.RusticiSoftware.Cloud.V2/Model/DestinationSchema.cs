@@ -36,12 +36,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="Tags">Optional array of tags..</param>
         /// <param name="Email">SCORM Cloud user e-mail associated with this destination. If this is not provided, it will default to the owner of the Realm. .</param>
         /// <param name="Notes">Any provided notes about this Destination.</param>
-        public DestinationSchema(string Name = default(string), List<string> Tags = default(List<string>), string Email = default(string), string Notes = default(string))
+        /// <param name="LaunchAuth">LaunchAuth.</param>
+        public DestinationSchema(string Name = default(string), List<string> Tags = default(List<string>), string Email = default(string), string Notes = default(string), LaunchAuthSchema LaunchAuth = default(LaunchAuthSchema))
         {
             this.Name = Name;
             this.Tags = Tags;
             this.Email = Email;
             this.Notes = Notes;
+            this.LaunchAuth = LaunchAuth;
         }
         
         /// <summary>
@@ -69,6 +71,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         [DataMember(Name="notes", EmitDefaultValue=false)]
         public string Notes { get; set; }
         /// <summary>
+        /// Gets or Sets LaunchAuth
+        /// </summary>
+        [DataMember(Name="launchAuth", EmitDefaultValue=false)]
+        public LaunchAuthSchema LaunchAuth { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -80,6 +87,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
+            sb.Append("  LaunchAuth: ").Append(LaunchAuth).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,6 +143,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Notes == other.Notes ||
                     this.Notes != null &&
                     this.Notes.Equals(other.Notes)
+                ) && 
+                (
+                    this.LaunchAuth == other.LaunchAuth ||
+                    this.LaunchAuth != null &&
+                    this.LaunchAuth.Equals(other.LaunchAuth)
                 );
         }
 
@@ -157,6 +170,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hash = hash * 59 + this.Email.GetHashCode();
                 if (this.Notes != null)
                     hash = hash * 59 + this.Notes.GetHashCode();
+                if (this.LaunchAuth != null)
+                    hash = hash * 59 + this.LaunchAuth.GetHashCode();
                 return hash;
             }
         }

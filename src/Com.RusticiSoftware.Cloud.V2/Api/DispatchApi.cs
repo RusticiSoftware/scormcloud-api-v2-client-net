@@ -49,7 +49,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create dispatches.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create multiple dispatches at once. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -60,17 +60,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create dispatches.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create multiple dispatches at once. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateDispatchesWithHttpInfo (CreateDispatchListSchema dispatchList);
         /// <summary>
-        /// DestinationsByTenantAndDestinationId
+        /// Delete destination 
         /// </summary>
         /// <remarks>
-        /// Delete the destination with destinationId &#x3D; {destinationId}.
+        /// Delete the destination with &#x60;destinationId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -78,20 +78,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDestination (string destinationId);
 
         /// <summary>
-        /// DestinationsByTenantAndDestinationId
+        /// Delete destination 
         /// </summary>
         /// <remarks>
-        /// Delete the destination with destinationId &#x3D; {destinationId}.
+        /// Delete the destination with &#x60;destinationId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDestinationWithHttpInfo (string destinationId);
         /// <summary>
-        /// DestinationsDispatchesByTenant
+        /// Delete dispatches in destination 
         /// </summary>
         /// <remarks>
-        /// Delete all related dispatches.
+        /// Delete the dispatches in a destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -99,20 +99,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDestinationDispatches (string destinationId);
 
         /// <summary>
-        /// DestinationsDispatchesByTenant
+        /// Delete dispatches in destination 
         /// </summary>
         /// <remarks>
-        /// Delete all related dispatches.
+        /// Delete the dispatches in a destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDestinationDispatchesWithHttpInfo (string destinationId);
         /// <summary>
-        /// Delete tags for this destination
+        /// Delete the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -121,10 +121,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDestinationTags (string destinationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this destination
+        /// Delete the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -132,10 +132,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDestinationTagsWithHttpInfo (string destinationId, TagListSchema tags);
         /// <summary>
-        /// DispatchesByTenantAndDispatchId
+        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -143,10 +143,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDispatch (string dispatchId);
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId
+        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -156,7 +156,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// DispatchesByTenantAndDispatchId
         /// </summary>
         /// <remarks>
-        /// Delete the postback info dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the postback info dispatch with &#39;dispatchId&#39;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -167,17 +167,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// DispatchesByTenantAndDispatchId
         /// </summary>
         /// <remarks>
-        /// Delete the postback info dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the postback info dispatch with &#39;dispatchId&#39;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDispatchPostbackInfoWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Delete tags for this dispatch
+        /// Delete the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -186,10 +186,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDispatchTags (string dispatchId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this dispatch
+        /// Delete the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -345,10 +345,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of EnabledSchema</returns>
         ApiResponse<EnabledSchema> GetDestinationHashUserInfoWithHttpInfo (string destinationId);
         /// <summary>
-        /// Get the tags for this destination
+        /// Get the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -356,10 +356,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         TagListSchema GetDestinationTags (string destinationId);
 
         /// <summary>
-        /// Get the tags for this destination
+        /// Get the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -420,10 +420,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of DispatchSchema</returns>
         ApiResponse<DispatchSchema> GetDispatchWithHttpInfo (string dispatchId);
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// True if the dispatch is enabled, or false if it is disabled.
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -431,10 +431,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         EnabledSchema GetDispatchEnabled (string dispatchId);
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// True if the dispatch is enabled, or false if it is disabled.
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -444,7 +444,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get if this dispatch has PII hashing enabled.
         /// </summary>
         /// <remarks>
-        /// True if the dispatch is set to hash user info, or false if it is disabled.
+        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -455,17 +455,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get if this dispatch has PII hashing enabled.
         /// </summary>
         /// <remarks>
-        /// True if the dispatch is set to hash user info, or false if it is disabled.
+        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of EnabledSchema</returns>
         ApiResponse<EnabledSchema> GetDispatchHashUserInfoWithHttpInfo (string dispatchId);
         /// <summary>
-        /// DispatchesRegistrationCountByTenant
+        /// Get the registration count for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -473,20 +473,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         DispatchRegistrationCountSchema GetDispatchRegistrationCount (string dispatchId);
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant
+        /// Get the registration count for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of DispatchRegistrationCountSchema</returns>
         ApiResponse<DispatchRegistrationCountSchema> GetDispatchRegistrationCountWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the tags for this dispatch
+        /// Get the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -494,10 +494,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         TagListSchema GetDispatchTags (string dispatchId);
 
         /// <summary>
-        /// Get the tags for this dispatch
+        /// Get the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -507,7 +507,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the ZIP for the dispatchId.
         /// </summary>
         /// <remarks>
-        /// Get the ZIP for the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -520,7 +520,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the ZIP for the dispatchId.
         /// </summary>
         /// <remarks>
-        /// Get the ZIP for the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -562,10 +562,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of DispatchListSchema</returns>
         ApiResponse<DispatchListSchema> GetDispatchesWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
         /// <summary>
-        /// Set the tags for this destination
+        /// Set the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -574,10 +574,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutDestinationTags (string destinationId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this destination
+        /// Set the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -588,7 +588,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Sets all of the provided tags on all of the provided destinations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided destinations
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -599,17 +599,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Sets all of the provided tags on all of the provided destinations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided destinations
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutDestinationTagsBatchWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set the tags for this dispatch
+        /// Set the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -618,10 +618,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutDispatchTags (string dispatchId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this dispatch
+        /// Set the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -629,10 +629,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutDispatchTagsWithHttpInfo (string dispatchId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches
+        /// Sets all of the provided tags on all of the provided dispatches 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided dispatches 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -640,10 +640,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutDispatchTagsBatch (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches
+        /// Sets all of the provided tags on all of the provided dispatches 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided dispatches 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -671,10 +671,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResetDestinationDispatchRegistrationCountWithHttpInfo (string destinationId);
         /// <summary>
-        /// DispatchesRegistrationCountByTenant
+        /// Reset registration count. 
         /// </summary>
         /// <remarks>
-        /// Reset the registration count for this dispatch.
+        /// Reset the registration count for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -682,20 +682,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void ResetDispatchRegistrationCount (string dispatchId);
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant
+        /// Reset registration count. 
         /// </summary>
         /// <remarks>
-        /// Reset the registration count for this dispatch.
+        /// Reset the registration count for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResetDispatchRegistrationCountWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown. You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -704,10 +704,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetDestination (string destinationId, DestinationSchema destination);
 
         /// <summary>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown. You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -738,10 +738,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetDestinationDispatchEnabledWithHttpInfo (string destinationId, EnabledSchema enabled);
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Enable or disabled the dispatch.
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -750,10 +750,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetDispatchEnabled (string dispatchId, EnabledSchema enabled);
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Enable or disabled the dispatch.
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -856,7 +856,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create dispatches.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create multiple dispatches at once. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -867,17 +867,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create dispatches.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create multiple dispatches at once. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateDispatchesAsyncWithHttpInfo (CreateDispatchListSchema dispatchList);
         /// <summary>
-        /// DestinationsByTenantAndDestinationId
+        /// Delete destination 
         /// </summary>
         /// <remarks>
-        /// Delete the destination with destinationId &#x3D; {destinationId}.
+        /// Delete the destination with &#x60;destinationId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -885,20 +885,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDestinationAsync (string destinationId);
 
         /// <summary>
-        /// DestinationsByTenantAndDestinationId
+        /// Delete destination 
         /// </summary>
         /// <remarks>
-        /// Delete the destination with destinationId &#x3D; {destinationId}.
+        /// Delete the destination with &#x60;destinationId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDestinationAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// DestinationsDispatchesByTenant
+        /// Delete dispatches in destination 
         /// </summary>
         /// <remarks>
-        /// Delete all related dispatches.
+        /// Delete the dispatches in a destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -906,20 +906,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDestinationDispatchesAsync (string destinationId);
 
         /// <summary>
-        /// DestinationsDispatchesByTenant
+        /// Delete dispatches in destination 
         /// </summary>
         /// <remarks>
-        /// Delete all related dispatches.
+        /// Delete the dispatches in a destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDestinationDispatchesAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// Delete tags for this destination
+        /// Delete the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -928,10 +928,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDestinationTagsAsync (string destinationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this destination
+        /// Delete the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -939,10 +939,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDestinationTagsAsyncWithHttpInfo (string destinationId, TagListSchema tags);
         /// <summary>
-        /// DispatchesByTenantAndDispatchId
+        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -950,10 +950,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDispatchAsync (string dispatchId);
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId
+        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -963,7 +963,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// DispatchesByTenantAndDispatchId
         /// </summary>
         /// <remarks>
-        /// Delete the postback info dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the postback info dispatch with &#39;dispatchId&#39;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -974,17 +974,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// DispatchesByTenantAndDispatchId
         /// </summary>
         /// <remarks>
-        /// Delete the postback info dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the postback info dispatch with &#39;dispatchId&#39;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDispatchPostbackInfoAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Delete tags for this dispatch
+        /// Delete the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -993,10 +993,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDispatchTagsAsync (string dispatchId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this dispatch
+        /// Delete the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1152,10 +1152,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (EnabledSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<EnabledSchema>> GetDestinationHashUserInfoAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// Get the tags for this destination
+        /// Get the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1163,10 +1163,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<TagListSchema> GetDestinationTagsAsync (string destinationId);
 
         /// <summary>
-        /// Get the tags for this destination
+        /// Get the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1227,10 +1227,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (DispatchSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<DispatchSchema>> GetDispatchAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// True if the dispatch is enabled, or false if it is disabled.
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1238,10 +1238,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<EnabledSchema> GetDispatchEnabledAsync (string dispatchId);
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// True if the dispatch is enabled, or false if it is disabled.
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1251,7 +1251,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get if this dispatch has PII hashing enabled.
         /// </summary>
         /// <remarks>
-        /// True if the dispatch is set to hash user info, or false if it is disabled.
+        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1262,17 +1262,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get if this dispatch has PII hashing enabled.
         /// </summary>
         /// <remarks>
-        /// True if the dispatch is set to hash user info, or false if it is disabled.
+        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse (EnabledSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<EnabledSchema>> GetDispatchHashUserInfoAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// DispatchesRegistrationCountByTenant
+        /// Get the registration count for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1280,20 +1280,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<DispatchRegistrationCountSchema> GetDispatchRegistrationCountAsync (string dispatchId);
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant
+        /// Get the registration count for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse (DispatchRegistrationCountSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<DispatchRegistrationCountSchema>> GetDispatchRegistrationCountAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the tags for this dispatch
+        /// Get the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1301,10 +1301,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<TagListSchema> GetDispatchTagsAsync (string dispatchId);
 
         /// <summary>
-        /// Get the tags for this dispatch
+        /// Get the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1314,7 +1314,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the ZIP for the dispatchId.
         /// </summary>
         /// <remarks>
-        /// Get the ZIP for the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1327,7 +1327,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the ZIP for the dispatchId.
         /// </summary>
         /// <remarks>
-        /// Get the ZIP for the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1369,10 +1369,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
         /// <summary>
-        /// Set the tags for this destination
+        /// Set the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1381,10 +1381,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutDestinationTagsAsync (string destinationId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this destination
+        /// Set the tags for this destination 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this destination 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1395,7 +1395,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Sets all of the provided tags on all of the provided destinations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided destinations
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -1406,17 +1406,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Sets all of the provided tags on all of the provided destinations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided destinations
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutDestinationTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set the tags for this dispatch
+        /// Set the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1425,10 +1425,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutDispatchTagsAsync (string dispatchId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this dispatch
+        /// Set the tags for this dispatch. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1436,10 +1436,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutDispatchTagsAsyncWithHttpInfo (string dispatchId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches
+        /// Sets all of the provided tags on all of the provided dispatches 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided dispatches 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -1447,10 +1447,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutDispatchTagsBatchAsync (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches
+        /// Sets all of the provided tags on all of the provided dispatches 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided dispatches 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -1478,10 +1478,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ResetDestinationDispatchRegistrationCountAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// DispatchesRegistrationCountByTenant
+        /// Reset registration count. 
         /// </summary>
         /// <remarks>
-        /// Reset the registration count for this dispatch.
+        /// Reset the registration count for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1489,20 +1489,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task ResetDispatchRegistrationCountAsync (string dispatchId);
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant
+        /// Reset registration count. 
         /// </summary>
         /// <remarks>
-        /// Reset the registration count for this dispatch.
+        /// Reset the registration count for this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ResetDispatchRegistrationCountAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown. You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1511,10 +1511,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetDestinationAsync (string destinationId, DestinationSchema destination);
 
         /// <summary>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown. You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination.
+        /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1545,10 +1545,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetDestinationDispatchEnabledAsyncWithHttpInfo (string destinationId, EnabledSchema enabled);
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Enable or disabled the dispatch.
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1557,10 +1557,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetDispatchEnabledAsync (string dispatchId, EnabledSchema enabled);
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <remarks>
-        /// Enable or disabled the dispatch.
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1929,7 +1929,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create dispatches. 
+        /// Create dispatches. Create multiple dispatches at once. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -1940,7 +1940,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create dispatches. 
+        /// Create dispatches. Create multiple dispatches at once. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -2019,7 +2019,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create dispatches. 
+        /// Create dispatches. Create multiple dispatches at once. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -2031,7 +2031,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create dispatches. 
+        /// Create dispatches. Create multiple dispatches at once. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -2109,7 +2109,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsByTenantAndDestinationId Delete the destination with destinationId &#x3D; {destinationId}.
+        /// Delete destination  Delete the destination with &#x60;destinationId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2120,7 +2120,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsByTenantAndDestinationId Delete the destination with destinationId &#x3D; {destinationId}.
+        /// Delete destination  Delete the destination with &#x60;destinationId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2192,7 +2192,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsByTenantAndDestinationId Delete the destination with destinationId &#x3D; {destinationId}.
+        /// Delete destination  Delete the destination with &#x60;destinationId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2204,7 +2204,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsByTenantAndDestinationId Delete the destination with destinationId &#x3D; {destinationId}.
+        /// Delete destination  Delete the destination with &#x60;destinationId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2275,7 +2275,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesByTenant Delete all related dispatches.
+        /// Delete dispatches in destination  Delete the dispatches in a destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2286,7 +2286,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesByTenant Delete all related dispatches.
+        /// Delete dispatches in destination  Delete the dispatches in a destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2358,7 +2358,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesByTenant Delete all related dispatches.
+        /// Delete dispatches in destination  Delete the dispatches in a destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2370,7 +2370,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesByTenant Delete all related dispatches.
+        /// Delete dispatches in destination  Delete the dispatches in a destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2441,7 +2441,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this destination 
+        /// Delete the tags for this destination  Delete the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2453,7 +2453,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this destination 
+        /// Delete the tags for this destination  Delete the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2537,7 +2537,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this destination 
+        /// Delete the tags for this destination  Delete the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2550,7 +2550,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this destination 
+        /// Delete the tags for this destination  Delete the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2633,7 +2633,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the dispatch with &#x60;dispatchId&#x60;.  Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2644,7 +2644,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the dispatch with &#x60;dispatchId&#x60;.  Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2716,7 +2716,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the dispatch with &#x60;dispatchId&#x60;.  Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2728,7 +2728,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Delete the dispatch with &#x60;dispatchId&#x60;.  Delete the dispatch with &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2799,7 +2799,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with dispatchId &#x3D; {dispatchId}.
+        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with &#39;dispatchId&#39;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2810,7 +2810,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with dispatchId &#x3D; {dispatchId}.
+        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with &#39;dispatchId&#39;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2882,7 +2882,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with dispatchId &#x3D; {dispatchId}.
+        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with &#39;dispatchId&#39;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2894,7 +2894,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with dispatchId &#x3D; {dispatchId}.
+        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with &#39;dispatchId&#39;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2965,7 +2965,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this dispatch 
+        /// Delete the tags for this dispatch.  Delete the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2977,7 +2977,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this dispatch 
+        /// Delete the tags for this dispatch.  Delete the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -3061,7 +3061,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this dispatch 
+        /// Delete the tags for this dispatch.  Delete the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -3074,7 +3074,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this dispatch 
+        /// Delete the tags for this dispatch.  Delete the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4249,7 +4249,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this destination 
+        /// Get the tags for this destination  Get the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4261,7 +4261,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this destination 
+        /// Get the tags for this destination  Get the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4333,7 +4333,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this destination 
+        /// Get the tags for this destination  Get the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4346,7 +4346,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this destination 
+        /// Get the tags for this destination  Get the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4783,7 +4783,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId True if the dispatch is enabled, or false if it is disabled.
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4795,7 +4795,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId True if the dispatch is enabled, or false if it is disabled.
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4867,7 +4867,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId True if the dispatch is enabled, or false if it is disabled.
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4880,7 +4880,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId True if the dispatch is enabled, or false if it is disabled.
+        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4951,7 +4951,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled.
+        /// Get if this dispatch has PII hashing enabled. Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4963,7 +4963,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled.
+        /// Get if this dispatch has PII hashing enabled. Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5035,7 +5035,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled.
+        /// Get if this dispatch has PII hashing enabled. Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5048,7 +5048,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled.
+        /// Get if this dispatch has PII hashing enabled. Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5119,7 +5119,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+        /// Get the registration count for &#x60;dispatchId&#x60;.  Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5131,7 +5131,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+        /// Get the registration count for &#x60;dispatchId&#x60;.  Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5203,7 +5203,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+        /// Get the registration count for &#x60;dispatchId&#x60;.  Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5216,7 +5216,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+        /// Get the registration count for &#x60;dispatchId&#x60;.  Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5287,7 +5287,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this dispatch 
+        /// Get the tags for this dispatch.  Get the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5299,7 +5299,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this dispatch 
+        /// Get the tags for this dispatch.  Get the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5371,7 +5371,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this dispatch 
+        /// Get the tags for this dispatch.  Get the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5384,7 +5384,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this dispatch 
+        /// Get the tags for this dispatch.  Get the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5455,7 +5455,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5469,7 +5469,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5545,7 +5545,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5560,7 +5560,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with dispatchId &#x3D; {dispatchId}.
+        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5833,7 +5833,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this destination 
+        /// Set the tags for this destination  Set the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -5845,7 +5845,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this destination 
+        /// Set the tags for this destination  Set the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -5929,7 +5929,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this destination 
+        /// Set the tags for this destination  Set the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -5942,7 +5942,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this destination 
+        /// Set the tags for this destination  Set the tags for this destination 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6025,7 +6025,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations 
+        /// Sets all of the provided tags on all of the provided destinations Sets all of the provided tags on all of the provided destinations
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -6036,7 +6036,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations 
+        /// Sets all of the provided tags on all of the provided destinations Sets all of the provided tags on all of the provided destinations
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -6115,7 +6115,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations 
+        /// Sets all of the provided tags on all of the provided destinations Sets all of the provided tags on all of the provided destinations
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -6127,7 +6127,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations 
+        /// Sets all of the provided tags on all of the provided destinations Sets all of the provided tags on all of the provided destinations
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -6205,7 +6205,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this dispatch 
+        /// Set the tags for this dispatch.  Set the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6217,7 +6217,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this dispatch 
+        /// Set the tags for this dispatch.  Set the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6301,7 +6301,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this dispatch 
+        /// Set the tags for this dispatch.  Set the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6314,7 +6314,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this dispatch 
+        /// Set the tags for this dispatch.  Set the tags for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6397,7 +6397,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Sets all of the provided tags on all of the provided dispatches  Sets all of the provided tags on all of the provided dispatches 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -6408,7 +6408,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Sets all of the provided tags on all of the provided dispatches  Sets all of the provided tags on all of the provided dispatches 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -6487,7 +6487,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Sets all of the provided tags on all of the provided dispatches  Sets all of the provided tags on all of the provided dispatches 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -6499,7 +6499,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Sets all of the provided tags on all of the provided dispatches  Sets all of the provided tags on all of the provided dispatches 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -6743,7 +6743,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant Reset the registration count for this dispatch.
+        /// Reset registration count.  Reset the registration count for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6754,7 +6754,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant Reset the registration count for this dispatch.
+        /// Reset registration count.  Reset the registration count for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6826,7 +6826,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant Reset the registration count for this dispatch.
+        /// Reset registration count.  Reset the registration count for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6838,7 +6838,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesRegistrationCountByTenant Reset the registration count for this dispatch.
+        /// Reset registration count.  Reset the registration count for this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6909,7 +6909,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown. You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        ///  Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6921,7 +6921,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown. You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        ///  Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7005,7 +7005,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown. You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        ///  Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7018,7 +7018,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown. You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        ///  Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7293,7 +7293,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId Enable or disabled the dispatch.
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7305,7 +7305,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId Enable or disabled the dispatch.
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7389,7 +7389,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId Enable or disabled the dispatch.
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7402,7 +7402,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesEnabledByTenantAndDispatchId Enable or disabled the dispatch.
+        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
