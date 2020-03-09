@@ -24,45 +24,60 @@ using System.ComponentModel.DataAnnotations;
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// XapiStatementPipePostSchema
+    /// LaunchAuthSchema
     /// </summary>
     [DataContract]
-    public partial class XapiStatementPipePostSchema :  IEquatable<XapiStatementPipePostSchema>, IValidatableObject
+    public partial class LaunchAuthSchema :  IEquatable<LaunchAuthSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="XapiStatementPipePostSchema" /> class.
+        /// Gets or Sets Type
         /// </summary>
-        [JsonConstructorAttribute]
-        protected XapiStatementPipePostSchema() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="XapiStatementPipePostSchema" /> class.
-        /// </summary>
-        /// <param name="Source">Source.</param>
-        /// <param name="Target">Target (required).</param>
-        public XapiStatementPipePostSchema(XapiEndpointSchema Source = default(XapiEndpointSchema), XapiEndpointSchema Target = default(XapiEndpointSchema))
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
         {
-            // to ensure "Target" is required (not null)
-            if (Target == null)
+            
+            /// <summary>
+            /// Enum Cookies for "cookies"
+            /// </summary>
+            [EnumMember(Value = "cookies")]
+            Cookies,
+            
+            /// <summary>
+            /// Enum Vault for "vault"
+            /// </summary>
+            [EnumMember(Value = "vault")]
+            Vault
+        }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LaunchAuthSchema" /> class.
+        /// </summary>
+        /// <param name="Type">Type (default to TypeEnum.Cookies).</param>
+        /// <param name="Options">Options.</param>
+        public LaunchAuthSchema(TypeEnum? Type = TypeEnum.Cookies, LaunchAuthOptionsSchema Options = default(LaunchAuthOptionsSchema))
+        {
+            // use default value if no "Type" provided
+            if (Type == null)
             {
-                throw new InvalidDataException("Target is a required property for XapiStatementPipePostSchema and cannot be null");
+                this.Type = TypeEnum.Cookies;
             }
             else
             {
-                this.Target = Target;
+                this.Type = Type;
             }
-            this.Source = Source;
+            this.Options = Options;
         }
         
         /// <summary>
-        /// Gets or Sets Source
+        /// Gets or Sets Options
         /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=false)]
-        public XapiEndpointSchema Source { get; set; }
-        /// <summary>
-        /// Gets or Sets Target
-        /// </summary>
-        [DataMember(Name="target", EmitDefaultValue=false)]
-        public XapiEndpointSchema Target { get; set; }
+        [DataMember(Name="options", EmitDefaultValue=false)]
+        public LaunchAuthOptionsSchema Options { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -70,9 +85,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class XapiStatementPipePostSchema {\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
-            sb.Append("  Target: ").Append(Target).Append("\n");
+            sb.Append("class LaunchAuthSchema {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,15 +109,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiStatementPipePostSchema);
+            return this.Equals(obj as LaunchAuthSchema);
         }
 
         /// <summary>
-        /// Returns true if XapiStatementPipePostSchema instances are equal
+        /// Returns true if LaunchAuthSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiStatementPipePostSchema to be compared</param>
+        /// <param name="other">Instance of LaunchAuthSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiStatementPipePostSchema other)
+        public bool Equals(LaunchAuthSchema other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -110,14 +125,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
 
             return 
                 (
-                    this.Source == other.Source ||
-                    this.Source != null &&
-                    this.Source.Equals(other.Source)
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 ) && 
                 (
-                    this.Target == other.Target ||
-                    this.Target != null &&
-                    this.Target.Equals(other.Target)
+                    this.Options == other.Options ||
+                    this.Options != null &&
+                    this.Options.Equals(other.Options)
                 );
         }
 
@@ -132,10 +147,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Source != null)
-                    hash = hash * 59 + this.Source.GetHashCode();
-                if (this.Target != null)
-                    hash = hash * 59 + this.Target.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Options != null)
+                    hash = hash * 59 + this.Options.GetHashCode();
                 return hash;
             }
         }

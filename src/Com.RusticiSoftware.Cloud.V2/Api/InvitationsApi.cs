@@ -67,10 +67,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of PublicInvitationSchema</returns>
         ApiResponse<PublicInvitationSchema> CreatePublicInvitationWithHttpInfo (CreatePublicInvitationSchema publicInvitationRequest);
         /// <summary>
-        /// Delete tags for this invitation
+        /// Delete the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -79,10 +79,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteInvitationTags (string invitationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this invitation
+        /// Delete the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -121,10 +121,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of InvitationSummaryList</returns>
         ApiResponse<InvitationSummaryList> GetAllInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
         /// <summary>
-        /// Get the tags for this invitation
+        /// Get the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -132,10 +132,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         TagListSchema GetInvitationTags (string invitationId);
 
         /// <summary>
-        /// Get the tags for this invitation
+        /// Get the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -329,10 +329,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of UserInvitationList</returns>
         ApiResponse<UserInvitationList> GetPublicUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
         /// <summary>
-        /// Set the tags for this invitation
+        /// Set the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -341,10 +341,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutInvitationTags (string invitationId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this invitation
+        /// Set the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -352,10 +352,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutInvitationTagsWithHttpInfo (string invitationId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations
+        /// Sets all of the provided tags on all of the provided invitations 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided invitations 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -363,10 +363,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutInvitationTagsBatch (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations
+        /// Sets all of the provided tags on all of the provided invitations 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided invitations 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -463,10 +463,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (PublicInvitationSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<PublicInvitationSchema>> CreatePublicInvitationAsyncWithHttpInfo (CreatePublicInvitationSchema publicInvitationRequest);
         /// <summary>
-        /// Delete tags for this invitation
+        /// Delete the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -475,10 +475,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteInvitationTagsAsync (string invitationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this invitation
+        /// Delete the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -517,10 +517,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (InvitationSummaryList)</returns>
         System.Threading.Tasks.Task<ApiResponse<InvitationSummaryList>> GetAllInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
         /// <summary>
-        /// Get the tags for this invitation
+        /// Get the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -528,10 +528,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<TagListSchema> GetInvitationTagsAsync (string invitationId);
 
         /// <summary>
-        /// Get the tags for this invitation
+        /// Get the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -725,10 +725,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (UserInvitationList)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPublicUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
         /// <summary>
-        /// Set the tags for this invitation
+        /// Set the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -737,10 +737,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutInvitationTagsAsync (string invitationId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this invitation
+        /// Set the tags for this invitation 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this invitation 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -748,10 +748,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutInvitationTagsAsyncWithHttpInfo (string invitationId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations
+        /// Sets all of the provided tags on all of the provided invitations 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided invitations 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -759,10 +759,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutInvitationTagsBatchAsync (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations
+        /// Sets all of the provided tags on all of the provided invitations 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets all of the provided tags on all of the provided invitations 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -1291,7 +1291,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this invitation 
+        /// Delete the tags for this invitation  Delete the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -1303,7 +1303,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this invitation 
+        /// Delete the tags for this invitation  Delete the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -1387,7 +1387,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this invitation 
+        /// Delete the tags for this invitation  Delete the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -1400,7 +1400,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this invitation 
+        /// Delete the tags for this invitation  Delete the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -1675,7 +1675,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this invitation 
+        /// Get the tags for this invitation  Get the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -1687,7 +1687,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this invitation 
+        /// Get the tags for this invitation  Get the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -1759,7 +1759,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this invitation 
+        /// Get the tags for this invitation  Get the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -1772,7 +1772,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this invitation 
+        /// Get the tags for this invitation  Get the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -3127,7 +3127,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this invitation 
+        /// Set the tags for this invitation  Set the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -3139,7 +3139,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this invitation 
+        /// Set the tags for this invitation  Set the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -3223,7 +3223,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this invitation 
+        /// Set the tags for this invitation  Set the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -3236,7 +3236,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this invitation 
+        /// Set the tags for this invitation  Set the tags for this invitation 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invitationId">invitation id</param>
@@ -3319,7 +3319,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Sets all of the provided tags on all of the provided invitations  Sets all of the provided tags on all of the provided invitations 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -3330,7 +3330,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Sets all of the provided tags on all of the provided invitations  Sets all of the provided tags on all of the provided invitations 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -3409,7 +3409,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Sets all of the provided tags on all of the provided invitations  Sets all of the provided tags on all of the provided invitations 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
@@ -3421,7 +3421,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Sets all of the provided tags on all of the provided invitations  Sets all of the provided tags on all of the provided invitations 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>

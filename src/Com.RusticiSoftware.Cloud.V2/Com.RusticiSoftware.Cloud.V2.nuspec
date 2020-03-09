@@ -13,7 +13,10 @@
 
         <!-- Owners are typically nuget.org identities that allow gallery
              users to earily find other packages by the same owners.  -->
-        <owners>$author$</owners>
+        <owners>rustici-software-systems</owners>
+
+        <license type="extention">Apache-2.0</license>
+
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <developmentDependency>false</developmentDependency>
 

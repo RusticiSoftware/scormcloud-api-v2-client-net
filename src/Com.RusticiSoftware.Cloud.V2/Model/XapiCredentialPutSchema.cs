@@ -24,75 +24,37 @@ using System.ComponentModel.DataAnnotations;
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// XapiCredentialPostSchema
+    /// XapiCredentialPutSchema
     /// </summary>
     [DataContract]
-    public partial class XapiCredentialPostSchema :  IEquatable<XapiCredentialPostSchema>, IValidatableObject
+    public partial class XapiCredentialPutSchema :  IEquatable<XapiCredentialPutSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="XapiCredentialPostSchema" /> class.
+        /// Initializes a new instance of the <see cref="XapiCredentialPutSchema" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected XapiCredentialPostSchema() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="XapiCredentialPostSchema" /> class.
-        /// </summary>
-        /// <param name="Name">Name (required).</param>
+        /// <param name="Id">Id.</param>
+        /// <param name="Name">Name.</param>
         /// <param name="Info">Info.</param>
-        /// <param name="Secret">Secret (required).</param>
-        /// <param name="IsEnabled">IsEnabled (required).</param>
-        /// <param name="Auth">Auth (required).</param>
-        /// <param name="PermissionsLevel">PermissionsLevel (required).</param>
-        public XapiCredentialPostSchema(string Name = default(string), string Info = default(string), string Secret = default(string), bool? IsEnabled = default(bool?), XapiCredentialAuthTypeSchema Auth = default(XapiCredentialAuthTypeSchema), XapiCredentialPermissionsLevelSchema PermissionsLevel = default(XapiCredentialPermissionsLevelSchema))
+        /// <param name="Secret">Secret.</param>
+        /// <param name="IsEnabled">IsEnabled.</param>
+        /// <param name="Auth">Auth.</param>
+        /// <param name="PermissionsLevel">PermissionsLevel.</param>
+        public XapiCredentialPutSchema(string Id = default(string), string Name = default(string), string Info = default(string), string Secret = default(string), bool? IsEnabled = default(bool?), XapiCredentialAuthTypeSchema Auth = default(XapiCredentialAuthTypeSchema), XapiCredentialPermissionsLevelSchema PermissionsLevel = default(XapiCredentialPermissionsLevelSchema))
         {
-            // to ensure "Name" is required (not null)
-            if (Name == null)
-            {
-                throw new InvalidDataException("Name is a required property for XapiCredentialPostSchema and cannot be null");
-            }
-            else
-            {
-                this.Name = Name;
-            }
-            // to ensure "Secret" is required (not null)
-            if (Secret == null)
-            {
-                throw new InvalidDataException("Secret is a required property for XapiCredentialPostSchema and cannot be null");
-            }
-            else
-            {
-                this.Secret = Secret;
-            }
-            // to ensure "IsEnabled" is required (not null)
-            if (IsEnabled == null)
-            {
-                throw new InvalidDataException("IsEnabled is a required property for XapiCredentialPostSchema and cannot be null");
-            }
-            else
-            {
-                this.IsEnabled = IsEnabled;
-            }
-            // to ensure "Auth" is required (not null)
-            if (Auth == null)
-            {
-                throw new InvalidDataException("Auth is a required property for XapiCredentialPostSchema and cannot be null");
-            }
-            else
-            {
-                this.Auth = Auth;
-            }
-            // to ensure "PermissionsLevel" is required (not null)
-            if (PermissionsLevel == null)
-            {
-                throw new InvalidDataException("PermissionsLevel is a required property for XapiCredentialPostSchema and cannot be null");
-            }
-            else
-            {
-                this.PermissionsLevel = PermissionsLevel;
-            }
+            this.Id = Id;
+            this.Name = Name;
             this.Info = Info;
+            this.Secret = Secret;
+            this.IsEnabled = IsEnabled;
+            this.Auth = Auth;
+            this.PermissionsLevel = PermissionsLevel;
         }
         
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -130,7 +92,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class XapiCredentialPostSchema {\n");
+            sb.Append("class XapiCredentialPutSchema {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Info: ").Append(Info).Append("\n");
             sb.Append("  Secret: ").Append(Secret).Append("\n");
@@ -158,21 +121,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiCredentialPostSchema);
+            return this.Equals(obj as XapiCredentialPutSchema);
         }
 
         /// <summary>
-        /// Returns true if XapiCredentialPostSchema instances are equal
+        /// Returns true if XapiCredentialPutSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiCredentialPostSchema to be compared</param>
+        /// <param name="other">Instance of XapiCredentialPutSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiCredentialPostSchema other)
+        public bool Equals(XapiCredentialPutSchema other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
                 return false;
 
             return 
+                (
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
+                ) && 
                 (
                     this.Name == other.Name ||
                     this.Name != null &&
@@ -216,6 +184,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
                 if (this.Info != null)

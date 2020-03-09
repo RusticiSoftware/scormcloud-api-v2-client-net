@@ -11,7 +11,7 @@ OpenAPI spec version: 2.0
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{14BA2121-9D9F-48CA-A39A-F440637E3DDB}</ProjectGuid>
+    <ProjectGuid>{C71C15DC-D500-4D87-AA6C-B756BED264DE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Com.RusticiSoftware.Cloud.V2</RootNamespace>

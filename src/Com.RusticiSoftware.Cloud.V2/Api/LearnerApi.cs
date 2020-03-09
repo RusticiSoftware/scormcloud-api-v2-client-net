@@ -25,33 +25,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners.
+        /// Deletes all of the information associated with a learner in an application, by learner id. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
-        /// <returns>string</returns>
-        string DeleteAllLearnerData (string learnerId, string userEmail);
+        /// <returns></returns>
+        void DeleteAllLearnerData (string learnerId, string userEmail);
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners.
+        /// Deletes all of the information associated with a learner in an application, by learner id. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> DeleteAllLearnerDataWithHttpInfo (string learnerId, string userEmail);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteAllLearnerDataWithHttpInfo (string learnerId, string userEmail);
         /// <summary>
-        /// Delete tags for this learner
+        /// Delete the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -60,10 +60,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteLearnerTags (string learnerId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this learner
+        /// Delete the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -71,10 +71,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteLearnerTagsWithHttpInfo (string learnerId, TagListSchema tags);
         /// <summary>
-        /// Get the tags for this learner
+        /// Get the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -82,20 +82,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         TagListSchema GetLearnerTags (string learnerId);
 
         /// <summary>
-        /// Get the tags for this learner
+        /// Get the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <returns>ApiResponse of TagListSchema</returns>
         ApiResponse<TagListSchema> GetLearnerTagsWithHttpInfo (string learnerId);
         /// <summary>
-        /// Set the tags for this learner
+        /// Set the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -104,46 +104,90 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutLearnerTags (string learnerId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this learner
+        /// Set the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutLearnerTagsWithHttpInfo (string learnerId, TagListSchema tags);
+        /// <summary>
+        /// Sets all of the provided tags on all of the provided learners
+        /// </summary>
+        /// <remarks>
+        /// Sets all of the provided tags on all of the provided learners 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <returns></returns>
+        void PutLearnerTagsBatch (BatchTagsSchema batch);
+
+        /// <summary>
+        /// Sets all of the provided tags on all of the provided learners
+        /// </summary>
+        /// <remarks>
+        /// Sets all of the provided tags on all of the provided learners 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> PutLearnerTagsBatchWithHttpInfo (BatchTagsSchema batch);
+        /// <summary>
+        /// Update a learner&#39;s info on all of their registrations.
+        /// </summary>
+        /// <remarks>
+        /// A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerInfo"></param>
+        /// <returns></returns>
+        void UpdateLearnerInfo (string learnerId, LearnerSchema learnerInfo);
+
+        /// <summary>
+        /// Update a learner&#39;s info on all of their registrations.
+        /// </summary>
+        /// <remarks>
+        /// A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerInfo"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateLearnerInfoWithHttpInfo (string learnerId, LearnerSchema learnerInfo);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners.
+        /// Deletes all of the information associated with a learner in an application, by learner id. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> DeleteAllLearnerDataAsync (string learnerId, string userEmail);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteAllLearnerDataAsync (string learnerId, string userEmail);
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners.
+        /// Deletes all of the information associated with a learner in an application, by learner id. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> DeleteAllLearnerDataAsyncWithHttpInfo (string learnerId, string userEmail);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAllLearnerDataAsyncWithHttpInfo (string learnerId, string userEmail);
         /// <summary>
-        /// Delete tags for this learner
+        /// Delete the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -152,10 +196,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteLearnerTagsAsync (string learnerId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags for this learner
+        /// Delete the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Delete the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -163,10 +207,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLearnerTagsAsyncWithHttpInfo (string learnerId, TagListSchema tags);
         /// <summary>
-        /// Get the tags for this learner
+        /// Get the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -174,20 +218,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<TagListSchema> GetLearnerTagsAsync (string learnerId);
 
         /// <summary>
-        /// Get the tags for this learner
+        /// Get the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetLearnerTagsAsyncWithHttpInfo (string learnerId);
         /// <summary>
-        /// Set the tags for this learner
+        /// Set the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -196,16 +240,60 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutLearnerTagsAsync (string learnerId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this learner
+        /// Set the tags for this learner 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the tags for this learner 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutLearnerTagsAsyncWithHttpInfo (string learnerId, TagListSchema tags);
+        /// <summary>
+        /// Sets all of the provided tags on all of the provided learners
+        /// </summary>
+        /// <remarks>
+        /// Sets all of the provided tags on all of the provided learners 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task PutLearnerTagsBatchAsync (BatchTagsSchema batch);
+
+        /// <summary>
+        /// Sets all of the provided tags on all of the provided learners
+        /// </summary>
+        /// <remarks>
+        /// Sets all of the provided tags on all of the provided learners 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> PutLearnerTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch);
+        /// <summary>
+        /// Update a learner&#39;s info on all of their registrations.
+        /// </summary>
+        /// <remarks>
+        /// A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerInfo"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateLearnerInfoAsync (string learnerId, LearnerSchema learnerInfo);
+
+        /// <summary>
+        /// Update a learner&#39;s info on all of their registrations.
+        /// </summary>
+        /// <remarks>
+        /// A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerInfo"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateLearnerInfoAsyncWithHttpInfo (string learnerId, LearnerSchema learnerInfo);
         #endregion Asynchronous Operations
     }
 
@@ -319,26 +407,25 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all of the information associated with a learner in an application, by learner id.  Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
-        /// <returns>string</returns>
-        public string DeleteAllLearnerData (string learnerId, string userEmail)
+        /// <returns></returns>
+        public void DeleteAllLearnerData (string learnerId, string userEmail)
         {
-             ApiResponse<string> localVarResponse = DeleteAllLearnerDataWithHttpInfo(learnerId, userEmail);
-             return localVarResponse.Data;
+             DeleteAllLearnerDataWithHttpInfo(learnerId, userEmail);
         }
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all of the information associated with a learner in an application, by learner id.  Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
-        /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > DeleteAllLearnerDataWithHttpInfo (string learnerId, string userEmail)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteAllLearnerDataWithHttpInfo (string learnerId, string userEmail)
         {
             // verify the required parameter 'learnerId' is set
             if (learnerId == null)
@@ -402,34 +489,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
             
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all of the information associated with a learner in an application, by learner id.  Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> DeleteAllLearnerDataAsync (string learnerId, string userEmail)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteAllLearnerDataAsync (string learnerId, string userEmail)
         {
-             ApiResponse<string> localVarResponse = await DeleteAllLearnerDataAsyncWithHttpInfo(learnerId, userEmail);
-             return localVarResponse.Data;
+             await DeleteAllLearnerDataAsyncWithHttpInfo(learnerId, userEmail);
 
         }
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all of the information associated with a learner in an application, by learner id.  Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
         /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> DeleteAllLearnerDataAsyncWithHttpInfo (string learnerId, string userEmail)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAllLearnerDataAsyncWithHttpInfo (string learnerId, string userEmail)
         {
             // verify the required parameter 'learnerId' is set
             if (learnerId == null)
@@ -492,14 +578,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
             
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
-        /// Delete tags for this learner 
+        /// Delete the tags for this learner  Delete the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -511,7 +597,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this learner 
+        /// Delete the tags for this learner  Delete the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -595,7 +681,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this learner 
+        /// Delete the tags for this learner  Delete the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -608,7 +694,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags for this learner 
+        /// Delete the tags for this learner  Delete the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -691,7 +777,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this learner 
+        /// Get the tags for this learner  Get the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -703,7 +789,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this learner 
+        /// Get the tags for this learner  Get the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -775,7 +861,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this learner 
+        /// Get the tags for this learner  Get the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -788,7 +874,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this learner 
+        /// Get the tags for this learner  Get the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -859,7 +945,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this learner 
+        /// Set the tags for this learner  Set the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -871,7 +957,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this learner 
+        /// Set the tags for this learner  Set the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -955,7 +1041,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this learner 
+        /// Set the tags for this learner  Set the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -968,7 +1054,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this learner 
+        /// Set the tags for this learner  Set the tags for this learner 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
@@ -1041,6 +1127,378 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("PutLearnerTags", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Sets all of the provided tags on all of the provided learners Sets all of the provided tags on all of the provided learners 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <returns></returns>
+        public void PutLearnerTagsBatch (BatchTagsSchema batch)
+        {
+             PutLearnerTagsBatchWithHttpInfo(batch);
+        }
+
+        /// <summary>
+        /// Sets all of the provided tags on all of the provided learners Sets all of the provided tags on all of the provided learners 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> PutLearnerTagsBatchWithHttpInfo (BatchTagsSchema batch)
+        {
+            // verify the required parameter 'batch' is set
+            if (batch == null)
+                throw new ApiException(400, "Missing required parameter 'batch' when calling LearnerApi->PutLearnerTagsBatch");
+
+            var localVarPath = "/learner/tags";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (batch != null && batch.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(batch); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = batch; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
+            }
+
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutLearnerTagsBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Sets all of the provided tags on all of the provided learners Sets all of the provided tags on all of the provided learners 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task PutLearnerTagsBatchAsync (BatchTagsSchema batch)
+        {
+             await PutLearnerTagsBatchAsyncWithHttpInfo(batch);
+
+        }
+
+        /// <summary>
+        /// Sets all of the provided tags on all of the provided learners Sets all of the provided tags on all of the provided learners 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> PutLearnerTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch)
+        {
+            // verify the required parameter 'batch' is set
+            if (batch == null)
+                throw new ApiException(400, "Missing required parameter 'batch' when calling LearnerApi->PutLearnerTagsBatch");
+
+            var localVarPath = "/learner/tags";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (batch != null && batch.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(batch); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = batch; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PutLearnerTagsBatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update a learner&#39;s info on all of their registrations. A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerInfo"></param>
+        /// <returns></returns>
+        public void UpdateLearnerInfo (string learnerId, LearnerSchema learnerInfo)
+        {
+             UpdateLearnerInfoWithHttpInfo(learnerId, learnerInfo);
+        }
+
+        /// <summary>
+        /// Update a learner&#39;s info on all of their registrations. A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerInfo"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateLearnerInfoWithHttpInfo (string learnerId, LearnerSchema learnerInfo)
+        {
+            // verify the required parameter 'learnerId' is set
+            if (learnerId == null)
+                throw new ApiException(400, "Missing required parameter 'learnerId' when calling LearnerApi->UpdateLearnerInfo");
+            // verify the required parameter 'learnerInfo' is set
+            if (learnerInfo == null)
+                throw new ApiException(400, "Missing required parameter 'learnerInfo' when calling LearnerApi->UpdateLearnerInfo");
+
+            var localVarPath = "/learner/{learnerId}/updateInfo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (learnerId != null) localVarPathParams.Add("learnerId", Configuration.ApiClient.ParameterToString(learnerId)); // path parameter
+            if (learnerInfo != null && learnerInfo.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(learnerInfo); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = learnerInfo; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
+            }
+
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateLearnerInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update a learner&#39;s info on all of their registrations. A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerInfo"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateLearnerInfoAsync (string learnerId, LearnerSchema learnerInfo)
+        {
+             await UpdateLearnerInfoAsyncWithHttpInfo(learnerId, learnerInfo);
+
+        }
+
+        /// <summary>
+        /// Update a learner&#39;s info on all of their registrations. A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerInfo"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateLearnerInfoAsyncWithHttpInfo (string learnerId, LearnerSchema learnerInfo)
+        {
+            // verify the required parameter 'learnerId' is set
+            if (learnerId == null)
+                throw new ApiException(400, "Missing required parameter 'learnerId' when calling LearnerApi->UpdateLearnerInfo");
+            // verify the required parameter 'learnerInfo' is set
+            if (learnerInfo == null)
+                throw new ApiException(400, "Missing required parameter 'learnerInfo' when calling LearnerApi->UpdateLearnerInfo");
+
+            var localVarPath = "/learner/{learnerId}/updateInfo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (learnerId != null) localVarPathParams.Add("learnerId", Configuration.ApiClient.ParameterToString(learnerId)); // path parameter
+            if (learnerInfo != null && learnerInfo.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(learnerInfo); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = learnerInfo; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateLearnerInfo", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -28,7 +28,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get all of the account information specified by the given app ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all of the account information specified by the given app ID
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ReportageAccountInfoSchema</returns>
@@ -38,7 +38,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get all of the account information specified by the given app ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all of the account information specified by the given app ID
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ReportageAccountInfoSchema</returns>
@@ -47,7 +47,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a session authentication token to use when launching Reportage
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a session authentication token to use when launching Reportage
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -59,7 +59,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a session authentication token to use when launching Reportage
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a session authentication token to use when launching Reportage
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -70,7 +70,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the link to a page in Reportage with the given authentication and permissions
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the link to a page in Reportage with the given authentication and permissions
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
@@ -82,7 +82,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the link to a page in Reportage with the given authentication and permissions
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the link to a page in Reportage with the given authentication and permissions
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
@@ -95,7 +95,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get all of the account information specified by the given app ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all of the account information specified by the given app ID
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ReportageAccountInfoSchema</returns>
@@ -105,7 +105,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get all of the account information specified by the given app ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get all of the account information specified by the given app ID
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ReportageAccountInfoSchema)</returns>
@@ -114,7 +114,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a session authentication token to use when launching Reportage
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a session authentication token to use when launching Reportage
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -126,7 +126,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a session authentication token to use when launching Reportage
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a session authentication token to use when launching Reportage
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -137,7 +137,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the link to a page in Reportage with the given authentication and permissions
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the link to a page in Reportage with the given authentication and permissions
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
@@ -149,7 +149,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the link to a page in Reportage with the given authentication and permissions
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the link to a page in Reportage with the given authentication and permissions
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
@@ -269,7 +269,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID 
+        /// Get all of the account information specified by the given app ID Get all of the account information specified by the given app ID
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ReportageAccountInfoSchema</returns>
@@ -280,7 +280,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID 
+        /// Get all of the account information specified by the given app ID Get all of the account information specified by the given app ID
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ReportageAccountInfoSchema</returns>
@@ -347,7 +347,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID 
+        /// Get all of the account information specified by the given app ID Get all of the account information specified by the given app ID
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ReportageAccountInfoSchema</returns>
@@ -359,7 +359,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID 
+        /// Get all of the account information specified by the given app ID Get all of the account information specified by the given app ID
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ReportageAccountInfoSchema)</returns>
@@ -425,7 +425,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage 
+        /// Get a session authentication token to use when launching Reportage Get a session authentication token to use when launching Reportage
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -438,7 +438,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage 
+        /// Get a session authentication token to use when launching Reportage Get a session authentication token to use when launching Reportage
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -512,7 +512,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage 
+        /// Get a session authentication token to use when launching Reportage Get a session authentication token to use when launching Reportage
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -526,7 +526,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage 
+        /// Get a session authentication token to use when launching Reportage Get a session authentication token to use when launching Reportage
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -599,7 +599,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions 
+        /// Get the link to a page in Reportage with the given authentication and permissions Get the link to a page in Reportage with the given authentication and permissions
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
@@ -612,7 +612,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions 
+        /// Get the link to a page in Reportage with the given authentication and permissions Get the link to a page in Reportage with the given authentication and permissions
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
@@ -689,7 +689,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions 
+        /// Get the link to a page in Reportage with the given authentication and permissions Get the link to a page in Reportage with the given authentication and permissions
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
@@ -703,7 +703,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions 
+        /// Get the link to a page in Reportage with the given authentication and permissions Get the link to a page in Reportage with the given authentication and permissions
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>

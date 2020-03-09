@@ -47,7 +47,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="CourseTags">CourseTags.</param>
         /// <param name="RegistrationTags">RegistrationTags.</param>
         /// <param name="Additionalvalues">Additionalvalues.</param>
-        public LaunchLinkRequestSchema(int? Expiry = 120, string RedirectOnExitUrl = default(string), bool? Tracking = true, string StartSco = default(string), string Culture = default(string), string CssUrl = default(string), List<string> LearnerTags = default(List<string>), List<string> CourseTags = default(List<string>), List<string> RegistrationTags = default(List<string>), List<ItemValuePairSchema> Additionalvalues = default(List<ItemValuePairSchema>))
+        /// <param name="LaunchAuth">LaunchAuth.</param>
+        public LaunchLinkRequestSchema(int? Expiry = 120, string RedirectOnExitUrl = default(string), bool? Tracking = true, string StartSco = default(string), string Culture = default(string), string CssUrl = default(string), List<string> LearnerTags = default(List<string>), List<string> CourseTags = default(List<string>), List<string> RegistrationTags = default(List<string>), List<ItemValuePairSchema> Additionalvalues = default(List<ItemValuePairSchema>), LaunchAuthSchema LaunchAuth = default(LaunchAuthSchema))
         {
             // to ensure "RedirectOnExitUrl" is required (not null)
             if (RedirectOnExitUrl == null)
@@ -83,6 +84,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             this.CourseTags = CourseTags;
             this.RegistrationTags = RegistrationTags;
             this.Additionalvalues = Additionalvalues;
+            this.LaunchAuth = LaunchAuth;
         }
         
         /// <summary>
@@ -142,6 +144,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         [DataMember(Name="additionalvalues", EmitDefaultValue=false)]
         public List<ItemValuePairSchema> Additionalvalues { get; set; }
         /// <summary>
+        /// Gets or Sets LaunchAuth
+        /// </summary>
+        [DataMember(Name="launchAuth", EmitDefaultValue=false)]
+        public LaunchAuthSchema LaunchAuth { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -159,6 +166,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  CourseTags: ").Append(CourseTags).Append("\n");
             sb.Append("  RegistrationTags: ").Append(RegistrationTags).Append("\n");
             sb.Append("  Additionalvalues: ").Append(Additionalvalues).Append("\n");
+            sb.Append("  LaunchAuth: ").Append(LaunchAuth).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -244,6 +252,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Additionalvalues == other.Additionalvalues ||
                     this.Additionalvalues != null &&
                     this.Additionalvalues.SequenceEqual(other.Additionalvalues)
+                ) && 
+                (
+                    this.LaunchAuth == other.LaunchAuth ||
+                    this.LaunchAuth != null &&
+                    this.LaunchAuth.Equals(other.LaunchAuth)
                 );
         }
 
@@ -278,6 +291,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hash = hash * 59 + this.RegistrationTags.GetHashCode();
                 if (this.Additionalvalues != null)
                     hash = hash * 59 + this.Additionalvalues.GetHashCode();
+                if (this.LaunchAuth != null)
+                    hash = hash * 59 + this.LaunchAuth.GetHashCode();
                 return hash;
             }
         }
