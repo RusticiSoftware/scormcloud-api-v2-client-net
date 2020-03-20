@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -30,55 +31,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class ActivityResultSchema :  IEquatable<ActivityResultSchema>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ActivityCompletion
+        /// Defines ActivityCompletion
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ActivityCompletionEnum
         {
             
             /// <summary>
-            /// Enum UNKNOWN for "UNKNOWN"
+            /// Enum UNKNOWN for value: UNKNOWN
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN,
+            UNKNOWN = 1,
             
             /// <summary>
-            /// Enum COMPLETED for "COMPLETED"
+            /// Enum COMPLETED for value: COMPLETED
             /// </summary>
             [EnumMember(Value = "COMPLETED")]
-            COMPLETED,
+            COMPLETED = 2,
             
             /// <summary>
-            /// Enum INCOMPLETE for "INCOMPLETE"
+            /// Enum INCOMPLETE for value: INCOMPLETE
             /// </summary>
             [EnumMember(Value = "INCOMPLETE")]
-            INCOMPLETE
-        }
-
-        /// <summary>
-        /// Gets or Sets ActivitySuccess
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ActivitySuccessEnum
-        {
-            
-            /// <summary>
-            /// Enum UNKNOWN for "UNKNOWN"
-            /// </summary>
-            [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN,
-            
-            /// <summary>
-            /// Enum PASSED for "PASSED"
-            /// </summary>
-            [EnumMember(Value = "PASSED")]
-            PASSED,
-            
-            /// <summary>
-            /// Enum FAILED for "FAILED"
-            /// </summary>
-            [EnumMember(Value = "FAILED")]
-            FAILED
+            INCOMPLETE = 3
         }
 
         /// <summary>
@@ -87,6 +62,32 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         [DataMember(Name="activityCompletion", EmitDefaultValue=false)]
         public ActivityCompletionEnum? ActivityCompletion { get; set; }
         /// <summary>
+        /// Defines ActivitySuccess
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ActivitySuccessEnum
+        {
+            
+            /// <summary>
+            /// Enum UNKNOWN for value: UNKNOWN
+            /// </summary>
+            [EnumMember(Value = "UNKNOWN")]
+            UNKNOWN = 1,
+            
+            /// <summary>
+            /// Enum PASSED for value: PASSED
+            /// </summary>
+            [EnumMember(Value = "PASSED")]
+            PASSED = 2,
+            
+            /// <summary>
+            /// Enum FAILED for value: FAILED
+            /// </summary>
+            [EnumMember(Value = "FAILED")]
+            FAILED = 3
+        }
+
+        /// <summary>
         /// Gets or Sets ActivitySuccess
         /// </summary>
         [DataMember(Name="activitySuccess", EmitDefaultValue=false)]
@@ -94,34 +95,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActivityResultSchema" /> class.
         /// </summary>
-        /// <param name="Id">Id.</param>
-        /// <param name="Title">Title.</param>
-        /// <param name="Attempts">Attempts.</param>
-        /// <param name="ActivityCompletion">ActivityCompletion.</param>
-        /// <param name="ActivitySuccess">ActivitySuccess.</param>
-        /// <param name="Score">Score.</param>
-        /// <param name="TimeTracked">TimeTracked.</param>
-        /// <param name="CompletionAmount">CompletionAmount.</param>
-        /// <param name="Suspended">Suspended.</param>
-        /// <param name="Children">Children.</param>
-        /// <param name="Objectives">Objectives.</param>
-        /// <param name="StaticProperties">StaticProperties.</param>
-        /// <param name="Runtime">Runtime.</param>
-        public ActivityResultSchema(string Id = default(string), string Title = default(string), int? Attempts = default(int?), ActivityCompletionEnum? ActivityCompletion = default(ActivityCompletionEnum?), ActivitySuccessEnum? ActivitySuccess = default(ActivitySuccessEnum?), ScoreSchema Score = default(ScoreSchema), string TimeTracked = default(string), CompletionAmountSchema CompletionAmount = default(CompletionAmountSchema), bool? Suspended = default(bool?), List<ActivityResultSchema> Children = default(List<ActivityResultSchema>), List<ObjectiveSchema> Objectives = default(List<ObjectiveSchema>), StaticPropertiesSchema StaticProperties = default(StaticPropertiesSchema), RuntimeSchema Runtime = default(RuntimeSchema))
+        /// <param name="id">id.</param>
+        /// <param name="title">title.</param>
+        /// <param name="attempts">attempts.</param>
+        /// <param name="activityCompletion">activityCompletion.</param>
+        /// <param name="activitySuccess">activitySuccess.</param>
+        /// <param name="score">score.</param>
+        /// <param name="timeTracked">timeTracked.</param>
+        /// <param name="completionAmount">completionAmount.</param>
+        /// <param name="suspended">suspended.</param>
+        /// <param name="children">children.</param>
+        /// <param name="objectives">objectives.</param>
+        /// <param name="staticProperties">staticProperties.</param>
+        /// <param name="runtime">runtime.</param>
+        public ActivityResultSchema(string id = default(string), string title = default(string), int? attempts = default(int?), ActivityCompletionEnum? activityCompletion = default(ActivityCompletionEnum?), ActivitySuccessEnum? activitySuccess = default(ActivitySuccessEnum?), ScoreSchema score = default(ScoreSchema), string timeTracked = default(string), CompletionAmountSchema completionAmount = default(CompletionAmountSchema), bool? suspended = default(bool?), List<ActivityResultSchema> children = default(List<ActivityResultSchema>), List<ObjectiveSchema> objectives = default(List<ObjectiveSchema>), StaticPropertiesSchema staticProperties = default(StaticPropertiesSchema), RuntimeSchema runtime = default(RuntimeSchema))
         {
-            this.Id = Id;
-            this.Title = Title;
-            this.Attempts = Attempts;
-            this.ActivityCompletion = ActivityCompletion;
-            this.ActivitySuccess = ActivitySuccess;
-            this.Score = Score;
-            this.TimeTracked = TimeTracked;
-            this.CompletionAmount = CompletionAmount;
-            this.Suspended = Suspended;
-            this.Children = Children;
-            this.Objectives = Objectives;
-            this.StaticProperties = StaticProperties;
-            this.Runtime = Runtime;
+            this.Id = id;
+            this.Title = title;
+            this.Attempts = attempts;
+            this.ActivityCompletion = activityCompletion;
+            this.ActivitySuccess = activitySuccess;
+            this.Score = score;
+            this.TimeTracked = timeTracked;
+            this.CompletionAmount = completionAmount;
+            this.Suspended = suspended;
+            this.Children = children;
+            this.Objectives = objectives;
+            this.StaticProperties = staticProperties;
+            this.Runtime = runtime;
         }
         
         /// <summary>
@@ -129,56 +130,69 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+
         /// <summary>
         /// Gets or Sets Attempts
         /// </summary>
         [DataMember(Name="attempts", EmitDefaultValue=false)]
         public int? Attempts { get; set; }
+
+
+
         /// <summary>
         /// Gets or Sets Score
         /// </summary>
         [DataMember(Name="score", EmitDefaultValue=false)]
         public ScoreSchema Score { get; set; }
+
         /// <summary>
         /// Gets or Sets TimeTracked
         /// </summary>
         [DataMember(Name="timeTracked", EmitDefaultValue=false)]
         public string TimeTracked { get; set; }
+
         /// <summary>
         /// Gets or Sets CompletionAmount
         /// </summary>
         [DataMember(Name="completionAmount", EmitDefaultValue=false)]
         public CompletionAmountSchema CompletionAmount { get; set; }
+
         /// <summary>
         /// Gets or Sets Suspended
         /// </summary>
         [DataMember(Name="suspended", EmitDefaultValue=false)]
         public bool? Suspended { get; set; }
+
         /// <summary>
         /// Gets or Sets Children
         /// </summary>
         [DataMember(Name="children", EmitDefaultValue=false)]
         public List<ActivityResultSchema> Children { get; set; }
+
         /// <summary>
         /// Gets or Sets Objectives
         /// </summary>
         [DataMember(Name="objectives", EmitDefaultValue=false)]
         public List<ObjectiveSchema> Objectives { get; set; }
+
         /// <summary>
         /// Gets or Sets StaticProperties
         /// </summary>
         [DataMember(Name="staticProperties", EmitDefaultValue=false)]
         public StaticPropertiesSchema StaticProperties { get; set; }
+
         /// <summary>
         /// Gets or Sets Runtime
         /// </summary>
         [DataMember(Name="runtime", EmitDefaultValue=false)]
         public RuntimeSchema Runtime { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -208,7 +222,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -216,90 +230,88 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ActivityResultSchema);
+            return this.Equals(input as ActivityResultSchema);
         }
 
         /// <summary>
         /// Returns true if ActivityResultSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of ActivityResultSchema to be compared</param>
+        /// <param name="input">Instance of ActivityResultSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ActivityResultSchema other)
+        public bool Equals(ActivityResultSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Title == other.Title ||
-                    this.Title != null &&
-                    this.Title.Equals(other.Title)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 ) && 
                 (
-                    this.Attempts == other.Attempts ||
-                    this.Attempts != null &&
-                    this.Attempts.Equals(other.Attempts)
+                    this.Attempts == input.Attempts ||
+                    (this.Attempts != null &&
+                    this.Attempts.Equals(input.Attempts))
                 ) && 
                 (
-                    this.ActivityCompletion == other.ActivityCompletion ||
-                    this.ActivityCompletion != null &&
-                    this.ActivityCompletion.Equals(other.ActivityCompletion)
+                    this.ActivityCompletion == input.ActivityCompletion ||
+                    (this.ActivityCompletion != null &&
+                    this.ActivityCompletion.Equals(input.ActivityCompletion))
                 ) && 
                 (
-                    this.ActivitySuccess == other.ActivitySuccess ||
-                    this.ActivitySuccess != null &&
-                    this.ActivitySuccess.Equals(other.ActivitySuccess)
+                    this.ActivitySuccess == input.ActivitySuccess ||
+                    (this.ActivitySuccess != null &&
+                    this.ActivitySuccess.Equals(input.ActivitySuccess))
                 ) && 
                 (
-                    this.Score == other.Score ||
-                    this.Score != null &&
-                    this.Score.Equals(other.Score)
+                    this.Score == input.Score ||
+                    (this.Score != null &&
+                    this.Score.Equals(input.Score))
                 ) && 
                 (
-                    this.TimeTracked == other.TimeTracked ||
-                    this.TimeTracked != null &&
-                    this.TimeTracked.Equals(other.TimeTracked)
+                    this.TimeTracked == input.TimeTracked ||
+                    (this.TimeTracked != null &&
+                    this.TimeTracked.Equals(input.TimeTracked))
                 ) && 
                 (
-                    this.CompletionAmount == other.CompletionAmount ||
-                    this.CompletionAmount != null &&
-                    this.CompletionAmount.Equals(other.CompletionAmount)
+                    this.CompletionAmount == input.CompletionAmount ||
+                    (this.CompletionAmount != null &&
+                    this.CompletionAmount.Equals(input.CompletionAmount))
                 ) && 
                 (
-                    this.Suspended == other.Suspended ||
-                    this.Suspended != null &&
-                    this.Suspended.Equals(other.Suspended)
+                    this.Suspended == input.Suspended ||
+                    (this.Suspended != null &&
+                    this.Suspended.Equals(input.Suspended))
                 ) && 
                 (
-                    this.Children == other.Children ||
+                    this.Children == input.Children ||
                     this.Children != null &&
-                    this.Children.SequenceEqual(other.Children)
+                    this.Children.SequenceEqual(input.Children)
                 ) && 
                 (
-                    this.Objectives == other.Objectives ||
+                    this.Objectives == input.Objectives ||
                     this.Objectives != null &&
-                    this.Objectives.SequenceEqual(other.Objectives)
+                    this.Objectives.SequenceEqual(input.Objectives)
                 ) && 
                 (
-                    this.StaticProperties == other.StaticProperties ||
-                    this.StaticProperties != null &&
-                    this.StaticProperties.Equals(other.StaticProperties)
+                    this.StaticProperties == input.StaticProperties ||
+                    (this.StaticProperties != null &&
+                    this.StaticProperties.Equals(input.StaticProperties))
                 ) && 
                 (
-                    this.Runtime == other.Runtime ||
-                    this.Runtime != null &&
-                    this.Runtime.Equals(other.Runtime)
+                    this.Runtime == input.Runtime ||
+                    (this.Runtime != null &&
+                    this.Runtime.Equals(input.Runtime))
                 );
         }
 
@@ -309,43 +321,46 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Title != null)
-                    hash = hash * 59 + this.Title.GetHashCode();
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Attempts != null)
-                    hash = hash * 59 + this.Attempts.GetHashCode();
+                    hashCode = hashCode * 59 + this.Attempts.GetHashCode();
                 if (this.ActivityCompletion != null)
-                    hash = hash * 59 + this.ActivityCompletion.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivityCompletion.GetHashCode();
                 if (this.ActivitySuccess != null)
-                    hash = hash * 59 + this.ActivitySuccess.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivitySuccess.GetHashCode();
                 if (this.Score != null)
-                    hash = hash * 59 + this.Score.GetHashCode();
+                    hashCode = hashCode * 59 + this.Score.GetHashCode();
                 if (this.TimeTracked != null)
-                    hash = hash * 59 + this.TimeTracked.GetHashCode();
+                    hashCode = hashCode * 59 + this.TimeTracked.GetHashCode();
                 if (this.CompletionAmount != null)
-                    hash = hash * 59 + this.CompletionAmount.GetHashCode();
+                    hashCode = hashCode * 59 + this.CompletionAmount.GetHashCode();
                 if (this.Suspended != null)
-                    hash = hash * 59 + this.Suspended.GetHashCode();
+                    hashCode = hashCode * 59 + this.Suspended.GetHashCode();
                 if (this.Children != null)
-                    hash = hash * 59 + this.Children.GetHashCode();
+                    hashCode = hashCode * 59 + this.Children.GetHashCode();
                 if (this.Objectives != null)
-                    hash = hash * 59 + this.Objectives.GetHashCode();
+                    hashCode = hashCode * 59 + this.Objectives.GetHashCode();
                 if (this.StaticProperties != null)
-                    hash = hash * 59 + this.StaticProperties.GetHashCode();
+                    hashCode = hashCode * 59 + this.StaticProperties.GetHashCode();
                 if (this.Runtime != null)
-                    hash = hash * 59 + this.Runtime.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Runtime.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

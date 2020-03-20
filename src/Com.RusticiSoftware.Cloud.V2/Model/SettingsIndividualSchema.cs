@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,21 +33,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsIndividualSchema" /> class.
         /// </summary>
-        /// <param name="SettingId">SettingId.</param>
-        /// <param name="Value">Value.</param>
-        /// <param name="_Explicit">_Explicit (default to false).</param>
-        public SettingsIndividualSchema(string SettingId = default(string), string Value = default(string), bool? _Explicit = false)
+        /// <param name="settingId">settingId.</param>
+        /// <param name="value">value.</param>
+        /// <param name="_explicit">_explicit (default to false).</param>
+        public SettingsIndividualSchema(string settingId = default(string), string value = default(string), bool? _explicit = false)
         {
-            this.SettingId = SettingId;
-            this.Value = Value;
-            // use default value if no "_Explicit" provided
-            if (_Explicit == null)
+            this.SettingId = settingId;
+            this.Value = value;
+            // use default value if no "_explicit" provided
+            if (_explicit == null)
             {
-                this._Explicit = false;
+                this.Explicit = false;
             }
             else
             {
-                this._Explicit = _Explicit;
+                this.Explicit = _explicit;
             }
         }
         
@@ -55,16 +56,19 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="settingId", EmitDefaultValue=false)]
         public string SettingId { get; set; }
+
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
+
         /// <summary>
-        /// Gets or Sets _Explicit
+        /// Gets or Sets Explicit
         /// </summary>
         [DataMember(Name="explicit", EmitDefaultValue=false)]
-        public bool? _Explicit { get; set; }
+        public bool? Explicit { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -75,7 +79,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("class SettingsIndividualSchema {\n");
             sb.Append("  SettingId: ").Append(SettingId).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  _Explicit: ").Append(_Explicit).Append("\n");
+            sb.Append("  Explicit: ").Append(Explicit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,7 +88,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -92,40 +96,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as SettingsIndividualSchema);
+            return this.Equals(input as SettingsIndividualSchema);
         }
 
         /// <summary>
         /// Returns true if SettingsIndividualSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of SettingsIndividualSchema to be compared</param>
+        /// <param name="input">Instance of SettingsIndividualSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SettingsIndividualSchema other)
+        public bool Equals(SettingsIndividualSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.SettingId == other.SettingId ||
-                    this.SettingId != null &&
-                    this.SettingId.Equals(other.SettingId)
+                    this.SettingId == input.SettingId ||
+                    (this.SettingId != null &&
+                    this.SettingId.Equals(input.SettingId))
                 ) && 
                 (
-                    this.Value == other.Value ||
-                    this.Value != null &&
-                    this.Value.Equals(other.Value)
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 ) && 
                 (
-                    this._Explicit == other._Explicit ||
-                    this._Explicit != null &&
-                    this._Explicit.Equals(other._Explicit)
+                    this.Explicit == input.Explicit ||
+                    (this.Explicit != null &&
+                    this.Explicit.Equals(input.Explicit))
                 );
         }
 
@@ -135,23 +137,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.SettingId != null)
-                    hash = hash * 59 + this.SettingId.GetHashCode();
+                    hashCode = hashCode * 59 + this.SettingId.GetHashCode();
                 if (this.Value != null)
-                    hash = hash * 59 + this.Value.GetHashCode();
-                if (this._Explicit != null)
-                    hash = hash * 59 + this._Explicit.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.Explicit != null)
+                    hashCode = hashCode * 59 + this.Explicit.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

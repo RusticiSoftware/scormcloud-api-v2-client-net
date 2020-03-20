@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -38,28 +39,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             
             /// <summary>
-            /// Enum STARTED for "STARTED"
+            /// Enum STARTED for value: STARTED
             /// </summary>
             [EnumMember(Value = "STARTED")]
-            STARTED,
+            STARTED = 1,
             
             /// <summary>
-            /// Enum CANCELLED for "CANCELLED"
+            /// Enum CANCELLED for value: CANCELLED
             /// </summary>
             [EnumMember(Value = "CANCELLED")]
-            CANCELLED,
+            CANCELLED = 2,
             
             /// <summary>
-            /// Enum COMPLETE for "COMPLETE"
+            /// Enum COMPLETE for value: COMPLETE
             /// </summary>
             [EnumMember(Value = "COMPLETE")]
-            COMPLETE,
+            COMPLETE = 3,
             
             /// <summary>
-            /// Enum ERROR for "ERROR"
+            /// Enum ERROR for value: ERROR
             /// </summary>
             [EnumMember(Value = "ERROR")]
-            ERROR
+            ERROR = 4
         }
 
         /// <summary>
@@ -71,36 +72,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvitationJobStatusSchema" /> class.
         /// </summary>
-        /// <param name="Status">The status of the job..</param>
-        /// <param name="Errors">An array containing any errors which occurred..</param>
-        /// <param name="Total">The total number of private invitations to be sent..</param>
-        /// <param name="Processed">The number of private invitations which have been sent..</param>
-        public InvitationJobStatusSchema(StatusEnum? Status = default(StatusEnum?), List<string> Errors = default(List<string>), int? Total = default(int?), int? Processed = default(int?))
+        /// <param name="status">The status of the job..</param>
+        /// <param name="errors">An array containing any errors which occurred..</param>
+        /// <param name="total">The total number of private invitations to be sent..</param>
+        /// <param name="processed">The number of private invitations which have been sent..</param>
+        public InvitationJobStatusSchema(StatusEnum? status = default(StatusEnum?), List<string> errors = default(List<string>), int? total = default(int?), int? processed = default(int?))
         {
-            this.Status = Status;
-            this.Errors = Errors;
-            this.Total = Total;
-            this.Processed = Processed;
+            this.Status = status;
+            this.Errors = errors;
+            this.Total = total;
+            this.Processed = processed;
         }
         
+
         /// <summary>
         /// An array containing any errors which occurred.
         /// </summary>
         /// <value>An array containing any errors which occurred.</value>
         [DataMember(Name="errors", EmitDefaultValue=false)]
         public List<string> Errors { get; set; }
+
         /// <summary>
         /// The total number of private invitations to be sent.
         /// </summary>
         /// <value>The total number of private invitations to be sent.</value>
         [DataMember(Name="total", EmitDefaultValue=false)]
         public int? Total { get; set; }
+
         /// <summary>
         /// The number of private invitations which have been sent.
         /// </summary>
         /// <value>The number of private invitations which have been sent.</value>
         [DataMember(Name="processed", EmitDefaultValue=false)]
         public int? Processed { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -121,7 +126,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -129,45 +134,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as InvitationJobStatusSchema);
+            return this.Equals(input as InvitationJobStatusSchema);
         }
 
         /// <summary>
         /// Returns true if InvitationJobStatusSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of InvitationJobStatusSchema to be compared</param>
+        /// <param name="input">Instance of InvitationJobStatusSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InvitationJobStatusSchema other)
+        public bool Equals(InvitationJobStatusSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.Errors == other.Errors ||
+                    this.Errors == input.Errors ||
                     this.Errors != null &&
-                    this.Errors.SequenceEqual(other.Errors)
+                    this.Errors.SequenceEqual(input.Errors)
                 ) && 
                 (
-                    this.Total == other.Total ||
-                    this.Total != null &&
-                    this.Total.Equals(other.Total)
+                    this.Total == input.Total ||
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
                 ) && 
                 (
-                    this.Processed == other.Processed ||
-                    this.Processed != null &&
-                    this.Processed.Equals(other.Processed)
+                    this.Processed == input.Processed ||
+                    (this.Processed != null &&
+                    this.Processed.Equals(input.Processed))
                 );
         }
 
@@ -177,25 +180,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Errors != null)
-                    hash = hash * 59 + this.Errors.GetHashCode();
+                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 if (this.Total != null)
-                    hash = hash * 59 + this.Total.GetHashCode();
+                    hashCode = hashCode * 59 + this.Total.GetHashCode();
                 if (this.Processed != null)
-                    hash = hash * 59 + this.Processed.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Processed.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

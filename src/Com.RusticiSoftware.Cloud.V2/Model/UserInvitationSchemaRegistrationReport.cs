@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -30,40 +31,44 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class UserInvitationSchemaRegistrationReport :  IEquatable<UserInvitationSchemaRegistrationReport>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserInvitationSchemaRegistrationReport" /> class.
-        /// </summary>
-        /// <param name="Complete">Complete.</param>
-        /// <param name="Success">Success.</param>
-        /// <param name="TotalSecondsTracked">TotalSecondsTracked.</param>
-        /// <param name="Score">Score.</param>
-        public UserInvitationSchemaRegistrationReport(RegistrationCompletion Complete = default(RegistrationCompletion), RegistrationSuccess Success = default(RegistrationSuccess), double? TotalSecondsTracked = default(double?), ScoreSchema Score = default(ScoreSchema))
-        {
-            this.Complete = Complete;
-            this.Success = Success;
-            this.TotalSecondsTracked = TotalSecondsTracked;
-            this.Score = Score;
-        }
-        
-        /// <summary>
         /// Gets or Sets Complete
         /// </summary>
         [DataMember(Name="complete", EmitDefaultValue=false)]
-        public RegistrationCompletion Complete { get; set; }
+        public RegistrationCompletion? Complete { get; set; }
         /// <summary>
         /// Gets or Sets Success
         /// </summary>
         [DataMember(Name="success", EmitDefaultValue=false)]
-        public RegistrationSuccess Success { get; set; }
+        public RegistrationSuccess? Success { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserInvitationSchemaRegistrationReport" /> class.
+        /// </summary>
+        /// <param name="complete">complete.</param>
+        /// <param name="success">success.</param>
+        /// <param name="totalSecondsTracked">totalSecondsTracked.</param>
+        /// <param name="score">score.</param>
+        public UserInvitationSchemaRegistrationReport(RegistrationCompletion? complete = default(RegistrationCompletion?), RegistrationSuccess? success = default(RegistrationSuccess?), double? totalSecondsTracked = default(double?), ScoreSchema score = default(ScoreSchema))
+        {
+            this.Complete = complete;
+            this.Success = success;
+            this.TotalSecondsTracked = totalSecondsTracked;
+            this.Score = score;
+        }
+        
+
+
         /// <summary>
         /// Gets or Sets TotalSecondsTracked
         /// </summary>
         [DataMember(Name="totalSecondsTracked", EmitDefaultValue=false)]
         public double? TotalSecondsTracked { get; set; }
+
         /// <summary>
         /// Gets or Sets Score
         /// </summary>
         [DataMember(Name="score", EmitDefaultValue=false)]
         public ScoreSchema Score { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -84,7 +89,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -92,45 +97,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UserInvitationSchemaRegistrationReport);
+            return this.Equals(input as UserInvitationSchemaRegistrationReport);
         }
 
         /// <summary>
         /// Returns true if UserInvitationSchemaRegistrationReport instances are equal
         /// </summary>
-        /// <param name="other">Instance of UserInvitationSchemaRegistrationReport to be compared</param>
+        /// <param name="input">Instance of UserInvitationSchemaRegistrationReport to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserInvitationSchemaRegistrationReport other)
+        public bool Equals(UserInvitationSchemaRegistrationReport input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Complete == other.Complete ||
-                    this.Complete != null &&
-                    this.Complete.Equals(other.Complete)
+                    this.Complete == input.Complete ||
+                    (this.Complete != null &&
+                    this.Complete.Equals(input.Complete))
                 ) && 
                 (
-                    this.Success == other.Success ||
-                    this.Success != null &&
-                    this.Success.Equals(other.Success)
+                    this.Success == input.Success ||
+                    (this.Success != null &&
+                    this.Success.Equals(input.Success))
                 ) && 
                 (
-                    this.TotalSecondsTracked == other.TotalSecondsTracked ||
-                    this.TotalSecondsTracked != null &&
-                    this.TotalSecondsTracked.Equals(other.TotalSecondsTracked)
+                    this.TotalSecondsTracked == input.TotalSecondsTracked ||
+                    (this.TotalSecondsTracked != null &&
+                    this.TotalSecondsTracked.Equals(input.TotalSecondsTracked))
                 ) && 
                 (
-                    this.Score == other.Score ||
-                    this.Score != null &&
-                    this.Score.Equals(other.Score)
+                    this.Score == input.Score ||
+                    (this.Score != null &&
+                    this.Score.Equals(input.Score))
                 );
         }
 
@@ -140,25 +143,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Complete != null)
-                    hash = hash * 59 + this.Complete.GetHashCode();
+                    hashCode = hashCode * 59 + this.Complete.GetHashCode();
                 if (this.Success != null)
-                    hash = hash * 59 + this.Success.GetHashCode();
+                    hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.TotalSecondsTracked != null)
-                    hash = hash * 59 + this.TotalSecondsTracked.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalSecondsTracked.GetHashCode();
                 if (this.Score != null)
-                    hash = hash * 59 + this.Score.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Score.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

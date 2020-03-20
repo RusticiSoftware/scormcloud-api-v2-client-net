@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -30,23 +31,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class LaunchAuthSchema :  IEquatable<LaunchAuthSchema>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Type
+        /// Defines Type
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
             
             /// <summary>
-            /// Enum Cookies for "cookies"
+            /// Enum Cookies for value: cookies
             /// </summary>
             [EnumMember(Value = "cookies")]
-            Cookies,
+            Cookies = 1,
             
             /// <summary>
-            /// Enum Vault for "vault"
+            /// Enum Vault for value: vault
             /// </summary>
             [EnumMember(Value = "vault")]
-            Vault
+            Vault = 2
         }
 
         /// <summary>
@@ -57,27 +58,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaunchAuthSchema" /> class.
         /// </summary>
-        /// <param name="Type">Type (default to TypeEnum.Cookies).</param>
-        /// <param name="Options">Options.</param>
-        public LaunchAuthSchema(TypeEnum? Type = TypeEnum.Cookies, LaunchAuthOptionsSchema Options = default(LaunchAuthOptionsSchema))
+        /// <param name="type">type (default to TypeEnum.Cookies).</param>
+        /// <param name="options">options.</param>
+        public LaunchAuthSchema(TypeEnum? type = TypeEnum.Cookies, LaunchAuthOptionsSchema options = default(LaunchAuthOptionsSchema))
         {
-            // use default value if no "Type" provided
-            if (Type == null)
+            // use default value if no "type" provided
+            if (type == null)
             {
                 this.Type = TypeEnum.Cookies;
             }
             else
             {
-                this.Type = Type;
+                this.Type = type;
             }
-            this.Options = Options;
+            this.Options = options;
         }
         
+
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name="options", EmitDefaultValue=false)]
         public LaunchAuthOptionsSchema Options { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -96,7 +99,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -104,35 +107,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as LaunchAuthSchema);
+            return this.Equals(input as LaunchAuthSchema);
         }
 
         /// <summary>
         /// Returns true if LaunchAuthSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of LaunchAuthSchema to be compared</param>
+        /// <param name="input">Instance of LaunchAuthSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LaunchAuthSchema other)
+        public bool Equals(LaunchAuthSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Options == other.Options ||
-                    this.Options != null &&
-                    this.Options.Equals(other.Options)
+                    this.Options == input.Options ||
+                    (this.Options != null &&
+                    this.Options.Equals(input.Options))
                 );
         }
 
@@ -142,21 +143,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Options != null)
-                    hash = hash * 59 + this.Options.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Options.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

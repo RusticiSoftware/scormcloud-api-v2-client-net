@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,22 +33,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataSchema" /> class.
         /// </summary>
-        /// <param name="Title">Title.</param>
-        /// <param name="TitleLanguage">TitleLanguage.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="DescriptionLanguage">DescriptionLanguage.</param>
-        /// <param name="Duration">Duration.</param>
-        /// <param name="Typicaltime">Typicaltime.</param>
-        /// <param name="Keywords">Keywords.</param>
-        public MetadataSchema(string Title = default(string), string TitleLanguage = default(string), string Description = default(string), string DescriptionLanguage = default(string), string Duration = default(string), string Typicaltime = default(string), List<string> Keywords = default(List<string>))
+        /// <param name="title">title.</param>
+        /// <param name="titleLanguage">titleLanguage.</param>
+        /// <param name="description">description.</param>
+        /// <param name="descriptionLanguage">descriptionLanguage.</param>
+        /// <param name="duration">duration.</param>
+        /// <param name="typicaltime">typicaltime.</param>
+        /// <param name="keywords">keywords.</param>
+        public MetadataSchema(string title = default(string), string titleLanguage = default(string), string description = default(string), string descriptionLanguage = default(string), string duration = default(string), string typicaltime = default(string), List<string> keywords = default(List<string>))
         {
-            this.Title = Title;
-            this.TitleLanguage = TitleLanguage;
-            this.Description = Description;
-            this.DescriptionLanguage = DescriptionLanguage;
-            this.Duration = Duration;
-            this.Typicaltime = Typicaltime;
-            this.Keywords = Keywords;
+            this.Title = title;
+            this.TitleLanguage = titleLanguage;
+            this.Description = description;
+            this.DescriptionLanguage = descriptionLanguage;
+            this.Duration = duration;
+            this.Typicaltime = typicaltime;
+            this.Keywords = keywords;
         }
         
         /// <summary>
@@ -55,36 +56,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+
         /// <summary>
         /// Gets or Sets TitleLanguage
         /// </summary>
         [DataMember(Name="titleLanguage", EmitDefaultValue=false)]
         public string TitleLanguage { get; set; }
+
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
         /// <summary>
         /// Gets or Sets DescriptionLanguage
         /// </summary>
         [DataMember(Name="descriptionLanguage", EmitDefaultValue=false)]
         public string DescriptionLanguage { get; set; }
+
         /// <summary>
         /// Gets or Sets Duration
         /// </summary>
         [DataMember(Name="duration", EmitDefaultValue=false)]
         public string Duration { get; set; }
+
         /// <summary>
         /// Gets or Sets Typicaltime
         /// </summary>
         [DataMember(Name="typicaltime", EmitDefaultValue=false)]
         public string Typicaltime { get; set; }
+
         /// <summary>
         /// Gets or Sets Keywords
         /// </summary>
         [DataMember(Name="keywords", EmitDefaultValue=false)]
         public List<string> Keywords { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -108,7 +116,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -116,60 +124,58 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MetadataSchema);
+            return this.Equals(input as MetadataSchema);
         }
 
         /// <summary>
         /// Returns true if MetadataSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of MetadataSchema to be compared</param>
+        /// <param name="input">Instance of MetadataSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MetadataSchema other)
+        public bool Equals(MetadataSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Title == other.Title ||
-                    this.Title != null &&
-                    this.Title.Equals(other.Title)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 ) && 
                 (
-                    this.TitleLanguage == other.TitleLanguage ||
-                    this.TitleLanguage != null &&
-                    this.TitleLanguage.Equals(other.TitleLanguage)
+                    this.TitleLanguage == input.TitleLanguage ||
+                    (this.TitleLanguage != null &&
+                    this.TitleLanguage.Equals(input.TitleLanguage))
                 ) && 
                 (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.DescriptionLanguage == other.DescriptionLanguage ||
-                    this.DescriptionLanguage != null &&
-                    this.DescriptionLanguage.Equals(other.DescriptionLanguage)
+                    this.DescriptionLanguage == input.DescriptionLanguage ||
+                    (this.DescriptionLanguage != null &&
+                    this.DescriptionLanguage.Equals(input.DescriptionLanguage))
                 ) && 
                 (
-                    this.Duration == other.Duration ||
-                    this.Duration != null &&
-                    this.Duration.Equals(other.Duration)
+                    this.Duration == input.Duration ||
+                    (this.Duration != null &&
+                    this.Duration.Equals(input.Duration))
                 ) && 
                 (
-                    this.Typicaltime == other.Typicaltime ||
-                    this.Typicaltime != null &&
-                    this.Typicaltime.Equals(other.Typicaltime)
+                    this.Typicaltime == input.Typicaltime ||
+                    (this.Typicaltime != null &&
+                    this.Typicaltime.Equals(input.Typicaltime))
                 ) && 
                 (
-                    this.Keywords == other.Keywords ||
+                    this.Keywords == input.Keywords ||
                     this.Keywords != null &&
-                    this.Keywords.SequenceEqual(other.Keywords)
+                    this.Keywords.SequenceEqual(input.Keywords)
                 );
         }
 
@@ -179,31 +185,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Title != null)
-                    hash = hash * 59 + this.Title.GetHashCode();
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.TitleLanguage != null)
-                    hash = hash * 59 + this.TitleLanguage.GetHashCode();
+                    hashCode = hashCode * 59 + this.TitleLanguage.GetHashCode();
                 if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.DescriptionLanguage != null)
-                    hash = hash * 59 + this.DescriptionLanguage.GetHashCode();
+                    hashCode = hashCode * 59 + this.DescriptionLanguage.GetHashCode();
                 if (this.Duration != null)
-                    hash = hash * 59 + this.Duration.GetHashCode();
+                    hashCode = hashCode * 59 + this.Duration.GetHashCode();
                 if (this.Typicaltime != null)
-                    hash = hash * 59 + this.Typicaltime.GetHashCode();
+                    hashCode = hashCode * 59 + this.Typicaltime.GetHashCode();
                 if (this.Keywords != null)
-                    hash = hash * 59 + this.Keywords.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Keywords.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

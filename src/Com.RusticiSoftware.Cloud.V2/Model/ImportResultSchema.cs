@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,16 +33,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImportResultSchema" /> class.
         /// </summary>
-        /// <param name="WebPathToCourse">web path to this course.</param>
-        /// <param name="ParserWarnings">ParserWarnings.</param>
-        /// <param name="CourseLanguages">CourseLanguages.</param>
-        /// <param name="Course">Course.</param>
-        public ImportResultSchema(string WebPathToCourse = default(string), List<string> ParserWarnings = default(List<string>), List<string> CourseLanguages = default(List<string>), CourseSchema Course = default(CourseSchema))
+        /// <param name="webPathToCourse">web path to this course.</param>
+        /// <param name="parserWarnings">parserWarnings.</param>
+        /// <param name="courseLanguages">courseLanguages.</param>
+        /// <param name="course">course.</param>
+        public ImportResultSchema(string webPathToCourse = default(string), List<string> parserWarnings = default(List<string>), List<string> courseLanguages = default(List<string>), CourseSchema course = default(CourseSchema))
         {
-            this.WebPathToCourse = WebPathToCourse;
-            this.ParserWarnings = ParserWarnings;
-            this.CourseLanguages = CourseLanguages;
-            this.Course = Course;
+            this.WebPathToCourse = webPathToCourse;
+            this.ParserWarnings = parserWarnings;
+            this.CourseLanguages = courseLanguages;
+            this.Course = course;
         }
         
         /// <summary>
@@ -50,21 +51,25 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>web path to this course</value>
         [DataMember(Name="webPathToCourse", EmitDefaultValue=false)]
         public string WebPathToCourse { get; set; }
+
         /// <summary>
         /// Gets or Sets ParserWarnings
         /// </summary>
         [DataMember(Name="parserWarnings", EmitDefaultValue=false)]
         public List<string> ParserWarnings { get; set; }
+
         /// <summary>
         /// Gets or Sets CourseLanguages
         /// </summary>
         [DataMember(Name="courseLanguages", EmitDefaultValue=false)]
         public List<string> CourseLanguages { get; set; }
+
         /// <summary>
         /// Gets or Sets Course
         /// </summary>
         [DataMember(Name="course", EmitDefaultValue=false)]
         public CourseSchema Course { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +90,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -93,45 +98,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ImportResultSchema);
+            return this.Equals(input as ImportResultSchema);
         }
 
         /// <summary>
         /// Returns true if ImportResultSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of ImportResultSchema to be compared</param>
+        /// <param name="input">Instance of ImportResultSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImportResultSchema other)
+        public bool Equals(ImportResultSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.WebPathToCourse == other.WebPathToCourse ||
-                    this.WebPathToCourse != null &&
-                    this.WebPathToCourse.Equals(other.WebPathToCourse)
+                    this.WebPathToCourse == input.WebPathToCourse ||
+                    (this.WebPathToCourse != null &&
+                    this.WebPathToCourse.Equals(input.WebPathToCourse))
                 ) && 
                 (
-                    this.ParserWarnings == other.ParserWarnings ||
+                    this.ParserWarnings == input.ParserWarnings ||
                     this.ParserWarnings != null &&
-                    this.ParserWarnings.SequenceEqual(other.ParserWarnings)
+                    this.ParserWarnings.SequenceEqual(input.ParserWarnings)
                 ) && 
                 (
-                    this.CourseLanguages == other.CourseLanguages ||
+                    this.CourseLanguages == input.CourseLanguages ||
                     this.CourseLanguages != null &&
-                    this.CourseLanguages.SequenceEqual(other.CourseLanguages)
+                    this.CourseLanguages.SequenceEqual(input.CourseLanguages)
                 ) && 
                 (
-                    this.Course == other.Course ||
-                    this.Course != null &&
-                    this.Course.Equals(other.Course)
+                    this.Course == input.Course ||
+                    (this.Course != null &&
+                    this.Course.Equals(input.Course))
                 );
         }
 
@@ -141,25 +144,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.WebPathToCourse != null)
-                    hash = hash * 59 + this.WebPathToCourse.GetHashCode();
+                    hashCode = hashCode * 59 + this.WebPathToCourse.GetHashCode();
                 if (this.ParserWarnings != null)
-                    hash = hash * 59 + this.ParserWarnings.GetHashCode();
+                    hashCode = hashCode * 59 + this.ParserWarnings.GetHashCode();
                 if (this.CourseLanguages != null)
-                    hash = hash * 59 + this.CourseLanguages.GetHashCode();
+                    hashCode = hashCode * 59 + this.CourseLanguages.GetHashCode();
                 if (this.Course != null)
-                    hash = hash * 59 + this.Course.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Course.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

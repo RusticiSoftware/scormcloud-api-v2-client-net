@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,22 +33,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiStatementPipeSchema" /> class.
         /// </summary>
-        /// <param name="Id">Id.</param>
-        /// <param name="LastForwardedStatementDate">LastForwardedStatementDate.</param>
-        /// <param name="MoreUrl">MoreUrl.</param>
-        /// <param name="Attempts">Attempts.</param>
-        /// <param name="VisibleAfter">VisibleAfter.</param>
-        /// <param name="Source">Source.</param>
-        /// <param name="Target">Target.</param>
-        public XapiStatementPipeSchema(string Id = default(string), string LastForwardedStatementDate = default(string), string MoreUrl = default(string), int? Attempts = default(int?), string VisibleAfter = default(string), XapiEndpointSchema Source = default(XapiEndpointSchema), XapiEndpointSchema Target = default(XapiEndpointSchema))
+        /// <param name="id">id.</param>
+        /// <param name="lastForwardedStatementDate">lastForwardedStatementDate.</param>
+        /// <param name="moreUrl">moreUrl.</param>
+        /// <param name="attempts">attempts.</param>
+        /// <param name="visibleAfter">visibleAfter.</param>
+        /// <param name="source">source.</param>
+        /// <param name="target">target.</param>
+        public XapiStatementPipeSchema(string id = default(string), string lastForwardedStatementDate = default(string), string moreUrl = default(string), int? attempts = default(int?), string visibleAfter = default(string), XapiEndpointSchema source = default(XapiEndpointSchema), XapiEndpointSchema target = default(XapiEndpointSchema))
         {
-            this.Id = Id;
-            this.LastForwardedStatementDate = LastForwardedStatementDate;
-            this.MoreUrl = MoreUrl;
-            this.Attempts = Attempts;
-            this.VisibleAfter = VisibleAfter;
-            this.Source = Source;
-            this.Target = Target;
+            this.Id = id;
+            this.LastForwardedStatementDate = lastForwardedStatementDate;
+            this.MoreUrl = moreUrl;
+            this.Attempts = attempts;
+            this.VisibleAfter = visibleAfter;
+            this.Source = source;
+            this.Target = target;
         }
         
         /// <summary>
@@ -55,36 +56,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// Gets or Sets LastForwardedStatementDate
         /// </summary>
         [DataMember(Name="lastForwardedStatementDate", EmitDefaultValue=false)]
         public string LastForwardedStatementDate { get; set; }
+
         /// <summary>
         /// Gets or Sets MoreUrl
         /// </summary>
         [DataMember(Name="moreUrl", EmitDefaultValue=false)]
         public string MoreUrl { get; set; }
+
         /// <summary>
         /// Gets or Sets Attempts
         /// </summary>
         [DataMember(Name="attempts", EmitDefaultValue=false)]
         public int? Attempts { get; set; }
+
         /// <summary>
         /// Gets or Sets VisibleAfter
         /// </summary>
         [DataMember(Name="visibleAfter", EmitDefaultValue=false)]
         public string VisibleAfter { get; set; }
+
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
         [DataMember(Name="source", EmitDefaultValue=false)]
         public XapiEndpointSchema Source { get; set; }
+
         /// <summary>
         /// Gets or Sets Target
         /// </summary>
         [DataMember(Name="target", EmitDefaultValue=false)]
         public XapiEndpointSchema Target { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -108,7 +116,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -116,60 +124,58 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiStatementPipeSchema);
+            return this.Equals(input as XapiStatementPipeSchema);
         }
 
         /// <summary>
         /// Returns true if XapiStatementPipeSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiStatementPipeSchema to be compared</param>
+        /// <param name="input">Instance of XapiStatementPipeSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiStatementPipeSchema other)
+        public bool Equals(XapiStatementPipeSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.LastForwardedStatementDate == other.LastForwardedStatementDate ||
-                    this.LastForwardedStatementDate != null &&
-                    this.LastForwardedStatementDate.Equals(other.LastForwardedStatementDate)
+                    this.LastForwardedStatementDate == input.LastForwardedStatementDate ||
+                    (this.LastForwardedStatementDate != null &&
+                    this.LastForwardedStatementDate.Equals(input.LastForwardedStatementDate))
                 ) && 
                 (
-                    this.MoreUrl == other.MoreUrl ||
-                    this.MoreUrl != null &&
-                    this.MoreUrl.Equals(other.MoreUrl)
+                    this.MoreUrl == input.MoreUrl ||
+                    (this.MoreUrl != null &&
+                    this.MoreUrl.Equals(input.MoreUrl))
                 ) && 
                 (
-                    this.Attempts == other.Attempts ||
-                    this.Attempts != null &&
-                    this.Attempts.Equals(other.Attempts)
+                    this.Attempts == input.Attempts ||
+                    (this.Attempts != null &&
+                    this.Attempts.Equals(input.Attempts))
                 ) && 
                 (
-                    this.VisibleAfter == other.VisibleAfter ||
-                    this.VisibleAfter != null &&
-                    this.VisibleAfter.Equals(other.VisibleAfter)
+                    this.VisibleAfter == input.VisibleAfter ||
+                    (this.VisibleAfter != null &&
+                    this.VisibleAfter.Equals(input.VisibleAfter))
                 ) && 
                 (
-                    this.Source == other.Source ||
-                    this.Source != null &&
-                    this.Source.Equals(other.Source)
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
                 ) && 
                 (
-                    this.Target == other.Target ||
-                    this.Target != null &&
-                    this.Target.Equals(other.Target)
+                    this.Target == input.Target ||
+                    (this.Target != null &&
+                    this.Target.Equals(input.Target))
                 );
         }
 
@@ -179,31 +185,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.LastForwardedStatementDate != null)
-                    hash = hash * 59 + this.LastForwardedStatementDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastForwardedStatementDate.GetHashCode();
                 if (this.MoreUrl != null)
-                    hash = hash * 59 + this.MoreUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.MoreUrl.GetHashCode();
                 if (this.Attempts != null)
-                    hash = hash * 59 + this.Attempts.GetHashCode();
+                    hashCode = hashCode * 59 + this.Attempts.GetHashCode();
                 if (this.VisibleAfter != null)
-                    hash = hash * 59 + this.VisibleAfter.GetHashCode();
+                    hashCode = hashCode * 59 + this.VisibleAfter.GetHashCode();
                 if (this.Source != null)
-                    hash = hash * 59 + this.Source.GetHashCode();
+                    hashCode = hashCode * 59 + this.Source.GetHashCode();
                 if (this.Target != null)
-                    hash = hash * 59 + this.Target.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Target.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

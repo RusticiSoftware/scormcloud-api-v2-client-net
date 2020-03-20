@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,27 +38,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchTagsSchema" /> class.
         /// </summary>
-        /// <param name="Ids">Ids (required).</param>
-        /// <param name="Tags">Tags (required).</param>
-        public BatchTagsSchema(List<string> Ids = default(List<string>), List<string> Tags = default(List<string>))
+        /// <param name="ids">ids (required).</param>
+        /// <param name="tags">tags (required).</param>
+        public BatchTagsSchema(List<string> ids = default(List<string>), List<string> tags = default(List<string>))
         {
-            // to ensure "Ids" is required (not null)
-            if (Ids == null)
+            // to ensure "ids" is required (not null)
+            if (ids == null)
             {
-                throw new InvalidDataException("Ids is a required property for BatchTagsSchema and cannot be null");
+                throw new InvalidDataException("ids is a required property for BatchTagsSchema and cannot be null");
             }
             else
             {
-                this.Ids = Ids;
+                this.Ids = ids;
             }
-            // to ensure "Tags" is required (not null)
-            if (Tags == null)
+            // to ensure "tags" is required (not null)
+            if (tags == null)
             {
-                throw new InvalidDataException("Tags is a required property for BatchTagsSchema and cannot be null");
+                throw new InvalidDataException("tags is a required property for BatchTagsSchema and cannot be null");
             }
             else
             {
-                this.Tags = Tags;
+                this.Tags = tags;
             }
         }
         
@@ -66,11 +67,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="ids", EmitDefaultValue=false)]
         public List<string> Ids { get; set; }
+
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -89,7 +92,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -97,35 +100,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as BatchTagsSchema);
+            return this.Equals(input as BatchTagsSchema);
         }
 
         /// <summary>
         /// Returns true if BatchTagsSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of BatchTagsSchema to be compared</param>
+        /// <param name="input">Instance of BatchTagsSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BatchTagsSchema other)
+        public bool Equals(BatchTagsSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Ids == other.Ids ||
+                    this.Ids == input.Ids ||
                     this.Ids != null &&
-                    this.Ids.SequenceEqual(other.Ids)
+                    this.Ids.SequenceEqual(input.Ids)
                 ) && 
                 (
-                    this.Tags == other.Tags ||
+                    this.Tags == input.Tags ||
                     this.Tags != null &&
-                    this.Tags.SequenceEqual(other.Tags)
+                    this.Tags.SequenceEqual(input.Tags)
                 );
         }
 
@@ -135,21 +136,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Ids != null)
-                    hash = hash * 59 + this.Ids.GetHashCode();
+                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
                 if (this.Tags != null)
-                    hash = hash * 59 + this.Tags.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

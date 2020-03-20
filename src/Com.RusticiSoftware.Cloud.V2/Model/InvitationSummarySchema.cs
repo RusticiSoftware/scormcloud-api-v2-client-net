@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,18 +33,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvitationSummarySchema" /> class.
         /// </summary>
-        /// <param name="Id">The invitationId for this invitation..</param>
-        /// <param name="CourseId">Course Id for this Invitation..</param>
-        /// <param name="IsPublic">Is the invitation Public or Private.</param>
-        /// <param name="CreateDate">The create date for the invitation.</param>
-        /// <param name="Updated">Updated.</param>
-        public InvitationSummarySchema(string Id = default(string), string CourseId = default(string), bool? IsPublic = default(bool?), DateTime? CreateDate = default(DateTime?), DateTime? Updated = default(DateTime?))
+        /// <param name="id">The invitationId for this invitation..</param>
+        /// <param name="courseId">Course Id for this Invitation..</param>
+        /// <param name="isPublic">Is the invitation Public or Private.</param>
+        /// <param name="createDate">The create date for the invitation.</param>
+        /// <param name="updated">updated.</param>
+        public InvitationSummarySchema(string id = default(string), string courseId = default(string), bool? isPublic = default(bool?), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?))
         {
-            this.Id = Id;
-            this.CourseId = CourseId;
-            this.IsPublic = IsPublic;
-            this.CreateDate = CreateDate;
-            this.Updated = Updated;
+            this.Id = id;
+            this.CourseId = courseId;
+            this.IsPublic = isPublic;
+            this.CreateDate = createDate;
+            this.Updated = updated;
         }
         
         /// <summary>
@@ -52,29 +53,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>The invitationId for this invitation.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// Course Id for this Invitation.
         /// </summary>
         /// <value>Course Id for this Invitation.</value>
         [DataMember(Name="courseId", EmitDefaultValue=false)]
         public string CourseId { get; set; }
+
         /// <summary>
         /// Is the invitation Public or Private
         /// </summary>
         /// <value>Is the invitation Public or Private</value>
         [DataMember(Name="isPublic", EmitDefaultValue=false)]
         public bool? IsPublic { get; set; }
+
         /// <summary>
         /// The create date for the invitation
         /// </summary>
         /// <value>The create date for the invitation</value>
         [DataMember(Name="createDate", EmitDefaultValue=false)]
         public DateTime? CreateDate { get; set; }
+
         /// <summary>
         /// Gets or Sets Updated
         /// </summary>
         [DataMember(Name="updated", EmitDefaultValue=false)]
         public DateTime? Updated { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -96,7 +102,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -104,50 +110,48 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as InvitationSummarySchema);
+            return this.Equals(input as InvitationSummarySchema);
         }
 
         /// <summary>
         /// Returns true if InvitationSummarySchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of InvitationSummarySchema to be compared</param>
+        /// <param name="input">Instance of InvitationSummarySchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InvitationSummarySchema other)
+        public bool Equals(InvitationSummarySchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.CourseId == other.CourseId ||
-                    this.CourseId != null &&
-                    this.CourseId.Equals(other.CourseId)
+                    this.CourseId == input.CourseId ||
+                    (this.CourseId != null &&
+                    this.CourseId.Equals(input.CourseId))
                 ) && 
                 (
-                    this.IsPublic == other.IsPublic ||
-                    this.IsPublic != null &&
-                    this.IsPublic.Equals(other.IsPublic)
+                    this.IsPublic == input.IsPublic ||
+                    (this.IsPublic != null &&
+                    this.IsPublic.Equals(input.IsPublic))
                 ) && 
                 (
-                    this.CreateDate == other.CreateDate ||
-                    this.CreateDate != null &&
-                    this.CreateDate.Equals(other.CreateDate)
+                    this.CreateDate == input.CreateDate ||
+                    (this.CreateDate != null &&
+                    this.CreateDate.Equals(input.CreateDate))
                 ) && 
                 (
-                    this.Updated == other.Updated ||
-                    this.Updated != null &&
-                    this.Updated.Equals(other.Updated)
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
                 );
         }
 
@@ -157,27 +161,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.CourseId != null)
-                    hash = hash * 59 + this.CourseId.GetHashCode();
+                    hashCode = hashCode * 59 + this.CourseId.GetHashCode();
                 if (this.IsPublic != null)
-                    hash = hash * 59 + this.IsPublic.GetHashCode();
+                    hashCode = hashCode * 59 + this.IsPublic.GetHashCode();
                 if (this.CreateDate != null)
-                    hash = hash * 59 + this.CreateDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreateDate.GetHashCode();
                 if (this.Updated != null)
-                    hash = hash * 59 + this.Updated.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

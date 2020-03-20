@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -30,65 +31,65 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class CourseSchema :  IEquatable<CourseSchema>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets CourseLearningStandard
+        /// Defines CourseLearningStandard
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CourseLearningStandardEnum
         {
             
             /// <summary>
-            /// Enum UNKNOWN for "UNKNOWN"
+            /// Enum UNKNOWN for value: UNKNOWN
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN,
+            UNKNOWN = 1,
             
             /// <summary>
-            /// Enum SCORM11 for "SCORM11"
+            /// Enum SCORM11 for value: SCORM11
             /// </summary>
             [EnumMember(Value = "SCORM11")]
-            SCORM11,
+            SCORM11 = 2,
             
             /// <summary>
-            /// Enum SCORM12 for "SCORM12"
+            /// Enum SCORM12 for value: SCORM12
             /// </summary>
             [EnumMember(Value = "SCORM12")]
-            SCORM12,
+            SCORM12 = 3,
             
             /// <summary>
-            /// Enum SCORM20042NDEDITION for "SCORM20042NDEDITION"
+            /// Enum SCORM20042NDEDITION for value: SCORM20042NDEDITION
             /// </summary>
             [EnumMember(Value = "SCORM20042NDEDITION")]
-            SCORM20042NDEDITION,
+            SCORM20042NDEDITION = 4,
             
             /// <summary>
-            /// Enum SCORM20043RDEDITION for "SCORM20043RDEDITION"
+            /// Enum SCORM20043RDEDITION for value: SCORM20043RDEDITION
             /// </summary>
             [EnumMember(Value = "SCORM20043RDEDITION")]
-            SCORM20043RDEDITION,
+            SCORM20043RDEDITION = 5,
             
             /// <summary>
-            /// Enum SCORM20044THEDITION for "SCORM20044THEDITION"
+            /// Enum SCORM20044THEDITION for value: SCORM20044THEDITION
             /// </summary>
             [EnumMember(Value = "SCORM20044THEDITION")]
-            SCORM20044THEDITION,
+            SCORM20044THEDITION = 6,
             
             /// <summary>
-            /// Enum AICC for "AICC"
+            /// Enum AICC for value: AICC
             /// </summary>
             [EnumMember(Value = "AICC")]
-            AICC,
+            AICC = 7,
             
             /// <summary>
-            /// Enum XAPI for "XAPI"
+            /// Enum XAPI for value: XAPI
             /// </summary>
             [EnumMember(Value = "XAPI")]
-            XAPI,
+            XAPI = 8,
             
             /// <summary>
-            /// Enum CMI5 for "CMI5"
+            /// Enum CMI5 for value: CMI5
             /// </summary>
             [EnumMember(Value = "CMI5")]
-            CMI5
+            CMI5 = 9
         }
 
         /// <summary>
@@ -99,34 +100,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CourseSchema" /> class.
         /// </summary>
-        /// <param name="Id">Id.</param>
-        /// <param name="Title">Title.</param>
-        /// <param name="XapiActivityId">xAPI activity id associated with this course.</param>
-        /// <param name="Created">Created.</param>
-        /// <param name="Updated">Updated.</param>
-        /// <param name="Version">Version.</param>
-        /// <param name="RegistrationCount">RegistrationCount.</param>
-        /// <param name="ActivityId">ActivityId.</param>
-        /// <param name="CourseLearningStandard">CourseLearningStandard.</param>
-        /// <param name="Tags">Tags.</param>
-        /// <param name="Dispatched">Dispatched.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="RootActivity">RootActivity.</param>
-        public CourseSchema(string Id = default(string), string Title = default(string), string XapiActivityId = default(string), DateTime? Created = default(DateTime?), DateTime? Updated = default(DateTime?), int? Version = default(int?), int? RegistrationCount = default(int?), string ActivityId = default(string), CourseLearningStandardEnum? CourseLearningStandard = default(CourseLearningStandardEnum?), List<string> Tags = default(List<string>), bool? Dispatched = default(bool?), MetadataSchema Metadata = default(MetadataSchema), CourseActivitySchema RootActivity = default(CourseActivitySchema))
+        /// <param name="id">id.</param>
+        /// <param name="title">title.</param>
+        /// <param name="xapiActivityId">xAPI activity id associated with this course.</param>
+        /// <param name="created">created.</param>
+        /// <param name="updated">updated.</param>
+        /// <param name="version">version.</param>
+        /// <param name="registrationCount">registrationCount.</param>
+        /// <param name="activityId">activityId.</param>
+        /// <param name="courseLearningStandard">courseLearningStandard.</param>
+        /// <param name="tags">tags.</param>
+        /// <param name="dispatched">dispatched.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="rootActivity">rootActivity.</param>
+        public CourseSchema(string id = default(string), string title = default(string), string xapiActivityId = default(string), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?), int? version = default(int?), int? registrationCount = default(int?), string activityId = default(string), CourseLearningStandardEnum? courseLearningStandard = default(CourseLearningStandardEnum?), List<string> tags = default(List<string>), bool? dispatched = default(bool?), MetadataSchema metadata = default(MetadataSchema), CourseActivitySchema rootActivity = default(CourseActivitySchema))
         {
-            this.Id = Id;
-            this.Title = Title;
-            this.XapiActivityId = XapiActivityId;
-            this.Created = Created;
-            this.Updated = Updated;
-            this.Version = Version;
-            this.RegistrationCount = RegistrationCount;
-            this.ActivityId = ActivityId;
-            this.CourseLearningStandard = CourseLearningStandard;
-            this.Tags = Tags;
-            this.Dispatched = Dispatched;
-            this.Metadata = Metadata;
-            this.RootActivity = RootActivity;
+            this.Id = id;
+            this.Title = title;
+            this.XapiActivityId = xapiActivityId;
+            this.Created = created;
+            this.Updated = updated;
+            this.Version = version;
+            this.RegistrationCount = registrationCount;
+            this.ActivityId = activityId;
+            this.CourseLearningStandard = courseLearningStandard;
+            this.Tags = tags;
+            this.Dispatched = dispatched;
+            this.Metadata = metadata;
+            this.RootActivity = rootActivity;
         }
         
         /// <summary>
@@ -134,62 +135,75 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+
         /// <summary>
         /// xAPI activity id associated with this course
         /// </summary>
         /// <value>xAPI activity id associated with this course</value>
         [DataMember(Name="xapiActivityId", EmitDefaultValue=false)]
         public string XapiActivityId { get; set; }
+
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
         [DataMember(Name="created", EmitDefaultValue=false)]
         public DateTime? Created { get; set; }
+
         /// <summary>
         /// Gets or Sets Updated
         /// </summary>
         [DataMember(Name="updated", EmitDefaultValue=false)]
         public DateTime? Updated { get; set; }
+
         /// <summary>
         /// Gets or Sets Version
         /// </summary>
         [DataMember(Name="version", EmitDefaultValue=false)]
         public int? Version { get; set; }
+
         /// <summary>
         /// Gets or Sets RegistrationCount
         /// </summary>
         [DataMember(Name="registrationCount", EmitDefaultValue=false)]
         public int? RegistrationCount { get; set; }
+
         /// <summary>
         /// Gets or Sets ActivityId
         /// </summary>
         [DataMember(Name="activityId", EmitDefaultValue=false)]
         public string ActivityId { get; set; }
+
+
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
+
         /// <summary>
         /// Gets or Sets Dispatched
         /// </summary>
         [DataMember(Name="dispatched", EmitDefaultValue=false)]
         public bool? Dispatched { get; set; }
+
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public MetadataSchema Metadata { get; set; }
+
         /// <summary>
         /// Gets or Sets RootActivity
         /// </summary>
         [DataMember(Name="rootActivity", EmitDefaultValue=false)]
         public CourseActivitySchema RootActivity { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -219,7 +233,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -227,90 +241,88 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CourseSchema);
+            return this.Equals(input as CourseSchema);
         }
 
         /// <summary>
         /// Returns true if CourseSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of CourseSchema to be compared</param>
+        /// <param name="input">Instance of CourseSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CourseSchema other)
+        public bool Equals(CourseSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Title == other.Title ||
-                    this.Title != null &&
-                    this.Title.Equals(other.Title)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 ) && 
                 (
-                    this.XapiActivityId == other.XapiActivityId ||
-                    this.XapiActivityId != null &&
-                    this.XapiActivityId.Equals(other.XapiActivityId)
+                    this.XapiActivityId == input.XapiActivityId ||
+                    (this.XapiActivityId != null &&
+                    this.XapiActivityId.Equals(input.XapiActivityId))
                 ) && 
                 (
-                    this.Created == other.Created ||
-                    this.Created != null &&
-                    this.Created.Equals(other.Created)
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
                 ) && 
                 (
-                    this.Updated == other.Updated ||
-                    this.Updated != null &&
-                    this.Updated.Equals(other.Updated)
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
                 ) && 
                 (
-                    this.Version == other.Version ||
-                    this.Version != null &&
-                    this.Version.Equals(other.Version)
+                    this.Version == input.Version ||
+                    (this.Version != null &&
+                    this.Version.Equals(input.Version))
                 ) && 
                 (
-                    this.RegistrationCount == other.RegistrationCount ||
-                    this.RegistrationCount != null &&
-                    this.RegistrationCount.Equals(other.RegistrationCount)
+                    this.RegistrationCount == input.RegistrationCount ||
+                    (this.RegistrationCount != null &&
+                    this.RegistrationCount.Equals(input.RegistrationCount))
                 ) && 
                 (
-                    this.ActivityId == other.ActivityId ||
-                    this.ActivityId != null &&
-                    this.ActivityId.Equals(other.ActivityId)
+                    this.ActivityId == input.ActivityId ||
+                    (this.ActivityId != null &&
+                    this.ActivityId.Equals(input.ActivityId))
                 ) && 
                 (
-                    this.CourseLearningStandard == other.CourseLearningStandard ||
-                    this.CourseLearningStandard != null &&
-                    this.CourseLearningStandard.Equals(other.CourseLearningStandard)
+                    this.CourseLearningStandard == input.CourseLearningStandard ||
+                    (this.CourseLearningStandard != null &&
+                    this.CourseLearningStandard.Equals(input.CourseLearningStandard))
                 ) && 
                 (
-                    this.Tags == other.Tags ||
+                    this.Tags == input.Tags ||
                     this.Tags != null &&
-                    this.Tags.SequenceEqual(other.Tags)
+                    this.Tags.SequenceEqual(input.Tags)
                 ) && 
                 (
-                    this.Dispatched == other.Dispatched ||
-                    this.Dispatched != null &&
-                    this.Dispatched.Equals(other.Dispatched)
+                    this.Dispatched == input.Dispatched ||
+                    (this.Dispatched != null &&
+                    this.Dispatched.Equals(input.Dispatched))
                 ) && 
                 (
-                    this.Metadata == other.Metadata ||
-                    this.Metadata != null &&
-                    this.Metadata.Equals(other.Metadata)
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
-                    this.RootActivity == other.RootActivity ||
-                    this.RootActivity != null &&
-                    this.RootActivity.Equals(other.RootActivity)
+                    this.RootActivity == input.RootActivity ||
+                    (this.RootActivity != null &&
+                    this.RootActivity.Equals(input.RootActivity))
                 );
         }
 
@@ -320,43 +332,46 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Title != null)
-                    hash = hash * 59 + this.Title.GetHashCode();
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.XapiActivityId != null)
-                    hash = hash * 59 + this.XapiActivityId.GetHashCode();
+                    hashCode = hashCode * 59 + this.XapiActivityId.GetHashCode();
                 if (this.Created != null)
-                    hash = hash * 59 + this.Created.GetHashCode();
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
                 if (this.Updated != null)
-                    hash = hash * 59 + this.Updated.GetHashCode();
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 if (this.Version != null)
-                    hash = hash * 59 + this.Version.GetHashCode();
+                    hashCode = hashCode * 59 + this.Version.GetHashCode();
                 if (this.RegistrationCount != null)
-                    hash = hash * 59 + this.RegistrationCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.RegistrationCount.GetHashCode();
                 if (this.ActivityId != null)
-                    hash = hash * 59 + this.ActivityId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivityId.GetHashCode();
                 if (this.CourseLearningStandard != null)
-                    hash = hash * 59 + this.CourseLearningStandard.GetHashCode();
+                    hashCode = hashCode * 59 + this.CourseLearningStandard.GetHashCode();
                 if (this.Tags != null)
-                    hash = hash * 59 + this.Tags.GetHashCode();
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Dispatched != null)
-                    hash = hash * 59 + this.Dispatched.GetHashCode();
+                    hashCode = hashCode * 59 + this.Dispatched.GetHashCode();
                 if (this.Metadata != null)
-                    hash = hash * 59 + this.Metadata.GetHashCode();
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.RootActivity != null)
-                    hash = hash * 59 + this.RootActivity.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RootActivity.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

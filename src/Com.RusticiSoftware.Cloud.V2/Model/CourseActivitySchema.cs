@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -38,34 +39,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             
             /// <summary>
-            /// Enum UNKNOWN for "UNKNOWN"
+            /// Enum UNKNOWN for value: UNKNOWN
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN,
+            UNKNOWN = 1,
             
             /// <summary>
-            /// Enum AGGREGATION for "AGGREGATION"
+            /// Enum AGGREGATION for value: AGGREGATION
             /// </summary>
             [EnumMember(Value = "AGGREGATION")]
-            AGGREGATION,
+            AGGREGATION = 2,
             
             /// <summary>
-            /// Enum SCO for "SCO"
+            /// Enum SCO for value: SCO
             /// </summary>
             [EnumMember(Value = "SCO")]
-            SCO,
+            SCO = 3,
             
             /// <summary>
-            /// Enum ASSET for "ASSET"
+            /// Enum ASSET for value: ASSET
             /// </summary>
             [EnumMember(Value = "ASSET")]
-            ASSET,
+            ASSET = 4,
             
             /// <summary>
-            /// Enum OBJECTIVE for "OBJECTIVE"
+            /// Enum OBJECTIVE for value: OBJECTIVE
             /// </summary>
             [EnumMember(Value = "OBJECTIVE")]
-            OBJECTIVE
+            OBJECTIVE = 5
         }
 
         /// <summary>
@@ -77,24 +78,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CourseActivitySchema" /> class.
         /// </summary>
-        /// <param name="ExternalIdentifier">An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses .</param>
-        /// <param name="ItemIdentifier">The string which identifies this activity in the context of its course.</param>
-        /// <param name="ResourceIdentifier">The string which identifies this activity&#39;s resource in a course&#39;s manifest.</param>
-        /// <param name="ActivityType">The type of activity this is.</param>
-        /// <param name="Href">The web path used to launch this activity.</param>
-        /// <param name="ScaledPassingScore">The score required of a learner to pass this activity.</param>
-        /// <param name="Title">The title of the activity.</param>
-        /// <param name="Children">Children.</param>
-        public CourseActivitySchema(string ExternalIdentifier = default(string), string ItemIdentifier = default(string), string ResourceIdentifier = default(string), ActivityTypeEnum? ActivityType = default(ActivityTypeEnum?), string Href = default(string), string ScaledPassingScore = default(string), string Title = default(string), List<CourseActivitySchema> Children = default(List<CourseActivitySchema>))
+        /// <param name="externalIdentifier">An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses .</param>
+        /// <param name="itemIdentifier">The string which identifies this activity in the context of its course.</param>
+        /// <param name="resourceIdentifier">The string which identifies this activity&#39;s resource in a course&#39;s manifest.</param>
+        /// <param name="activityType">The type of activity this is.</param>
+        /// <param name="href">The web path used to launch this activity.</param>
+        /// <param name="scaledPassingScore">The score required of a learner to pass this activity.</param>
+        /// <param name="title">The title of the activity.</param>
+        /// <param name="children">children.</param>
+        public CourseActivitySchema(string externalIdentifier = default(string), string itemIdentifier = default(string), string resourceIdentifier = default(string), ActivityTypeEnum? activityType = default(ActivityTypeEnum?), string href = default(string), string scaledPassingScore = default(string), string title = default(string), List<CourseActivitySchema> children = default(List<CourseActivitySchema>))
         {
-            this.ExternalIdentifier = ExternalIdentifier;
-            this.ItemIdentifier = ItemIdentifier;
-            this.ResourceIdentifier = ResourceIdentifier;
-            this.ActivityType = ActivityType;
-            this.Href = Href;
-            this.ScaledPassingScore = ScaledPassingScore;
-            this.Title = Title;
-            this.Children = Children;
+            this.ExternalIdentifier = externalIdentifier;
+            this.ItemIdentifier = itemIdentifier;
+            this.ResourceIdentifier = resourceIdentifier;
+            this.ActivityType = activityType;
+            this.Href = href;
+            this.ScaledPassingScore = scaledPassingScore;
+            this.Title = title;
+            this.Children = children;
         }
         
         /// <summary>
@@ -103,41 +104,49 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses </value>
         [DataMember(Name="externalIdentifier", EmitDefaultValue=false)]
         public string ExternalIdentifier { get; set; }
+
         /// <summary>
         /// The string which identifies this activity in the context of its course
         /// </summary>
         /// <value>The string which identifies this activity in the context of its course</value>
         [DataMember(Name="itemIdentifier", EmitDefaultValue=false)]
         public string ItemIdentifier { get; set; }
+
         /// <summary>
         /// The string which identifies this activity&#39;s resource in a course&#39;s manifest
         /// </summary>
         /// <value>The string which identifies this activity&#39;s resource in a course&#39;s manifest</value>
         [DataMember(Name="resourceIdentifier", EmitDefaultValue=false)]
         public string ResourceIdentifier { get; set; }
+
+
         /// <summary>
         /// The web path used to launch this activity
         /// </summary>
         /// <value>The web path used to launch this activity</value>
         [DataMember(Name="href", EmitDefaultValue=false)]
         public string Href { get; set; }
+
         /// <summary>
         /// The score required of a learner to pass this activity
         /// </summary>
         /// <value>The score required of a learner to pass this activity</value>
         [DataMember(Name="scaledPassingScore", EmitDefaultValue=false)]
         public string ScaledPassingScore { get; set; }
+
         /// <summary>
         /// The title of the activity
         /// </summary>
         /// <value>The title of the activity</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+
         /// <summary>
         /// Gets or Sets Children
         /// </summary>
         [DataMember(Name="children", EmitDefaultValue=false)]
         public List<CourseActivitySchema> Children { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -162,7 +171,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -170,65 +179,63 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CourseActivitySchema);
+            return this.Equals(input as CourseActivitySchema);
         }
 
         /// <summary>
         /// Returns true if CourseActivitySchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of CourseActivitySchema to be compared</param>
+        /// <param name="input">Instance of CourseActivitySchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CourseActivitySchema other)
+        public bool Equals(CourseActivitySchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ExternalIdentifier == other.ExternalIdentifier ||
-                    this.ExternalIdentifier != null &&
-                    this.ExternalIdentifier.Equals(other.ExternalIdentifier)
+                    this.ExternalIdentifier == input.ExternalIdentifier ||
+                    (this.ExternalIdentifier != null &&
+                    this.ExternalIdentifier.Equals(input.ExternalIdentifier))
                 ) && 
                 (
-                    this.ItemIdentifier == other.ItemIdentifier ||
-                    this.ItemIdentifier != null &&
-                    this.ItemIdentifier.Equals(other.ItemIdentifier)
+                    this.ItemIdentifier == input.ItemIdentifier ||
+                    (this.ItemIdentifier != null &&
+                    this.ItemIdentifier.Equals(input.ItemIdentifier))
                 ) && 
                 (
-                    this.ResourceIdentifier == other.ResourceIdentifier ||
-                    this.ResourceIdentifier != null &&
-                    this.ResourceIdentifier.Equals(other.ResourceIdentifier)
+                    this.ResourceIdentifier == input.ResourceIdentifier ||
+                    (this.ResourceIdentifier != null &&
+                    this.ResourceIdentifier.Equals(input.ResourceIdentifier))
                 ) && 
                 (
-                    this.ActivityType == other.ActivityType ||
-                    this.ActivityType != null &&
-                    this.ActivityType.Equals(other.ActivityType)
+                    this.ActivityType == input.ActivityType ||
+                    (this.ActivityType != null &&
+                    this.ActivityType.Equals(input.ActivityType))
                 ) && 
                 (
-                    this.Href == other.Href ||
-                    this.Href != null &&
-                    this.Href.Equals(other.Href)
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this.ScaledPassingScore == other.ScaledPassingScore ||
-                    this.ScaledPassingScore != null &&
-                    this.ScaledPassingScore.Equals(other.ScaledPassingScore)
+                    this.ScaledPassingScore == input.ScaledPassingScore ||
+                    (this.ScaledPassingScore != null &&
+                    this.ScaledPassingScore.Equals(input.ScaledPassingScore))
                 ) && 
                 (
-                    this.Title == other.Title ||
-                    this.Title != null &&
-                    this.Title.Equals(other.Title)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 ) && 
                 (
-                    this.Children == other.Children ||
+                    this.Children == input.Children ||
                     this.Children != null &&
-                    this.Children.SequenceEqual(other.Children)
+                    this.Children.SequenceEqual(input.Children)
                 );
         }
 
@@ -238,33 +245,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ExternalIdentifier != null)
-                    hash = hash * 59 + this.ExternalIdentifier.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExternalIdentifier.GetHashCode();
                 if (this.ItemIdentifier != null)
-                    hash = hash * 59 + this.ItemIdentifier.GetHashCode();
+                    hashCode = hashCode * 59 + this.ItemIdentifier.GetHashCode();
                 if (this.ResourceIdentifier != null)
-                    hash = hash * 59 + this.ResourceIdentifier.GetHashCode();
+                    hashCode = hashCode * 59 + this.ResourceIdentifier.GetHashCode();
                 if (this.ActivityType != null)
-                    hash = hash * 59 + this.ActivityType.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivityType.GetHashCode();
                 if (this.Href != null)
-                    hash = hash * 59 + this.Href.GetHashCode();
+                    hashCode = hashCode * 59 + this.Href.GetHashCode();
                 if (this.ScaledPassingScore != null)
-                    hash = hash * 59 + this.ScaledPassingScore.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScaledPassingScore.GetHashCode();
                 if (this.Title != null)
-                    hash = hash * 59 + this.Title.GetHashCode();
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Children != null)
-                    hash = hash * 59 + this.Children.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Children.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

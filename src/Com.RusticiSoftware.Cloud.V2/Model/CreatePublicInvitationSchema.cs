@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,44 +38,44 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreatePublicInvitationSchema" /> class.
         /// </summary>
-        /// <param name="CourseId">The id of the course for which to create an invitation. (required).</param>
-        /// <param name="CreatingUserEmail">The email of the user who is creating the invitation. (required).</param>
-        /// <param name="RegistrationCap">Integer value that limits the amount of registrations a public invitation can generate. (default to 0).</param>
-        /// <param name="PostBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
-        /// <param name="ExpirationDate">The date this invitation will expire and can no longer be launched (formatted yyyyMMddHHmmss in UTC time)..</param>
-        /// <param name="Tags">Optional tags to be applied to this invitation..</param>
-        public CreatePublicInvitationSchema(string CourseId = default(string), string CreatingUserEmail = default(string), int? RegistrationCap = 0, PostBackSchema PostBack = default(PostBackSchema), DateTime? ExpirationDate = default(DateTime?), List<string> Tags = default(List<string>))
+        /// <param name="courseId">The id of the course for which to create an invitation. (required).</param>
+        /// <param name="creatingUserEmail">The email of the user who is creating the invitation. (required).</param>
+        /// <param name="registrationCap">Integer value that limits the amount of registrations a public invitation can generate. (default to 0).</param>
+        /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
+        /// <param name="expirationDate">The date this invitation will expire and can no longer be launched (formatted yyyyMMddHHmmss in UTC time)..</param>
+        /// <param name="tags">Optional tags to be applied to this invitation..</param>
+        public CreatePublicInvitationSchema(string courseId = default(string), string creatingUserEmail = default(string), int? registrationCap = 0, PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), List<string> tags = default(List<string>))
         {
-            // to ensure "CourseId" is required (not null)
-            if (CourseId == null)
+            // to ensure "courseId" is required (not null)
+            if (courseId == null)
             {
-                throw new InvalidDataException("CourseId is a required property for CreatePublicInvitationSchema and cannot be null");
+                throw new InvalidDataException("courseId is a required property for CreatePublicInvitationSchema and cannot be null");
             }
             else
             {
-                this.CourseId = CourseId;
+                this.CourseId = courseId;
             }
-            // to ensure "CreatingUserEmail" is required (not null)
-            if (CreatingUserEmail == null)
+            // to ensure "creatingUserEmail" is required (not null)
+            if (creatingUserEmail == null)
             {
-                throw new InvalidDataException("CreatingUserEmail is a required property for CreatePublicInvitationSchema and cannot be null");
+                throw new InvalidDataException("creatingUserEmail is a required property for CreatePublicInvitationSchema and cannot be null");
             }
             else
             {
-                this.CreatingUserEmail = CreatingUserEmail;
+                this.CreatingUserEmail = creatingUserEmail;
             }
-            // use default value if no "RegistrationCap" provided
-            if (RegistrationCap == null)
+            // use default value if no "registrationCap" provided
+            if (registrationCap == null)
             {
                 this.RegistrationCap = 0;
             }
             else
             {
-                this.RegistrationCap = RegistrationCap;
+                this.RegistrationCap = registrationCap;
             }
-            this.PostBack = PostBack;
-            this.ExpirationDate = ExpirationDate;
-            this.Tags = Tags;
+            this.PostBack = postBack;
+            this.ExpirationDate = expirationDate;
+            this.Tags = tags;
         }
         
         /// <summary>
@@ -83,36 +84,42 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>The id of the course for which to create an invitation.</value>
         [DataMember(Name="courseId", EmitDefaultValue=false)]
         public string CourseId { get; set; }
+
         /// <summary>
         /// The email of the user who is creating the invitation.
         /// </summary>
         /// <value>The email of the user who is creating the invitation.</value>
         [DataMember(Name="creatingUserEmail", EmitDefaultValue=false)]
         public string CreatingUserEmail { get; set; }
+
         /// <summary>
         /// Integer value that limits the amount of registrations a public invitation can generate.
         /// </summary>
         /// <value>Integer value that limits the amount of registrations a public invitation can generate.</value>
         [DataMember(Name="registrationCap", EmitDefaultValue=false)]
         public int? RegistrationCap { get; set; }
+
         /// <summary>
         /// Specifies a URL for which to post activity and status data in real time as the course is completed
         /// </summary>
         /// <value>Specifies a URL for which to post activity and status data in real time as the course is completed</value>
         [DataMember(Name="postBack", EmitDefaultValue=false)]
         public PostBackSchema PostBack { get; set; }
+
         /// <summary>
         /// The date this invitation will expire and can no longer be launched (formatted yyyyMMddHHmmss in UTC time).
         /// </summary>
         /// <value>The date this invitation will expire and can no longer be launched (formatted yyyyMMddHHmmss in UTC time).</value>
         [DataMember(Name="expirationDate", EmitDefaultValue=false)]
         public DateTime? ExpirationDate { get; set; }
+
         /// <summary>
         /// Optional tags to be applied to this invitation.
         /// </summary>
         /// <value>Optional tags to be applied to this invitation.</value>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -135,7 +142,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,55 +150,53 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CreatePublicInvitationSchema);
+            return this.Equals(input as CreatePublicInvitationSchema);
         }
 
         /// <summary>
         /// Returns true if CreatePublicInvitationSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of CreatePublicInvitationSchema to be compared</param>
+        /// <param name="input">Instance of CreatePublicInvitationSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreatePublicInvitationSchema other)
+        public bool Equals(CreatePublicInvitationSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CourseId == other.CourseId ||
-                    this.CourseId != null &&
-                    this.CourseId.Equals(other.CourseId)
+                    this.CourseId == input.CourseId ||
+                    (this.CourseId != null &&
+                    this.CourseId.Equals(input.CourseId))
                 ) && 
                 (
-                    this.CreatingUserEmail == other.CreatingUserEmail ||
-                    this.CreatingUserEmail != null &&
-                    this.CreatingUserEmail.Equals(other.CreatingUserEmail)
+                    this.CreatingUserEmail == input.CreatingUserEmail ||
+                    (this.CreatingUserEmail != null &&
+                    this.CreatingUserEmail.Equals(input.CreatingUserEmail))
                 ) && 
                 (
-                    this.RegistrationCap == other.RegistrationCap ||
-                    this.RegistrationCap != null &&
-                    this.RegistrationCap.Equals(other.RegistrationCap)
+                    this.RegistrationCap == input.RegistrationCap ||
+                    (this.RegistrationCap != null &&
+                    this.RegistrationCap.Equals(input.RegistrationCap))
                 ) && 
                 (
-                    this.PostBack == other.PostBack ||
-                    this.PostBack != null &&
-                    this.PostBack.Equals(other.PostBack)
+                    this.PostBack == input.PostBack ||
+                    (this.PostBack != null &&
+                    this.PostBack.Equals(input.PostBack))
                 ) && 
                 (
-                    this.ExpirationDate == other.ExpirationDate ||
-                    this.ExpirationDate != null &&
-                    this.ExpirationDate.Equals(other.ExpirationDate)
+                    this.ExpirationDate == input.ExpirationDate ||
+                    (this.ExpirationDate != null &&
+                    this.ExpirationDate.Equals(input.ExpirationDate))
                 ) && 
                 (
-                    this.Tags == other.Tags ||
+                    this.Tags == input.Tags ||
                     this.Tags != null &&
-                    this.Tags.SequenceEqual(other.Tags)
+                    this.Tags.SequenceEqual(input.Tags)
                 );
         }
 
@@ -201,29 +206,32 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CourseId != null)
-                    hash = hash * 59 + this.CourseId.GetHashCode();
+                    hashCode = hashCode * 59 + this.CourseId.GetHashCode();
                 if (this.CreatingUserEmail != null)
-                    hash = hash * 59 + this.CreatingUserEmail.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreatingUserEmail.GetHashCode();
                 if (this.RegistrationCap != null)
-                    hash = hash * 59 + this.RegistrationCap.GetHashCode();
+                    hashCode = hashCode * 59 + this.RegistrationCap.GetHashCode();
                 if (this.PostBack != null)
-                    hash = hash * 59 + this.PostBack.GetHashCode();
+                    hashCode = hashCode * 59 + this.PostBack.GetHashCode();
                 if (this.ExpirationDate != null)
-                    hash = hash * 59 + this.ExpirationDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
                 if (this.Tags != null)
-                    hash = hash * 59 + this.Tags.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,20 +38,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiCredentialsListSchema" /> class.
         /// </summary>
-        /// <param name="XapiCredentials">XapiCredentials (required).</param>
-        /// <param name="More">More.</param>
-        public XapiCredentialsListSchema(List<XapiCredentialSchema> XapiCredentials = default(List<XapiCredentialSchema>), string More = default(string))
+        /// <param name="xapiCredentials">xapiCredentials (required).</param>
+        /// <param name="more">more.</param>
+        public XapiCredentialsListSchema(List<XapiCredentialSchema> xapiCredentials = default(List<XapiCredentialSchema>), string more = default(string))
         {
-            // to ensure "XapiCredentials" is required (not null)
-            if (XapiCredentials == null)
+            // to ensure "xapiCredentials" is required (not null)
+            if (xapiCredentials == null)
             {
-                throw new InvalidDataException("XapiCredentials is a required property for XapiCredentialsListSchema and cannot be null");
+                throw new InvalidDataException("xapiCredentials is a required property for XapiCredentialsListSchema and cannot be null");
             }
             else
             {
-                this.XapiCredentials = XapiCredentials;
+                this.XapiCredentials = xapiCredentials;
             }
-            this.More = More;
+            this.More = more;
         }
         
         /// <summary>
@@ -58,11 +59,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="xapiCredentials", EmitDefaultValue=false)]
         public List<XapiCredentialSchema> XapiCredentials { get; set; }
+
         /// <summary>
         /// Gets or Sets More
         /// </summary>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public string More { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -81,7 +84,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -89,35 +92,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiCredentialsListSchema);
+            return this.Equals(input as XapiCredentialsListSchema);
         }
 
         /// <summary>
         /// Returns true if XapiCredentialsListSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiCredentialsListSchema to be compared</param>
+        /// <param name="input">Instance of XapiCredentialsListSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiCredentialsListSchema other)
+        public bool Equals(XapiCredentialsListSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.XapiCredentials == other.XapiCredentials ||
+                    this.XapiCredentials == input.XapiCredentials ||
                     this.XapiCredentials != null &&
-                    this.XapiCredentials.SequenceEqual(other.XapiCredentials)
+                    this.XapiCredentials.SequenceEqual(input.XapiCredentials)
                 ) && 
                 (
-                    this.More == other.More ||
-                    this.More != null &&
-                    this.More.Equals(other.More)
+                    this.More == input.More ||
+                    (this.More != null &&
+                    this.More.Equals(input.More))
                 );
         }
 
@@ -127,21 +128,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.XapiCredentials != null)
-                    hash = hash * 59 + this.XapiCredentials.GetHashCode();
+                    hashCode = hashCode * 59 + this.XapiCredentials.GetHashCode();
                 if (this.More != null)
-                    hash = hash * 59 + this.More.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.More.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

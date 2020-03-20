@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,20 +38,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiStatementResult" /> class.
         /// </summary>
-        /// <param name="Statements">Statements (required).</param>
-        /// <param name="More">More.</param>
-        public XapiStatementResult(List<XapiStatement> Statements = default(List<XapiStatement>), string More = default(string))
+        /// <param name="statements">statements (required).</param>
+        /// <param name="more">more.</param>
+        public XapiStatementResult(List<XapiStatement> statements = default(List<XapiStatement>), string more = default(string))
         {
-            // to ensure "Statements" is required (not null)
-            if (Statements == null)
+            // to ensure "statements" is required (not null)
+            if (statements == null)
             {
-                throw new InvalidDataException("Statements is a required property for XapiStatementResult and cannot be null");
+                throw new InvalidDataException("statements is a required property for XapiStatementResult and cannot be null");
             }
             else
             {
-                this.Statements = Statements;
+                this.Statements = statements;
             }
-            this.More = More;
+            this.More = more;
         }
         
         /// <summary>
@@ -58,11 +59,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="statements", EmitDefaultValue=false)]
         public List<XapiStatement> Statements { get; set; }
+
         /// <summary>
         /// Gets or Sets More
         /// </summary>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public string More { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -81,7 +84,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -89,35 +92,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiStatementResult);
+            return this.Equals(input as XapiStatementResult);
         }
 
         /// <summary>
         /// Returns true if XapiStatementResult instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiStatementResult to be compared</param>
+        /// <param name="input">Instance of XapiStatementResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiStatementResult other)
+        public bool Equals(XapiStatementResult input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Statements == other.Statements ||
+                    this.Statements == input.Statements ||
                     this.Statements != null &&
-                    this.Statements.SequenceEqual(other.Statements)
+                    this.Statements.SequenceEqual(input.Statements)
                 ) && 
                 (
-                    this.More == other.More ||
-                    this.More != null &&
-                    this.More.Equals(other.More)
+                    this.More == input.More ||
+                    (this.More != null &&
+                    this.More.Equals(input.More))
                 );
         }
 
@@ -127,21 +128,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Statements != null)
-                    hash = hash * 59 + this.Statements.GetHashCode();
+                    hashCode = hashCode * 59 + this.Statements.GetHashCode();
                 if (this.More != null)
-                    hash = hash * 59 + this.More.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.More.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

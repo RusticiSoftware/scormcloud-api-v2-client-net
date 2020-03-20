@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,17 +38,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImportFetchRequestSchema" /> class.
         /// </summary>
-        /// <param name="Url">URL path to the .zip package to download to import this course (required).</param>
-        public ImportFetchRequestSchema(string Url = default(string))
+        /// <param name="url">URL path to the .zip package to download to import this course (required).</param>
+        public ImportFetchRequestSchema(string url = default(string))
         {
-            // to ensure "Url" is required (not null)
-            if (Url == null)
+            // to ensure "url" is required (not null)
+            if (url == null)
             {
-                throw new InvalidDataException("Url is a required property for ImportFetchRequestSchema and cannot be null");
+                throw new InvalidDataException("url is a required property for ImportFetchRequestSchema and cannot be null");
             }
             else
             {
-                this.Url = Url;
+                this.Url = url;
             }
         }
         
@@ -57,6 +58,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>URL path to the .zip package to download to import this course</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -74,7 +76,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -82,30 +84,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ImportFetchRequestSchema);
+            return this.Equals(input as ImportFetchRequestSchema);
         }
 
         /// <summary>
         /// Returns true if ImportFetchRequestSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of ImportFetchRequestSchema to be compared</param>
+        /// <param name="input">Instance of ImportFetchRequestSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImportFetchRequestSchema other)
+        public bool Equals(ImportFetchRequestSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Url == other.Url ||
-                    this.Url != null &&
-                    this.Url.Equals(other.Url)
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -115,19 +115,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Url != null)
-                    hash = hash * 59 + this.Url.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

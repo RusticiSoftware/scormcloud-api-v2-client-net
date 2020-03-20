@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -30,29 +31,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class RuntimeSchema :  IEquatable<RuntimeSchema>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets RuntimeSuccessStatus
+        /// Defines RuntimeSuccessStatus
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RuntimeSuccessStatusEnum
         {
             
             /// <summary>
-            /// Enum UNKNOWN for "UNKNOWN"
+            /// Enum UNKNOWN for value: UNKNOWN
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN,
+            UNKNOWN = 1,
             
             /// <summary>
-            /// Enum PASSED for "PASSED"
+            /// Enum PASSED for value: PASSED
             /// </summary>
             [EnumMember(Value = "PASSED")]
-            PASSED,
+            PASSED = 2,
             
             /// <summary>
-            /// Enum FAILED for "FAILED"
+            /// Enum FAILED for value: FAILED
             /// </summary>
             [EnumMember(Value = "FAILED")]
-            FAILED
+            FAILED = 3
         }
 
         /// <summary>
@@ -63,56 +64,56 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RuntimeSchema" /> class.
         /// </summary>
-        /// <param name="CompletionStatus">CompletionStatus.</param>
-        /// <param name="Credit">Credit.</param>
-        /// <param name="Entry">Entry.</param>
-        /// <param name="Exit">Exit.</param>
-        /// <param name="LearnerPreference">LearnerPreference.</param>
-        /// <param name="Location">Location.</param>
-        /// <param name="Mode">Mode.</param>
-        /// <param name="ProgressMeasure">ProgressMeasure.</param>
-        /// <param name="ScoreScaled">ScoreScaled.</param>
-        /// <param name="ScoreRaw">ScoreRaw.</param>
-        /// <param name="ScoreMin">ScoreMin.</param>
-        /// <param name="ScoreMax">ScoreMax.</param>
-        /// <param name="TotalTime">TotalTime.</param>
-        /// <param name="TimeTracked">TimeTracked.</param>
-        /// <param name="RuntimeSuccessStatus">RuntimeSuccessStatus (default to RuntimeSuccessStatusEnum.UNKNOWN).</param>
-        /// <param name="SuspendData">SuspendData.</param>
-        /// <param name="LearnerComments">LearnerComments.</param>
-        /// <param name="LmsComments">LmsComments.</param>
-        /// <param name="RuntimeInteractions">RuntimeInteractions.</param>
-        /// <param name="RuntimeObjectives">RuntimeObjectives.</param>
-        public RuntimeSchema(string CompletionStatus = default(string), string Credit = default(string), string Entry = default(string), string Exit = default(string), LearnerPreferenceSchema LearnerPreference = default(LearnerPreferenceSchema), string Location = default(string), string Mode = default(string), string ProgressMeasure = default(string), string ScoreScaled = default(string), string ScoreRaw = default(string), string ScoreMin = default(string), string ScoreMax = default(string), string TotalTime = default(string), string TimeTracked = default(string), RuntimeSuccessStatusEnum? RuntimeSuccessStatus = RuntimeSuccessStatusEnum.UNKNOWN, string SuspendData = default(string), List<CommentSchema> LearnerComments = default(List<CommentSchema>), List<CommentSchema> LmsComments = default(List<CommentSchema>), List<RuntimeInteractionSchema> RuntimeInteractions = default(List<RuntimeInteractionSchema>), List<RuntimeObjectiveSchema> RuntimeObjectives = default(List<RuntimeObjectiveSchema>))
+        /// <param name="completionStatus">completionStatus.</param>
+        /// <param name="credit">credit.</param>
+        /// <param name="entry">entry.</param>
+        /// <param name="exit">exit.</param>
+        /// <param name="learnerPreference">learnerPreference.</param>
+        /// <param name="location">location.</param>
+        /// <param name="mode">mode.</param>
+        /// <param name="progressMeasure">progressMeasure.</param>
+        /// <param name="scoreScaled">scoreScaled.</param>
+        /// <param name="scoreRaw">scoreRaw.</param>
+        /// <param name="scoreMin">scoreMin.</param>
+        /// <param name="scoreMax">scoreMax.</param>
+        /// <param name="totalTime">totalTime.</param>
+        /// <param name="timeTracked">timeTracked.</param>
+        /// <param name="runtimeSuccessStatus">runtimeSuccessStatus (default to RuntimeSuccessStatusEnum.UNKNOWN).</param>
+        /// <param name="suspendData">suspendData.</param>
+        /// <param name="learnerComments">learnerComments.</param>
+        /// <param name="lmsComments">lmsComments.</param>
+        /// <param name="runtimeInteractions">runtimeInteractions.</param>
+        /// <param name="runtimeObjectives">runtimeObjectives.</param>
+        public RuntimeSchema(string completionStatus = default(string), string credit = default(string), string entry = default(string), string exit = default(string), LearnerPreferenceSchema learnerPreference = default(LearnerPreferenceSchema), string location = default(string), string mode = default(string), string progressMeasure = default(string), string scoreScaled = default(string), string scoreRaw = default(string), string scoreMin = default(string), string scoreMax = default(string), string totalTime = default(string), string timeTracked = default(string), RuntimeSuccessStatusEnum? runtimeSuccessStatus = RuntimeSuccessStatusEnum.UNKNOWN, string suspendData = default(string), List<CommentSchema> learnerComments = default(List<CommentSchema>), List<CommentSchema> lmsComments = default(List<CommentSchema>), List<RuntimeInteractionSchema> runtimeInteractions = default(List<RuntimeInteractionSchema>), List<RuntimeObjectiveSchema> runtimeObjectives = default(List<RuntimeObjectiveSchema>))
         {
-            this.CompletionStatus = CompletionStatus;
-            this.Credit = Credit;
-            this.Entry = Entry;
-            this.Exit = Exit;
-            this.LearnerPreference = LearnerPreference;
-            this.Location = Location;
-            this.Mode = Mode;
-            this.ProgressMeasure = ProgressMeasure;
-            this.ScoreScaled = ScoreScaled;
-            this.ScoreRaw = ScoreRaw;
-            this.ScoreMin = ScoreMin;
-            this.ScoreMax = ScoreMax;
-            this.TotalTime = TotalTime;
-            this.TimeTracked = TimeTracked;
-            // use default value if no "RuntimeSuccessStatus" provided
-            if (RuntimeSuccessStatus == null)
+            this.CompletionStatus = completionStatus;
+            this.Credit = credit;
+            this.Entry = entry;
+            this.Exit = exit;
+            this.LearnerPreference = learnerPreference;
+            this.Location = location;
+            this.Mode = mode;
+            this.ProgressMeasure = progressMeasure;
+            this.ScoreScaled = scoreScaled;
+            this.ScoreRaw = scoreRaw;
+            this.ScoreMin = scoreMin;
+            this.ScoreMax = scoreMax;
+            this.TotalTime = totalTime;
+            this.TimeTracked = timeTracked;
+            // use default value if no "runtimeSuccessStatus" provided
+            if (runtimeSuccessStatus == null)
             {
                 this.RuntimeSuccessStatus = RuntimeSuccessStatusEnum.UNKNOWN;
             }
             else
             {
-                this.RuntimeSuccessStatus = RuntimeSuccessStatus;
+                this.RuntimeSuccessStatus = runtimeSuccessStatus;
             }
-            this.SuspendData = SuspendData;
-            this.LearnerComments = LearnerComments;
-            this.LmsComments = LmsComments;
-            this.RuntimeInteractions = RuntimeInteractions;
-            this.RuntimeObjectives = RuntimeObjectives;
+            this.SuspendData = suspendData;
+            this.LearnerComments = learnerComments;
+            this.LmsComments = lmsComments;
+            this.RuntimeInteractions = runtimeInteractions;
+            this.RuntimeObjectives = runtimeObjectives;
         }
         
         /// <summary>
@@ -120,96 +121,116 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="completionStatus", EmitDefaultValue=false)]
         public string CompletionStatus { get; set; }
+
         /// <summary>
         /// Gets or Sets Credit
         /// </summary>
         [DataMember(Name="credit", EmitDefaultValue=false)]
         public string Credit { get; set; }
+
         /// <summary>
         /// Gets or Sets Entry
         /// </summary>
         [DataMember(Name="entry", EmitDefaultValue=false)]
         public string Entry { get; set; }
+
         /// <summary>
         /// Gets or Sets Exit
         /// </summary>
         [DataMember(Name="exit", EmitDefaultValue=false)]
         public string Exit { get; set; }
+
         /// <summary>
         /// Gets or Sets LearnerPreference
         /// </summary>
         [DataMember(Name="learnerPreference", EmitDefaultValue=false)]
         public LearnerPreferenceSchema LearnerPreference { get; set; }
+
         /// <summary>
         /// Gets or Sets Location
         /// </summary>
         [DataMember(Name="location", EmitDefaultValue=false)]
         public string Location { get; set; }
+
         /// <summary>
         /// Gets or Sets Mode
         /// </summary>
         [DataMember(Name="mode", EmitDefaultValue=false)]
         public string Mode { get; set; }
+
         /// <summary>
         /// Gets or Sets ProgressMeasure
         /// </summary>
         [DataMember(Name="progressMeasure", EmitDefaultValue=false)]
         public string ProgressMeasure { get; set; }
+
         /// <summary>
         /// Gets or Sets ScoreScaled
         /// </summary>
         [DataMember(Name="scoreScaled", EmitDefaultValue=false)]
         public string ScoreScaled { get; set; }
+
         /// <summary>
         /// Gets or Sets ScoreRaw
         /// </summary>
         [DataMember(Name="scoreRaw", EmitDefaultValue=false)]
         public string ScoreRaw { get; set; }
+
         /// <summary>
         /// Gets or Sets ScoreMin
         /// </summary>
         [DataMember(Name="scoreMin", EmitDefaultValue=false)]
         public string ScoreMin { get; set; }
+
         /// <summary>
         /// Gets or Sets ScoreMax
         /// </summary>
         [DataMember(Name="scoreMax", EmitDefaultValue=false)]
         public string ScoreMax { get; set; }
+
         /// <summary>
         /// Gets or Sets TotalTime
         /// </summary>
         [DataMember(Name="totalTime", EmitDefaultValue=false)]
         public string TotalTime { get; set; }
+
         /// <summary>
         /// Gets or Sets TimeTracked
         /// </summary>
         [DataMember(Name="timeTracked", EmitDefaultValue=false)]
         public string TimeTracked { get; set; }
+
+
         /// <summary>
         /// Gets or Sets SuspendData
         /// </summary>
         [DataMember(Name="suspendData", EmitDefaultValue=false)]
         public string SuspendData { get; set; }
+
         /// <summary>
         /// Gets or Sets LearnerComments
         /// </summary>
         [DataMember(Name="learnerComments", EmitDefaultValue=false)]
         public List<CommentSchema> LearnerComments { get; set; }
+
         /// <summary>
         /// Gets or Sets LmsComments
         /// </summary>
         [DataMember(Name="lmsComments", EmitDefaultValue=false)]
         public List<CommentSchema> LmsComments { get; set; }
+
         /// <summary>
         /// Gets or Sets RuntimeInteractions
         /// </summary>
         [DataMember(Name="runtimeInteractions", EmitDefaultValue=false)]
         public List<RuntimeInteractionSchema> RuntimeInteractions { get; set; }
+
         /// <summary>
         /// Gets or Sets RuntimeObjectives
         /// </summary>
         [DataMember(Name="runtimeObjectives", EmitDefaultValue=false)]
         public List<RuntimeObjectiveSchema> RuntimeObjectives { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -246,7 +267,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -254,125 +275,123 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as RuntimeSchema);
+            return this.Equals(input as RuntimeSchema);
         }
 
         /// <summary>
         /// Returns true if RuntimeSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of RuntimeSchema to be compared</param>
+        /// <param name="input">Instance of RuntimeSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RuntimeSchema other)
+        public bool Equals(RuntimeSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CompletionStatus == other.CompletionStatus ||
-                    this.CompletionStatus != null &&
-                    this.CompletionStatus.Equals(other.CompletionStatus)
+                    this.CompletionStatus == input.CompletionStatus ||
+                    (this.CompletionStatus != null &&
+                    this.CompletionStatus.Equals(input.CompletionStatus))
                 ) && 
                 (
-                    this.Credit == other.Credit ||
-                    this.Credit != null &&
-                    this.Credit.Equals(other.Credit)
+                    this.Credit == input.Credit ||
+                    (this.Credit != null &&
+                    this.Credit.Equals(input.Credit))
                 ) && 
                 (
-                    this.Entry == other.Entry ||
-                    this.Entry != null &&
-                    this.Entry.Equals(other.Entry)
+                    this.Entry == input.Entry ||
+                    (this.Entry != null &&
+                    this.Entry.Equals(input.Entry))
                 ) && 
                 (
-                    this.Exit == other.Exit ||
-                    this.Exit != null &&
-                    this.Exit.Equals(other.Exit)
+                    this.Exit == input.Exit ||
+                    (this.Exit != null &&
+                    this.Exit.Equals(input.Exit))
                 ) && 
                 (
-                    this.LearnerPreference == other.LearnerPreference ||
-                    this.LearnerPreference != null &&
-                    this.LearnerPreference.Equals(other.LearnerPreference)
+                    this.LearnerPreference == input.LearnerPreference ||
+                    (this.LearnerPreference != null &&
+                    this.LearnerPreference.Equals(input.LearnerPreference))
                 ) && 
                 (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
+                    this.Location == input.Location ||
+                    (this.Location != null &&
+                    this.Location.Equals(input.Location))
                 ) && 
                 (
-                    this.Mode == other.Mode ||
-                    this.Mode != null &&
-                    this.Mode.Equals(other.Mode)
+                    this.Mode == input.Mode ||
+                    (this.Mode != null &&
+                    this.Mode.Equals(input.Mode))
                 ) && 
                 (
-                    this.ProgressMeasure == other.ProgressMeasure ||
-                    this.ProgressMeasure != null &&
-                    this.ProgressMeasure.Equals(other.ProgressMeasure)
+                    this.ProgressMeasure == input.ProgressMeasure ||
+                    (this.ProgressMeasure != null &&
+                    this.ProgressMeasure.Equals(input.ProgressMeasure))
                 ) && 
                 (
-                    this.ScoreScaled == other.ScoreScaled ||
-                    this.ScoreScaled != null &&
-                    this.ScoreScaled.Equals(other.ScoreScaled)
+                    this.ScoreScaled == input.ScoreScaled ||
+                    (this.ScoreScaled != null &&
+                    this.ScoreScaled.Equals(input.ScoreScaled))
                 ) && 
                 (
-                    this.ScoreRaw == other.ScoreRaw ||
-                    this.ScoreRaw != null &&
-                    this.ScoreRaw.Equals(other.ScoreRaw)
+                    this.ScoreRaw == input.ScoreRaw ||
+                    (this.ScoreRaw != null &&
+                    this.ScoreRaw.Equals(input.ScoreRaw))
                 ) && 
                 (
-                    this.ScoreMin == other.ScoreMin ||
-                    this.ScoreMin != null &&
-                    this.ScoreMin.Equals(other.ScoreMin)
+                    this.ScoreMin == input.ScoreMin ||
+                    (this.ScoreMin != null &&
+                    this.ScoreMin.Equals(input.ScoreMin))
                 ) && 
                 (
-                    this.ScoreMax == other.ScoreMax ||
-                    this.ScoreMax != null &&
-                    this.ScoreMax.Equals(other.ScoreMax)
+                    this.ScoreMax == input.ScoreMax ||
+                    (this.ScoreMax != null &&
+                    this.ScoreMax.Equals(input.ScoreMax))
                 ) && 
                 (
-                    this.TotalTime == other.TotalTime ||
-                    this.TotalTime != null &&
-                    this.TotalTime.Equals(other.TotalTime)
+                    this.TotalTime == input.TotalTime ||
+                    (this.TotalTime != null &&
+                    this.TotalTime.Equals(input.TotalTime))
                 ) && 
                 (
-                    this.TimeTracked == other.TimeTracked ||
-                    this.TimeTracked != null &&
-                    this.TimeTracked.Equals(other.TimeTracked)
+                    this.TimeTracked == input.TimeTracked ||
+                    (this.TimeTracked != null &&
+                    this.TimeTracked.Equals(input.TimeTracked))
                 ) && 
                 (
-                    this.RuntimeSuccessStatus == other.RuntimeSuccessStatus ||
-                    this.RuntimeSuccessStatus != null &&
-                    this.RuntimeSuccessStatus.Equals(other.RuntimeSuccessStatus)
+                    this.RuntimeSuccessStatus == input.RuntimeSuccessStatus ||
+                    (this.RuntimeSuccessStatus != null &&
+                    this.RuntimeSuccessStatus.Equals(input.RuntimeSuccessStatus))
                 ) && 
                 (
-                    this.SuspendData == other.SuspendData ||
-                    this.SuspendData != null &&
-                    this.SuspendData.Equals(other.SuspendData)
+                    this.SuspendData == input.SuspendData ||
+                    (this.SuspendData != null &&
+                    this.SuspendData.Equals(input.SuspendData))
                 ) && 
                 (
-                    this.LearnerComments == other.LearnerComments ||
+                    this.LearnerComments == input.LearnerComments ||
                     this.LearnerComments != null &&
-                    this.LearnerComments.SequenceEqual(other.LearnerComments)
+                    this.LearnerComments.SequenceEqual(input.LearnerComments)
                 ) && 
                 (
-                    this.LmsComments == other.LmsComments ||
+                    this.LmsComments == input.LmsComments ||
                     this.LmsComments != null &&
-                    this.LmsComments.SequenceEqual(other.LmsComments)
+                    this.LmsComments.SequenceEqual(input.LmsComments)
                 ) && 
                 (
-                    this.RuntimeInteractions == other.RuntimeInteractions ||
+                    this.RuntimeInteractions == input.RuntimeInteractions ||
                     this.RuntimeInteractions != null &&
-                    this.RuntimeInteractions.SequenceEqual(other.RuntimeInteractions)
+                    this.RuntimeInteractions.SequenceEqual(input.RuntimeInteractions)
                 ) && 
                 (
-                    this.RuntimeObjectives == other.RuntimeObjectives ||
+                    this.RuntimeObjectives == input.RuntimeObjectives ||
                     this.RuntimeObjectives != null &&
-                    this.RuntimeObjectives.SequenceEqual(other.RuntimeObjectives)
+                    this.RuntimeObjectives.SequenceEqual(input.RuntimeObjectives)
                 );
         }
 
@@ -382,57 +401,60 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CompletionStatus != null)
-                    hash = hash * 59 + this.CompletionStatus.GetHashCode();
+                    hashCode = hashCode * 59 + this.CompletionStatus.GetHashCode();
                 if (this.Credit != null)
-                    hash = hash * 59 + this.Credit.GetHashCode();
+                    hashCode = hashCode * 59 + this.Credit.GetHashCode();
                 if (this.Entry != null)
-                    hash = hash * 59 + this.Entry.GetHashCode();
+                    hashCode = hashCode * 59 + this.Entry.GetHashCode();
                 if (this.Exit != null)
-                    hash = hash * 59 + this.Exit.GetHashCode();
+                    hashCode = hashCode * 59 + this.Exit.GetHashCode();
                 if (this.LearnerPreference != null)
-                    hash = hash * 59 + this.LearnerPreference.GetHashCode();
+                    hashCode = hashCode * 59 + this.LearnerPreference.GetHashCode();
                 if (this.Location != null)
-                    hash = hash * 59 + this.Location.GetHashCode();
+                    hashCode = hashCode * 59 + this.Location.GetHashCode();
                 if (this.Mode != null)
-                    hash = hash * 59 + this.Mode.GetHashCode();
+                    hashCode = hashCode * 59 + this.Mode.GetHashCode();
                 if (this.ProgressMeasure != null)
-                    hash = hash * 59 + this.ProgressMeasure.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProgressMeasure.GetHashCode();
                 if (this.ScoreScaled != null)
-                    hash = hash * 59 + this.ScoreScaled.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScoreScaled.GetHashCode();
                 if (this.ScoreRaw != null)
-                    hash = hash * 59 + this.ScoreRaw.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScoreRaw.GetHashCode();
                 if (this.ScoreMin != null)
-                    hash = hash * 59 + this.ScoreMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScoreMin.GetHashCode();
                 if (this.ScoreMax != null)
-                    hash = hash * 59 + this.ScoreMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScoreMax.GetHashCode();
                 if (this.TotalTime != null)
-                    hash = hash * 59 + this.TotalTime.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalTime.GetHashCode();
                 if (this.TimeTracked != null)
-                    hash = hash * 59 + this.TimeTracked.GetHashCode();
+                    hashCode = hashCode * 59 + this.TimeTracked.GetHashCode();
                 if (this.RuntimeSuccessStatus != null)
-                    hash = hash * 59 + this.RuntimeSuccessStatus.GetHashCode();
+                    hashCode = hashCode * 59 + this.RuntimeSuccessStatus.GetHashCode();
                 if (this.SuspendData != null)
-                    hash = hash * 59 + this.SuspendData.GetHashCode();
+                    hashCode = hashCode * 59 + this.SuspendData.GetHashCode();
                 if (this.LearnerComments != null)
-                    hash = hash * 59 + this.LearnerComments.GetHashCode();
+                    hashCode = hashCode * 59 + this.LearnerComments.GetHashCode();
                 if (this.LmsComments != null)
-                    hash = hash * 59 + this.LmsComments.GetHashCode();
+                    hashCode = hashCode * 59 + this.LmsComments.GetHashCode();
                 if (this.RuntimeInteractions != null)
-                    hash = hash * 59 + this.RuntimeInteractions.GetHashCode();
+                    hashCode = hashCode * 59 + this.RuntimeInteractions.GetHashCode();
                 if (this.RuntimeObjectives != null)
-                    hash = hash * 59 + this.RuntimeObjectives.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RuntimeObjectives.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

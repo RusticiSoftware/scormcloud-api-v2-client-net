@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -30,67 +31,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class RuntimeObjectiveSchema :  IEquatable<RuntimeObjectiveSchema>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets RuntimeObjectiveSuccessStatus
+        /// Defines RuntimeObjectiveSuccessStatus
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RuntimeObjectiveSuccessStatusEnum
         {
             
             /// <summary>
-            /// Enum UNKNOWN for "UNKNOWN"
+            /// Enum UNKNOWN for value: UNKNOWN
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN,
+            UNKNOWN = 1,
             
             /// <summary>
-            /// Enum PASSED for "PASSED"
+            /// Enum PASSED for value: PASSED
             /// </summary>
             [EnumMember(Value = "PASSED")]
-            PASSED,
+            PASSED = 2,
             
             /// <summary>
-            /// Enum FAILED for "FAILED"
+            /// Enum FAILED for value: FAILED
             /// </summary>
             [EnumMember(Value = "FAILED")]
-            FAILED
-        }
-
-        /// <summary>
-        /// Gets or Sets RuntimeObjectiveCompletionStatus
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum RuntimeObjectiveCompletionStatusEnum
-        {
-            
-            /// <summary>
-            /// Enum UNKNOWN for "UNKNOWN"
-            /// </summary>
-            [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN,
-            
-            /// <summary>
-            /// Enum COMPLETED for "COMPLETED"
-            /// </summary>
-            [EnumMember(Value = "COMPLETED")]
-            COMPLETED,
-            
-            /// <summary>
-            /// Enum INCOMPLETE for "INCOMPLETE"
-            /// </summary>
-            [EnumMember(Value = "INCOMPLETE")]
-            INCOMPLETE,
-            
-            /// <summary>
-            /// Enum NOTATTEMPTED for "NOT_ATTEMPTED"
-            /// </summary>
-            [EnumMember(Value = "NOT_ATTEMPTED")]
-            NOTATTEMPTED,
-            
-            /// <summary>
-            /// Enum BROWSED for "BROWSED"
-            /// </summary>
-            [EnumMember(Value = "BROWSED")]
-            BROWSED
+            FAILED = 3
         }
 
         /// <summary>
@@ -99,6 +62,44 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         [DataMember(Name="runtimeObjectiveSuccessStatus", EmitDefaultValue=false)]
         public RuntimeObjectiveSuccessStatusEnum? RuntimeObjectiveSuccessStatus { get; set; }
         /// <summary>
+        /// Defines RuntimeObjectiveCompletionStatus
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RuntimeObjectiveCompletionStatusEnum
+        {
+            
+            /// <summary>
+            /// Enum UNKNOWN for value: UNKNOWN
+            /// </summary>
+            [EnumMember(Value = "UNKNOWN")]
+            UNKNOWN = 1,
+            
+            /// <summary>
+            /// Enum COMPLETED for value: COMPLETED
+            /// </summary>
+            [EnumMember(Value = "COMPLETED")]
+            COMPLETED = 2,
+            
+            /// <summary>
+            /// Enum INCOMPLETE for value: INCOMPLETE
+            /// </summary>
+            [EnumMember(Value = "INCOMPLETE")]
+            INCOMPLETE = 3,
+            
+            /// <summary>
+            /// Enum NOTATTEMPTED for value: NOT_ATTEMPTED
+            /// </summary>
+            [EnumMember(Value = "NOT_ATTEMPTED")]
+            NOTATTEMPTED = 4,
+            
+            /// <summary>
+            /// Enum BROWSED for value: BROWSED
+            /// </summary>
+            [EnumMember(Value = "BROWSED")]
+            BROWSED = 5
+        }
+
+        /// <summary>
         /// Gets or Sets RuntimeObjectiveCompletionStatus
         /// </summary>
         [DataMember(Name="runtimeObjectiveCompletionStatus", EmitDefaultValue=false)]
@@ -106,42 +107,42 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RuntimeObjectiveSchema" /> class.
         /// </summary>
-        /// <param name="Id">Id.</param>
-        /// <param name="ScoreScaled">ScoreScaled.</param>
-        /// <param name="ScoreMin">ScoreMin.</param>
-        /// <param name="ScoreMax">ScoreMax.</param>
-        /// <param name="ScoreRaw">ScoreRaw.</param>
-        /// <param name="RuntimeObjectiveSuccessStatus">RuntimeObjectiveSuccessStatus (default to RuntimeObjectiveSuccessStatusEnum.UNKNOWN).</param>
-        /// <param name="RuntimeObjectiveCompletionStatus">RuntimeObjectiveCompletionStatus (default to RuntimeObjectiveCompletionStatusEnum.UNKNOWN).</param>
-        /// <param name="ProgressMeasure">ProgressMeasure.</param>
-        /// <param name="Description">Description.</param>
-        public RuntimeObjectiveSchema(string Id = default(string), string ScoreScaled = default(string), string ScoreMin = default(string), string ScoreMax = default(string), string ScoreRaw = default(string), RuntimeObjectiveSuccessStatusEnum? RuntimeObjectiveSuccessStatus = RuntimeObjectiveSuccessStatusEnum.UNKNOWN, RuntimeObjectiveCompletionStatusEnum? RuntimeObjectiveCompletionStatus = RuntimeObjectiveCompletionStatusEnum.UNKNOWN, string ProgressMeasure = default(string), string Description = default(string))
+        /// <param name="id">id.</param>
+        /// <param name="scoreScaled">scoreScaled.</param>
+        /// <param name="scoreMin">scoreMin.</param>
+        /// <param name="scoreMax">scoreMax.</param>
+        /// <param name="scoreRaw">scoreRaw.</param>
+        /// <param name="runtimeObjectiveSuccessStatus">runtimeObjectiveSuccessStatus (default to RuntimeObjectiveSuccessStatusEnum.UNKNOWN).</param>
+        /// <param name="runtimeObjectiveCompletionStatus">runtimeObjectiveCompletionStatus (default to RuntimeObjectiveCompletionStatusEnum.UNKNOWN).</param>
+        /// <param name="progressMeasure">progressMeasure.</param>
+        /// <param name="description">description.</param>
+        public RuntimeObjectiveSchema(string id = default(string), string scoreScaled = default(string), string scoreMin = default(string), string scoreMax = default(string), string scoreRaw = default(string), RuntimeObjectiveSuccessStatusEnum? runtimeObjectiveSuccessStatus = RuntimeObjectiveSuccessStatusEnum.UNKNOWN, RuntimeObjectiveCompletionStatusEnum? runtimeObjectiveCompletionStatus = RuntimeObjectiveCompletionStatusEnum.UNKNOWN, string progressMeasure = default(string), string description = default(string))
         {
-            this.Id = Id;
-            this.ScoreScaled = ScoreScaled;
-            this.ScoreMin = ScoreMin;
-            this.ScoreMax = ScoreMax;
-            this.ScoreRaw = ScoreRaw;
-            // use default value if no "RuntimeObjectiveSuccessStatus" provided
-            if (RuntimeObjectiveSuccessStatus == null)
+            this.Id = id;
+            this.ScoreScaled = scoreScaled;
+            this.ScoreMin = scoreMin;
+            this.ScoreMax = scoreMax;
+            this.ScoreRaw = scoreRaw;
+            // use default value if no "runtimeObjectiveSuccessStatus" provided
+            if (runtimeObjectiveSuccessStatus == null)
             {
                 this.RuntimeObjectiveSuccessStatus = RuntimeObjectiveSuccessStatusEnum.UNKNOWN;
             }
             else
             {
-                this.RuntimeObjectiveSuccessStatus = RuntimeObjectiveSuccessStatus;
+                this.RuntimeObjectiveSuccessStatus = runtimeObjectiveSuccessStatus;
             }
-            // use default value if no "RuntimeObjectiveCompletionStatus" provided
-            if (RuntimeObjectiveCompletionStatus == null)
+            // use default value if no "runtimeObjectiveCompletionStatus" provided
+            if (runtimeObjectiveCompletionStatus == null)
             {
                 this.RuntimeObjectiveCompletionStatus = RuntimeObjectiveCompletionStatusEnum.UNKNOWN;
             }
             else
             {
-                this.RuntimeObjectiveCompletionStatus = RuntimeObjectiveCompletionStatus;
+                this.RuntimeObjectiveCompletionStatus = runtimeObjectiveCompletionStatus;
             }
-            this.ProgressMeasure = ProgressMeasure;
-            this.Description = Description;
+            this.ProgressMeasure = progressMeasure;
+            this.Description = description;
         }
         
         /// <summary>
@@ -149,36 +150,45 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// Gets or Sets ScoreScaled
         /// </summary>
         [DataMember(Name="scoreScaled", EmitDefaultValue=false)]
         public string ScoreScaled { get; set; }
+
         /// <summary>
         /// Gets or Sets ScoreMin
         /// </summary>
         [DataMember(Name="scoreMin", EmitDefaultValue=false)]
         public string ScoreMin { get; set; }
+
         /// <summary>
         /// Gets or Sets ScoreMax
         /// </summary>
         [DataMember(Name="scoreMax", EmitDefaultValue=false)]
         public string ScoreMax { get; set; }
+
         /// <summary>
         /// Gets or Sets ScoreRaw
         /// </summary>
         [DataMember(Name="scoreRaw", EmitDefaultValue=false)]
         public string ScoreRaw { get; set; }
+
+
+
         /// <summary>
         /// Gets or Sets ProgressMeasure
         /// </summary>
         [DataMember(Name="progressMeasure", EmitDefaultValue=false)]
         public string ProgressMeasure { get; set; }
+
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -204,7 +214,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -212,70 +222,68 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as RuntimeObjectiveSchema);
+            return this.Equals(input as RuntimeObjectiveSchema);
         }
 
         /// <summary>
         /// Returns true if RuntimeObjectiveSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of RuntimeObjectiveSchema to be compared</param>
+        /// <param name="input">Instance of RuntimeObjectiveSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RuntimeObjectiveSchema other)
+        public bool Equals(RuntimeObjectiveSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.ScoreScaled == other.ScoreScaled ||
-                    this.ScoreScaled != null &&
-                    this.ScoreScaled.Equals(other.ScoreScaled)
+                    this.ScoreScaled == input.ScoreScaled ||
+                    (this.ScoreScaled != null &&
+                    this.ScoreScaled.Equals(input.ScoreScaled))
                 ) && 
                 (
-                    this.ScoreMin == other.ScoreMin ||
-                    this.ScoreMin != null &&
-                    this.ScoreMin.Equals(other.ScoreMin)
+                    this.ScoreMin == input.ScoreMin ||
+                    (this.ScoreMin != null &&
+                    this.ScoreMin.Equals(input.ScoreMin))
                 ) && 
                 (
-                    this.ScoreMax == other.ScoreMax ||
-                    this.ScoreMax != null &&
-                    this.ScoreMax.Equals(other.ScoreMax)
+                    this.ScoreMax == input.ScoreMax ||
+                    (this.ScoreMax != null &&
+                    this.ScoreMax.Equals(input.ScoreMax))
                 ) && 
                 (
-                    this.ScoreRaw == other.ScoreRaw ||
-                    this.ScoreRaw != null &&
-                    this.ScoreRaw.Equals(other.ScoreRaw)
+                    this.ScoreRaw == input.ScoreRaw ||
+                    (this.ScoreRaw != null &&
+                    this.ScoreRaw.Equals(input.ScoreRaw))
                 ) && 
                 (
-                    this.RuntimeObjectiveSuccessStatus == other.RuntimeObjectiveSuccessStatus ||
-                    this.RuntimeObjectiveSuccessStatus != null &&
-                    this.RuntimeObjectiveSuccessStatus.Equals(other.RuntimeObjectiveSuccessStatus)
+                    this.RuntimeObjectiveSuccessStatus == input.RuntimeObjectiveSuccessStatus ||
+                    (this.RuntimeObjectiveSuccessStatus != null &&
+                    this.RuntimeObjectiveSuccessStatus.Equals(input.RuntimeObjectiveSuccessStatus))
                 ) && 
                 (
-                    this.RuntimeObjectiveCompletionStatus == other.RuntimeObjectiveCompletionStatus ||
-                    this.RuntimeObjectiveCompletionStatus != null &&
-                    this.RuntimeObjectiveCompletionStatus.Equals(other.RuntimeObjectiveCompletionStatus)
+                    this.RuntimeObjectiveCompletionStatus == input.RuntimeObjectiveCompletionStatus ||
+                    (this.RuntimeObjectiveCompletionStatus != null &&
+                    this.RuntimeObjectiveCompletionStatus.Equals(input.RuntimeObjectiveCompletionStatus))
                 ) && 
                 (
-                    this.ProgressMeasure == other.ProgressMeasure ||
-                    this.ProgressMeasure != null &&
-                    this.ProgressMeasure.Equals(other.ProgressMeasure)
+                    this.ProgressMeasure == input.ProgressMeasure ||
+                    (this.ProgressMeasure != null &&
+                    this.ProgressMeasure.Equals(input.ProgressMeasure))
                 ) && 
                 (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 );
         }
 
@@ -285,35 +293,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.ScoreScaled != null)
-                    hash = hash * 59 + this.ScoreScaled.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScoreScaled.GetHashCode();
                 if (this.ScoreMin != null)
-                    hash = hash * 59 + this.ScoreMin.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScoreMin.GetHashCode();
                 if (this.ScoreMax != null)
-                    hash = hash * 59 + this.ScoreMax.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScoreMax.GetHashCode();
                 if (this.ScoreRaw != null)
-                    hash = hash * 59 + this.ScoreRaw.GetHashCode();
+                    hashCode = hashCode * 59 + this.ScoreRaw.GetHashCode();
                 if (this.RuntimeObjectiveSuccessStatus != null)
-                    hash = hash * 59 + this.RuntimeObjectiveSuccessStatus.GetHashCode();
+                    hashCode = hashCode * 59 + this.RuntimeObjectiveSuccessStatus.GetHashCode();
                 if (this.RuntimeObjectiveCompletionStatus != null)
-                    hash = hash * 59 + this.RuntimeObjectiveCompletionStatus.GetHashCode();
+                    hashCode = hashCode * 59 + this.RuntimeObjectiveCompletionStatus.GetHashCode();
                 if (this.ProgressMeasure != null)
-                    hash = hash * 59 + this.ProgressMeasure.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProgressMeasure.GetHashCode();
                 if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

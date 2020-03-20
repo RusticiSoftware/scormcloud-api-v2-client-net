@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,17 +38,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingListSchema" /> class.
         /// </summary>
-        /// <param name="SettingItems">SettingItems (required).</param>
-        public SettingListSchema(List<SettingItem> SettingItems = default(List<SettingItem>))
+        /// <param name="settingItems">settingItems (required).</param>
+        public SettingListSchema(List<SettingItem> settingItems = default(List<SettingItem>))
         {
-            // to ensure "SettingItems" is required (not null)
-            if (SettingItems == null)
+            // to ensure "settingItems" is required (not null)
+            if (settingItems == null)
             {
-                throw new InvalidDataException("SettingItems is a required property for SettingListSchema and cannot be null");
+                throw new InvalidDataException("settingItems is a required property for SettingListSchema and cannot be null");
             }
             else
             {
-                this.SettingItems = SettingItems;
+                this.SettingItems = settingItems;
             }
         }
         
@@ -56,6 +57,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="settingItems", EmitDefaultValue=false)]
         public List<SettingItem> SettingItems { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -73,7 +75,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -81,30 +83,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as SettingListSchema);
+            return this.Equals(input as SettingListSchema);
         }
 
         /// <summary>
         /// Returns true if SettingListSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of SettingListSchema to be compared</param>
+        /// <param name="input">Instance of SettingListSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SettingListSchema other)
+        public bool Equals(SettingListSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.SettingItems == other.SettingItems ||
+                    this.SettingItems == input.SettingItems ||
                     this.SettingItems != null &&
-                    this.SettingItems.SequenceEqual(other.SettingItems)
+                    this.SettingItems.SequenceEqual(input.SettingItems)
                 );
         }
 
@@ -114,19 +114,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.SettingItems != null)
-                    hash = hash * 59 + this.SettingItems.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.SettingItems.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

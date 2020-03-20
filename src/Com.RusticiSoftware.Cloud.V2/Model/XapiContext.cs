@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,26 +33,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiContext" /> class.
         /// </summary>
-        /// <param name="Registration">Registration.</param>
-        /// <param name="Instructor">Instructor.</param>
-        /// <param name="Team">Team.</param>
-        /// <param name="ContextActivities">ContextActivities.</param>
-        /// <param name="Revision">Revision.</param>
-        /// <param name="Platform">Platform.</param>
-        /// <param name="Language">Language.</param>
-        /// <param name="Statement">Statement.</param>
-        /// <param name="Extensions">Extensions.</param>
-        public XapiContext(string Registration = default(string), XapiAgentGroup Instructor = default(XapiAgentGroup), XapiAgentGroup Team = default(XapiAgentGroup), XapiContextActivity ContextActivities = default(XapiContextActivity), string Revision = default(string), string Platform = default(string), string Language = default(string), XapiStatementReference Statement = default(XapiStatementReference), Dictionary<string, Object> Extensions = default(Dictionary<string, Object>))
+        /// <param name="registration">registration.</param>
+        /// <param name="instructor">instructor.</param>
+        /// <param name="team">team.</param>
+        /// <param name="contextActivities">contextActivities.</param>
+        /// <param name="revision">revision.</param>
+        /// <param name="platform">platform.</param>
+        /// <param name="language">language.</param>
+        /// <param name="statement">statement.</param>
+        /// <param name="extensions">extensions.</param>
+        public XapiContext(string registration = default(string), XapiAgentGroup instructor = default(XapiAgentGroup), XapiAgentGroup team = default(XapiAgentGroup), XapiContextActivity contextActivities = default(XapiContextActivity), string revision = default(string), string platform = default(string), string language = default(string), XapiStatementReference statement = default(XapiStatementReference), Dictionary<string, Object> extensions = default(Dictionary<string, Object>))
         {
-            this.Registration = Registration;
-            this.Instructor = Instructor;
-            this.Team = Team;
-            this.ContextActivities = ContextActivities;
-            this.Revision = Revision;
-            this.Platform = Platform;
-            this.Language = Language;
-            this.Statement = Statement;
-            this.Extensions = Extensions;
+            this.Registration = registration;
+            this.Instructor = instructor;
+            this.Team = team;
+            this.ContextActivities = contextActivities;
+            this.Revision = revision;
+            this.Platform = platform;
+            this.Language = language;
+            this.Statement = statement;
+            this.Extensions = extensions;
         }
         
         /// <summary>
@@ -59,46 +60,55 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="registration", EmitDefaultValue=false)]
         public string Registration { get; set; }
+
         /// <summary>
         /// Gets or Sets Instructor
         /// </summary>
         [DataMember(Name="instructor", EmitDefaultValue=false)]
         public XapiAgentGroup Instructor { get; set; }
+
         /// <summary>
         /// Gets or Sets Team
         /// </summary>
         [DataMember(Name="team", EmitDefaultValue=false)]
         public XapiAgentGroup Team { get; set; }
+
         /// <summary>
         /// Gets or Sets ContextActivities
         /// </summary>
         [DataMember(Name="contextActivities", EmitDefaultValue=false)]
         public XapiContextActivity ContextActivities { get; set; }
+
         /// <summary>
         /// Gets or Sets Revision
         /// </summary>
         [DataMember(Name="revision", EmitDefaultValue=false)]
         public string Revision { get; set; }
+
         /// <summary>
         /// Gets or Sets Platform
         /// </summary>
         [DataMember(Name="platform", EmitDefaultValue=false)]
         public string Platform { get; set; }
+
         /// <summary>
         /// Gets or Sets Language
         /// </summary>
         [DataMember(Name="language", EmitDefaultValue=false)]
         public string Language { get; set; }
+
         /// <summary>
         /// Gets or Sets Statement
         /// </summary>
         [DataMember(Name="statement", EmitDefaultValue=false)]
         public XapiStatementReference Statement { get; set; }
+
         /// <summary>
         /// Gets or Sets Extensions
         /// </summary>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public Dictionary<string, Object> Extensions { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,7 +134,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -132,70 +142,68 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiContext);
+            return this.Equals(input as XapiContext);
         }
 
         /// <summary>
         /// Returns true if XapiContext instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiContext to be compared</param>
+        /// <param name="input">Instance of XapiContext to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiContext other)
+        public bool Equals(XapiContext input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Registration == other.Registration ||
-                    this.Registration != null &&
-                    this.Registration.Equals(other.Registration)
+                    this.Registration == input.Registration ||
+                    (this.Registration != null &&
+                    this.Registration.Equals(input.Registration))
                 ) && 
                 (
-                    this.Instructor == other.Instructor ||
-                    this.Instructor != null &&
-                    this.Instructor.Equals(other.Instructor)
+                    this.Instructor == input.Instructor ||
+                    (this.Instructor != null &&
+                    this.Instructor.Equals(input.Instructor))
                 ) && 
                 (
-                    this.Team == other.Team ||
-                    this.Team != null &&
-                    this.Team.Equals(other.Team)
+                    this.Team == input.Team ||
+                    (this.Team != null &&
+                    this.Team.Equals(input.Team))
                 ) && 
                 (
-                    this.ContextActivities == other.ContextActivities ||
-                    this.ContextActivities != null &&
-                    this.ContextActivities.Equals(other.ContextActivities)
+                    this.ContextActivities == input.ContextActivities ||
+                    (this.ContextActivities != null &&
+                    this.ContextActivities.Equals(input.ContextActivities))
                 ) && 
                 (
-                    this.Revision == other.Revision ||
-                    this.Revision != null &&
-                    this.Revision.Equals(other.Revision)
+                    this.Revision == input.Revision ||
+                    (this.Revision != null &&
+                    this.Revision.Equals(input.Revision))
                 ) && 
                 (
-                    this.Platform == other.Platform ||
-                    this.Platform != null &&
-                    this.Platform.Equals(other.Platform)
+                    this.Platform == input.Platform ||
+                    (this.Platform != null &&
+                    this.Platform.Equals(input.Platform))
                 ) && 
                 (
-                    this.Language == other.Language ||
-                    this.Language != null &&
-                    this.Language.Equals(other.Language)
+                    this.Language == input.Language ||
+                    (this.Language != null &&
+                    this.Language.Equals(input.Language))
                 ) && 
                 (
-                    this.Statement == other.Statement ||
-                    this.Statement != null &&
-                    this.Statement.Equals(other.Statement)
+                    this.Statement == input.Statement ||
+                    (this.Statement != null &&
+                    this.Statement.Equals(input.Statement))
                 ) && 
                 (
-                    this.Extensions == other.Extensions ||
+                    this.Extensions == input.Extensions ||
                     this.Extensions != null &&
-                    this.Extensions.SequenceEqual(other.Extensions)
+                    this.Extensions.SequenceEqual(input.Extensions)
                 );
         }
 
@@ -205,35 +213,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Registration != null)
-                    hash = hash * 59 + this.Registration.GetHashCode();
+                    hashCode = hashCode * 59 + this.Registration.GetHashCode();
                 if (this.Instructor != null)
-                    hash = hash * 59 + this.Instructor.GetHashCode();
+                    hashCode = hashCode * 59 + this.Instructor.GetHashCode();
                 if (this.Team != null)
-                    hash = hash * 59 + this.Team.GetHashCode();
+                    hashCode = hashCode * 59 + this.Team.GetHashCode();
                 if (this.ContextActivities != null)
-                    hash = hash * 59 + this.ContextActivities.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContextActivities.GetHashCode();
                 if (this.Revision != null)
-                    hash = hash * 59 + this.Revision.GetHashCode();
+                    hashCode = hashCode * 59 + this.Revision.GetHashCode();
                 if (this.Platform != null)
-                    hash = hash * 59 + this.Platform.GetHashCode();
+                    hashCode = hashCode * 59 + this.Platform.GetHashCode();
                 if (this.Language != null)
-                    hash = hash * 59 + this.Language.GetHashCode();
+                    hashCode = hashCode * 59 + this.Language.GetHashCode();
                 if (this.Statement != null)
-                    hash = hash * 59 + this.Statement.GetHashCode();
+                    hashCode = hashCode * 59 + this.Statement.GetHashCode();
                 if (this.Extensions != null)
-                    hash = hash * 59 + this.Extensions.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Extensions.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

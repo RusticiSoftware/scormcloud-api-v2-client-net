@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,18 +33,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CredentialCreatedSchema" /> class.
         /// </summary>
-        /// <param name="Id">id for this credential.</param>
-        /// <param name="Name">name for this credential.</param>
-        /// <param name="Credential">The newly created API credential.</param>
-        /// <param name="PensCredential">The PENS key for this credential.</param>
-        /// <param name="Status">Status.</param>
-        public CredentialCreatedSchema(string Id = default(string), string Name = default(string), string Credential = default(string), string PensCredential = default(string), string Status = default(string))
+        /// <param name="id">id for this credential.</param>
+        /// <param name="name">name for this credential.</param>
+        /// <param name="credential">The newly created API credential.</param>
+        /// <param name="pensCredential">The PENS key for this credential.</param>
+        /// <param name="status">status.</param>
+        public CredentialCreatedSchema(string id = default(string), string name = default(string), string credential = default(string), string pensCredential = default(string), string status = default(string))
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.Credential = Credential;
-            this.PensCredential = PensCredential;
-            this.Status = Status;
+            this.Id = id;
+            this.Name = name;
+            this.Credential = credential;
+            this.PensCredential = pensCredential;
+            this.Status = status;
         }
         
         /// <summary>
@@ -52,29 +53,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>id for this credential</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// name for this credential
         /// </summary>
         /// <value>name for this credential</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
         /// <summary>
         /// The newly created API credential
         /// </summary>
         /// <value>The newly created API credential</value>
         [DataMember(Name="credential", EmitDefaultValue=false)]
         public string Credential { get; set; }
+
         /// <summary>
         /// The PENS key for this credential
         /// </summary>
         /// <value>The PENS key for this credential</value>
         [DataMember(Name="pensCredential", EmitDefaultValue=false)]
         public string PensCredential { get; set; }
+
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -96,7 +102,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -104,50 +110,48 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CredentialCreatedSchema);
+            return this.Equals(input as CredentialCreatedSchema);
         }
 
         /// <summary>
         /// Returns true if CredentialCreatedSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of CredentialCreatedSchema to be compared</param>
+        /// <param name="input">Instance of CredentialCreatedSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CredentialCreatedSchema other)
+        public bool Equals(CredentialCreatedSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Credential == other.Credential ||
-                    this.Credential != null &&
-                    this.Credential.Equals(other.Credential)
+                    this.Credential == input.Credential ||
+                    (this.Credential != null &&
+                    this.Credential.Equals(input.Credential))
                 ) && 
                 (
-                    this.PensCredential == other.PensCredential ||
-                    this.PensCredential != null &&
-                    this.PensCredential.Equals(other.PensCredential)
+                    this.PensCredential == input.PensCredential ||
+                    (this.PensCredential != null &&
+                    this.PensCredential.Equals(input.PensCredential))
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -157,27 +161,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Credential != null)
-                    hash = hash * 59 + this.Credential.GetHashCode();
+                    hashCode = hashCode * 59 + this.Credential.GetHashCode();
                 if (this.PensCredential != null)
-                    hash = hash * 59 + this.PensCredential.GetHashCode();
+                    hashCode = hashCode * 59 + this.PensCredential.GetHashCode();
                 if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

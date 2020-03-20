@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,16 +33,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaunchAuthOptionsSchema" /> class.
         /// </summary>
-        /// <param name="IpAddress">IpAddress.</param>
-        /// <param name="Fingerprint">Fingerprint.</param>
-        /// <param name="Expiry">Expiry.</param>
-        /// <param name="SlidingExpiry">SlidingExpiry.</param>
-        public LaunchAuthOptionsSchema(bool? IpAddress = default(bool?), bool? Fingerprint = default(bool?), int? Expiry = default(int?), int? SlidingExpiry = default(int?))
+        /// <param name="ipAddress">ipAddress.</param>
+        /// <param name="fingerprint">fingerprint.</param>
+        /// <param name="expiry">expiry.</param>
+        /// <param name="slidingExpiry">slidingExpiry.</param>
+        public LaunchAuthOptionsSchema(bool? ipAddress = default(bool?), bool? fingerprint = default(bool?), int? expiry = default(int?), int? slidingExpiry = default(int?))
         {
-            this.IpAddress = IpAddress;
-            this.Fingerprint = Fingerprint;
-            this.Expiry = Expiry;
-            this.SlidingExpiry = SlidingExpiry;
+            this.IpAddress = ipAddress;
+            this.Fingerprint = fingerprint;
+            this.Expiry = expiry;
+            this.SlidingExpiry = slidingExpiry;
         }
         
         /// <summary>
@@ -49,21 +50,25 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="ipAddress", EmitDefaultValue=false)]
         public bool? IpAddress { get; set; }
+
         /// <summary>
         /// Gets or Sets Fingerprint
         /// </summary>
         [DataMember(Name="fingerprint", EmitDefaultValue=false)]
         public bool? Fingerprint { get; set; }
+
         /// <summary>
         /// Gets or Sets Expiry
         /// </summary>
         [DataMember(Name="expiry", EmitDefaultValue=false)]
         public int? Expiry { get; set; }
+
         /// <summary>
         /// Gets or Sets SlidingExpiry
         /// </summary>
         [DataMember(Name="slidingExpiry", EmitDefaultValue=false)]
         public int? SlidingExpiry { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -84,7 +89,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -92,45 +97,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as LaunchAuthOptionsSchema);
+            return this.Equals(input as LaunchAuthOptionsSchema);
         }
 
         /// <summary>
         /// Returns true if LaunchAuthOptionsSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of LaunchAuthOptionsSchema to be compared</param>
+        /// <param name="input">Instance of LaunchAuthOptionsSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LaunchAuthOptionsSchema other)
+        public bool Equals(LaunchAuthOptionsSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.IpAddress == other.IpAddress ||
-                    this.IpAddress != null &&
-                    this.IpAddress.Equals(other.IpAddress)
+                    this.IpAddress == input.IpAddress ||
+                    (this.IpAddress != null &&
+                    this.IpAddress.Equals(input.IpAddress))
                 ) && 
                 (
-                    this.Fingerprint == other.Fingerprint ||
-                    this.Fingerprint != null &&
-                    this.Fingerprint.Equals(other.Fingerprint)
+                    this.Fingerprint == input.Fingerprint ||
+                    (this.Fingerprint != null &&
+                    this.Fingerprint.Equals(input.Fingerprint))
                 ) && 
                 (
-                    this.Expiry == other.Expiry ||
-                    this.Expiry != null &&
-                    this.Expiry.Equals(other.Expiry)
+                    this.Expiry == input.Expiry ||
+                    (this.Expiry != null &&
+                    this.Expiry.Equals(input.Expiry))
                 ) && 
                 (
-                    this.SlidingExpiry == other.SlidingExpiry ||
-                    this.SlidingExpiry != null &&
-                    this.SlidingExpiry.Equals(other.SlidingExpiry)
+                    this.SlidingExpiry == input.SlidingExpiry ||
+                    (this.SlidingExpiry != null &&
+                    this.SlidingExpiry.Equals(input.SlidingExpiry))
                 );
         }
 
@@ -140,25 +143,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.IpAddress != null)
-                    hash = hash * 59 + this.IpAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.IpAddress.GetHashCode();
                 if (this.Fingerprint != null)
-                    hash = hash * 59 + this.Fingerprint.GetHashCode();
+                    hashCode = hashCode * 59 + this.Fingerprint.GetHashCode();
                 if (this.Expiry != null)
-                    hash = hash * 59 + this.Expiry.GetHashCode();
+                    hashCode = hashCode * 59 + this.Expiry.GetHashCode();
                 if (this.SlidingExpiry != null)
-                    hash = hash * 59 + this.SlidingExpiry.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.SlidingExpiry.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

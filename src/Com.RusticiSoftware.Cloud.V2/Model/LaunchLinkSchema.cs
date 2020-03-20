@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,17 +38,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaunchLinkSchema" /> class.
         /// </summary>
-        /// <param name="LaunchLink">LaunchLink (required).</param>
-        public LaunchLinkSchema(string LaunchLink = default(string))
+        /// <param name="launchLink">launchLink (required).</param>
+        public LaunchLinkSchema(string launchLink = default(string))
         {
-            // to ensure "LaunchLink" is required (not null)
-            if (LaunchLink == null)
+            // to ensure "launchLink" is required (not null)
+            if (launchLink == null)
             {
-                throw new InvalidDataException("LaunchLink is a required property for LaunchLinkSchema and cannot be null");
+                throw new InvalidDataException("launchLink is a required property for LaunchLinkSchema and cannot be null");
             }
             else
             {
-                this.LaunchLink = LaunchLink;
+                this.LaunchLink = launchLink;
             }
         }
         
@@ -56,6 +57,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="launchLink", EmitDefaultValue=false)]
         public string LaunchLink { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -73,7 +75,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -81,30 +83,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as LaunchLinkSchema);
+            return this.Equals(input as LaunchLinkSchema);
         }
 
         /// <summary>
         /// Returns true if LaunchLinkSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of LaunchLinkSchema to be compared</param>
+        /// <param name="input">Instance of LaunchLinkSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LaunchLinkSchema other)
+        public bool Equals(LaunchLinkSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.LaunchLink == other.LaunchLink ||
-                    this.LaunchLink != null &&
-                    this.LaunchLink.Equals(other.LaunchLink)
+                    this.LaunchLink == input.LaunchLink ||
+                    (this.LaunchLink != null &&
+                    this.LaunchLink.Equals(input.LaunchLink))
                 );
         }
 
@@ -114,19 +114,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.LaunchLink != null)
-                    hash = hash * 59 + this.LaunchLink.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.LaunchLink.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

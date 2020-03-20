@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,27 +38,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiStatementReference" /> class.
         /// </summary>
-        /// <param name="ObjectType">ObjectType (required) (default to &quot;StatementRef&quot;).</param>
-        /// <param name="Id">Id (required).</param>
-        public XapiStatementReference(string ObjectType = "StatementRef", string Id = default(string))
+        /// <param name="objectType">objectType (required) (default to &quot;StatementRef&quot;).</param>
+        /// <param name="id">id (required).</param>
+        public XapiStatementReference(string objectType = "StatementRef", string id = default(string))
         {
-            // to ensure "ObjectType" is required (not null)
-            if (ObjectType == null)
+            // to ensure "objectType" is required (not null)
+            if (objectType == null)
             {
-                throw new InvalidDataException("ObjectType is a required property for XapiStatementReference and cannot be null");
+                throw new InvalidDataException("objectType is a required property for XapiStatementReference and cannot be null");
             }
             else
             {
-                this.ObjectType = ObjectType;
+                this.ObjectType = objectType;
             }
-            // to ensure "Id" is required (not null)
-            if (Id == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new InvalidDataException("Id is a required property for XapiStatementReference and cannot be null");
+                throw new InvalidDataException("id is a required property for XapiStatementReference and cannot be null");
             }
             else
             {
-                this.Id = Id;
+                this.Id = id;
             }
         }
         
@@ -66,11 +67,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="objectType", EmitDefaultValue=false)]
         public string ObjectType { get; set; }
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -89,7 +92,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -97,35 +100,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiStatementReference);
+            return this.Equals(input as XapiStatementReference);
         }
 
         /// <summary>
         /// Returns true if XapiStatementReference instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiStatementReference to be compared</param>
+        /// <param name="input">Instance of XapiStatementReference to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiStatementReference other)
+        public bool Equals(XapiStatementReference input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ObjectType == other.ObjectType ||
-                    this.ObjectType != null &&
-                    this.ObjectType.Equals(other.ObjectType)
+                    this.ObjectType == input.ObjectType ||
+                    (this.ObjectType != null &&
+                    this.ObjectType.Equals(input.ObjectType))
                 ) && 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 );
         }
 
@@ -135,21 +136,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ObjectType != null)
-                    hash = hash * 59 + this.ObjectType.GetHashCode();
+                    hashCode = hashCode * 59 + this.ObjectType.GetHashCode();
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

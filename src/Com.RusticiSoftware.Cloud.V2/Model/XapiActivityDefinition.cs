@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,32 +33,32 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiActivityDefinition" /> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="Type">Type.</param>
-        /// <param name="MoreInfo">MoreInfo.</param>
-        /// <param name="InteractionType">InteractionType.</param>
-        /// <param name="CorrectResponsesPattern">CorrectResponsesPattern.</param>
-        /// <param name="Choices">Choices.</param>
-        /// <param name="Scale">Scale.</param>
-        /// <param name="Source">Source.</param>
-        /// <param name="Target">Target.</param>
-        /// <param name="Steps">Steps.</param>
-        /// <param name="Extensions">Extensions.</param>
-        public XapiActivityDefinition(Dictionary<string, string> Name = default(Dictionary<string, string>), Dictionary<string, string> Description = default(Dictionary<string, string>), string Type = default(string), string MoreInfo = default(string), string InteractionType = default(string), List<string> CorrectResponsesPattern = default(List<string>), List<XapiInteractionComponent> Choices = default(List<XapiInteractionComponent>), List<XapiInteractionComponent> Scale = default(List<XapiInteractionComponent>), List<XapiInteractionComponent> Source = default(List<XapiInteractionComponent>), List<XapiInteractionComponent> Target = default(List<XapiInteractionComponent>), List<XapiInteractionComponent> Steps = default(List<XapiInteractionComponent>), Dictionary<string, Object> Extensions = default(Dictionary<string, Object>))
+        /// <param name="name">name.</param>
+        /// <param name="description">description.</param>
+        /// <param name="type">type.</param>
+        /// <param name="moreInfo">moreInfo.</param>
+        /// <param name="interactionType">interactionType.</param>
+        /// <param name="correctResponsesPattern">correctResponsesPattern.</param>
+        /// <param name="choices">choices.</param>
+        /// <param name="scale">scale.</param>
+        /// <param name="source">source.</param>
+        /// <param name="target">target.</param>
+        /// <param name="steps">steps.</param>
+        /// <param name="extensions">extensions.</param>
+        public XapiActivityDefinition(Dictionary<string, string> name = default(Dictionary<string, string>), Dictionary<string, string> description = default(Dictionary<string, string>), string type = default(string), string moreInfo = default(string), string interactionType = default(string), List<string> correctResponsesPattern = default(List<string>), List<XapiInteractionComponent> choices = default(List<XapiInteractionComponent>), List<XapiInteractionComponent> scale = default(List<XapiInteractionComponent>), List<XapiInteractionComponent> source = default(List<XapiInteractionComponent>), List<XapiInteractionComponent> target = default(List<XapiInteractionComponent>), List<XapiInteractionComponent> steps = default(List<XapiInteractionComponent>), Dictionary<string, Object> extensions = default(Dictionary<string, Object>))
         {
-            this.Name = Name;
-            this.Description = Description;
-            this.Type = Type;
-            this.MoreInfo = MoreInfo;
-            this.InteractionType = InteractionType;
-            this.CorrectResponsesPattern = CorrectResponsesPattern;
-            this.Choices = Choices;
-            this.Scale = Scale;
-            this.Source = Source;
-            this.Target = Target;
-            this.Steps = Steps;
-            this.Extensions = Extensions;
+            this.Name = name;
+            this.Description = description;
+            this.Type = type;
+            this.MoreInfo = moreInfo;
+            this.InteractionType = interactionType;
+            this.CorrectResponsesPattern = correctResponsesPattern;
+            this.Choices = choices;
+            this.Scale = scale;
+            this.Source = source;
+            this.Target = target;
+            this.Steps = steps;
+            this.Extensions = extensions;
         }
         
         /// <summary>
@@ -65,61 +66,73 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public Dictionary<string, string> Name { get; set; }
+
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public Dictionary<string, string> Description { get; set; }
+
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
         /// <summary>
         /// Gets or Sets MoreInfo
         /// </summary>
         [DataMember(Name="moreInfo", EmitDefaultValue=false)]
         public string MoreInfo { get; set; }
+
         /// <summary>
         /// Gets or Sets InteractionType
         /// </summary>
         [DataMember(Name="interactionType", EmitDefaultValue=false)]
         public string InteractionType { get; set; }
+
         /// <summary>
         /// Gets or Sets CorrectResponsesPattern
         /// </summary>
         [DataMember(Name="correctResponsesPattern", EmitDefaultValue=false)]
         public List<string> CorrectResponsesPattern { get; set; }
+
         /// <summary>
         /// Gets or Sets Choices
         /// </summary>
         [DataMember(Name="choices", EmitDefaultValue=false)]
         public List<XapiInteractionComponent> Choices { get; set; }
+
         /// <summary>
         /// Gets or Sets Scale
         /// </summary>
         [DataMember(Name="scale", EmitDefaultValue=false)]
         public List<XapiInteractionComponent> Scale { get; set; }
+
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
         [DataMember(Name="source", EmitDefaultValue=false)]
         public List<XapiInteractionComponent> Source { get; set; }
+
         /// <summary>
         /// Gets or Sets Target
         /// </summary>
         [DataMember(Name="target", EmitDefaultValue=false)]
         public List<XapiInteractionComponent> Target { get; set; }
+
         /// <summary>
         /// Gets or Sets Steps
         /// </summary>
         [DataMember(Name="steps", EmitDefaultValue=false)]
         public List<XapiInteractionComponent> Steps { get; set; }
+
         /// <summary>
         /// Gets or Sets Extensions
         /// </summary>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public Dictionary<string, Object> Extensions { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -148,7 +161,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -156,85 +169,83 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiActivityDefinition);
+            return this.Equals(input as XapiActivityDefinition);
         }
 
         /// <summary>
         /// Returns true if XapiActivityDefinition instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiActivityDefinition to be compared</param>
+        /// <param name="input">Instance of XapiActivityDefinition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiActivityDefinition other)
+        public bool Equals(XapiActivityDefinition input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Name == other.Name ||
+                    this.Name == input.Name ||
                     this.Name != null &&
-                    this.Name.SequenceEqual(other.Name)
+                    this.Name.SequenceEqual(input.Name)
                 ) && 
                 (
-                    this.Description == other.Description ||
+                    this.Description == input.Description ||
                     this.Description != null &&
-                    this.Description.SequenceEqual(other.Description)
+                    this.Description.SequenceEqual(input.Description)
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.MoreInfo == other.MoreInfo ||
-                    this.MoreInfo != null &&
-                    this.MoreInfo.Equals(other.MoreInfo)
+                    this.MoreInfo == input.MoreInfo ||
+                    (this.MoreInfo != null &&
+                    this.MoreInfo.Equals(input.MoreInfo))
                 ) && 
                 (
-                    this.InteractionType == other.InteractionType ||
-                    this.InteractionType != null &&
-                    this.InteractionType.Equals(other.InteractionType)
+                    this.InteractionType == input.InteractionType ||
+                    (this.InteractionType != null &&
+                    this.InteractionType.Equals(input.InteractionType))
                 ) && 
                 (
-                    this.CorrectResponsesPattern == other.CorrectResponsesPattern ||
+                    this.CorrectResponsesPattern == input.CorrectResponsesPattern ||
                     this.CorrectResponsesPattern != null &&
-                    this.CorrectResponsesPattern.SequenceEqual(other.CorrectResponsesPattern)
+                    this.CorrectResponsesPattern.SequenceEqual(input.CorrectResponsesPattern)
                 ) && 
                 (
-                    this.Choices == other.Choices ||
+                    this.Choices == input.Choices ||
                     this.Choices != null &&
-                    this.Choices.SequenceEqual(other.Choices)
+                    this.Choices.SequenceEqual(input.Choices)
                 ) && 
                 (
-                    this.Scale == other.Scale ||
+                    this.Scale == input.Scale ||
                     this.Scale != null &&
-                    this.Scale.SequenceEqual(other.Scale)
+                    this.Scale.SequenceEqual(input.Scale)
                 ) && 
                 (
-                    this.Source == other.Source ||
+                    this.Source == input.Source ||
                     this.Source != null &&
-                    this.Source.SequenceEqual(other.Source)
+                    this.Source.SequenceEqual(input.Source)
                 ) && 
                 (
-                    this.Target == other.Target ||
+                    this.Target == input.Target ||
                     this.Target != null &&
-                    this.Target.SequenceEqual(other.Target)
+                    this.Target.SequenceEqual(input.Target)
                 ) && 
                 (
-                    this.Steps == other.Steps ||
+                    this.Steps == input.Steps ||
                     this.Steps != null &&
-                    this.Steps.SequenceEqual(other.Steps)
+                    this.Steps.SequenceEqual(input.Steps)
                 ) && 
                 (
-                    this.Extensions == other.Extensions ||
+                    this.Extensions == input.Extensions ||
                     this.Extensions != null &&
-                    this.Extensions.SequenceEqual(other.Extensions)
+                    this.Extensions.SequenceEqual(input.Extensions)
                 );
         }
 
@@ -244,41 +255,44 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.MoreInfo != null)
-                    hash = hash * 59 + this.MoreInfo.GetHashCode();
+                    hashCode = hashCode * 59 + this.MoreInfo.GetHashCode();
                 if (this.InteractionType != null)
-                    hash = hash * 59 + this.InteractionType.GetHashCode();
+                    hashCode = hashCode * 59 + this.InteractionType.GetHashCode();
                 if (this.CorrectResponsesPattern != null)
-                    hash = hash * 59 + this.CorrectResponsesPattern.GetHashCode();
+                    hashCode = hashCode * 59 + this.CorrectResponsesPattern.GetHashCode();
                 if (this.Choices != null)
-                    hash = hash * 59 + this.Choices.GetHashCode();
+                    hashCode = hashCode * 59 + this.Choices.GetHashCode();
                 if (this.Scale != null)
-                    hash = hash * 59 + this.Scale.GetHashCode();
+                    hashCode = hashCode * 59 + this.Scale.GetHashCode();
                 if (this.Source != null)
-                    hash = hash * 59 + this.Source.GetHashCode();
+                    hashCode = hashCode * 59 + this.Source.GetHashCode();
                 if (this.Target != null)
-                    hash = hash * 59 + this.Target.GetHashCode();
+                    hashCode = hashCode * 59 + this.Target.GetHashCode();
                 if (this.Steps != null)
-                    hash = hash * 59 + this.Steps.GetHashCode();
+                    hashCode = hashCode * 59 + this.Steps.GetHashCode();
                 if (this.Extensions != null)
-                    hash = hash * 59 + this.Extensions.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Extensions.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }
