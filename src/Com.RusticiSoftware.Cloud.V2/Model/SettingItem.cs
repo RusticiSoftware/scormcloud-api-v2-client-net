@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -38,46 +39,46 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             
             /// <summary>
-            /// Enum Default for "default"
+            /// Enum Default for value: default
             /// </summary>
             [EnumMember(Value = "default")]
-            Default,
+            Default = 1,
             
             /// <summary>
-            /// Enum Application for "application"
+            /// Enum Application for value: application
             /// </summary>
             [EnumMember(Value = "application")]
-            Application,
+            Application = 2,
             
             /// <summary>
-            /// Enum LearningStandardForApplication for "learningStandardForApplication"
+            /// Enum LearningStandardForApplication for value: learningStandardForApplication
             /// </summary>
             [EnumMember(Value = "learningStandardForApplication")]
-            LearningStandardForApplication,
+            LearningStandardForApplication = 3,
             
             /// <summary>
-            /// Enum DispatchDestination for "dispatchDestination"
+            /// Enum DispatchDestination for value: dispatchDestination
             /// </summary>
             [EnumMember(Value = "dispatchDestination")]
-            DispatchDestination,
+            DispatchDestination = 4,
             
             /// <summary>
-            /// Enum Course for "course"
+            /// Enum Course for value: course
             /// </summary>
             [EnumMember(Value = "course")]
-            Course,
+            Course = 5,
             
             /// <summary>
-            /// Enum Dispatch for "dispatch"
+            /// Enum Dispatch for value: dispatch
             /// </summary>
             [EnumMember(Value = "dispatch")]
-            Dispatch,
+            Dispatch = 6,
             
             /// <summary>
-            /// Enum Registration for "registration"
+            /// Enum Registration for value: registration
             /// </summary>
             [EnumMember(Value = "registration")]
-            Registration
+            Registration = 7
         }
 
         /// <summary>
@@ -89,18 +90,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingItem" /> class.
         /// </summary>
-        /// <param name="Id">Id.</param>
-        /// <param name="EffectiveValue">The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels..</param>
-        /// <param name="EffectiveValueSource">The source of this effective value, default, fallback, or the level the value was set at..</param>
-        /// <param name="ExplicitValue">The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level..</param>
-        /// <param name="Metadata">Metadata.</param>
-        public SettingItem(string Id = default(string), string EffectiveValue = default(string), EffectiveValueSourceEnum? EffectiveValueSource = default(EffectiveValueSourceEnum?), string ExplicitValue = default(string), SettingMetadata Metadata = default(SettingMetadata))
+        /// <param name="id">id.</param>
+        /// <param name="effectiveValue">The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels..</param>
+        /// <param name="effectiveValueSource">The source of this effective value, default, fallback, or the level the value was set at..</param>
+        /// <param name="explicitValue">The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level..</param>
+        /// <param name="metadata">metadata.</param>
+        public SettingItem(string id = default(string), string effectiveValue = default(string), EffectiveValueSourceEnum? effectiveValueSource = default(EffectiveValueSourceEnum?), string explicitValue = default(string), SettingMetadata metadata = default(SettingMetadata))
         {
-            this.Id = Id;
-            this.EffectiveValue = EffectiveValue;
-            this.EffectiveValueSource = EffectiveValueSource;
-            this.ExplicitValue = ExplicitValue;
-            this.Metadata = Metadata;
+            this.Id = id;
+            this.EffectiveValue = effectiveValue;
+            this.EffectiveValueSource = effectiveValueSource;
+            this.ExplicitValue = explicitValue;
+            this.Metadata = metadata;
         }
         
         /// <summary>
@@ -108,23 +109,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels.
         /// </summary>
         /// <value>The value of this setting that would be used if read at this level, including defaults, fallback, and values set at less specific levels.</value>
         [DataMember(Name="effectiveValue", EmitDefaultValue=false)]
         public string EffectiveValue { get; set; }
+
+
         /// <summary>
         /// The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level.
         /// </summary>
         /// <value>The value of this setting that is explicitly set at this level. If not present, the setting is not specified at this level.</value>
         [DataMember(Name="explicitValue", EmitDefaultValue=false)]
         public string ExplicitValue { get; set; }
+
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public SettingMetadata Metadata { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -146,7 +152,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -154,50 +160,48 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as SettingItem);
+            return this.Equals(input as SettingItem);
         }
 
         /// <summary>
         /// Returns true if SettingItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of SettingItem to be compared</param>
+        /// <param name="input">Instance of SettingItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SettingItem other)
+        public bool Equals(SettingItem input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.EffectiveValue == other.EffectiveValue ||
-                    this.EffectiveValue != null &&
-                    this.EffectiveValue.Equals(other.EffectiveValue)
+                    this.EffectiveValue == input.EffectiveValue ||
+                    (this.EffectiveValue != null &&
+                    this.EffectiveValue.Equals(input.EffectiveValue))
                 ) && 
                 (
-                    this.EffectiveValueSource == other.EffectiveValueSource ||
-                    this.EffectiveValueSource != null &&
-                    this.EffectiveValueSource.Equals(other.EffectiveValueSource)
+                    this.EffectiveValueSource == input.EffectiveValueSource ||
+                    (this.EffectiveValueSource != null &&
+                    this.EffectiveValueSource.Equals(input.EffectiveValueSource))
                 ) && 
                 (
-                    this.ExplicitValue == other.ExplicitValue ||
-                    this.ExplicitValue != null &&
-                    this.ExplicitValue.Equals(other.ExplicitValue)
+                    this.ExplicitValue == input.ExplicitValue ||
+                    (this.ExplicitValue != null &&
+                    this.ExplicitValue.Equals(input.ExplicitValue))
                 ) && 
                 (
-                    this.Metadata == other.Metadata ||
-                    this.Metadata != null &&
-                    this.Metadata.Equals(other.Metadata)
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
                 );
         }
 
@@ -207,27 +211,30 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.EffectiveValue != null)
-                    hash = hash * 59 + this.EffectiveValue.GetHashCode();
+                    hashCode = hashCode * 59 + this.EffectiveValue.GetHashCode();
                 if (this.EffectiveValueSource != null)
-                    hash = hash * 59 + this.EffectiveValueSource.GetHashCode();
+                    hashCode = hashCode * 59 + this.EffectiveValueSource.GetHashCode();
                 if (this.ExplicitValue != null)
-                    hash = hash * 59 + this.ExplicitValue.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExplicitValue.GetHashCode();
                 if (this.Metadata != null)
-                    hash = hash * 59 + this.Metadata.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

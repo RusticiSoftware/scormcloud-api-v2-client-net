@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,12 +33,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportageAuthTokenSchema" /> class.
         /// </summary>
-        /// <param name="AuthEnabled">AuthEnabled.</param>
-        /// <param name="QueryString">QueryString.</param>
-        public ReportageAuthTokenSchema(bool? AuthEnabled = default(bool?), string QueryString = default(string))
+        /// <param name="authEnabled">authEnabled.</param>
+        /// <param name="queryString">queryString.</param>
+        public ReportageAuthTokenSchema(bool? authEnabled = default(bool?), string queryString = default(string))
         {
-            this.AuthEnabled = AuthEnabled;
-            this.QueryString = QueryString;
+            this.AuthEnabled = authEnabled;
+            this.QueryString = queryString;
         }
         
         /// <summary>
@@ -45,11 +46,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="authEnabled", EmitDefaultValue=false)]
         public bool? AuthEnabled { get; set; }
+
         /// <summary>
         /// Gets or Sets QueryString
         /// </summary>
         [DataMember(Name="queryString", EmitDefaultValue=false)]
         public string QueryString { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -68,7 +71,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -76,35 +79,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ReportageAuthTokenSchema);
+            return this.Equals(input as ReportageAuthTokenSchema);
         }
 
         /// <summary>
         /// Returns true if ReportageAuthTokenSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of ReportageAuthTokenSchema to be compared</param>
+        /// <param name="input">Instance of ReportageAuthTokenSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ReportageAuthTokenSchema other)
+        public bool Equals(ReportageAuthTokenSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AuthEnabled == other.AuthEnabled ||
-                    this.AuthEnabled != null &&
-                    this.AuthEnabled.Equals(other.AuthEnabled)
+                    this.AuthEnabled == input.AuthEnabled ||
+                    (this.AuthEnabled != null &&
+                    this.AuthEnabled.Equals(input.AuthEnabled))
                 ) && 
                 (
-                    this.QueryString == other.QueryString ||
-                    this.QueryString != null &&
-                    this.QueryString.Equals(other.QueryString)
+                    this.QueryString == input.QueryString ||
+                    (this.QueryString != null &&
+                    this.QueryString.Equals(input.QueryString))
                 );
         }
 
@@ -114,21 +115,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AuthEnabled != null)
-                    hash = hash * 59 + this.AuthEnabled.GetHashCode();
+                    hashCode = hashCode * 59 + this.AuthEnabled.GetHashCode();
                 if (this.QueryString != null)
-                    hash = hash * 59 + this.QueryString.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.QueryString.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

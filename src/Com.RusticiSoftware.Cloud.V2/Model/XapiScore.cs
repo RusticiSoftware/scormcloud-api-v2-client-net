@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,16 +33,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiScore" /> class.
         /// </summary>
-        /// <param name="Scaled">Scaled.</param>
-        /// <param name="Raw">Raw.</param>
-        /// <param name="Min">Min.</param>
-        /// <param name="Max">Max.</param>
-        public XapiScore(double? Scaled = default(double?), double? Raw = default(double?), double? Min = default(double?), double? Max = default(double?))
+        /// <param name="scaled">scaled.</param>
+        /// <param name="raw">raw.</param>
+        /// <param name="min">min.</param>
+        /// <param name="max">max.</param>
+        public XapiScore(double? scaled = default(double?), double? raw = default(double?), double? min = default(double?), double? max = default(double?))
         {
-            this.Scaled = Scaled;
-            this.Raw = Raw;
-            this.Min = Min;
-            this.Max = Max;
+            this.Scaled = scaled;
+            this.Raw = raw;
+            this.Min = min;
+            this.Max = max;
         }
         
         /// <summary>
@@ -49,21 +50,25 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="scaled", EmitDefaultValue=false)]
         public double? Scaled { get; set; }
+
         /// <summary>
         /// Gets or Sets Raw
         /// </summary>
         [DataMember(Name="raw", EmitDefaultValue=false)]
         public double? Raw { get; set; }
+
         /// <summary>
         /// Gets or Sets Min
         /// </summary>
         [DataMember(Name="min", EmitDefaultValue=false)]
         public double? Min { get; set; }
+
         /// <summary>
         /// Gets or Sets Max
         /// </summary>
         [DataMember(Name="max", EmitDefaultValue=false)]
         public double? Max { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -84,7 +89,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -92,45 +97,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiScore);
+            return this.Equals(input as XapiScore);
         }
 
         /// <summary>
         /// Returns true if XapiScore instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiScore to be compared</param>
+        /// <param name="input">Instance of XapiScore to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiScore other)
+        public bool Equals(XapiScore input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Scaled == other.Scaled ||
-                    this.Scaled != null &&
-                    this.Scaled.Equals(other.Scaled)
+                    this.Scaled == input.Scaled ||
+                    (this.Scaled != null &&
+                    this.Scaled.Equals(input.Scaled))
                 ) && 
                 (
-                    this.Raw == other.Raw ||
-                    this.Raw != null &&
-                    this.Raw.Equals(other.Raw)
+                    this.Raw == input.Raw ||
+                    (this.Raw != null &&
+                    this.Raw.Equals(input.Raw))
                 ) && 
                 (
-                    this.Min == other.Min ||
-                    this.Min != null &&
-                    this.Min.Equals(other.Min)
+                    this.Min == input.Min ||
+                    (this.Min != null &&
+                    this.Min.Equals(input.Min))
                 ) && 
                 (
-                    this.Max == other.Max ||
-                    this.Max != null &&
-                    this.Max.Equals(other.Max)
+                    this.Max == input.Max ||
+                    (this.Max != null &&
+                    this.Max.Equals(input.Max))
                 );
         }
 
@@ -140,25 +143,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Scaled != null)
-                    hash = hash * 59 + this.Scaled.GetHashCode();
+                    hashCode = hashCode * 59 + this.Scaled.GetHashCode();
                 if (this.Raw != null)
-                    hash = hash * 59 + this.Raw.GetHashCode();
+                    hashCode = hashCode * 59 + this.Raw.GetHashCode();
                 if (this.Min != null)
-                    hash = hash * 59 + this.Min.GetHashCode();
+                    hashCode = hashCode * 59 + this.Min.GetHashCode();
                 if (this.Max != null)
-                    hash = hash * 59 + this.Max.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Max.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

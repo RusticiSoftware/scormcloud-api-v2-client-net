@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,54 +38,54 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaunchLinkRequestSchema" /> class.
         /// </summary>
-        /// <param name="Expiry">Number of seconds from now this link will expire in. Defaults to 120s. Range 10s:300s (default to 120).</param>
-        /// <param name="RedirectOnExitUrl">The URL the application should redirect to when the learner exits a course. If not specified, configured value will be used. (required).</param>
-        /// <param name="Tracking">Should this launch be tracked? If false, Engine will avoid tracking to the extent possible for the standard being used. (default to true).</param>
-        /// <param name="StartSco">For SCORM, SCO identifier to override launch, overriding the normal sequencing..</param>
-        /// <param name="Culture">This parameter should specify a culture code. If specified, and supported, the navigation and alerts in the player will be displayed in the associated language. If not specified, the locale of the user’s browser will be used..</param>
-        /// <param name="CssUrl">A Url pointing to custom css for the player to use..</param>
-        /// <param name="LearnerTags">LearnerTags.</param>
-        /// <param name="CourseTags">CourseTags.</param>
-        /// <param name="RegistrationTags">RegistrationTags.</param>
-        /// <param name="Additionalvalues">Additionalvalues.</param>
-        /// <param name="LaunchAuth">LaunchAuth.</param>
-        public LaunchLinkRequestSchema(int? Expiry = 120, string RedirectOnExitUrl = default(string), bool? Tracking = true, string StartSco = default(string), string Culture = default(string), string CssUrl = default(string), List<string> LearnerTags = default(List<string>), List<string> CourseTags = default(List<string>), List<string> RegistrationTags = default(List<string>), List<ItemValuePairSchema> Additionalvalues = default(List<ItemValuePairSchema>), LaunchAuthSchema LaunchAuth = default(LaunchAuthSchema))
+        /// <param name="expiry">Number of seconds from now this link will expire in. Defaults to 120s. Range 10s:300s (default to 120).</param>
+        /// <param name="redirectOnExitUrl">The URL the application should redirect to when the learner exits a course. If not specified, configured value will be used. (required).</param>
+        /// <param name="tracking">Should this launch be tracked? If false, Engine will avoid tracking to the extent possible for the standard being used. (default to true).</param>
+        /// <param name="startSco">For SCORM, SCO identifier to override launch, overriding the normal sequencing..</param>
+        /// <param name="culture">This parameter should specify a culture code. If specified, and supported, the navigation and alerts in the player will be displayed in the associated language. If not specified, the locale of the user’s browser will be used..</param>
+        /// <param name="cssUrl">A Url pointing to custom css for the player to use..</param>
+        /// <param name="learnerTags">learnerTags.</param>
+        /// <param name="courseTags">courseTags.</param>
+        /// <param name="registrationTags">registrationTags.</param>
+        /// <param name="additionalvalues">additionalvalues.</param>
+        /// <param name="launchAuth">launchAuth.</param>
+        public LaunchLinkRequestSchema(int? expiry = 120, string redirectOnExitUrl = default(string), bool? tracking = true, string startSco = default(string), string culture = default(string), string cssUrl = default(string), List<string> learnerTags = default(List<string>), List<string> courseTags = default(List<string>), List<string> registrationTags = default(List<string>), List<ItemValuePairSchema> additionalvalues = default(List<ItemValuePairSchema>), LaunchAuthSchema launchAuth = default(LaunchAuthSchema))
         {
-            // to ensure "RedirectOnExitUrl" is required (not null)
-            if (RedirectOnExitUrl == null)
+            // to ensure "redirectOnExitUrl" is required (not null)
+            if (redirectOnExitUrl == null)
             {
-                throw new InvalidDataException("RedirectOnExitUrl is a required property for LaunchLinkRequestSchema and cannot be null");
+                throw new InvalidDataException("redirectOnExitUrl is a required property for LaunchLinkRequestSchema and cannot be null");
             }
             else
             {
-                this.RedirectOnExitUrl = RedirectOnExitUrl;
+                this.RedirectOnExitUrl = redirectOnExitUrl;
             }
-            // use default value if no "Expiry" provided
-            if (Expiry == null)
+            // use default value if no "expiry" provided
+            if (expiry == null)
             {
                 this.Expiry = 120;
             }
             else
             {
-                this.Expiry = Expiry;
+                this.Expiry = expiry;
             }
-            // use default value if no "Tracking" provided
-            if (Tracking == null)
+            // use default value if no "tracking" provided
+            if (tracking == null)
             {
                 this.Tracking = true;
             }
             else
             {
-                this.Tracking = Tracking;
+                this.Tracking = tracking;
             }
-            this.StartSco = StartSco;
-            this.Culture = Culture;
-            this.CssUrl = CssUrl;
-            this.LearnerTags = LearnerTags;
-            this.CourseTags = CourseTags;
-            this.RegistrationTags = RegistrationTags;
-            this.Additionalvalues = Additionalvalues;
-            this.LaunchAuth = LaunchAuth;
+            this.StartSco = startSco;
+            this.Culture = culture;
+            this.CssUrl = cssUrl;
+            this.LearnerTags = learnerTags;
+            this.CourseTags = courseTags;
+            this.RegistrationTags = registrationTags;
+            this.Additionalvalues = additionalvalues;
+            this.LaunchAuth = launchAuth;
         }
         
         /// <summary>
@@ -93,61 +94,72 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>Number of seconds from now this link will expire in. Defaults to 120s. Range 10s:300s</value>
         [DataMember(Name="expiry", EmitDefaultValue=false)]
         public int? Expiry { get; set; }
+
         /// <summary>
         /// The URL the application should redirect to when the learner exits a course. If not specified, configured value will be used.
         /// </summary>
         /// <value>The URL the application should redirect to when the learner exits a course. If not specified, configured value will be used.</value>
         [DataMember(Name="redirectOnExitUrl", EmitDefaultValue=false)]
         public string RedirectOnExitUrl { get; set; }
+
         /// <summary>
         /// Should this launch be tracked? If false, Engine will avoid tracking to the extent possible for the standard being used.
         /// </summary>
         /// <value>Should this launch be tracked? If false, Engine will avoid tracking to the extent possible for the standard being used.</value>
         [DataMember(Name="tracking", EmitDefaultValue=false)]
         public bool? Tracking { get; set; }
+
         /// <summary>
         /// For SCORM, SCO identifier to override launch, overriding the normal sequencing.
         /// </summary>
         /// <value>For SCORM, SCO identifier to override launch, overriding the normal sequencing.</value>
         [DataMember(Name="startSco", EmitDefaultValue=false)]
         public string StartSco { get; set; }
+
         /// <summary>
         /// This parameter should specify a culture code. If specified, and supported, the navigation and alerts in the player will be displayed in the associated language. If not specified, the locale of the user’s browser will be used.
         /// </summary>
         /// <value>This parameter should specify a culture code. If specified, and supported, the navigation and alerts in the player will be displayed in the associated language. If not specified, the locale of the user’s browser will be used.</value>
         [DataMember(Name="culture", EmitDefaultValue=false)]
         public string Culture { get; set; }
+
         /// <summary>
         /// A Url pointing to custom css for the player to use.
         /// </summary>
         /// <value>A Url pointing to custom css for the player to use.</value>
         [DataMember(Name="cssUrl", EmitDefaultValue=false)]
         public string CssUrl { get; set; }
+
         /// <summary>
         /// Gets or Sets LearnerTags
         /// </summary>
         [DataMember(Name="learnerTags", EmitDefaultValue=false)]
         public List<string> LearnerTags { get; set; }
+
         /// <summary>
         /// Gets or Sets CourseTags
         /// </summary>
         [DataMember(Name="courseTags", EmitDefaultValue=false)]
         public List<string> CourseTags { get; set; }
+
         /// <summary>
         /// Gets or Sets RegistrationTags
         /// </summary>
         [DataMember(Name="registrationTags", EmitDefaultValue=false)]
         public List<string> RegistrationTags { get; set; }
+
         /// <summary>
         /// Gets or Sets Additionalvalues
         /// </summary>
         [DataMember(Name="additionalvalues", EmitDefaultValue=false)]
         public List<ItemValuePairSchema> Additionalvalues { get; set; }
+
         /// <summary>
         /// Gets or Sets LaunchAuth
         /// </summary>
         [DataMember(Name="launchAuth", EmitDefaultValue=false)]
         public LaunchAuthSchema LaunchAuth { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -175,7 +187,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -183,80 +195,78 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as LaunchLinkRequestSchema);
+            return this.Equals(input as LaunchLinkRequestSchema);
         }
 
         /// <summary>
         /// Returns true if LaunchLinkRequestSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of LaunchLinkRequestSchema to be compared</param>
+        /// <param name="input">Instance of LaunchLinkRequestSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LaunchLinkRequestSchema other)
+        public bool Equals(LaunchLinkRequestSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Expiry == other.Expiry ||
-                    this.Expiry != null &&
-                    this.Expiry.Equals(other.Expiry)
+                    this.Expiry == input.Expiry ||
+                    (this.Expiry != null &&
+                    this.Expiry.Equals(input.Expiry))
                 ) && 
                 (
-                    this.RedirectOnExitUrl == other.RedirectOnExitUrl ||
-                    this.RedirectOnExitUrl != null &&
-                    this.RedirectOnExitUrl.Equals(other.RedirectOnExitUrl)
+                    this.RedirectOnExitUrl == input.RedirectOnExitUrl ||
+                    (this.RedirectOnExitUrl != null &&
+                    this.RedirectOnExitUrl.Equals(input.RedirectOnExitUrl))
                 ) && 
                 (
-                    this.Tracking == other.Tracking ||
-                    this.Tracking != null &&
-                    this.Tracking.Equals(other.Tracking)
+                    this.Tracking == input.Tracking ||
+                    (this.Tracking != null &&
+                    this.Tracking.Equals(input.Tracking))
                 ) && 
                 (
-                    this.StartSco == other.StartSco ||
-                    this.StartSco != null &&
-                    this.StartSco.Equals(other.StartSco)
+                    this.StartSco == input.StartSco ||
+                    (this.StartSco != null &&
+                    this.StartSco.Equals(input.StartSco))
                 ) && 
                 (
-                    this.Culture == other.Culture ||
-                    this.Culture != null &&
-                    this.Culture.Equals(other.Culture)
+                    this.Culture == input.Culture ||
+                    (this.Culture != null &&
+                    this.Culture.Equals(input.Culture))
                 ) && 
                 (
-                    this.CssUrl == other.CssUrl ||
-                    this.CssUrl != null &&
-                    this.CssUrl.Equals(other.CssUrl)
+                    this.CssUrl == input.CssUrl ||
+                    (this.CssUrl != null &&
+                    this.CssUrl.Equals(input.CssUrl))
                 ) && 
                 (
-                    this.LearnerTags == other.LearnerTags ||
+                    this.LearnerTags == input.LearnerTags ||
                     this.LearnerTags != null &&
-                    this.LearnerTags.SequenceEqual(other.LearnerTags)
+                    this.LearnerTags.SequenceEqual(input.LearnerTags)
                 ) && 
                 (
-                    this.CourseTags == other.CourseTags ||
+                    this.CourseTags == input.CourseTags ||
                     this.CourseTags != null &&
-                    this.CourseTags.SequenceEqual(other.CourseTags)
+                    this.CourseTags.SequenceEqual(input.CourseTags)
                 ) && 
                 (
-                    this.RegistrationTags == other.RegistrationTags ||
+                    this.RegistrationTags == input.RegistrationTags ||
                     this.RegistrationTags != null &&
-                    this.RegistrationTags.SequenceEqual(other.RegistrationTags)
+                    this.RegistrationTags.SequenceEqual(input.RegistrationTags)
                 ) && 
                 (
-                    this.Additionalvalues == other.Additionalvalues ||
+                    this.Additionalvalues == input.Additionalvalues ||
                     this.Additionalvalues != null &&
-                    this.Additionalvalues.SequenceEqual(other.Additionalvalues)
+                    this.Additionalvalues.SequenceEqual(input.Additionalvalues)
                 ) && 
                 (
-                    this.LaunchAuth == other.LaunchAuth ||
-                    this.LaunchAuth != null &&
-                    this.LaunchAuth.Equals(other.LaunchAuth)
+                    this.LaunchAuth == input.LaunchAuth ||
+                    (this.LaunchAuth != null &&
+                    this.LaunchAuth.Equals(input.LaunchAuth))
                 );
         }
 
@@ -266,39 +276,42 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Expiry != null)
-                    hash = hash * 59 + this.Expiry.GetHashCode();
+                    hashCode = hashCode * 59 + this.Expiry.GetHashCode();
                 if (this.RedirectOnExitUrl != null)
-                    hash = hash * 59 + this.RedirectOnExitUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.RedirectOnExitUrl.GetHashCode();
                 if (this.Tracking != null)
-                    hash = hash * 59 + this.Tracking.GetHashCode();
+                    hashCode = hashCode * 59 + this.Tracking.GetHashCode();
                 if (this.StartSco != null)
-                    hash = hash * 59 + this.StartSco.GetHashCode();
+                    hashCode = hashCode * 59 + this.StartSco.GetHashCode();
                 if (this.Culture != null)
-                    hash = hash * 59 + this.Culture.GetHashCode();
+                    hashCode = hashCode * 59 + this.Culture.GetHashCode();
                 if (this.CssUrl != null)
-                    hash = hash * 59 + this.CssUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.CssUrl.GetHashCode();
                 if (this.LearnerTags != null)
-                    hash = hash * 59 + this.LearnerTags.GetHashCode();
+                    hashCode = hashCode * 59 + this.LearnerTags.GetHashCode();
                 if (this.CourseTags != null)
-                    hash = hash * 59 + this.CourseTags.GetHashCode();
+                    hashCode = hashCode * 59 + this.CourseTags.GetHashCode();
                 if (this.RegistrationTags != null)
-                    hash = hash * 59 + this.RegistrationTags.GetHashCode();
+                    hashCode = hashCode * 59 + this.RegistrationTags.GetHashCode();
                 if (this.Additionalvalues != null)
-                    hash = hash * 59 + this.Additionalvalues.GetHashCode();
+                    hashCode = hashCode * 59 + this.Additionalvalues.GetHashCode();
                 if (this.LaunchAuth != null)
-                    hash = hash * 59 + this.LaunchAuth.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.LaunchAuth.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

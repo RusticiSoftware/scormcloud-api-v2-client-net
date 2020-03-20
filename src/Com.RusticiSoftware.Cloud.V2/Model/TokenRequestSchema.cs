@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,27 +38,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TokenRequestSchema" /> class.
         /// </summary>
-        /// <param name="Permissions">Permissions (required).</param>
-        /// <param name="Expiry">Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token. (required).</param>
-        public TokenRequestSchema(PermissionsSchema Permissions = default(PermissionsSchema), DateTime? Expiry = default(DateTime?))
+        /// <param name="permissions">permissions (required).</param>
+        /// <param name="expiry">Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token. (required).</param>
+        public TokenRequestSchema(PermissionsSchema permissions = default(PermissionsSchema), DateTime? expiry = default(DateTime?))
         {
-            // to ensure "Permissions" is required (not null)
-            if (Permissions == null)
+            // to ensure "permissions" is required (not null)
+            if (permissions == null)
             {
-                throw new InvalidDataException("Permissions is a required property for TokenRequestSchema and cannot be null");
+                throw new InvalidDataException("permissions is a required property for TokenRequestSchema and cannot be null");
             }
             else
             {
-                this.Permissions = Permissions;
+                this.Permissions = permissions;
             }
-            // to ensure "Expiry" is required (not null)
-            if (Expiry == null)
+            // to ensure "expiry" is required (not null)
+            if (expiry == null)
             {
-                throw new InvalidDataException("Expiry is a required property for TokenRequestSchema and cannot be null");
+                throw new InvalidDataException("expiry is a required property for TokenRequestSchema and cannot be null");
             }
             else
             {
-                this.Expiry = Expiry;
+                this.Expiry = expiry;
             }
         }
         
@@ -66,12 +67,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="permissions", EmitDefaultValue=false)]
         public PermissionsSchema Permissions { get; set; }
+
         /// <summary>
         /// Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token.
         /// </summary>
         /// <value>Expiration of the token. This should not be set far in the future, as there is no way to invalidate an individual token.</value>
         [DataMember(Name="expiry", EmitDefaultValue=false)]
         public DateTime? Expiry { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -90,7 +93,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -98,35 +101,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TokenRequestSchema);
+            return this.Equals(input as TokenRequestSchema);
         }
 
         /// <summary>
         /// Returns true if TokenRequestSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of TokenRequestSchema to be compared</param>
+        /// <param name="input">Instance of TokenRequestSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TokenRequestSchema other)
+        public bool Equals(TokenRequestSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Permissions == other.Permissions ||
-                    this.Permissions != null &&
-                    this.Permissions.Equals(other.Permissions)
+                    this.Permissions == input.Permissions ||
+                    (this.Permissions != null &&
+                    this.Permissions.Equals(input.Permissions))
                 ) && 
                 (
-                    this.Expiry == other.Expiry ||
-                    this.Expiry != null &&
-                    this.Expiry.Equals(other.Expiry)
+                    this.Expiry == input.Expiry ||
+                    (this.Expiry != null &&
+                    this.Expiry.Equals(input.Expiry))
                 );
         }
 
@@ -136,21 +137,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Permissions != null)
-                    hash = hash * 59 + this.Permissions.GetHashCode();
+                    hashCode = hashCode * 59 + this.Permissions.GetHashCode();
                 if (this.Expiry != null)
-                    hash = hash * 59 + this.Expiry.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Expiry.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

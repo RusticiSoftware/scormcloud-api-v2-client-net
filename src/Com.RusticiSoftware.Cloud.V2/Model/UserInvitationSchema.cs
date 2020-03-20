@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,20 +33,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInvitationSchema" /> class.
         /// </summary>
-        /// <param name="Email">The email of the user who took an invitation..</param>
-        /// <param name="Url">The URL which the user would follow to take the invitation..</param>
-        /// <param name="IsStarted">A boolean flag stating if the user has started the invitation..</param>
-        /// <param name="Updated">Updated.</param>
-        /// <param name="RegistrationId">The id of the registration which was created from the user being invited..</param>
-        /// <param name="RegistrationReport">RegistrationReport.</param>
-        public UserInvitationSchema(string Email = default(string), string Url = default(string), bool? IsStarted = default(bool?), DateTime? Updated = default(DateTime?), string RegistrationId = default(string), UserInvitationSchemaRegistrationReport RegistrationReport = default(UserInvitationSchemaRegistrationReport))
+        /// <param name="email">The email of the user who took an invitation..</param>
+        /// <param name="url">The URL which the user would follow to take the invitation..</param>
+        /// <param name="isStarted">A boolean flag stating if the user has started the invitation..</param>
+        /// <param name="updated">updated.</param>
+        /// <param name="registrationId">The id of the registration which was created from the user being invited..</param>
+        /// <param name="registrationReport">registrationReport.</param>
+        public UserInvitationSchema(string email = default(string), string url = default(string), bool? isStarted = default(bool?), DateTime? updated = default(DateTime?), string registrationId = default(string), UserInvitationSchemaRegistrationReport registrationReport = default(UserInvitationSchemaRegistrationReport))
         {
-            this.Email = Email;
-            this.Url = Url;
-            this.IsStarted = IsStarted;
-            this.Updated = Updated;
-            this.RegistrationId = RegistrationId;
-            this.RegistrationReport = RegistrationReport;
+            this.Email = email;
+            this.Url = url;
+            this.IsStarted = isStarted;
+            this.Updated = updated;
+            this.RegistrationId = registrationId;
+            this.RegistrationReport = registrationReport;
         }
         
         /// <summary>
@@ -54,34 +55,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>The email of the user who took an invitation.</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
+
         /// <summary>
         /// The URL which the user would follow to take the invitation.
         /// </summary>
         /// <value>The URL which the user would follow to take the invitation.</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
+
         /// <summary>
         /// A boolean flag stating if the user has started the invitation.
         /// </summary>
         /// <value>A boolean flag stating if the user has started the invitation.</value>
         [DataMember(Name="isStarted", EmitDefaultValue=false)]
         public bool? IsStarted { get; set; }
+
         /// <summary>
         /// Gets or Sets Updated
         /// </summary>
         [DataMember(Name="updated", EmitDefaultValue=false)]
         public DateTime? Updated { get; set; }
+
         /// <summary>
         /// The id of the registration which was created from the user being invited.
         /// </summary>
         /// <value>The id of the registration which was created from the user being invited.</value>
         [DataMember(Name="registrationId", EmitDefaultValue=false)]
         public string RegistrationId { get; set; }
+
         /// <summary>
         /// Gets or Sets RegistrationReport
         /// </summary>
         [DataMember(Name="registrationReport", EmitDefaultValue=false)]
         public UserInvitationSchemaRegistrationReport RegistrationReport { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -104,7 +111,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -112,55 +119,53 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UserInvitationSchema);
+            return this.Equals(input as UserInvitationSchema);
         }
 
         /// <summary>
         /// Returns true if UserInvitationSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of UserInvitationSchema to be compared</param>
+        /// <param name="input">Instance of UserInvitationSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserInvitationSchema other)
+        public bool Equals(UserInvitationSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Email == other.Email ||
-                    this.Email != null &&
-                    this.Email.Equals(other.Email)
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 ) && 
                 (
-                    this.Url == other.Url ||
-                    this.Url != null &&
-                    this.Url.Equals(other.Url)
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 ) && 
                 (
-                    this.IsStarted == other.IsStarted ||
-                    this.IsStarted != null &&
-                    this.IsStarted.Equals(other.IsStarted)
+                    this.IsStarted == input.IsStarted ||
+                    (this.IsStarted != null &&
+                    this.IsStarted.Equals(input.IsStarted))
                 ) && 
                 (
-                    this.Updated == other.Updated ||
-                    this.Updated != null &&
-                    this.Updated.Equals(other.Updated)
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
                 ) && 
                 (
-                    this.RegistrationId == other.RegistrationId ||
-                    this.RegistrationId != null &&
-                    this.RegistrationId.Equals(other.RegistrationId)
+                    this.RegistrationId == input.RegistrationId ||
+                    (this.RegistrationId != null &&
+                    this.RegistrationId.Equals(input.RegistrationId))
                 ) && 
                 (
-                    this.RegistrationReport == other.RegistrationReport ||
-                    this.RegistrationReport != null &&
-                    this.RegistrationReport.Equals(other.RegistrationReport)
+                    this.RegistrationReport == input.RegistrationReport ||
+                    (this.RegistrationReport != null &&
+                    this.RegistrationReport.Equals(input.RegistrationReport))
                 );
         }
 
@@ -170,29 +175,32 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Email != null)
-                    hash = hash * 59 + this.Email.GetHashCode();
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.Url != null)
-                    hash = hash * 59 + this.Url.GetHashCode();
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.IsStarted != null)
-                    hash = hash * 59 + this.IsStarted.GetHashCode();
+                    hashCode = hashCode * 59 + this.IsStarted.GetHashCode();
                 if (this.Updated != null)
-                    hash = hash * 59 + this.Updated.GetHashCode();
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 if (this.RegistrationId != null)
-                    hash = hash * 59 + this.RegistrationId.GetHashCode();
+                    hashCode = hashCode * 59 + this.RegistrationId.GetHashCode();
                 if (this.RegistrationReport != null)
-                    hash = hash * 59 + this.RegistrationReport.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RegistrationReport.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

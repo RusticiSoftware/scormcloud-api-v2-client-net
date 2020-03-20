@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,12 +33,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PrivateInvitationList" /> class.
         /// </summary>
-        /// <param name="Invitations">A list of private invitation objects..</param>
-        /// <param name="More">More.</param>
-        public PrivateInvitationList(List<PrivateInvitationSchema> Invitations = default(List<PrivateInvitationSchema>), string More = default(string))
+        /// <param name="invitations">A list of private invitation objects..</param>
+        /// <param name="more">more.</param>
+        public PrivateInvitationList(List<PrivateInvitationSchema> invitations = default(List<PrivateInvitationSchema>), string more = default(string))
         {
-            this.Invitations = Invitations;
-            this.More = More;
+            this.Invitations = invitations;
+            this.More = more;
         }
         
         /// <summary>
@@ -46,11 +47,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>A list of private invitation objects.</value>
         [DataMember(Name="invitations", EmitDefaultValue=false)]
         public List<PrivateInvitationSchema> Invitations { get; set; }
+
         /// <summary>
         /// Gets or Sets More
         /// </summary>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public string More { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -69,7 +72,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -77,35 +80,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as PrivateInvitationList);
+            return this.Equals(input as PrivateInvitationList);
         }
 
         /// <summary>
         /// Returns true if PrivateInvitationList instances are equal
         /// </summary>
-        /// <param name="other">Instance of PrivateInvitationList to be compared</param>
+        /// <param name="input">Instance of PrivateInvitationList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PrivateInvitationList other)
+        public bool Equals(PrivateInvitationList input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Invitations == other.Invitations ||
+                    this.Invitations == input.Invitations ||
                     this.Invitations != null &&
-                    this.Invitations.SequenceEqual(other.Invitations)
+                    this.Invitations.SequenceEqual(input.Invitations)
                 ) && 
                 (
-                    this.More == other.More ||
-                    this.More != null &&
-                    this.More.Equals(other.More)
+                    this.More == input.More ||
+                    (this.More != null &&
+                    this.More.Equals(input.More))
                 );
         }
 
@@ -115,21 +116,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Invitations != null)
-                    hash = hash * 59 + this.Invitations.GetHashCode();
+                    hashCode = hashCode * 59 + this.Invitations.GetHashCode();
                 if (this.More != null)
-                    hash = hash * 59 + this.More.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.More.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

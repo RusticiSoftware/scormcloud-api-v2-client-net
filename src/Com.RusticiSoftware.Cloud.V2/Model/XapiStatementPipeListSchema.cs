@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,17 +38,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiStatementPipeListSchema" /> class.
         /// </summary>
-        /// <param name="XapiStatementPipes">XapiStatementPipes (required).</param>
-        public XapiStatementPipeListSchema(List<XapiStatementPipeSchema> XapiStatementPipes = default(List<XapiStatementPipeSchema>))
+        /// <param name="xapiStatementPipes">xapiStatementPipes (required).</param>
+        public XapiStatementPipeListSchema(List<XapiStatementPipeSchema> xapiStatementPipes = default(List<XapiStatementPipeSchema>))
         {
-            // to ensure "XapiStatementPipes" is required (not null)
-            if (XapiStatementPipes == null)
+            // to ensure "xapiStatementPipes" is required (not null)
+            if (xapiStatementPipes == null)
             {
-                throw new InvalidDataException("XapiStatementPipes is a required property for XapiStatementPipeListSchema and cannot be null");
+                throw new InvalidDataException("xapiStatementPipes is a required property for XapiStatementPipeListSchema and cannot be null");
             }
             else
             {
-                this.XapiStatementPipes = XapiStatementPipes;
+                this.XapiStatementPipes = xapiStatementPipes;
             }
         }
         
@@ -56,6 +57,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="xapiStatementPipes", EmitDefaultValue=false)]
         public List<XapiStatementPipeSchema> XapiStatementPipes { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -73,7 +75,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -81,30 +83,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiStatementPipeListSchema);
+            return this.Equals(input as XapiStatementPipeListSchema);
         }
 
         /// <summary>
         /// Returns true if XapiStatementPipeListSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiStatementPipeListSchema to be compared</param>
+        /// <param name="input">Instance of XapiStatementPipeListSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiStatementPipeListSchema other)
+        public bool Equals(XapiStatementPipeListSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.XapiStatementPipes == other.XapiStatementPipes ||
+                    this.XapiStatementPipes == input.XapiStatementPipes ||
                     this.XapiStatementPipes != null &&
-                    this.XapiStatementPipes.SequenceEqual(other.XapiStatementPipes)
+                    this.XapiStatementPipes.SequenceEqual(input.XapiStatementPipes)
                 );
         }
 
@@ -114,19 +114,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.XapiStatementPipes != null)
-                    hash = hash * 59 + this.XapiStatementPipes.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.XapiStatementPipes.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

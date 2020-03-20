@@ -20,33 +20,36 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
     /// Defines RegistrationSuccess
     /// </summary>
+    
     [JsonConverter(typeof(StringEnumConverter))]
+    
     public enum RegistrationSuccess
     {
         
         /// <summary>
-        /// Enum UNKNOWN for "UNKNOWN"
+        /// Enum UNKNOWN for value: UNKNOWN
         /// </summary>
         [EnumMember(Value = "UNKNOWN")]
-        UNKNOWN,
+        UNKNOWN = 1,
         
         /// <summary>
-        /// Enum PASSED for "PASSED"
+        /// Enum PASSED for value: PASSED
         /// </summary>
         [EnumMember(Value = "PASSED")]
-        PASSED,
+        PASSED = 2,
         
         /// <summary>
-        /// Enum FAILED for "FAILED"
+        /// Enum FAILED for value: FAILED
         /// </summary>
         [EnumMember(Value = "FAILED")]
-        FAILED
+        FAILED = 3
     }
 
 }

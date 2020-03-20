@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,26 +33,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportageAccountInfoSchema" /> class.
         /// </summary>
-        /// <param name="Email">Email.</param>
-        /// <param name="FirstName">FirstName.</param>
-        /// <param name="LastName">LastName.</param>
-        /// <param name="Company">Company.</param>
-        /// <param name="AccountType">AccountType.</param>
-        /// <param name="RegLimit">RegLimit.</param>
-        /// <param name="StrictLimit">StrictLimit.</param>
-        /// <param name="CreateDate">CreateDate.</param>
-        /// <param name="Usage">Usage.</param>
-        public ReportageAccountInfoSchema(string Email = default(string), string FirstName = default(string), string LastName = default(string), string Company = default(string), string AccountType = default(string), int? RegLimit = default(int?), bool? StrictLimit = default(bool?), DateTime? CreateDate = default(DateTime?), ReportageAccountInfoUsageSchema Usage = default(ReportageAccountInfoUsageSchema))
+        /// <param name="email">email.</param>
+        /// <param name="firstName">firstName.</param>
+        /// <param name="lastName">lastName.</param>
+        /// <param name="company">company.</param>
+        /// <param name="accountType">accountType.</param>
+        /// <param name="regLimit">regLimit.</param>
+        /// <param name="strictLimit">strictLimit.</param>
+        /// <param name="createDate">createDate.</param>
+        /// <param name="usage">usage.</param>
+        public ReportageAccountInfoSchema(string email = default(string), string firstName = default(string), string lastName = default(string), string company = default(string), string accountType = default(string), int? regLimit = default(int?), bool? strictLimit = default(bool?), DateTime? createDate = default(DateTime?), ReportageAccountInfoUsageSchema usage = default(ReportageAccountInfoUsageSchema))
         {
-            this.Email = Email;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Company = Company;
-            this.AccountType = AccountType;
-            this.RegLimit = RegLimit;
-            this.StrictLimit = StrictLimit;
-            this.CreateDate = CreateDate;
-            this.Usage = Usage;
+            this.Email = email;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Company = company;
+            this.AccountType = accountType;
+            this.RegLimit = regLimit;
+            this.StrictLimit = strictLimit;
+            this.CreateDate = createDate;
+            this.Usage = usage;
         }
         
         /// <summary>
@@ -59,46 +60,55 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
+
         /// <summary>
         /// Gets or Sets FirstName
         /// </summary>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
+
         /// <summary>
         /// Gets or Sets LastName
         /// </summary>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
+
         /// <summary>
         /// Gets or Sets Company
         /// </summary>
         [DataMember(Name="company", EmitDefaultValue=false)]
         public string Company { get; set; }
+
         /// <summary>
         /// Gets or Sets AccountType
         /// </summary>
         [DataMember(Name="accountType", EmitDefaultValue=false)]
         public string AccountType { get; set; }
+
         /// <summary>
         /// Gets or Sets RegLimit
         /// </summary>
         [DataMember(Name="regLimit", EmitDefaultValue=false)]
         public int? RegLimit { get; set; }
+
         /// <summary>
         /// Gets or Sets StrictLimit
         /// </summary>
         [DataMember(Name="strictLimit", EmitDefaultValue=false)]
         public bool? StrictLimit { get; set; }
+
         /// <summary>
         /// Gets or Sets CreateDate
         /// </summary>
         [DataMember(Name="createDate", EmitDefaultValue=false)]
         public DateTime? CreateDate { get; set; }
+
         /// <summary>
         /// Gets or Sets Usage
         /// </summary>
         [DataMember(Name="usage", EmitDefaultValue=false)]
         public ReportageAccountInfoUsageSchema Usage { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,7 +134,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -132,70 +142,68 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ReportageAccountInfoSchema);
+            return this.Equals(input as ReportageAccountInfoSchema);
         }
 
         /// <summary>
         /// Returns true if ReportageAccountInfoSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of ReportageAccountInfoSchema to be compared</param>
+        /// <param name="input">Instance of ReportageAccountInfoSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ReportageAccountInfoSchema other)
+        public bool Equals(ReportageAccountInfoSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Email == other.Email ||
-                    this.Email != null &&
-                    this.Email.Equals(other.Email)
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 ) && 
                 (
-                    this.FirstName == other.FirstName ||
-                    this.FirstName != null &&
-                    this.FirstName.Equals(other.FirstName)
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
-                    this.LastName == other.LastName ||
-                    this.LastName != null &&
-                    this.LastName.Equals(other.LastName)
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.Company == other.Company ||
-                    this.Company != null &&
-                    this.Company.Equals(other.Company)
+                    this.Company == input.Company ||
+                    (this.Company != null &&
+                    this.Company.Equals(input.Company))
                 ) && 
                 (
-                    this.AccountType == other.AccountType ||
-                    this.AccountType != null &&
-                    this.AccountType.Equals(other.AccountType)
+                    this.AccountType == input.AccountType ||
+                    (this.AccountType != null &&
+                    this.AccountType.Equals(input.AccountType))
                 ) && 
                 (
-                    this.RegLimit == other.RegLimit ||
-                    this.RegLimit != null &&
-                    this.RegLimit.Equals(other.RegLimit)
+                    this.RegLimit == input.RegLimit ||
+                    (this.RegLimit != null &&
+                    this.RegLimit.Equals(input.RegLimit))
                 ) && 
                 (
-                    this.StrictLimit == other.StrictLimit ||
-                    this.StrictLimit != null &&
-                    this.StrictLimit.Equals(other.StrictLimit)
+                    this.StrictLimit == input.StrictLimit ||
+                    (this.StrictLimit != null &&
+                    this.StrictLimit.Equals(input.StrictLimit))
                 ) && 
                 (
-                    this.CreateDate == other.CreateDate ||
-                    this.CreateDate != null &&
-                    this.CreateDate.Equals(other.CreateDate)
+                    this.CreateDate == input.CreateDate ||
+                    (this.CreateDate != null &&
+                    this.CreateDate.Equals(input.CreateDate))
                 ) && 
                 (
-                    this.Usage == other.Usage ||
-                    this.Usage != null &&
-                    this.Usage.Equals(other.Usage)
+                    this.Usage == input.Usage ||
+                    (this.Usage != null &&
+                    this.Usage.Equals(input.Usage))
                 );
         }
 
@@ -205,35 +213,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Email != null)
-                    hash = hash * 59 + this.Email.GetHashCode();
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.FirstName != null)
-                    hash = hash * 59 + this.FirstName.GetHashCode();
+                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
-                    hash = hash * 59 + this.LastName.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.Company != null)
-                    hash = hash * 59 + this.Company.GetHashCode();
+                    hashCode = hashCode * 59 + this.Company.GetHashCode();
                 if (this.AccountType != null)
-                    hash = hash * 59 + this.AccountType.GetHashCode();
+                    hashCode = hashCode * 59 + this.AccountType.GetHashCode();
                 if (this.RegLimit != null)
-                    hash = hash * 59 + this.RegLimit.GetHashCode();
+                    hashCode = hashCode * 59 + this.RegLimit.GetHashCode();
                 if (this.StrictLimit != null)
-                    hash = hash * 59 + this.StrictLimit.GetHashCode();
+                    hashCode = hashCode * 59 + this.StrictLimit.GetHashCode();
                 if (this.CreateDate != null)
-                    hash = hash * 59 + this.CreateDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreateDate.GetHashCode();
                 if (this.Usage != null)
-                    hash = hash * 59 + this.Usage.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Usage.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

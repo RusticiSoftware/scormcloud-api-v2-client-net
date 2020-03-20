@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,22 +38,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvitationEmailSchema" /> class.
         /// </summary>
-        /// <param name="Subject">The subject line for the email..</param>
-        /// <param name="Body">The body of the email..</param>
-        /// <param name="Addresses">A comma separated list of email addresses to which this invitation will be sent.  NOTE: registrations with automatically be create for each of these e-mail addresses. (required).</param>
-        public InvitationEmailSchema(string Subject = default(string), string Body = default(string), List<string> Addresses = default(List<string>))
+        /// <param name="subject">The subject line for the email..</param>
+        /// <param name="body">The body of the email..</param>
+        /// <param name="addresses">A comma separated list of email addresses to which this invitation will be sent.  NOTE: registrations with automatically be create for each of these e-mail addresses. (required).</param>
+        public InvitationEmailSchema(string subject = default(string), string body = default(string), List<string> addresses = default(List<string>))
         {
-            // to ensure "Addresses" is required (not null)
-            if (Addresses == null)
+            // to ensure "addresses" is required (not null)
+            if (addresses == null)
             {
-                throw new InvalidDataException("Addresses is a required property for InvitationEmailSchema and cannot be null");
+                throw new InvalidDataException("addresses is a required property for InvitationEmailSchema and cannot be null");
             }
             else
             {
-                this.Addresses = Addresses;
+                this.Addresses = addresses;
             }
-            this.Subject = Subject;
-            this.Body = Body;
+            this.Subject = subject;
+            this.Body = body;
         }
         
         /// <summary>
@@ -61,18 +62,21 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>The subject line for the email.</value>
         [DataMember(Name="subject", EmitDefaultValue=false)]
         public string Subject { get; set; }
+
         /// <summary>
         /// The body of the email.
         /// </summary>
         /// <value>The body of the email.</value>
         [DataMember(Name="body", EmitDefaultValue=false)]
         public string Body { get; set; }
+
         /// <summary>
         /// A comma separated list of email addresses to which this invitation will be sent.  NOTE: registrations with automatically be create for each of these e-mail addresses.
         /// </summary>
         /// <value>A comma separated list of email addresses to which this invitation will be sent.  NOTE: registrations with automatically be create for each of these e-mail addresses.</value>
         [DataMember(Name="addresses", EmitDefaultValue=false)]
         public List<string> Addresses { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -92,7 +96,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -100,40 +104,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as InvitationEmailSchema);
+            return this.Equals(input as InvitationEmailSchema);
         }
 
         /// <summary>
         /// Returns true if InvitationEmailSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of InvitationEmailSchema to be compared</param>
+        /// <param name="input">Instance of InvitationEmailSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InvitationEmailSchema other)
+        public bool Equals(InvitationEmailSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Subject == other.Subject ||
-                    this.Subject != null &&
-                    this.Subject.Equals(other.Subject)
+                    this.Subject == input.Subject ||
+                    (this.Subject != null &&
+                    this.Subject.Equals(input.Subject))
                 ) && 
                 (
-                    this.Body == other.Body ||
-                    this.Body != null &&
-                    this.Body.Equals(other.Body)
+                    this.Body == input.Body ||
+                    (this.Body != null &&
+                    this.Body.Equals(input.Body))
                 ) && 
                 (
-                    this.Addresses == other.Addresses ||
+                    this.Addresses == input.Addresses ||
                     this.Addresses != null &&
-                    this.Addresses.SequenceEqual(other.Addresses)
+                    this.Addresses.SequenceEqual(input.Addresses)
                 );
         }
 
@@ -143,23 +145,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Subject != null)
-                    hash = hash * 59 + this.Subject.GetHashCode();
+                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
                 if (this.Body != null)
-                    hash = hash * 59 + this.Body.GetHashCode();
+                    hashCode = hashCode * 59 + this.Body.GetHashCode();
                 if (this.Addresses != null)
-                    hash = hash * 59 + this.Addresses.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Addresses.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

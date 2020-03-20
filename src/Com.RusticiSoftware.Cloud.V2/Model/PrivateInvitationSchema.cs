@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,26 +33,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PrivateInvitationSchema" /> class.
         /// </summary>
-        /// <param name="Id">The invitationId for this invitation..</param>
-        /// <param name="CourseId">Course Id for this Invitation..</param>
-        /// <param name="AllowLaunch">If true, then new registrations can be created for this dispatch..</param>
-        /// <param name="InvitationEmail">InvitationEmail.</param>
-        /// <param name="CreateDate">The create date for the invitation.</param>
-        /// <param name="Updated">Updated.</param>
-        /// <param name="PostBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
-        /// <param name="ExpirationDate">The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time)..</param>
-        /// <param name="RegistrationCount">The count of registrations for this invitation.</param>
-        public PrivateInvitationSchema(string Id = default(string), string CourseId = default(string), bool? AllowLaunch = default(bool?), InvitationEmailSchema InvitationEmail = default(InvitationEmailSchema), DateTime? CreateDate = default(DateTime?), DateTime? Updated = default(DateTime?), PostBackSchema PostBack = default(PostBackSchema), DateTime? ExpirationDate = default(DateTime?), int? RegistrationCount = default(int?))
+        /// <param name="id">The invitationId for this invitation..</param>
+        /// <param name="courseId">Course Id for this Invitation..</param>
+        /// <param name="allowLaunch">If true, then new registrations can be created for this dispatch..</param>
+        /// <param name="invitationEmail">invitationEmail.</param>
+        /// <param name="createDate">The create date for the invitation.</param>
+        /// <param name="updated">updated.</param>
+        /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
+        /// <param name="expirationDate">The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time)..</param>
+        /// <param name="registrationCount">The count of registrations for this invitation.</param>
+        public PrivateInvitationSchema(string id = default(string), string courseId = default(string), bool? allowLaunch = default(bool?), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCount = default(int?))
         {
-            this.Id = Id;
-            this.CourseId = CourseId;
-            this.AllowLaunch = AllowLaunch;
-            this.InvitationEmail = InvitationEmail;
-            this.CreateDate = CreateDate;
-            this.Updated = Updated;
-            this.PostBack = PostBack;
-            this.ExpirationDate = ExpirationDate;
-            this.RegistrationCount = RegistrationCount;
+            this.Id = id;
+            this.CourseId = courseId;
+            this.AllowLaunch = allowLaunch;
+            this.InvitationEmail = invitationEmail;
+            this.CreateDate = createDate;
+            this.Updated = updated;
+            this.PostBack = postBack;
+            this.ExpirationDate = expirationDate;
+            this.RegistrationCount = registrationCount;
         }
         
         /// <summary>
@@ -60,52 +61,61 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>The invitationId for this invitation.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// Course Id for this Invitation.
         /// </summary>
         /// <value>Course Id for this Invitation.</value>
         [DataMember(Name="courseId", EmitDefaultValue=false)]
         public string CourseId { get; set; }
+
         /// <summary>
         /// If true, then new registrations can be created for this dispatch.
         /// </summary>
         /// <value>If true, then new registrations can be created for this dispatch.</value>
         [DataMember(Name="allowLaunch", EmitDefaultValue=false)]
         public bool? AllowLaunch { get; set; }
+
         /// <summary>
         /// Gets or Sets InvitationEmail
         /// </summary>
         [DataMember(Name="invitationEmail", EmitDefaultValue=false)]
         public InvitationEmailSchema InvitationEmail { get; set; }
+
         /// <summary>
         /// The create date for the invitation
         /// </summary>
         /// <value>The create date for the invitation</value>
         [DataMember(Name="createDate", EmitDefaultValue=false)]
         public DateTime? CreateDate { get; set; }
+
         /// <summary>
         /// Gets or Sets Updated
         /// </summary>
         [DataMember(Name="updated", EmitDefaultValue=false)]
         public DateTime? Updated { get; set; }
+
         /// <summary>
         /// Specifies a URL for which to post activity and status data in real time as the course is completed
         /// </summary>
         /// <value>Specifies a URL for which to post activity and status data in real time as the course is completed</value>
         [DataMember(Name="postBack", EmitDefaultValue=false)]
         public PostBackSchema PostBack { get; set; }
+
         /// <summary>
         /// The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).
         /// </summary>
         /// <value>The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).</value>
         [DataMember(Name="expirationDate", EmitDefaultValue=false)]
         public DateTime? ExpirationDate { get; set; }
+
         /// <summary>
         /// The count of registrations for this invitation
         /// </summary>
         /// <value>The count of registrations for this invitation</value>
         [DataMember(Name="registrationCount", EmitDefaultValue=false)]
         public int? RegistrationCount { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -131,7 +141,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -139,70 +149,68 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as PrivateInvitationSchema);
+            return this.Equals(input as PrivateInvitationSchema);
         }
 
         /// <summary>
         /// Returns true if PrivateInvitationSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of PrivateInvitationSchema to be compared</param>
+        /// <param name="input">Instance of PrivateInvitationSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PrivateInvitationSchema other)
+        public bool Equals(PrivateInvitationSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.CourseId == other.CourseId ||
-                    this.CourseId != null &&
-                    this.CourseId.Equals(other.CourseId)
+                    this.CourseId == input.CourseId ||
+                    (this.CourseId != null &&
+                    this.CourseId.Equals(input.CourseId))
                 ) && 
                 (
-                    this.AllowLaunch == other.AllowLaunch ||
-                    this.AllowLaunch != null &&
-                    this.AllowLaunch.Equals(other.AllowLaunch)
+                    this.AllowLaunch == input.AllowLaunch ||
+                    (this.AllowLaunch != null &&
+                    this.AllowLaunch.Equals(input.AllowLaunch))
                 ) && 
                 (
-                    this.InvitationEmail == other.InvitationEmail ||
-                    this.InvitationEmail != null &&
-                    this.InvitationEmail.Equals(other.InvitationEmail)
+                    this.InvitationEmail == input.InvitationEmail ||
+                    (this.InvitationEmail != null &&
+                    this.InvitationEmail.Equals(input.InvitationEmail))
                 ) && 
                 (
-                    this.CreateDate == other.CreateDate ||
-                    this.CreateDate != null &&
-                    this.CreateDate.Equals(other.CreateDate)
+                    this.CreateDate == input.CreateDate ||
+                    (this.CreateDate != null &&
+                    this.CreateDate.Equals(input.CreateDate))
                 ) && 
                 (
-                    this.Updated == other.Updated ||
-                    this.Updated != null &&
-                    this.Updated.Equals(other.Updated)
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
                 ) && 
                 (
-                    this.PostBack == other.PostBack ||
-                    this.PostBack != null &&
-                    this.PostBack.Equals(other.PostBack)
+                    this.PostBack == input.PostBack ||
+                    (this.PostBack != null &&
+                    this.PostBack.Equals(input.PostBack))
                 ) && 
                 (
-                    this.ExpirationDate == other.ExpirationDate ||
-                    this.ExpirationDate != null &&
-                    this.ExpirationDate.Equals(other.ExpirationDate)
+                    this.ExpirationDate == input.ExpirationDate ||
+                    (this.ExpirationDate != null &&
+                    this.ExpirationDate.Equals(input.ExpirationDate))
                 ) && 
                 (
-                    this.RegistrationCount == other.RegistrationCount ||
-                    this.RegistrationCount != null &&
-                    this.RegistrationCount.Equals(other.RegistrationCount)
+                    this.RegistrationCount == input.RegistrationCount ||
+                    (this.RegistrationCount != null &&
+                    this.RegistrationCount.Equals(input.RegistrationCount))
                 );
         }
 
@@ -212,35 +220,38 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.CourseId != null)
-                    hash = hash * 59 + this.CourseId.GetHashCode();
+                    hashCode = hashCode * 59 + this.CourseId.GetHashCode();
                 if (this.AllowLaunch != null)
-                    hash = hash * 59 + this.AllowLaunch.GetHashCode();
+                    hashCode = hashCode * 59 + this.AllowLaunch.GetHashCode();
                 if (this.InvitationEmail != null)
-                    hash = hash * 59 + this.InvitationEmail.GetHashCode();
+                    hashCode = hashCode * 59 + this.InvitationEmail.GetHashCode();
                 if (this.CreateDate != null)
-                    hash = hash * 59 + this.CreateDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreateDate.GetHashCode();
                 if (this.Updated != null)
-                    hash = hash * 59 + this.Updated.GetHashCode();
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 if (this.PostBack != null)
-                    hash = hash * 59 + this.PostBack.GetHashCode();
+                    hashCode = hashCode * 59 + this.PostBack.GetHashCode();
                 if (this.ExpirationDate != null)
-                    hash = hash * 59 + this.ExpirationDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
                 if (this.RegistrationCount != null)
-                    hash = hash * 59 + this.RegistrationCount.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RegistrationCount.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

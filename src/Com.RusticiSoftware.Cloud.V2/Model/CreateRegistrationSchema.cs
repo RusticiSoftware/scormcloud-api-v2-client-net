@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -37,52 +38,52 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRegistrationSchema" /> class.
         /// </summary>
-        /// <param name="CourseId">CourseId (required).</param>
-        /// <param name="Learner">Learner (required).</param>
-        /// <param name="RegistrationId">RegistrationId (required).</param>
-        /// <param name="XapiRegistrationId">The xapiRegistrationId to be associated with this registration. If not specified, the system will assign an xapiRegistrationId. As per the xApi specification, this must be a UUID..</param>
-        /// <param name="LearnerTags">LearnerTags.</param>
-        /// <param name="CourseTags">CourseTags.</param>
-        /// <param name="RegistrationTags">RegistrationTags.</param>
-        /// <param name="PostBack">Specifies an optional override URL for which to post activity and status data in real time as the course is completed. By default all of these settings are read from your configuration..</param>
-        /// <param name="InitialRegistrationState">InitialRegistrationState.</param>
-        /// <param name="InitialSettings">InitialSettings.</param>
-        public CreateRegistrationSchema(string CourseId = default(string), LearnerSchema Learner = default(LearnerSchema), string RegistrationId = default(string), string XapiRegistrationId = default(string), List<string> LearnerTags = default(List<string>), List<string> CourseTags = default(List<string>), List<string> RegistrationTags = default(List<string>), PostBackSchema PostBack = default(PostBackSchema), RegistrationSchema InitialRegistrationState = default(RegistrationSchema), SettingsPostSchema InitialSettings = default(SettingsPostSchema))
+        /// <param name="courseId">courseId (required).</param>
+        /// <param name="learner">learner (required).</param>
+        /// <param name="registrationId">registrationId (required).</param>
+        /// <param name="xapiRegistrationId">The xapiRegistrationId to be associated with this registration. If not specified, the system will assign an xapiRegistrationId. As per the xApi specification, this must be a UUID..</param>
+        /// <param name="learnerTags">learnerTags.</param>
+        /// <param name="courseTags">courseTags.</param>
+        /// <param name="registrationTags">registrationTags.</param>
+        /// <param name="postBack">Specifies an optional override URL for which to post activity and status data in real time as the course is completed. By default all of these settings are read from your configuration..</param>
+        /// <param name="initialRegistrationState">initialRegistrationState.</param>
+        /// <param name="initialSettings">initialSettings.</param>
+        public CreateRegistrationSchema(string courseId = default(string), LearnerSchema learner = default(LearnerSchema), string registrationId = default(string), string xapiRegistrationId = default(string), List<string> learnerTags = default(List<string>), List<string> courseTags = default(List<string>), List<string> registrationTags = default(List<string>), PostBackSchema postBack = default(PostBackSchema), RegistrationSchema initialRegistrationState = default(RegistrationSchema), SettingsPostSchema initialSettings = default(SettingsPostSchema))
         {
-            // to ensure "CourseId" is required (not null)
-            if (CourseId == null)
+            // to ensure "courseId" is required (not null)
+            if (courseId == null)
             {
-                throw new InvalidDataException("CourseId is a required property for CreateRegistrationSchema and cannot be null");
+                throw new InvalidDataException("courseId is a required property for CreateRegistrationSchema and cannot be null");
             }
             else
             {
-                this.CourseId = CourseId;
+                this.CourseId = courseId;
             }
-            // to ensure "Learner" is required (not null)
-            if (Learner == null)
+            // to ensure "learner" is required (not null)
+            if (learner == null)
             {
-                throw new InvalidDataException("Learner is a required property for CreateRegistrationSchema and cannot be null");
+                throw new InvalidDataException("learner is a required property for CreateRegistrationSchema and cannot be null");
             }
             else
             {
-                this.Learner = Learner;
+                this.Learner = learner;
             }
-            // to ensure "RegistrationId" is required (not null)
-            if (RegistrationId == null)
+            // to ensure "registrationId" is required (not null)
+            if (registrationId == null)
             {
-                throw new InvalidDataException("RegistrationId is a required property for CreateRegistrationSchema and cannot be null");
+                throw new InvalidDataException("registrationId is a required property for CreateRegistrationSchema and cannot be null");
             }
             else
             {
-                this.RegistrationId = RegistrationId;
+                this.RegistrationId = registrationId;
             }
-            this.XapiRegistrationId = XapiRegistrationId;
-            this.LearnerTags = LearnerTags;
-            this.CourseTags = CourseTags;
-            this.RegistrationTags = RegistrationTags;
-            this.PostBack = PostBack;
-            this.InitialRegistrationState = InitialRegistrationState;
-            this.InitialSettings = InitialSettings;
+            this.XapiRegistrationId = xapiRegistrationId;
+            this.LearnerTags = learnerTags;
+            this.CourseTags = courseTags;
+            this.RegistrationTags = registrationTags;
+            this.PostBack = postBack;
+            this.InitialRegistrationState = initialRegistrationState;
+            this.InitialSettings = initialSettings;
         }
         
         /// <summary>
@@ -90,53 +91,63 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="courseId", EmitDefaultValue=false)]
         public string CourseId { get; set; }
+
         /// <summary>
         /// Gets or Sets Learner
         /// </summary>
         [DataMember(Name="learner", EmitDefaultValue=false)]
         public LearnerSchema Learner { get; set; }
+
         /// <summary>
         /// Gets or Sets RegistrationId
         /// </summary>
         [DataMember(Name="registrationId", EmitDefaultValue=false)]
         public string RegistrationId { get; set; }
+
         /// <summary>
         /// The xapiRegistrationId to be associated with this registration. If not specified, the system will assign an xapiRegistrationId. As per the xApi specification, this must be a UUID.
         /// </summary>
         /// <value>The xapiRegistrationId to be associated with this registration. If not specified, the system will assign an xapiRegistrationId. As per the xApi specification, this must be a UUID.</value>
         [DataMember(Name="xapiRegistrationId", EmitDefaultValue=false)]
         public string XapiRegistrationId { get; set; }
+
         /// <summary>
         /// Gets or Sets LearnerTags
         /// </summary>
         [DataMember(Name="learnerTags", EmitDefaultValue=false)]
         public List<string> LearnerTags { get; set; }
+
         /// <summary>
         /// Gets or Sets CourseTags
         /// </summary>
         [DataMember(Name="courseTags", EmitDefaultValue=false)]
         public List<string> CourseTags { get; set; }
+
         /// <summary>
         /// Gets or Sets RegistrationTags
         /// </summary>
         [DataMember(Name="registrationTags", EmitDefaultValue=false)]
         public List<string> RegistrationTags { get; set; }
+
         /// <summary>
         /// Specifies an optional override URL for which to post activity and status data in real time as the course is completed. By default all of these settings are read from your configuration.
         /// </summary>
         /// <value>Specifies an optional override URL for which to post activity and status data in real time as the course is completed. By default all of these settings are read from your configuration.</value>
         [DataMember(Name="postBack", EmitDefaultValue=false)]
         public PostBackSchema PostBack { get; set; }
+
         /// <summary>
         /// Gets or Sets InitialRegistrationState
         /// </summary>
         [DataMember(Name="initialRegistrationState", EmitDefaultValue=false)]
         public RegistrationSchema InitialRegistrationState { get; set; }
+
         /// <summary>
         /// Gets or Sets InitialSettings
         /// </summary>
         [DataMember(Name="initialSettings", EmitDefaultValue=false)]
         public SettingsPostSchema InitialSettings { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -163,7 +174,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -171,75 +182,73 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CreateRegistrationSchema);
+            return this.Equals(input as CreateRegistrationSchema);
         }
 
         /// <summary>
         /// Returns true if CreateRegistrationSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of CreateRegistrationSchema to be compared</param>
+        /// <param name="input">Instance of CreateRegistrationSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateRegistrationSchema other)
+        public bool Equals(CreateRegistrationSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CourseId == other.CourseId ||
-                    this.CourseId != null &&
-                    this.CourseId.Equals(other.CourseId)
+                    this.CourseId == input.CourseId ||
+                    (this.CourseId != null &&
+                    this.CourseId.Equals(input.CourseId))
                 ) && 
                 (
-                    this.Learner == other.Learner ||
-                    this.Learner != null &&
-                    this.Learner.Equals(other.Learner)
+                    this.Learner == input.Learner ||
+                    (this.Learner != null &&
+                    this.Learner.Equals(input.Learner))
                 ) && 
                 (
-                    this.RegistrationId == other.RegistrationId ||
-                    this.RegistrationId != null &&
-                    this.RegistrationId.Equals(other.RegistrationId)
+                    this.RegistrationId == input.RegistrationId ||
+                    (this.RegistrationId != null &&
+                    this.RegistrationId.Equals(input.RegistrationId))
                 ) && 
                 (
-                    this.XapiRegistrationId == other.XapiRegistrationId ||
-                    this.XapiRegistrationId != null &&
-                    this.XapiRegistrationId.Equals(other.XapiRegistrationId)
+                    this.XapiRegistrationId == input.XapiRegistrationId ||
+                    (this.XapiRegistrationId != null &&
+                    this.XapiRegistrationId.Equals(input.XapiRegistrationId))
                 ) && 
                 (
-                    this.LearnerTags == other.LearnerTags ||
+                    this.LearnerTags == input.LearnerTags ||
                     this.LearnerTags != null &&
-                    this.LearnerTags.SequenceEqual(other.LearnerTags)
+                    this.LearnerTags.SequenceEqual(input.LearnerTags)
                 ) && 
                 (
-                    this.CourseTags == other.CourseTags ||
+                    this.CourseTags == input.CourseTags ||
                     this.CourseTags != null &&
-                    this.CourseTags.SequenceEqual(other.CourseTags)
+                    this.CourseTags.SequenceEqual(input.CourseTags)
                 ) && 
                 (
-                    this.RegistrationTags == other.RegistrationTags ||
+                    this.RegistrationTags == input.RegistrationTags ||
                     this.RegistrationTags != null &&
-                    this.RegistrationTags.SequenceEqual(other.RegistrationTags)
+                    this.RegistrationTags.SequenceEqual(input.RegistrationTags)
                 ) && 
                 (
-                    this.PostBack == other.PostBack ||
-                    this.PostBack != null &&
-                    this.PostBack.Equals(other.PostBack)
+                    this.PostBack == input.PostBack ||
+                    (this.PostBack != null &&
+                    this.PostBack.Equals(input.PostBack))
                 ) && 
                 (
-                    this.InitialRegistrationState == other.InitialRegistrationState ||
-                    this.InitialRegistrationState != null &&
-                    this.InitialRegistrationState.Equals(other.InitialRegistrationState)
+                    this.InitialRegistrationState == input.InitialRegistrationState ||
+                    (this.InitialRegistrationState != null &&
+                    this.InitialRegistrationState.Equals(input.InitialRegistrationState))
                 ) && 
                 (
-                    this.InitialSettings == other.InitialSettings ||
-                    this.InitialSettings != null &&
-                    this.InitialSettings.Equals(other.InitialSettings)
+                    this.InitialSettings == input.InitialSettings ||
+                    (this.InitialSettings != null &&
+                    this.InitialSettings.Equals(input.InitialSettings))
                 );
         }
 
@@ -249,37 +258,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CourseId != null)
-                    hash = hash * 59 + this.CourseId.GetHashCode();
+                    hashCode = hashCode * 59 + this.CourseId.GetHashCode();
                 if (this.Learner != null)
-                    hash = hash * 59 + this.Learner.GetHashCode();
+                    hashCode = hashCode * 59 + this.Learner.GetHashCode();
                 if (this.RegistrationId != null)
-                    hash = hash * 59 + this.RegistrationId.GetHashCode();
+                    hashCode = hashCode * 59 + this.RegistrationId.GetHashCode();
                 if (this.XapiRegistrationId != null)
-                    hash = hash * 59 + this.XapiRegistrationId.GetHashCode();
+                    hashCode = hashCode * 59 + this.XapiRegistrationId.GetHashCode();
                 if (this.LearnerTags != null)
-                    hash = hash * 59 + this.LearnerTags.GetHashCode();
+                    hashCode = hashCode * 59 + this.LearnerTags.GetHashCode();
                 if (this.CourseTags != null)
-                    hash = hash * 59 + this.CourseTags.GetHashCode();
+                    hashCode = hashCode * 59 + this.CourseTags.GetHashCode();
                 if (this.RegistrationTags != null)
-                    hash = hash * 59 + this.RegistrationTags.GetHashCode();
+                    hashCode = hashCode * 59 + this.RegistrationTags.GetHashCode();
                 if (this.PostBack != null)
-                    hash = hash * 59 + this.PostBack.GetHashCode();
+                    hashCode = hashCode * 59 + this.PostBack.GetHashCode();
                 if (this.InitialRegistrationState != null)
-                    hash = hash * 59 + this.InitialRegistrationState.GetHashCode();
+                    hashCode = hashCode * 59 + this.InitialRegistrationState.GetHashCode();
                 if (this.InitialSettings != null)
-                    hash = hash * 59 + this.InitialSettings.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.InitialSettings.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

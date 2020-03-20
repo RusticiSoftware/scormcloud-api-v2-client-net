@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,24 +33,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateDispatchSchema" /> class.
         /// </summary>
-        /// <param name="AllowNewRegistrations">If true, then new registrations can be created for this dispatch. .</param>
-        /// <param name="Instanced">If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. .</param>
-        /// <param name="RegistrationCap">The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. .</param>
-        /// <param name="ExpirationDate">The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. .</param>
-        /// <param name="Enabled">If true, then this dispatch can be launched. .</param>
-        /// <param name="Email">SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. .</param>
-        /// <param name="Notes">Any provided notes about this dispatch..</param>
-        /// <param name="PostBack">The postback information for this Dispatch..</param>
-        public UpdateDispatchSchema(bool? AllowNewRegistrations = default(bool?), bool? Instanced = default(bool?), int? RegistrationCap = default(int?), DateTime? ExpirationDate = default(DateTime?), bool? Enabled = default(bool?), string Email = default(string), string Notes = default(string), PostBackSchema PostBack = default(PostBackSchema))
+        /// <param name="allowNewRegistrations">If true, then new registrations can be created for this dispatch. .</param>
+        /// <param name="instanced">If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. .</param>
+        /// <param name="registrationCap">The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. .</param>
+        /// <param name="expirationDate">The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. .</param>
+        /// <param name="enabled">If true, then this dispatch can be launched. .</param>
+        /// <param name="email">SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. .</param>
+        /// <param name="notes">Any provided notes about this dispatch..</param>
+        /// <param name="postBack">The postback information for this Dispatch..</param>
+        public UpdateDispatchSchema(bool? allowNewRegistrations = default(bool?), bool? instanced = default(bool?), int? registrationCap = default(int?), DateTime? expirationDate = default(DateTime?), bool? enabled = default(bool?), string email = default(string), string notes = default(string), PostBackSchema postBack = default(PostBackSchema))
         {
-            this.AllowNewRegistrations = AllowNewRegistrations;
-            this.Instanced = Instanced;
-            this.RegistrationCap = RegistrationCap;
-            this.ExpirationDate = ExpirationDate;
-            this.Enabled = Enabled;
-            this.Email = Email;
-            this.Notes = Notes;
-            this.PostBack = PostBack;
+            this.AllowNewRegistrations = allowNewRegistrations;
+            this.Instanced = instanced;
+            this.RegistrationCap = registrationCap;
+            this.ExpirationDate = expirationDate;
+            this.Enabled = enabled;
+            this.Email = email;
+            this.Notes = notes;
+            this.PostBack = postBack;
         }
         
         /// <summary>
@@ -58,48 +59,56 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>If true, then new registrations can be created for this dispatch. </value>
         [DataMember(Name="allowNewRegistrations", EmitDefaultValue=false)]
         public bool? AllowNewRegistrations { get; set; }
+
         /// <summary>
         /// If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. 
         /// </summary>
         /// <value>If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. </value>
         [DataMember(Name="instanced", EmitDefaultValue=false)]
         public bool? Instanced { get; set; }
+
         /// <summary>
         /// The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. 
         /// </summary>
         /// <value>The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. </value>
         [DataMember(Name="registrationCap", EmitDefaultValue=false)]
         public int? RegistrationCap { get; set; }
+
         /// <summary>
         /// The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. 
         /// </summary>
         /// <value>The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. </value>
         [DataMember(Name="expirationDate", EmitDefaultValue=false)]
         public DateTime? ExpirationDate { get; set; }
+
         /// <summary>
         /// If true, then this dispatch can be launched. 
         /// </summary>
         /// <value>If true, then this dispatch can be launched. </value>
         [DataMember(Name="enabled", EmitDefaultValue=false)]
         public bool? Enabled { get; set; }
+
         /// <summary>
         /// SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. 
         /// </summary>
         /// <value>SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. </value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
+
         /// <summary>
         /// Any provided notes about this dispatch.
         /// </summary>
         /// <value>Any provided notes about this dispatch.</value>
         [DataMember(Name="notes", EmitDefaultValue=false)]
         public string Notes { get; set; }
+
         /// <summary>
         /// The postback information for this Dispatch.
         /// </summary>
         /// <value>The postback information for this Dispatch.</value>
         [DataMember(Name="postBack", EmitDefaultValue=false)]
         public PostBackSchema PostBack { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,7 +133,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -132,65 +141,63 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UpdateDispatchSchema);
+            return this.Equals(input as UpdateDispatchSchema);
         }
 
         /// <summary>
         /// Returns true if UpdateDispatchSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of UpdateDispatchSchema to be compared</param>
+        /// <param name="input">Instance of UpdateDispatchSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateDispatchSchema other)
+        public bool Equals(UpdateDispatchSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AllowNewRegistrations == other.AllowNewRegistrations ||
-                    this.AllowNewRegistrations != null &&
-                    this.AllowNewRegistrations.Equals(other.AllowNewRegistrations)
+                    this.AllowNewRegistrations == input.AllowNewRegistrations ||
+                    (this.AllowNewRegistrations != null &&
+                    this.AllowNewRegistrations.Equals(input.AllowNewRegistrations))
                 ) && 
                 (
-                    this.Instanced == other.Instanced ||
-                    this.Instanced != null &&
-                    this.Instanced.Equals(other.Instanced)
+                    this.Instanced == input.Instanced ||
+                    (this.Instanced != null &&
+                    this.Instanced.Equals(input.Instanced))
                 ) && 
                 (
-                    this.RegistrationCap == other.RegistrationCap ||
-                    this.RegistrationCap != null &&
-                    this.RegistrationCap.Equals(other.RegistrationCap)
+                    this.RegistrationCap == input.RegistrationCap ||
+                    (this.RegistrationCap != null &&
+                    this.RegistrationCap.Equals(input.RegistrationCap))
                 ) && 
                 (
-                    this.ExpirationDate == other.ExpirationDate ||
-                    this.ExpirationDate != null &&
-                    this.ExpirationDate.Equals(other.ExpirationDate)
+                    this.ExpirationDate == input.ExpirationDate ||
+                    (this.ExpirationDate != null &&
+                    this.ExpirationDate.Equals(input.ExpirationDate))
                 ) && 
                 (
-                    this.Enabled == other.Enabled ||
-                    this.Enabled != null &&
-                    this.Enabled.Equals(other.Enabled)
+                    this.Enabled == input.Enabled ||
+                    (this.Enabled != null &&
+                    this.Enabled.Equals(input.Enabled))
                 ) && 
                 (
-                    this.Email == other.Email ||
-                    this.Email != null &&
-                    this.Email.Equals(other.Email)
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 ) && 
                 (
-                    this.Notes == other.Notes ||
-                    this.Notes != null &&
-                    this.Notes.Equals(other.Notes)
+                    this.Notes == input.Notes ||
+                    (this.Notes != null &&
+                    this.Notes.Equals(input.Notes))
                 ) && 
                 (
-                    this.PostBack == other.PostBack ||
-                    this.PostBack != null &&
-                    this.PostBack.Equals(other.PostBack)
+                    this.PostBack == input.PostBack ||
+                    (this.PostBack != null &&
+                    this.PostBack.Equals(input.PostBack))
                 );
         }
 
@@ -200,33 +207,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AllowNewRegistrations != null)
-                    hash = hash * 59 + this.AllowNewRegistrations.GetHashCode();
+                    hashCode = hashCode * 59 + this.AllowNewRegistrations.GetHashCode();
                 if (this.Instanced != null)
-                    hash = hash * 59 + this.Instanced.GetHashCode();
+                    hashCode = hashCode * 59 + this.Instanced.GetHashCode();
                 if (this.RegistrationCap != null)
-                    hash = hash * 59 + this.RegistrationCap.GetHashCode();
+                    hashCode = hashCode * 59 + this.RegistrationCap.GetHashCode();
                 if (this.ExpirationDate != null)
-                    hash = hash * 59 + this.ExpirationDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
                 if (this.Enabled != null)
-                    hash = hash * 59 + this.Enabled.GetHashCode();
+                    hashCode = hashCode * 59 + this.Enabled.GetHashCode();
                 if (this.Email != null)
-                    hash = hash * 59 + this.Email.GetHashCode();
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.Notes != null)
-                    hash = hash * 59 + this.Notes.GetHashCode();
+                    hashCode = hashCode * 59 + this.Notes.GetHashCode();
                 if (this.PostBack != null)
-                    hash = hash * 59 + this.PostBack.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.PostBack.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

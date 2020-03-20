@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,12 +33,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ZoomiCourseOptionsSchema" /> class.
         /// </summary>
-        /// <param name="Nti">Nti.</param>
-        /// <param name="Cta">Cta.</param>
-        public ZoomiCourseOptionsSchema(string Nti = default(string), string Cta = default(string))
+        /// <param name="nti">nti.</param>
+        /// <param name="cta">cta.</param>
+        public ZoomiCourseOptionsSchema(string nti = default(string), string cta = default(string))
         {
-            this.Nti = Nti;
-            this.Cta = Cta;
+            this.Nti = nti;
+            this.Cta = cta;
         }
         
         /// <summary>
@@ -45,11 +46,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="nti", EmitDefaultValue=false)]
         public string Nti { get; set; }
+
         /// <summary>
         /// Gets or Sets Cta
         /// </summary>
         [DataMember(Name="cta", EmitDefaultValue=false)]
         public string Cta { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -68,7 +71,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -76,35 +79,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ZoomiCourseOptionsSchema);
+            return this.Equals(input as ZoomiCourseOptionsSchema);
         }
 
         /// <summary>
         /// Returns true if ZoomiCourseOptionsSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of ZoomiCourseOptionsSchema to be compared</param>
+        /// <param name="input">Instance of ZoomiCourseOptionsSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ZoomiCourseOptionsSchema other)
+        public bool Equals(ZoomiCourseOptionsSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Nti == other.Nti ||
-                    this.Nti != null &&
-                    this.Nti.Equals(other.Nti)
+                    this.Nti == input.Nti ||
+                    (this.Nti != null &&
+                    this.Nti.Equals(input.Nti))
                 ) && 
                 (
-                    this.Cta == other.Cta ||
-                    this.Cta != null &&
-                    this.Cta.Equals(other.Cta)
+                    this.Cta == input.Cta ||
+                    (this.Cta != null &&
+                    this.Cta.Equals(input.Cta))
                 );
         }
 
@@ -114,21 +115,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Nti != null)
-                    hash = hash * 59 + this.Nti.GetHashCode();
+                    hashCode = hashCode * 59 + this.Nti.GetHashCode();
                 if (this.Cta != null)
-                    hash = hash * 59 + this.Cta.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Cta.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

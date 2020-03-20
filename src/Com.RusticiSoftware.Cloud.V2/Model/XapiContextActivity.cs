@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,16 +33,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiContextActivity" /> class.
         /// </summary>
-        /// <param name="Parent">Parent.</param>
-        /// <param name="Grouping">Grouping.</param>
-        /// <param name="Category">Category.</param>
-        /// <param name="Other">Other.</param>
-        public XapiContextActivity(List<XapiActivity> Parent = default(List<XapiActivity>), List<XapiActivity> Grouping = default(List<XapiActivity>), List<XapiActivity> Category = default(List<XapiActivity>), List<XapiActivity> Other = default(List<XapiActivity>))
+        /// <param name="parent">parent.</param>
+        /// <param name="grouping">grouping.</param>
+        /// <param name="category">category.</param>
+        /// <param name="other">other.</param>
+        public XapiContextActivity(List<XapiActivity> parent = default(List<XapiActivity>), List<XapiActivity> grouping = default(List<XapiActivity>), List<XapiActivity> category = default(List<XapiActivity>), List<XapiActivity> other = default(List<XapiActivity>))
         {
-            this.Parent = Parent;
-            this.Grouping = Grouping;
-            this.Category = Category;
-            this.Other = Other;
+            this.Parent = parent;
+            this.Grouping = grouping;
+            this.Category = category;
+            this.Other = other;
         }
         
         /// <summary>
@@ -49,21 +50,25 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="parent", EmitDefaultValue=false)]
         public List<XapiActivity> Parent { get; set; }
+
         /// <summary>
         /// Gets or Sets Grouping
         /// </summary>
         [DataMember(Name="grouping", EmitDefaultValue=false)]
         public List<XapiActivity> Grouping { get; set; }
+
         /// <summary>
         /// Gets or Sets Category
         /// </summary>
         [DataMember(Name="category", EmitDefaultValue=false)]
         public List<XapiActivity> Category { get; set; }
+
         /// <summary>
         /// Gets or Sets Other
         /// </summary>
         [DataMember(Name="other", EmitDefaultValue=false)]
         public List<XapiActivity> Other { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -84,7 +89,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -92,45 +97,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiContextActivity);
+            return this.Equals(input as XapiContextActivity);
         }
 
         /// <summary>
         /// Returns true if XapiContextActivity instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiContextActivity to be compared</param>
+        /// <param name="input">Instance of XapiContextActivity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiContextActivity other)
+        public bool Equals(XapiContextActivity input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Parent == other.Parent ||
+                    this.Parent == input.Parent ||
                     this.Parent != null &&
-                    this.Parent.SequenceEqual(other.Parent)
+                    this.Parent.SequenceEqual(input.Parent)
                 ) && 
                 (
-                    this.Grouping == other.Grouping ||
+                    this.Grouping == input.Grouping ||
                     this.Grouping != null &&
-                    this.Grouping.SequenceEqual(other.Grouping)
+                    this.Grouping.SequenceEqual(input.Grouping)
                 ) && 
                 (
-                    this.Category == other.Category ||
+                    this.Category == input.Category ||
                     this.Category != null &&
-                    this.Category.SequenceEqual(other.Category)
+                    this.Category.SequenceEqual(input.Category)
                 ) && 
                 (
-                    this.Other == other.Other ||
+                    this.Other == input.Other ||
                     this.Other != null &&
-                    this.Other.SequenceEqual(other.Other)
+                    this.Other.SequenceEqual(input.Other)
                 );
         }
 
@@ -140,25 +143,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Parent != null)
-                    hash = hash * 59 + this.Parent.GetHashCode();
+                    hashCode = hashCode * 59 + this.Parent.GetHashCode();
                 if (this.Grouping != null)
-                    hash = hash * 59 + this.Grouping.GetHashCode();
+                    hashCode = hashCode * 59 + this.Grouping.GetHashCode();
                 if (this.Category != null)
-                    hash = hash * 59 + this.Category.GetHashCode();
+                    hashCode = hashCode * 59 + this.Category.GetHashCode();
                 if (this.Other != null)
-                    hash = hash * 59 + this.Other.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Other.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

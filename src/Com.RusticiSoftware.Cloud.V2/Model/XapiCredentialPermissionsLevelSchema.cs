@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -30,41 +31,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class XapiCredentialPermissionsLevelSchema :  IEquatable<XapiCredentialPermissionsLevelSchema>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets XapiCredentialPermissionsLevel
+        /// Defines XapiCredentialPermissionsLevel
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum XapiCredentialPermissionsLevelEnum
         {
             
             /// <summary>
-            /// Enum DEFAULT for "DEFAULT"
+            /// Enum DEFAULT for value: DEFAULT
             /// </summary>
             [EnumMember(Value = "DEFAULT")]
-            DEFAULT,
+            DEFAULT = 1,
             
             /// <summary>
-            /// Enum USER for "USER"
+            /// Enum USER for value: USER
             /// </summary>
             [EnumMember(Value = "USER")]
-            USER,
+            USER = 2,
             
             /// <summary>
-            /// Enum ROOT for "ROOT"
+            /// Enum ROOT for value: ROOT
             /// </summary>
             [EnumMember(Value = "ROOT")]
-            ROOT,
+            ROOT = 3,
             
             /// <summary>
-            /// Enum READONLY for "READONLY"
+            /// Enum READONLY for value: READONLY
             /// </summary>
             [EnumMember(Value = "READONLY")]
-            READONLY,
+            READONLY = 4,
             
             /// <summary>
-            /// Enum WRITEONLY for "WRITEONLY"
+            /// Enum WRITEONLY for value: WRITEONLY
             /// </summary>
             [EnumMember(Value = "WRITEONLY")]
-            WRITEONLY
+            WRITEONLY = 5
         }
 
         /// <summary>
@@ -75,12 +76,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XapiCredentialPermissionsLevelSchema" /> class.
         /// </summary>
-        /// <param name="XapiCredentialPermissionsLevel">XapiCredentialPermissionsLevel.</param>
-        public XapiCredentialPermissionsLevelSchema(XapiCredentialPermissionsLevelEnum? XapiCredentialPermissionsLevel = default(XapiCredentialPermissionsLevelEnum?))
+        /// <param name="xapiCredentialPermissionsLevel">xapiCredentialPermissionsLevel.</param>
+        public XapiCredentialPermissionsLevelSchema(XapiCredentialPermissionsLevelEnum? xapiCredentialPermissionsLevel = default(XapiCredentialPermissionsLevelEnum?))
         {
-            this.XapiCredentialPermissionsLevel = XapiCredentialPermissionsLevel;
+            this.XapiCredentialPermissionsLevel = xapiCredentialPermissionsLevel;
         }
         
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -98,7 +100,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -106,30 +108,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as XapiCredentialPermissionsLevelSchema);
+            return this.Equals(input as XapiCredentialPermissionsLevelSchema);
         }
 
         /// <summary>
         /// Returns true if XapiCredentialPermissionsLevelSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of XapiCredentialPermissionsLevelSchema to be compared</param>
+        /// <param name="input">Instance of XapiCredentialPermissionsLevelSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(XapiCredentialPermissionsLevelSchema other)
+        public bool Equals(XapiCredentialPermissionsLevelSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.XapiCredentialPermissionsLevel == other.XapiCredentialPermissionsLevel ||
-                    this.XapiCredentialPermissionsLevel != null &&
-                    this.XapiCredentialPermissionsLevel.Equals(other.XapiCredentialPermissionsLevel)
+                    this.XapiCredentialPermissionsLevel == input.XapiCredentialPermissionsLevel ||
+                    (this.XapiCredentialPermissionsLevel != null &&
+                    this.XapiCredentialPermissionsLevel.Equals(input.XapiCredentialPermissionsLevel))
                 );
         }
 
@@ -139,19 +139,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.XapiCredentialPermissionsLevel != null)
-                    hash = hash * 59 + this.XapiCredentialPermissionsLevel.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.XapiCredentialPermissionsLevel.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

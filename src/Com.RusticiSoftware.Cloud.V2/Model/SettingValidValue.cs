@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,12 +33,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingValidValue" /> class.
         /// </summary>
-        /// <param name="Value">Value.</param>
-        /// <param name="ValueDescription">Description of what this valid value means, how it will be applied if used in a setting.</param>
-        public SettingValidValue(string Value = default(string), string ValueDescription = default(string))
+        /// <param name="value">value.</param>
+        /// <param name="valueDescription">Description of what this valid value means, how it will be applied if used in a setting.</param>
+        public SettingValidValue(string value = default(string), string valueDescription = default(string))
         {
-            this.Value = Value;
-            this.ValueDescription = ValueDescription;
+            this.Value = value;
+            this.ValueDescription = valueDescription;
         }
         
         /// <summary>
@@ -45,12 +46,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
+
         /// <summary>
         /// Description of what this valid value means, how it will be applied if used in a setting
         /// </summary>
         /// <value>Description of what this valid value means, how it will be applied if used in a setting</value>
         [DataMember(Name="valueDescription", EmitDefaultValue=false)]
         public string ValueDescription { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -69,7 +72,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -77,35 +80,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as SettingValidValue);
+            return this.Equals(input as SettingValidValue);
         }
 
         /// <summary>
         /// Returns true if SettingValidValue instances are equal
         /// </summary>
-        /// <param name="other">Instance of SettingValidValue to be compared</param>
+        /// <param name="input">Instance of SettingValidValue to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SettingValidValue other)
+        public bool Equals(SettingValidValue input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Value == other.Value ||
-                    this.Value != null &&
-                    this.Value.Equals(other.Value)
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 ) && 
                 (
-                    this.ValueDescription == other.ValueDescription ||
-                    this.ValueDescription != null &&
-                    this.ValueDescription.Equals(other.ValueDescription)
+                    this.ValueDescription == input.ValueDescription ||
+                    (this.ValueDescription != null &&
+                    this.ValueDescription.Equals(input.ValueDescription))
                 );
         }
 
@@ -115,21 +116,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Value != null)
-                    hash = hash * 59 + this.Value.GetHashCode();
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.ValueDescription != null)
-                    hash = hash * 59 + this.ValueDescription.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ValueDescription.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

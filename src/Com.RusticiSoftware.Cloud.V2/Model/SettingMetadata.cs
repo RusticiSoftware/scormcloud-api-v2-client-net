@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -38,22 +39,22 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             
             /// <summary>
-            /// Enum SingleScoOnly for "singleScoOnly"
+            /// Enum SingleScoOnly for value: singleScoOnly
             /// </summary>
             [EnumMember(Value = "singleScoOnly")]
-            SingleScoOnly,
+            SingleScoOnly = 1,
             
             /// <summary>
-            /// Enum MultiScoOnly for "multiScoOnly"
+            /// Enum MultiScoOnly for value: multiScoOnly
             /// </summary>
             [EnumMember(Value = "multiScoOnly")]
-            MultiScoOnly,
+            MultiScoOnly = 2,
             
             /// <summary>
-            /// Enum Either for "either"
+            /// Enum Either for value: either
             /// </summary>
             [EnumMember(Value = "either")]
-            Either
+            Either = 3
         }
 
         /// <summary>
@@ -65,32 +66,32 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingMetadata" /> class.
         /// </summary>
-        /// <param name="_Default">Default value of this setting.</param>
-        /// <param name="DataType">The data type of this setting.</param>
-        /// <param name="SettingDescription">description of this setting.</param>
-        /// <param name="Level">The level this setting will be applied at, which limits where it can be set. For example, WebPathToContentRoot is applied at the application level, so it&#39;s not valid to set it for a registration..</param>
-        /// <param name="LearningStandards">The list of learning standards this setting applies to. If not present, this setting is not limited to certain learning standards..</param>
-        /// <param name="LearningStandardVariant">Does this setting apply to only single-SCO packages, only multi-SCO, or either? (default to LearningStandardVariantEnum.Either).</param>
-        /// <param name="Fallback">A setting that will be used instead of this setting if no value is provided for this setting (This is similar to a default, except that the the value of another setting is being used instead of a fixed default value)..</param>
-        /// <param name="ValidValues">For settings with a fixed list of valid values, the list of those values.</param>
-        public SettingMetadata(string _Default = default(string), string DataType = default(string), string SettingDescription = default(string), string Level = default(string), List<string> LearningStandards = default(List<string>), LearningStandardVariantEnum? LearningStandardVariant = LearningStandardVariantEnum.Either, string Fallback = default(string), List<SettingValidValue> ValidValues = default(List<SettingValidValue>))
+        /// <param name="_default">Default value of this setting.</param>
+        /// <param name="dataType">The data type of this setting.</param>
+        /// <param name="settingDescription">description of this setting.</param>
+        /// <param name="level">The level this setting will be applied at, which limits where it can be set. For example, WebPathToContentRoot is applied at the application level, so it&#39;s not valid to set it for a registration..</param>
+        /// <param name="learningStandards">The list of learning standards this setting applies to. If not present, this setting is not limited to certain learning standards..</param>
+        /// <param name="learningStandardVariant">Does this setting apply to only single-SCO packages, only multi-SCO, or either? (default to LearningStandardVariantEnum.Either).</param>
+        /// <param name="fallback">A setting that will be used instead of this setting if no value is provided for this setting (This is similar to a default, except that the the value of another setting is being used instead of a fixed default value)..</param>
+        /// <param name="validValues">For settings with a fixed list of valid values, the list of those values.</param>
+        public SettingMetadata(string _default = default(string), string dataType = default(string), string settingDescription = default(string), string level = default(string), List<string> learningStandards = default(List<string>), LearningStandardVariantEnum? learningStandardVariant = LearningStandardVariantEnum.Either, string fallback = default(string), List<SettingValidValue> validValues = default(List<SettingValidValue>))
         {
-            this._Default = _Default;
-            this.DataType = DataType;
-            this.SettingDescription = SettingDescription;
-            this.Level = Level;
-            this.LearningStandards = LearningStandards;
-            // use default value if no "LearningStandardVariant" provided
-            if (LearningStandardVariant == null)
+            this.Default = _default;
+            this.DataType = dataType;
+            this.SettingDescription = settingDescription;
+            this.Level = level;
+            this.LearningStandards = learningStandards;
+            // use default value if no "learningStandardVariant" provided
+            if (learningStandardVariant == null)
             {
                 this.LearningStandardVariant = LearningStandardVariantEnum.Either;
             }
             else
             {
-                this.LearningStandardVariant = LearningStandardVariant;
+                this.LearningStandardVariant = learningStandardVariant;
             }
-            this.Fallback = Fallback;
-            this.ValidValues = ValidValues;
+            this.Fallback = fallback;
+            this.ValidValues = validValues;
         }
         
         /// <summary>
@@ -98,43 +99,51 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         /// <value>Default value of this setting</value>
         [DataMember(Name="default", EmitDefaultValue=false)]
-        public string _Default { get; set; }
+        public string Default { get; set; }
+
         /// <summary>
         /// The data type of this setting
         /// </summary>
         /// <value>The data type of this setting</value>
         [DataMember(Name="dataType", EmitDefaultValue=false)]
         public string DataType { get; set; }
+
         /// <summary>
         /// description of this setting
         /// </summary>
         /// <value>description of this setting</value>
         [DataMember(Name="settingDescription", EmitDefaultValue=false)]
         public string SettingDescription { get; set; }
+
         /// <summary>
         /// The level this setting will be applied at, which limits where it can be set. For example, WebPathToContentRoot is applied at the application level, so it&#39;s not valid to set it for a registration.
         /// </summary>
         /// <value>The level this setting will be applied at, which limits where it can be set. For example, WebPathToContentRoot is applied at the application level, so it&#39;s not valid to set it for a registration.</value>
         [DataMember(Name="level", EmitDefaultValue=false)]
         public string Level { get; set; }
+
         /// <summary>
         /// The list of learning standards this setting applies to. If not present, this setting is not limited to certain learning standards.
         /// </summary>
         /// <value>The list of learning standards this setting applies to. If not present, this setting is not limited to certain learning standards.</value>
         [DataMember(Name="learningStandards", EmitDefaultValue=false)]
         public List<string> LearningStandards { get; set; }
+
+
         /// <summary>
         /// A setting that will be used instead of this setting if no value is provided for this setting (This is similar to a default, except that the the value of another setting is being used instead of a fixed default value).
         /// </summary>
         /// <value>A setting that will be used instead of this setting if no value is provided for this setting (This is similar to a default, except that the the value of another setting is being used instead of a fixed default value).</value>
         [DataMember(Name="fallback", EmitDefaultValue=false)]
         public string Fallback { get; set; }
+
         /// <summary>
         /// For settings with a fixed list of valid values, the list of those values
         /// </summary>
         /// <value>For settings with a fixed list of valid values, the list of those values</value>
         [DataMember(Name="validValues", EmitDefaultValue=false)]
         public List<SettingValidValue> ValidValues { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -143,7 +152,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SettingMetadata {\n");
-            sb.Append("  _Default: ").Append(_Default).Append("\n");
+            sb.Append("  Default: ").Append(Default).Append("\n");
             sb.Append("  DataType: ").Append(DataType).Append("\n");
             sb.Append("  SettingDescription: ").Append(SettingDescription).Append("\n");
             sb.Append("  Level: ").Append(Level).Append("\n");
@@ -159,7 +168,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -167,65 +176,63 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as SettingMetadata);
+            return this.Equals(input as SettingMetadata);
         }
 
         /// <summary>
         /// Returns true if SettingMetadata instances are equal
         /// </summary>
-        /// <param name="other">Instance of SettingMetadata to be compared</param>
+        /// <param name="input">Instance of SettingMetadata to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SettingMetadata other)
+        public bool Equals(SettingMetadata input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this._Default == other._Default ||
-                    this._Default != null &&
-                    this._Default.Equals(other._Default)
+                    this.Default == input.Default ||
+                    (this.Default != null &&
+                    this.Default.Equals(input.Default))
                 ) && 
                 (
-                    this.DataType == other.DataType ||
-                    this.DataType != null &&
-                    this.DataType.Equals(other.DataType)
+                    this.DataType == input.DataType ||
+                    (this.DataType != null &&
+                    this.DataType.Equals(input.DataType))
                 ) && 
                 (
-                    this.SettingDescription == other.SettingDescription ||
-                    this.SettingDescription != null &&
-                    this.SettingDescription.Equals(other.SettingDescription)
+                    this.SettingDescription == input.SettingDescription ||
+                    (this.SettingDescription != null &&
+                    this.SettingDescription.Equals(input.SettingDescription))
                 ) && 
                 (
-                    this.Level == other.Level ||
-                    this.Level != null &&
-                    this.Level.Equals(other.Level)
+                    this.Level == input.Level ||
+                    (this.Level != null &&
+                    this.Level.Equals(input.Level))
                 ) && 
                 (
-                    this.LearningStandards == other.LearningStandards ||
+                    this.LearningStandards == input.LearningStandards ||
                     this.LearningStandards != null &&
-                    this.LearningStandards.SequenceEqual(other.LearningStandards)
+                    this.LearningStandards.SequenceEqual(input.LearningStandards)
                 ) && 
                 (
-                    this.LearningStandardVariant == other.LearningStandardVariant ||
-                    this.LearningStandardVariant != null &&
-                    this.LearningStandardVariant.Equals(other.LearningStandardVariant)
+                    this.LearningStandardVariant == input.LearningStandardVariant ||
+                    (this.LearningStandardVariant != null &&
+                    this.LearningStandardVariant.Equals(input.LearningStandardVariant))
                 ) && 
                 (
-                    this.Fallback == other.Fallback ||
-                    this.Fallback != null &&
-                    this.Fallback.Equals(other.Fallback)
+                    this.Fallback == input.Fallback ||
+                    (this.Fallback != null &&
+                    this.Fallback.Equals(input.Fallback))
                 ) && 
                 (
-                    this.ValidValues == other.ValidValues ||
+                    this.ValidValues == input.ValidValues ||
                     this.ValidValues != null &&
-                    this.ValidValues.SequenceEqual(other.ValidValues)
+                    this.ValidValues.SequenceEqual(input.ValidValues)
                 );
         }
 
@@ -235,33 +242,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
-                if (this._Default != null)
-                    hash = hash * 59 + this._Default.GetHashCode();
+                int hashCode = 41;
+                if (this.Default != null)
+                    hashCode = hashCode * 59 + this.Default.GetHashCode();
                 if (this.DataType != null)
-                    hash = hash * 59 + this.DataType.GetHashCode();
+                    hashCode = hashCode * 59 + this.DataType.GetHashCode();
                 if (this.SettingDescription != null)
-                    hash = hash * 59 + this.SettingDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.SettingDescription.GetHashCode();
                 if (this.Level != null)
-                    hash = hash * 59 + this.Level.GetHashCode();
+                    hashCode = hashCode * 59 + this.Level.GetHashCode();
                 if (this.LearningStandards != null)
-                    hash = hash * 59 + this.LearningStandards.GetHashCode();
+                    hashCode = hashCode * 59 + this.LearningStandards.GetHashCode();
                 if (this.LearningStandardVariant != null)
-                    hash = hash * 59 + this.LearningStandardVariant.GetHashCode();
+                    hashCode = hashCode * 59 + this.LearningStandardVariant.GetHashCode();
                 if (this.Fallback != null)
-                    hash = hash * 59 + this.Fallback.GetHashCode();
+                    hashCode = hashCode * 59 + this.Fallback.GetHashCode();
                 if (this.ValidValues != null)
-                    hash = hash * 59 + this.ValidValues.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ValidValues.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConverter;
 
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
@@ -32,16 +33,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LearnerPreferenceSchema" /> class.
         /// </summary>
-        /// <param name="AudioLevel">AudioLevel.</param>
-        /// <param name="Language">Language.</param>
-        /// <param name="DeliverySpeed">DeliverySpeed.</param>
-        /// <param name="AudioCaptioning">AudioCaptioning.</param>
-        public LearnerPreferenceSchema(double? AudioLevel = default(double?), string Language = default(string), double? DeliverySpeed = default(double?), int? AudioCaptioning = default(int?))
+        /// <param name="audioLevel">audioLevel.</param>
+        /// <param name="language">language.</param>
+        /// <param name="deliverySpeed">deliverySpeed.</param>
+        /// <param name="audioCaptioning">audioCaptioning.</param>
+        public LearnerPreferenceSchema(double? audioLevel = default(double?), string language = default(string), double? deliverySpeed = default(double?), int? audioCaptioning = default(int?))
         {
-            this.AudioLevel = AudioLevel;
-            this.Language = Language;
-            this.DeliverySpeed = DeliverySpeed;
-            this.AudioCaptioning = AudioCaptioning;
+            this.AudioLevel = audioLevel;
+            this.Language = language;
+            this.DeliverySpeed = deliverySpeed;
+            this.AudioCaptioning = audioCaptioning;
         }
         
         /// <summary>
@@ -49,21 +50,25 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         [DataMember(Name="audioLevel", EmitDefaultValue=false)]
         public double? AudioLevel { get; set; }
+
         /// <summary>
         /// Gets or Sets Language
         /// </summary>
         [DataMember(Name="language", EmitDefaultValue=false)]
         public string Language { get; set; }
+
         /// <summary>
         /// Gets or Sets DeliverySpeed
         /// </summary>
         [DataMember(Name="deliverySpeed", EmitDefaultValue=false)]
         public double? DeliverySpeed { get; set; }
+
         /// <summary>
         /// Gets or Sets AudioCaptioning
         /// </summary>
         [DataMember(Name="audioCaptioning", EmitDefaultValue=false)]
         public int? AudioCaptioning { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -84,7 +89,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -92,45 +97,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as LearnerPreferenceSchema);
+            return this.Equals(input as LearnerPreferenceSchema);
         }
 
         /// <summary>
         /// Returns true if LearnerPreferenceSchema instances are equal
         /// </summary>
-        /// <param name="other">Instance of LearnerPreferenceSchema to be compared</param>
+        /// <param name="input">Instance of LearnerPreferenceSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LearnerPreferenceSchema other)
+        public bool Equals(LearnerPreferenceSchema input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AudioLevel == other.AudioLevel ||
-                    this.AudioLevel != null &&
-                    this.AudioLevel.Equals(other.AudioLevel)
+                    this.AudioLevel == input.AudioLevel ||
+                    (this.AudioLevel != null &&
+                    this.AudioLevel.Equals(input.AudioLevel))
                 ) && 
                 (
-                    this.Language == other.Language ||
-                    this.Language != null &&
-                    this.Language.Equals(other.Language)
+                    this.Language == input.Language ||
+                    (this.Language != null &&
+                    this.Language.Equals(input.Language))
                 ) && 
                 (
-                    this.DeliverySpeed == other.DeliverySpeed ||
-                    this.DeliverySpeed != null &&
-                    this.DeliverySpeed.Equals(other.DeliverySpeed)
+                    this.DeliverySpeed == input.DeliverySpeed ||
+                    (this.DeliverySpeed != null &&
+                    this.DeliverySpeed.Equals(input.DeliverySpeed))
                 ) && 
                 (
-                    this.AudioCaptioning == other.AudioCaptioning ||
-                    this.AudioCaptioning != null &&
-                    this.AudioCaptioning.Equals(other.AudioCaptioning)
+                    this.AudioCaptioning == input.AudioCaptioning ||
+                    (this.AudioCaptioning != null &&
+                    this.AudioCaptioning.Equals(input.AudioCaptioning))
                 );
         }
 
@@ -140,25 +143,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AudioLevel != null)
-                    hash = hash * 59 + this.AudioLevel.GetHashCode();
+                    hashCode = hashCode * 59 + this.AudioLevel.GetHashCode();
                 if (this.Language != null)
-                    hash = hash * 59 + this.Language.GetHashCode();
+                    hashCode = hashCode * 59 + this.Language.GetHashCode();
                 if (this.DeliverySpeed != null)
-                    hash = hash * 59 + this.DeliverySpeed.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliverySpeed.GetHashCode();
                 if (this.AudioCaptioning != null)
-                    hash = hash * 59 + this.AudioCaptioning.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.AudioCaptioning.GetHashCode();
+                return hashCode;
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- The identifier that must be unique within the hosting gallery -->
-        <id>$id$</id>
+        <id>Com.RusticiSoftware.Cloud.V2</id>
         <title>SCORM Cloud v2 API C# Client Library</title>
 
         <!-- The package version number that is used when resolving dependencies -->
-        <version>$version$</version>
+        <version>1.1.0</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
-        <authors>$author$</authors>
+        <authors>rustici-software-systems</authors>
 
         <!-- Owners are typically nuget.org identities that allow gallery
              users to earily find other packages by the same owners.  -->
@@ -23,20 +23,20 @@
         <!-- The description can be used in package manager UI. Note that the
              nuget.org gallery uses information you add in the portal. -->
         <description>Swagger Generated C# Client for SCORM Cloud API v2</description>
-        <copyright>https://cloud.scorm.com/sc/scorm_cloud_terms_of_service.html</copyright>
+            <copyright>https://cloud.scorm.com/sc/scorm_cloud_terms_of_service.html</copyright>
 
+        <tags>SCORM rustici elearning AICC xAPI</tags>
         <!-- Dependencies are automatically installed when the package is installed -->
         <dependencies>
 
-            <dependency id="NewtonSoft.Json" version="8.0.3" />
+            <dependency id="NewtonSoft.Json" version="10.0.3" />
+            <dependency id="JsonSubTypes" version="1.2.0" />
             <dependency id="RestSharp" version="105.1.0" />
 
         </dependencies>
     </metadata>
     <files>
-
         <!-- A readme.txt will be displayed when the package is installed -->
         <file src="..\..\README.md" target="" />
-        <file src="..\..\docs\**\*.*" target="docs" />
     </files>
 </package>
