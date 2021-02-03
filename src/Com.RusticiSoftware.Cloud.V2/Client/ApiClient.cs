@@ -168,6 +168,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
 
+            // Change needed here to keep library working with SCORM Cloud's new TLS setting (made live ~2/1/2021)
+            // Reference: https://support.scorm.com/hc/en-us/articles/360049764214-SCORM-Cloud-Disabling-support-for-TLS-version-1-0
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12; 
+
             // set timeout
             
             RestClient.Timeout = Configuration.Timeout;
