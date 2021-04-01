@@ -134,7 +134,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
             // add file parameter, if any
             foreach(var param in fileParams)
             {
-                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
+                //request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
+
+                request.Files.Add(param.Value);
             }
 
             if (postBody != null) // http body (model or byte[]) parameter
@@ -203,7 +205,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
             InterceptRequest(request);
-            var response = await RestClient.ExecuteTaskAsync(request);
+            var response = await RestClient.ExecuteAsync(request);
             InterceptResponse(request, response);
             return (Object)response;
         }
