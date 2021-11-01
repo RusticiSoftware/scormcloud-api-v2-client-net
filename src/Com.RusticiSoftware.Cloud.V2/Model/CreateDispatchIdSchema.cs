@@ -154,12 +154,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (string) minLength
-            if(this.Id != null && this.Id.Length < 9)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 9.", new [] { "Id" });
-            }
-
             yield break;
         }
     }

@@ -25,272 +25,272 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. 
+        /// Deletes all PII for a learnerId 
         /// </summary>
         /// <remarks>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
-        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
+        /// <param name="learnerId">The id of the learner</param>
+        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. </param>
         /// <returns></returns>
         void DeleteAllLearnerData (string learnerId, string userEmail);
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. 
+        /// Deletes all PII for a learnerId 
         /// </summary>
         /// <remarks>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
-        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
+        /// <param name="learnerId">The id of the learner</param>
+        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. </param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteAllLearnerDataWithHttpInfo (string learnerId, string userEmail);
         /// <summary>
-        /// Delete the tags for this learner 
+        /// Delete tags from a learnerId 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this learner 
+        /// Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns></returns>
         void DeleteLearnerTags (string learnerId, TagListSchema tags);
 
         /// <summary>
-        /// Delete the tags for this learner 
+        /// Delete tags from a learnerId 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this learner 
+        /// Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteLearnerTagsWithHttpInfo (string learnerId, TagListSchema tags);
         /// <summary>
-        /// Get the tags for this learner 
+        /// Get tags for a learnerId 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this learner 
+        /// Returns the tags for the learner. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <returns>TagListSchema</returns>
         TagListSchema GetLearnerTags (string learnerId);
 
         /// <summary>
-        /// Get the tags for this learner 
+        /// Get tags for a learnerId 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this learner 
+        /// Returns the tags for the learner. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <returns>ApiResponse of TagListSchema</returns>
         ApiResponse<TagListSchema> GetLearnerTagsWithHttpInfo (string learnerId);
         /// <summary>
-        /// Set the tags for this learner 
+        /// Add tags to a learnerId 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this learner 
+        /// Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns></returns>
         void PutLearnerTags (string learnerId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this learner 
+        /// Add tags to a learnerId 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this learner 
+        /// Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutLearnerTagsWithHttpInfo (string learnerId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided learners
+        /// Add a group of tags to a group of learnerIds 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided learners 
+        /// Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         void PutLearnerTagsBatch (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided learners
+        /// Add a group of tags to a group of learnerIds 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided learners 
+        /// Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutLearnerTagsBatchWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Update a learner&#39;s info on all of their registrations.
+        /// Update all Registrations for a learnerId 
         /// </summary>
         /// <remarks>
-        /// A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="learnerInfo"></param>
         /// <returns></returns>
         void UpdateLearnerInfo (string learnerId, LearnerSchema learnerInfo);
 
         /// <summary>
-        /// Update a learner&#39;s info on all of their registrations.
+        /// Update all Registrations for a learnerId 
         /// </summary>
         /// <remarks>
-        /// A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="learnerInfo"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateLearnerInfoWithHttpInfo (string learnerId, LearnerSchema learnerInfo);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. 
+        /// Deletes all PII for a learnerId 
         /// </summary>
         /// <remarks>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
-        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
+        /// <param name="learnerId">The id of the learner</param>
+        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. </param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteAllLearnerDataAsync (string learnerId, string userEmail);
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id. 
+        /// Deletes all PII for a learnerId 
         /// </summary>
         /// <remarks>
-        /// Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
-        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
+        /// <param name="learnerId">The id of the learner</param>
+        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAllLearnerDataAsyncWithHttpInfo (string learnerId, string userEmail);
         /// <summary>
-        /// Delete the tags for this learner 
+        /// Delete tags from a learnerId 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this learner 
+        /// Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteLearnerTagsAsync (string learnerId, TagListSchema tags);
 
         /// <summary>
-        /// Delete the tags for this learner 
+        /// Delete tags from a learnerId 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this learner 
+        /// Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLearnerTagsAsyncWithHttpInfo (string learnerId, TagListSchema tags);
         /// <summary>
-        /// Get the tags for this learner 
+        /// Get tags for a learnerId 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this learner 
+        /// Returns the tags for the learner. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <returns>Task of TagListSchema</returns>
         System.Threading.Tasks.Task<TagListSchema> GetLearnerTagsAsync (string learnerId);
 
         /// <summary>
-        /// Get the tags for this learner 
+        /// Get tags for a learnerId 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this learner 
+        /// Returns the tags for the learner. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetLearnerTagsAsyncWithHttpInfo (string learnerId);
         /// <summary>
-        /// Set the tags for this learner 
+        /// Add tags to a learnerId 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this learner 
+        /// Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PutLearnerTagsAsync (string learnerId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this learner 
+        /// Add tags to a learnerId 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this learner 
+        /// Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutLearnerTagsAsyncWithHttpInfo (string learnerId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided learners
+        /// Add a group of tags to a group of learnerIds 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided learners 
+        /// Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PutLearnerTagsBatchAsync (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided learners
+        /// Add a group of tags to a group of learnerIds 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided learners 
+        /// Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutLearnerTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Update a learner&#39;s info on all of their registrations.
+        /// Update all Registrations for a learnerId 
         /// </summary>
         /// <remarks>
-        /// A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="learnerInfo"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task UpdateLearnerInfoAsync (string learnerId, LearnerSchema learnerInfo);
 
         /// <summary>
-        /// Update a learner&#39;s info on all of their registrations.
+        /// Update all Registrations for a learnerId 
         /// </summary>
         /// <remarks>
-        /// A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="learnerInfo"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateLearnerInfoAsyncWithHttpInfo (string learnerId, LearnerSchema learnerInfo);
@@ -395,11 +395,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id.  Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all PII for a learnerId  Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
-        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
+        /// <param name="learnerId">The id of the learner</param>
+        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. </param>
         /// <returns></returns>
         public void DeleteAllLearnerData (string learnerId, string userEmail)
         {
@@ -407,11 +407,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id.  Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all PII for a learnerId  Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
-        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
+        /// <param name="learnerId">The id of the learner</param>
+        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. </param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteAllLearnerDataWithHttpInfo (string learnerId, string userEmail)
         {
@@ -479,11 +479,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id.  Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all PII for a learnerId  Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
-        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
+        /// <param name="learnerId">The id of the learner</param>
+        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. </param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteAllLearnerDataAsync (string learnerId, string userEmail)
         {
@@ -492,11 +492,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes all of the information associated with a learner in an application, by learner id.  Deletes all of the information associated with a learner in an application, by learner id. This is meant for use with complying with GDPR requests from learners. 
+        /// Deletes all PII for a learnerId  Deletes all of the PII information for the learner.  This is meant for use with complying with GDPR requests from learners.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion of PII information takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
-        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in.</param>
+        /// <param name="learnerId">The id of the learner</param>
+        /// <param name="userEmail">The email of the user initiating this request on behalf of the learner being deleted. This must be a valid primary email address for a SCORM Cloud realm which this application is in. </param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAllLearnerDataAsyncWithHttpInfo (string learnerId, string userEmail)
         {
@@ -564,10 +564,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this learner  Delete the tags for this learner 
+        /// Delete tags from a learnerId  Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns></returns>
         public void DeleteLearnerTags (string learnerId, TagListSchema tags)
@@ -576,10 +576,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this learner  Delete the tags for this learner 
+        /// Delete tags from a learnerId  Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteLearnerTagsWithHttpInfo (string learnerId, TagListSchema tags)
@@ -655,10 +655,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this learner  Delete the tags for this learner 
+        /// Delete tags from a learnerId  Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteLearnerTagsAsync (string learnerId, TagListSchema tags)
@@ -668,10 +668,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this learner  Delete the tags for this learner 
+        /// Delete tags from a learnerId  Delete the specified tags from the learner.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLearnerTagsAsyncWithHttpInfo (string learnerId, TagListSchema tags)
@@ -747,10 +747,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this learner  Get the tags for this learner 
+        /// Get tags for a learnerId  Returns the tags for the learner. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <returns>TagListSchema</returns>
         public TagListSchema GetLearnerTags (string learnerId)
         {
@@ -759,10 +759,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this learner  Get the tags for this learner 
+        /// Get tags for a learnerId  Returns the tags for the learner. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <returns>ApiResponse of TagListSchema</returns>
         public ApiResponse< TagListSchema > GetLearnerTagsWithHttpInfo (string learnerId)
         {
@@ -826,10 +826,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this learner  Get the tags for this learner 
+        /// Get tags for a learnerId  Returns the tags for the learner. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <returns>Task of TagListSchema</returns>
         public async System.Threading.Tasks.Task<TagListSchema> GetLearnerTagsAsync (string learnerId)
         {
@@ -839,10 +839,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this learner  Get the tags for this learner 
+        /// Get tags for a learnerId  Returns the tags for the learner. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetLearnerTagsAsyncWithHttpInfo (string learnerId)
         {
@@ -906,10 +906,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this learner  Set the tags for this learner 
+        /// Add tags to a learnerId  Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns></returns>
         public void PutLearnerTags (string learnerId, TagListSchema tags)
@@ -918,10 +918,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this learner  Set the tags for this learner 
+        /// Add tags to a learnerId  Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PutLearnerTagsWithHttpInfo (string learnerId, TagListSchema tags)
@@ -997,10 +997,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this learner  Set the tags for this learner 
+        /// Add tags to a learnerId  Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PutLearnerTagsAsync (string learnerId, TagListSchema tags)
@@ -1010,10 +1010,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this learner  Set the tags for this learner 
+        /// Add tags to a learnerId  Applies the provided tags to the learner.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when working with Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner for which to remove all data from an application</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> PutLearnerTagsAsyncWithHttpInfo (string learnerId, TagListSchema tags)
@@ -1089,10 +1089,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided learners Sets all of the provided tags on all of the provided learners 
+        /// Add a group of tags to a group of learnerIds  Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         public void PutLearnerTagsBatch (BatchTagsSchema batch)
         {
@@ -1100,10 +1100,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided learners Sets all of the provided tags on all of the provided learners 
+        /// Add a group of tags to a group of learnerIds  Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PutLearnerTagsBatchWithHttpInfo (BatchTagsSchema batch)
         {
@@ -1174,10 +1174,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided learners Sets all of the provided tags on all of the provided learners 
+        /// Add a group of tags to a group of learnerIds  Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PutLearnerTagsBatchAsync (BatchTagsSchema batch)
         {
@@ -1186,10 +1186,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided learners Sets all of the provided tags on all of the provided learners 
+        /// Add a group of tags to a group of learnerIds  Applies all of the provided tags on all of the provided learners.  Tags are used to easily identify resources. Adding tags can enable more refined searches when working with Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> PutLearnerTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch)
         {
@@ -1260,10 +1260,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update a learner&#39;s info on all of their registrations. A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// Update all Registrations for a learnerId  Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="learnerInfo"></param>
         /// <returns></returns>
         public void UpdateLearnerInfo (string learnerId, LearnerSchema learnerInfo)
@@ -1272,10 +1272,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update a learner&#39;s info on all of their registrations. A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// Update all Registrations for a learnerId  Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="learnerInfo"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> UpdateLearnerInfoWithHttpInfo (string learnerId, LearnerSchema learnerInfo)
@@ -1351,10 +1351,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update a learner&#39;s info on all of their registrations. A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// Update all Registrations for a learnerId  Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="learnerInfo"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task UpdateLearnerInfoAsync (string learnerId, LearnerSchema learnerInfo)
@@ -1364,10 +1364,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update a learner&#39;s info on all of their registrations. A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations. This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  You may update any of the values available in the LearnerSchema which is posted.  Any values you do not wish to alter, omit from the post.  Depending on the field, providing something like an empty string may have unintended consequences.  Lastly, it&#39;s important to note that this method is asynchronous.  A success status will be returned, and that signifies that a background process has been spun up to alter the learner&#39;s info.  As such, you may find a short period of delay in seeing the changes shown on all registrations. 
+        /// Update all Registrations for a learnerId  Updates information about a group of registrations, such as learner email and name.  A learner in SCORM Cloud is not an entity on its own.  In fact, learners only exist as information on individual registrations.  This method will update the information on each of the registrations that the provided &#x60;learnerId&#x60; is attached to.  &gt;**Caution:** &gt;Providing an empty string will cause the value in SCORM Cloud to be set to empty.  This may have unintended consequences with regards to functionality.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the changes on the registrations take place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="learnerId">The id of the learner to be updated</param>
+        /// <param name="learnerId">The id of the learner</param>
         /// <param name="learnerInfo"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateLearnerInfoAsyncWithHttpInfo (string learnerId, LearnerSchema learnerInfo)

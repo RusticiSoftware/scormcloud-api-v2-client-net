@@ -35,12 +35,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         /// <param name="id">The invitationId for this invitation..</param>
         /// <param name="courseId">Course Id for this Invitation..</param>
-        /// <param name="allowLaunch">If true, then new registrations can be created for this dispatch..</param>
+        /// <param name="allowLaunch">If true, then new registrations can be created for this invitation..</param>
         /// <param name="invitationEmail">invitationEmail.</param>
         /// <param name="createDate">The create date for the invitation.</param>
         /// <param name="updated">updated.</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
-        /// <param name="expirationDate">The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time)..</param>
+        /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
         /// <param name="registrationCount">The count of registrations for this invitation.</param>
         public PrivateInvitationSchema(string id = default(string), string courseId = default(string), bool? allowLaunch = default(bool?), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCount = default(int?))
         {
@@ -70,9 +70,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public string CourseId { get; set; }
 
         /// <summary>
-        /// If true, then new registrations can be created for this dispatch.
+        /// If true, then new registrations can be created for this invitation.
         /// </summary>
-        /// <value>If true, then new registrations can be created for this dispatch.</value>
+        /// <value>If true, then new registrations can be created for this invitation.</value>
         [DataMember(Name="allowLaunch", EmitDefaultValue=false)]
         public bool? AllowLaunch { get; set; }
 
@@ -103,9 +103,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public PostBackSchema PostBack { get; set; }
 
         /// <summary>
-        /// The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).
+        /// The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. 
         /// </summary>
-        /// <value>The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).</value>
+        /// <value>The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. </value>
         [DataMember(Name="expirationDate", EmitDefaultValue=false)]
         public DateTime? ExpirationDate { get; set; }
 

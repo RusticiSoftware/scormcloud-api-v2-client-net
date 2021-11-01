@@ -39,8 +39,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Initializes a new instance of the <see cref="LaunchLinkRequestSchema" /> class.
         /// </summary>
         /// <param name="expiry">Number of seconds from now this link will expire in. Defaults to 120s. Range 10s:300s (default to 120).</param>
-        /// <param name="redirectOnExitUrl">The URL the application should redirect to when the learner exits a course. If not specified, configured value will be used. (required).</param>
-        /// <param name="tracking">Should this launch be tracked? If false, Engine will avoid tracking to the extent possible for the standard being used. (default to true).</param>
+        /// <param name="redirectOnExitUrl">The URL the application should redirect to when the learner exits a course.  Alternatively one of the following keywords can be used to redirect to: - &#x60;closer&#x60; - A page that automatically tries to close the browser tab/window - &#x60;blank&#x60; - A blank page - &#x60;message&#x60; - A page with a message about the course being complete  If an empty string is specified, the configured setting will be used (default www.scorm.com). If an invalid url is specified, the Message.html page will be loaded.  (required).</param>
+        /// <param name="tracking">Should this launch be tracked? If false, SCORM Cloud will avoid tracking to the extent possible for the standard being used. (default to true).</param>
         /// <param name="startSco">For SCORM, SCO identifier to override launch, overriding the normal sequencing..</param>
         /// <param name="culture">This parameter should specify a culture code. If specified, and supported, the navigation and alerts in the player will be displayed in the associated language. If not specified, the locale of the user’s browser will be used..</param>
         /// <param name="cssUrl">A Url pointing to custom css for the player to use..</param>
@@ -96,16 +96,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public int? Expiry { get; set; }
 
         /// <summary>
-        /// The URL the application should redirect to when the learner exits a course. If not specified, configured value will be used.
+        /// The URL the application should redirect to when the learner exits a course.  Alternatively one of the following keywords can be used to redirect to: - &#x60;closer&#x60; - A page that automatically tries to close the browser tab/window - &#x60;blank&#x60; - A blank page - &#x60;message&#x60; - A page with a message about the course being complete  If an empty string is specified, the configured setting will be used (default www.scorm.com). If an invalid url is specified, the Message.html page will be loaded. 
         /// </summary>
-        /// <value>The URL the application should redirect to when the learner exits a course. If not specified, configured value will be used.</value>
+        /// <value>The URL the application should redirect to when the learner exits a course.  Alternatively one of the following keywords can be used to redirect to: - &#x60;closer&#x60; - A page that automatically tries to close the browser tab/window - &#x60;blank&#x60; - A blank page - &#x60;message&#x60; - A page with a message about the course being complete  If an empty string is specified, the configured setting will be used (default www.scorm.com). If an invalid url is specified, the Message.html page will be loaded. </value>
         [DataMember(Name="redirectOnExitUrl", EmitDefaultValue=false)]
         public string RedirectOnExitUrl { get; set; }
 
         /// <summary>
-        /// Should this launch be tracked? If false, Engine will avoid tracking to the extent possible for the standard being used.
+        /// Should this launch be tracked? If false, SCORM Cloud will avoid tracking to the extent possible for the standard being used.
         /// </summary>
-        /// <value>Should this launch be tracked? If false, Engine will avoid tracking to the extent possible for the standard being used.</value>
+        /// <value>Should this launch be tracked? If false, SCORM Cloud will avoid tracking to the extent possible for the standard being used.</value>
         [DataMember(Name="tracking", EmitDefaultValue=false)]
         public bool? Tracking { get; set; }
 

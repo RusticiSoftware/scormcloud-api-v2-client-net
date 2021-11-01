@@ -25,51 +25,51 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Authenticates for a oauth token
+        /// Obtain an OAuth token for scoped access to an Application 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;Note:  &gt;The token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires. 
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope"></param>
-        /// <param name="expiration"> (optional, default to 300)</param>
+        /// <param name="scope">Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;. </param>
+        /// <param name="expiration">Amount of seconds until the OAuth token expires.  (optional, default to 300)</param>
         /// <returns>ApplicationToken</returns>
         ApplicationToken GetAppToken (string scope, int? expiration = null);
 
         /// <summary>
-        /// Authenticates for a oauth token
+        /// Obtain an OAuth token for scoped access to an Application 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;Note:  &gt;The token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires. 
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope"></param>
-        /// <param name="expiration"> (optional, default to 300)</param>
+        /// <param name="scope">Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;. </param>
+        /// <param name="expiration">Amount of seconds until the OAuth token expires.  (optional, default to 300)</param>
         /// <returns>ApiResponse of ApplicationToken</returns>
         ApiResponse<ApplicationToken> GetAppTokenWithHttpInfo (string scope, int? expiration = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Authenticates for a oauth token
+        /// Obtain an OAuth token for scoped access to an Application 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;Note:  &gt;The token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires. 
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope"></param>
-        /// <param name="expiration"> (optional, default to 300)</param>
+        /// <param name="scope">Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;. </param>
+        /// <param name="expiration">Amount of seconds until the OAuth token expires.  (optional, default to 300)</param>
         /// <returns>Task of ApplicationToken</returns>
         System.Threading.Tasks.Task<ApplicationToken> GetAppTokenAsync (string scope, int? expiration = null);
 
         /// <summary>
-        /// Authenticates for a oauth token
+        /// Obtain an OAuth token for scoped access to an Application 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;Note:  &gt;The token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires. 
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope"></param>
-        /// <param name="expiration"> (optional, default to 300)</param>
+        /// <param name="scope">Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;. </param>
+        /// <param name="expiration">Amount of seconds until the OAuth token expires.  (optional, default to 300)</param>
         /// <returns>Task of ApiResponse (ApplicationToken)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationToken>> GetAppTokenAsyncWithHttpInfo (string scope, int? expiration = null);
         #endregion Asynchronous Operations
@@ -173,11 +173,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Authenticates for a oauth token Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;Note:  &gt;The token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires. 
+        /// Obtain an OAuth token for scoped access to an Application  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope"></param>
-        /// <param name="expiration"> (optional, default to 300)</param>
+        /// <param name="scope">Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;. </param>
+        /// <param name="expiration">Amount of seconds until the OAuth token expires.  (optional, default to 300)</param>
         /// <returns>ApplicationToken</returns>
         public ApplicationToken GetAppToken (string scope, int? expiration = null)
         {
@@ -186,11 +186,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Authenticates for a oauth token Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;Note:  &gt;The token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires. 
+        /// Obtain an OAuth token for scoped access to an Application  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope"></param>
-        /// <param name="expiration"> (optional, default to 300)</param>
+        /// <param name="scope">Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;. </param>
+        /// <param name="expiration">Amount of seconds until the OAuth token expires.  (optional, default to 300)</param>
         /// <returns>ApiResponse of ApplicationToken</returns>
         public ApiResponse< ApplicationToken > GetAppTokenWithHttpInfo (string scope, int? expiration = null)
         {
@@ -249,11 +249,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Authenticates for a oauth token Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;Note:  &gt;The token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires. 
+        /// Obtain an OAuth token for scoped access to an Application  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope"></param>
-        /// <param name="expiration"> (optional, default to 300)</param>
+        /// <param name="scope">Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;. </param>
+        /// <param name="expiration">Amount of seconds until the OAuth token expires.  (optional, default to 300)</param>
         /// <returns>Task of ApplicationToken</returns>
         public async System.Threading.Tasks.Task<ApplicationToken> GetAppTokenAsync (string scope, int? expiration = null)
         {
@@ -263,11 +263,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Authenticates for a oauth token Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;Note:  &gt;The token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires. 
+        /// Obtain an OAuth token for scoped access to an Application  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope"></param>
-        /// <param name="expiration"> (optional, default to 300)</param>
+        /// <param name="scope">Space separated string of OAuth scopes, e.g. \&quot;write:course read:registration\&quot;. </param>
+        /// <param name="expiration">Amount of seconds until the OAuth token expires.  (optional, default to 300)</param>
         /// <returns>Task of ApiResponse (ApplicationToken)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApplicationToken>> GetAppTokenAsyncWithHttpInfo (string scope, int? expiration = null)
         {

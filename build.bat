@@ -12,6 +12,5 @@ if not exist ".\bin" mkdir bin
 
 copy packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll bin\Newtonsoft.Json.dll
 copy packages\JsonSubTypes.1.2.0\lib\net45\JsonSubTypes.dll bin\JsonSubTypes.dll
-copy packages\RestSharp.105.1.0\lib\net45\RestSharp.dll bin\RestSharp.dll
-%CSCPATH%\csc  /reference:bin\Newtonsoft.Json.dll;bin\JsonSubTypes.dll;bin\RestSharp.dll;System.ComponentModel.DataAnnotations.dll  /target:library /out:bin\Com.RusticiSoftware.Cloud.V2.dll /recurse:src\Com.RusticiSoftware.Cloud.V2\*.cs /doc:bin\Com.RusticiSoftware.Cloud.V2.xml
-
+copy packages\RestSharp.106.0.1\lib\net452\RestSharp.dll bin\RestSharp.dll
+%CSCPATH%\csc  /reference:bin\Newtonsoft.Json.dll;bin\JsonSubTypes.dll;bin\RestSharp.dll;System.ComponentModel.DataAnnotations.dll /target:library /out:bin\Com.RusticiSoftware.Cloud.V2.dll /recurse:src\Com.RusticiSoftware.Cloud.V2\*.cs /doc:bin\Com.RusticiSoftware.Cloud.V2.xml

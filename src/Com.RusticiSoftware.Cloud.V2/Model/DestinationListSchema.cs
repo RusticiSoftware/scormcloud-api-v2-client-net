@@ -34,7 +34,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Initializes a new instance of the <see cref="DestinationListSchema" /> class.
         /// </summary>
         /// <param name="destinations">destinations.</param>
-        /// <param name="more">more.</param>
+        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
         public DestinationListSchema(List<DestinationIdSchema> destinations = default(List<DestinationIdSchema>), string more = default(string))
         {
             this.Destinations = destinations;
@@ -48,8 +48,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public List<DestinationIdSchema> Destinations { get; set; }
 
         /// <summary>
-        /// Gets or Sets More
+        /// Token for getting the next set of results, from the prior set of results.
         /// </summary>
+        /// <value>Token for getting the next set of results, from the prior set of results.</value>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public string More { get; set; }
 

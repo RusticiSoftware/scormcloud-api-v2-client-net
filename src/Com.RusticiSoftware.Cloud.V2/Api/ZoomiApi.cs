@@ -25,136 +25,161 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Delete the keys for an application.
+        /// Delete the Zoomi keys for an Application 
         /// </summary>
         /// <remarks>
-        /// Delete the keys for an application.
+        /// Deletes the Zoomi keys for an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void DeleteApplicationZoomiKeys ();
 
         /// <summary>
-        /// Delete the keys for an application.
+        /// Delete the Zoomi keys for an Application 
         /// </summary>
         /// <remarks>
-        /// Delete the keys for an application.
+        /// Deletes the Zoomi keys for an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteApplicationZoomiKeysWithHttpInfo ();
         /// <summary>
-        /// Deletes the course in zoomi
+        /// Delete the Course from Zoomi 
         /// </summary>
         /// <remarks>
-        /// Deletes the course in zoomi
+        /// Deletes the course from Zoomi, but the course will remain in SCORM Cloud. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns></returns>
         void DeleteZoomiCourse (string courseId, int? versionId);
 
         /// <summary>
-        /// Deletes the course in zoomi
+        /// Delete the Course from Zoomi 
         /// </summary>
         /// <remarks>
-        /// Deletes the course in zoomi
+        /// Deletes the course from Zoomi, but the course will remain in SCORM Cloud. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteZoomiCourseWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Gets the zoomi company id of an application.
+        /// Get the Zoomi company ID of an Application 
         /// </summary>
         /// <remarks>
-        /// Gets the zoomi company id of an application.
+        /// Returns the Zoomi company ID of an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>StringResultSchema</returns>
         StringResultSchema GetApplicationZoomiCompanyId ();
 
         /// <summary>
-        /// Gets the zoomi company id of an application.
+        /// Get the Zoomi company ID of an Application 
         /// </summary>
         /// <remarks>
-        /// Gets the zoomi company id of an application.
+        /// Returns the Zoomi company ID of an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> GetApplicationZoomiCompanyIdWithHttpInfo ();
         /// <summary>
-        /// Gets the public key for an application.
+        /// Get the Zoomi public key for an Application 
         /// </summary>
         /// <remarks>
-        /// Gets the public key for an application.
+        /// Returns the Zoomi public key for an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>StringResultSchema</returns>
         StringResultSchema GetApplicationZoomiPublicKey ();
 
         /// <summary>
-        /// Gets the public key for an application.
+        /// Get the Zoomi public key for an Application 
         /// </summary>
         /// <remarks>
-        /// Gets the public key for an application.
+        /// Returns the Zoomi public key for an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> GetApplicationZoomiPublicKeyWithHttpInfo ();
         /// <summary>
-        /// Gets the zoomi enabled value of a course
+        /// Get the Zoomi enabled value of a Course Version 
         /// </summary>
         /// <remarks>
-        /// Gets the zoomi enabled value of a course
+        /// Returns the Zoomi enabled value of a course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>EnabledSchema</returns>
         EnabledSchema GetCourseZoomiEnabled (string courseId, int? versionId);
 
         /// <summary>
-        /// Gets the zoomi enabled value of a course
+        /// Get the Zoomi enabled value of a Course Version 
         /// </summary>
         /// <remarks>
-        /// Gets the zoomi enabled value of a course
+        /// Returns the Zoomi enabled value of a course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>ApiResponse of EnabledSchema</returns>
         ApiResponse<EnabledSchema> GetCourseZoomiEnabledWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Gets the status for a course and imports to Zoomi
+        /// Get the status for a Course from Zoomi 
         /// </summary>
         /// <remarks>
-        /// Gets the status for a course and imports to Zoomi
+        /// Returns the status for a course and starts the upload process to Zoomi if not started. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>StringResultSchema</returns>
         StringResultSchema GetZoomiCourseStatus (string courseId, int? versionId);
 
         /// <summary>
-        /// Gets the status for a course and imports to Zoomi
+        /// Get the status for a Course from Zoomi 
         /// </summary>
         /// <remarks>
-        /// Gets the status for a course and imports to Zoomi
+        /// Returns the status for a course and starts the upload process to Zoomi if not started. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> GetZoomiCourseStatusWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Set the zoomi company id value of an application.
+        /// Begin the import process with Zoomi 
         /// </summary>
         /// <remarks>
-        /// Set the zoomi company id value of an application.
+        /// Begins the import process with Zoomi.  Must be followed up by a status call. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="zoomiCourseOptions"></param>
+        /// <returns></returns>
+        void ImportCourseVersionToZoomi (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions);
+
+        /// <summary>
+        /// Begin the import process with Zoomi 
+        /// </summary>
+        /// <remarks>
+        /// Begins the import process with Zoomi.  Must be followed up by a status call. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="zoomiCourseOptions"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ImportCourseVersionToZoomiWithHttpInfo (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions);
+        /// <summary>
+        /// Set the Zoomi company ID of an Application 
+        /// </summary>
+        /// <remarks>
+        /// Sets the Zoomi company ID value of an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoomiCompanyId"></param>
@@ -162,173 +187,198 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetApplicationZoomiCompanyId (ZoomiCompanyId zoomiCompanyId);
 
         /// <summary>
-        /// Set the zoomi company id value of an application.
+        /// Set the Zoomi company ID of an Application 
         /// </summary>
         /// <remarks>
-        /// Set the zoomi company id value of an application.
+        /// Sets the Zoomi company ID value of an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoomiCompanyId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetApplicationZoomiCompanyIdWithHttpInfo (ZoomiCompanyId zoomiCompanyId);
         /// <summary>
-        /// Set the zoomi enabled value of a course.
+        /// Set the Zoomi enabled value of a Course Version 
         /// </summary>
         /// <remarks>
-        /// Set the zoomi enabled value of a course.
+        /// Sets the Zoomi enabled value of a course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
-        /// <param name="zoomiCourseOptions"> (optional)</param>
+        /// <param name="versionId"></param>
+        /// <param name="enabled"></param>
         /// <returns></returns>
-        void SetCourseZoomiEnabled (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions = null);
+        void SetCourseZoomiEnabled (string courseId, int? versionId, EnabledSchema enabled);
 
         /// <summary>
-        /// Set the zoomi enabled value of a course.
+        /// Set the Zoomi enabled value of a Course Version 
         /// </summary>
         /// <remarks>
-        /// Set the zoomi enabled value of a course.
+        /// Sets the Zoomi enabled value of a course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
-        /// <param name="zoomiCourseOptions"> (optional)</param>
+        /// <param name="versionId"></param>
+        /// <param name="enabled"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SetCourseZoomiEnabledWithHttpInfo (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions = null);
+        ApiResponse<Object> SetCourseZoomiEnabledWithHttpInfo (string courseId, int? versionId, EnabledSchema enabled);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Delete the keys for an application.
+        /// Delete the Zoomi keys for an Application 
         /// </summary>
         /// <remarks>
-        /// Delete the keys for an application.
+        /// Deletes the Zoomi keys for an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteApplicationZoomiKeysAsync ();
 
         /// <summary>
-        /// Delete the keys for an application.
+        /// Delete the Zoomi keys for an Application 
         /// </summary>
         /// <remarks>
-        /// Delete the keys for an application.
+        /// Deletes the Zoomi keys for an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteApplicationZoomiKeysAsyncWithHttpInfo ();
         /// <summary>
-        /// Deletes the course in zoomi
+        /// Delete the Course from Zoomi 
         /// </summary>
         /// <remarks>
-        /// Deletes the course in zoomi
+        /// Deletes the course from Zoomi, but the course will remain in SCORM Cloud. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteZoomiCourseAsync (string courseId, int? versionId);
 
         /// <summary>
-        /// Deletes the course in zoomi
+        /// Delete the Course from Zoomi 
         /// </summary>
         /// <remarks>
-        /// Deletes the course in zoomi
+        /// Deletes the course from Zoomi, but the course will remain in SCORM Cloud. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteZoomiCourseAsyncWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Gets the zoomi company id of an application.
+        /// Get the Zoomi company ID of an Application 
         /// </summary>
         /// <remarks>
-        /// Gets the zoomi company id of an application.
+        /// Returns the Zoomi company ID of an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of StringResultSchema</returns>
         System.Threading.Tasks.Task<StringResultSchema> GetApplicationZoomiCompanyIdAsync ();
 
         /// <summary>
-        /// Gets the zoomi company id of an application.
+        /// Get the Zoomi company ID of an Application 
         /// </summary>
         /// <remarks>
-        /// Gets the zoomi company id of an application.
+        /// Returns the Zoomi company ID of an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> GetApplicationZoomiCompanyIdAsyncWithHttpInfo ();
         /// <summary>
-        /// Gets the public key for an application.
+        /// Get the Zoomi public key for an Application 
         /// </summary>
         /// <remarks>
-        /// Gets the public key for an application.
+        /// Returns the Zoomi public key for an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of StringResultSchema</returns>
         System.Threading.Tasks.Task<StringResultSchema> GetApplicationZoomiPublicKeyAsync ();
 
         /// <summary>
-        /// Gets the public key for an application.
+        /// Get the Zoomi public key for an Application 
         /// </summary>
         /// <remarks>
-        /// Gets the public key for an application.
+        /// Returns the Zoomi public key for an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> GetApplicationZoomiPublicKeyAsyncWithHttpInfo ();
         /// <summary>
-        /// Gets the zoomi enabled value of a course
+        /// Get the Zoomi enabled value of a Course Version 
         /// </summary>
         /// <remarks>
-        /// Gets the zoomi enabled value of a course
+        /// Returns the Zoomi enabled value of a course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of EnabledSchema</returns>
         System.Threading.Tasks.Task<EnabledSchema> GetCourseZoomiEnabledAsync (string courseId, int? versionId);
 
         /// <summary>
-        /// Gets the zoomi enabled value of a course
+        /// Get the Zoomi enabled value of a Course Version 
         /// </summary>
         /// <remarks>
-        /// Gets the zoomi enabled value of a course
+        /// Returns the Zoomi enabled value of a course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of ApiResponse (EnabledSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<EnabledSchema>> GetCourseZoomiEnabledAsyncWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Gets the status for a course and imports to Zoomi
+        /// Get the status for a Course from Zoomi 
         /// </summary>
         /// <remarks>
-        /// Gets the status for a course and imports to Zoomi
+        /// Returns the status for a course and starts the upload process to Zoomi if not started. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of StringResultSchema</returns>
         System.Threading.Tasks.Task<StringResultSchema> GetZoomiCourseStatusAsync (string courseId, int? versionId);
 
         /// <summary>
-        /// Gets the status for a course and imports to Zoomi
+        /// Get the status for a Course from Zoomi 
         /// </summary>
         /// <remarks>
-        /// Gets the status for a course and imports to Zoomi
+        /// Returns the status for a course and starts the upload process to Zoomi if not started. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> GetZoomiCourseStatusAsyncWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Set the zoomi company id value of an application.
+        /// Begin the import process with Zoomi 
         /// </summary>
         /// <remarks>
-        /// Set the zoomi company id value of an application.
+        /// Begins the import process with Zoomi.  Must be followed up by a status call. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="zoomiCourseOptions"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ImportCourseVersionToZoomiAsync (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions);
+
+        /// <summary>
+        /// Begin the import process with Zoomi 
+        /// </summary>
+        /// <remarks>
+        /// Begins the import process with Zoomi.  Must be followed up by a status call. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="zoomiCourseOptions"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ImportCourseVersionToZoomiAsyncWithHttpInfo (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions);
+        /// <summary>
+        /// Set the Zoomi company ID of an Application 
+        /// </summary>
+        /// <remarks>
+        /// Sets the Zoomi company ID value of an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoomiCompanyId"></param>
@@ -336,40 +386,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetApplicationZoomiCompanyIdAsync (ZoomiCompanyId zoomiCompanyId);
 
         /// <summary>
-        /// Set the zoomi company id value of an application.
+        /// Set the Zoomi company ID of an Application 
         /// </summary>
         /// <remarks>
-        /// Set the zoomi company id value of an application.
+        /// Sets the Zoomi company ID value of an application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoomiCompanyId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetApplicationZoomiCompanyIdAsyncWithHttpInfo (ZoomiCompanyId zoomiCompanyId);
         /// <summary>
-        /// Set the zoomi enabled value of a course.
+        /// Set the Zoomi enabled value of a Course Version 
         /// </summary>
         /// <remarks>
-        /// Set the zoomi enabled value of a course.
+        /// Sets the Zoomi enabled value of a course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
-        /// <param name="zoomiCourseOptions"> (optional)</param>
+        /// <param name="versionId"></param>
+        /// <param name="enabled"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SetCourseZoomiEnabledAsync (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions = null);
+        System.Threading.Tasks.Task SetCourseZoomiEnabledAsync (string courseId, int? versionId, EnabledSchema enabled);
 
         /// <summary>
-        /// Set the zoomi enabled value of a course.
+        /// Set the Zoomi enabled value of a Course Version 
         /// </summary>
         /// <remarks>
-        /// Set the zoomi enabled value of a course.
+        /// Sets the Zoomi enabled value of a course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
-        /// <param name="zoomiCourseOptions"> (optional)</param>
+        /// <param name="versionId"></param>
+        /// <param name="enabled"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseZoomiEnabledAsyncWithHttpInfo (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseZoomiEnabledAsyncWithHttpInfo (string courseId, int? versionId, EnabledSchema enabled);
         #endregion Asynchronous Operations
     }
 
@@ -471,7 +521,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the keys for an application. Delete the keys for an application.
+        /// Delete the Zoomi keys for an Application  Deletes the Zoomi keys for an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
@@ -481,7 +531,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the keys for an application. Delete the keys for an application.
+        /// Delete the Zoomi keys for an Application  Deletes the Zoomi keys for an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -543,7 +593,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the keys for an application. Delete the keys for an application.
+        /// Delete the Zoomi keys for an Application  Deletes the Zoomi keys for an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
@@ -554,7 +604,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the keys for an application. Delete the keys for an application.
+        /// Delete the Zoomi keys for an Application  Deletes the Zoomi keys for an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
@@ -616,11 +666,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the course in zoomi Deletes the course in zoomi
+        /// Delete the Course from Zoomi  Deletes the course from Zoomi, but the course will remain in SCORM Cloud. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns></returns>
         public void DeleteZoomiCourse (string courseId, int? versionId)
         {
@@ -628,11 +678,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the course in zoomi Deletes the course in zoomi
+        /// Delete the Course from Zoomi  Deletes the course from Zoomi, but the course will remain in SCORM Cloud. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteZoomiCourseWithHttpInfo (string courseId, int? versionId)
         {
@@ -700,11 +750,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the course in zoomi Deletes the course in zoomi
+        /// Delete the Course from Zoomi  Deletes the course from Zoomi, but the course will remain in SCORM Cloud. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteZoomiCourseAsync (string courseId, int? versionId)
         {
@@ -713,11 +763,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the course in zoomi Deletes the course in zoomi
+        /// Delete the Course from Zoomi  Deletes the course from Zoomi, but the course will remain in SCORM Cloud. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteZoomiCourseAsyncWithHttpInfo (string courseId, int? versionId)
         {
@@ -785,7 +835,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the zoomi company id of an application. Gets the zoomi company id of an application.
+        /// Get the Zoomi company ID of an Application  Returns the Zoomi company ID of an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>StringResultSchema</returns>
@@ -796,7 +846,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the zoomi company id of an application. Gets the zoomi company id of an application.
+        /// Get the Zoomi company ID of an Application  Returns the Zoomi company ID of an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of StringResultSchema</returns>
@@ -858,7 +908,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the zoomi company id of an application. Gets the zoomi company id of an application.
+        /// Get the Zoomi company ID of an Application  Returns the Zoomi company ID of an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of StringResultSchema</returns>
@@ -870,7 +920,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the zoomi company id of an application. Gets the zoomi company id of an application.
+        /// Get the Zoomi company ID of an Application  Returns the Zoomi company ID of an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
@@ -932,7 +982,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the public key for an application. Gets the public key for an application.
+        /// Get the Zoomi public key for an Application  Returns the Zoomi public key for an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>StringResultSchema</returns>
@@ -943,7 +993,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the public key for an application. Gets the public key for an application.
+        /// Get the Zoomi public key for an Application  Returns the Zoomi public key for an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of StringResultSchema</returns>
@@ -1005,7 +1055,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the public key for an application. Gets the public key for an application.
+        /// Get the Zoomi public key for an Application  Returns the Zoomi public key for an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of StringResultSchema</returns>
@@ -1017,7 +1067,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the public key for an application. Gets the public key for an application.
+        /// Get the Zoomi public key for an Application  Returns the Zoomi public key for an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
@@ -1079,11 +1129,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the zoomi enabled value of a course Gets the zoomi enabled value of a course
+        /// Get the Zoomi enabled value of a Course Version  Returns the Zoomi enabled value of a course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>EnabledSchema</returns>
         public EnabledSchema GetCourseZoomiEnabled (string courseId, int? versionId)
         {
@@ -1092,11 +1142,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the zoomi enabled value of a course Gets the zoomi enabled value of a course
+        /// Get the Zoomi enabled value of a Course Version  Returns the Zoomi enabled value of a course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>ApiResponse of EnabledSchema</returns>
         public ApiResponse< EnabledSchema > GetCourseZoomiEnabledWithHttpInfo (string courseId, int? versionId)
         {
@@ -1164,11 +1214,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the zoomi enabled value of a course Gets the zoomi enabled value of a course
+        /// Get the Zoomi enabled value of a Course Version  Returns the Zoomi enabled value of a course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of EnabledSchema</returns>
         public async System.Threading.Tasks.Task<EnabledSchema> GetCourseZoomiEnabledAsync (string courseId, int? versionId)
         {
@@ -1178,11 +1228,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the zoomi enabled value of a course Gets the zoomi enabled value of a course
+        /// Get the Zoomi enabled value of a Course Version  Returns the Zoomi enabled value of a course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of ApiResponse (EnabledSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<EnabledSchema>> GetCourseZoomiEnabledAsyncWithHttpInfo (string courseId, int? versionId)
         {
@@ -1250,11 +1300,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the status for a course and imports to Zoomi Gets the status for a course and imports to Zoomi
+        /// Get the status for a Course from Zoomi  Returns the status for a course and starts the upload process to Zoomi if not started. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>StringResultSchema</returns>
         public StringResultSchema GetZoomiCourseStatus (string courseId, int? versionId)
         {
@@ -1263,11 +1313,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the status for a course and imports to Zoomi Gets the status for a course and imports to Zoomi
+        /// Get the status for a Course from Zoomi  Returns the status for a course and starts the upload process to Zoomi if not started. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
         public ApiResponse< StringResultSchema > GetZoomiCourseStatusWithHttpInfo (string courseId, int? versionId)
         {
@@ -1335,11 +1385,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the status for a course and imports to Zoomi Gets the status for a course and imports to Zoomi
+        /// Get the status for a Course from Zoomi  Returns the status for a course and starts the upload process to Zoomi if not started. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of StringResultSchema</returns>
         public async System.Threading.Tasks.Task<StringResultSchema> GetZoomiCourseStatusAsync (string courseId, int? versionId)
         {
@@ -1349,11 +1399,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Gets the status for a course and imports to Zoomi Gets the status for a course and imports to Zoomi
+        /// Get the status for a Course from Zoomi  Returns the status for a course and starts the upload process to Zoomi if not started. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> GetZoomiCourseStatusAsyncWithHttpInfo (string courseId, int? versionId)
         {
@@ -1421,7 +1471,202 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the zoomi company id value of an application. Set the zoomi company id value of an application.
+        /// Begin the import process with Zoomi  Begins the import process with Zoomi.  Must be followed up by a status call. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="zoomiCourseOptions"></param>
+        /// <returns></returns>
+        public void ImportCourseVersionToZoomi (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions)
+        {
+             ImportCourseVersionToZoomiWithHttpInfo(courseId, versionId, zoomiCourseOptions);
+        }
+
+        /// <summary>
+        /// Begin the import process with Zoomi  Begins the import process with Zoomi.  Must be followed up by a status call. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="zoomiCourseOptions"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> ImportCourseVersionToZoomiWithHttpInfo (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling ZoomiApi->ImportCourseVersionToZoomi");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling ZoomiApi->ImportCourseVersionToZoomi");
+            // verify the required parameter 'zoomiCourseOptions' is set
+            if (zoomiCourseOptions == null)
+                throw new ApiException(400, "Missing required parameter 'zoomiCourseOptions' when calling ZoomiApi->ImportCourseVersionToZoomi");
+
+            var localVarPath = "/zoomi/course/{courseId}/version/{versionId}/import";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (zoomiCourseOptions != null && zoomiCourseOptions.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(zoomiCourseOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = zoomiCourseOptions; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportCourseVersionToZoomi", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Begin the import process with Zoomi  Begins the import process with Zoomi.  Must be followed up by a status call. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="zoomiCourseOptions"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ImportCourseVersionToZoomiAsync (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions)
+        {
+             await ImportCourseVersionToZoomiAsyncWithHttpInfo(courseId, versionId, zoomiCourseOptions);
+
+        }
+
+        /// <summary>
+        /// Begin the import process with Zoomi  Begins the import process with Zoomi.  Must be followed up by a status call. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="zoomiCourseOptions"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ImportCourseVersionToZoomiAsyncWithHttpInfo (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling ZoomiApi->ImportCourseVersionToZoomi");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling ZoomiApi->ImportCourseVersionToZoomi");
+            // verify the required parameter 'zoomiCourseOptions' is set
+            if (zoomiCourseOptions == null)
+                throw new ApiException(400, "Missing required parameter 'zoomiCourseOptions' when calling ZoomiApi->ImportCourseVersionToZoomi");
+
+            var localVarPath = "/zoomi/course/{courseId}/version/{versionId}/import";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (zoomiCourseOptions != null && zoomiCourseOptions.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(zoomiCourseOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = zoomiCourseOptions; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportCourseVersionToZoomi", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Set the Zoomi company ID of an Application  Sets the Zoomi company ID value of an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoomiCompanyId"></param>
@@ -1432,7 +1677,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the zoomi company id value of an application. Set the zoomi company id value of an application.
+        /// Set the Zoomi company ID of an Application  Sets the Zoomi company ID value of an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoomiCompanyId"></param>
@@ -1506,7 +1751,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the zoomi company id value of an application. Set the zoomi company id value of an application.
+        /// Set the Zoomi company ID of an Application  Sets the Zoomi company ID value of an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoomiCompanyId"></param>
@@ -1518,7 +1763,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the zoomi company id value of an application. Set the zoomi company id value of an application.
+        /// Set the Zoomi company ID of an Application  Sets the Zoomi company ID value of an application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoomiCompanyId"></param>
@@ -1592,27 +1837,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the zoomi enabled value of a course. Set the zoomi enabled value of a course.
+        /// Set the Zoomi enabled value of a Course Version  Sets the Zoomi enabled value of a course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
-        /// <param name="zoomiCourseOptions"> (optional)</param>
+        /// <param name="versionId"></param>
+        /// <param name="enabled"></param>
         /// <returns></returns>
-        public void SetCourseZoomiEnabled (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions = null)
+        public void SetCourseZoomiEnabled (string courseId, int? versionId, EnabledSchema enabled)
         {
-             SetCourseZoomiEnabledWithHttpInfo(courseId, versionId, zoomiCourseOptions);
+             SetCourseZoomiEnabledWithHttpInfo(courseId, versionId, enabled);
         }
 
         /// <summary>
-        /// Set the zoomi enabled value of a course. Set the zoomi enabled value of a course.
+        /// Set the Zoomi enabled value of a Course Version  Sets the Zoomi enabled value of a course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
-        /// <param name="zoomiCourseOptions"> (optional)</param>
+        /// <param name="versionId"></param>
+        /// <param name="enabled"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SetCourseZoomiEnabledWithHttpInfo (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions = null)
+        public ApiResponse<Object> SetCourseZoomiEnabledWithHttpInfo (string courseId, int? versionId, EnabledSchema enabled)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -1620,6 +1865,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             // verify the required parameter 'versionId' is set
             if (versionId == null)
                 throw new ApiException(400, "Missing required parameter 'versionId' when calling ZoomiApi->SetCourseZoomiEnabled");
+            // verify the required parameter 'enabled' is set
+            if (enabled == null)
+                throw new ApiException(400, "Missing required parameter 'enabled' when calling ZoomiApi->SetCourseZoomiEnabled");
 
             var localVarPath = "/zoomi/course/{courseId}/version/{versionId}/enabled";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1645,13 +1893,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (zoomiCourseOptions != null && zoomiCourseOptions.GetType() != typeof(byte[]))
+            if (enabled != null && enabled.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(zoomiCourseOptions); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(enabled); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = zoomiCourseOptions; // byte array
+                localVarPostBody = enabled; // byte array
             }
 
             // authentication (APP_NORMAL) required
@@ -1686,28 +1934,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the zoomi enabled value of a course. Set the zoomi enabled value of a course.
+        /// Set the Zoomi enabled value of a Course Version  Sets the Zoomi enabled value of a course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
-        /// <param name="zoomiCourseOptions"> (optional)</param>
+        /// <param name="versionId"></param>
+        /// <param name="enabled"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SetCourseZoomiEnabledAsync (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions = null)
+        public async System.Threading.Tasks.Task SetCourseZoomiEnabledAsync (string courseId, int? versionId, EnabledSchema enabled)
         {
-             await SetCourseZoomiEnabledAsyncWithHttpInfo(courseId, versionId, zoomiCourseOptions);
+             await SetCourseZoomiEnabledAsyncWithHttpInfo(courseId, versionId, enabled);
 
         }
 
         /// <summary>
-        /// Set the zoomi enabled value of a course. Set the zoomi enabled value of a course.
+        /// Set the Zoomi enabled value of a Course Version  Sets the Zoomi enabled value of a course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
-        /// <param name="zoomiCourseOptions"> (optional)</param>
+        /// <param name="versionId"></param>
+        /// <param name="enabled"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseZoomiEnabledAsyncWithHttpInfo (string courseId, int? versionId, ZoomiCourseOptionsSchema zoomiCourseOptions = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseZoomiEnabledAsyncWithHttpInfo (string courseId, int? versionId, EnabledSchema enabled)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -1715,6 +1963,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             // verify the required parameter 'versionId' is set
             if (versionId == null)
                 throw new ApiException(400, "Missing required parameter 'versionId' when calling ZoomiApi->SetCourseZoomiEnabled");
+            // verify the required parameter 'enabled' is set
+            if (enabled == null)
+                throw new ApiException(400, "Missing required parameter 'enabled' when calling ZoomiApi->SetCourseZoomiEnabled");
 
             var localVarPath = "/zoomi/course/{courseId}/version/{versionId}/enabled";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1740,13 +1991,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
             if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
-            if (zoomiCourseOptions != null && zoomiCourseOptions.GetType() != typeof(byte[]))
+            if (enabled != null && enabled.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(zoomiCourseOptions); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(enabled); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = zoomiCourseOptions; // byte array
+                localVarPostBody = enabled; // byte array
             }
 
             // authentication (APP_NORMAL) required

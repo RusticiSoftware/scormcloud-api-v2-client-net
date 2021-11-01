@@ -25,10 +25,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// DestinationsByTenant
+        /// Create a group of Destinations 
         /// </summary>
         /// <remarks>
-        /// Create multiple destinations.
+        /// Creates a group of destinations.  A destination is a label used to identify an entity outside of SCORM Cloud, such as an LMS.  Used in conjunction with dispatches to provide access control mechanisms for the courses distributed to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationsList"></param>
@@ -36,20 +36,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void CreateDestinations (DestinationListSchema destinationsList);
 
         /// <summary>
-        /// DestinationsByTenant
+        /// Create a group of Destinations 
         /// </summary>
         /// <remarks>
-        /// Create multiple destinations.
+        /// Creates a group of destinations.  A destination is a label used to identify an entity outside of SCORM Cloud, such as an LMS.  Used in conjunction with dispatches to provide access control mechanisms for the courses distributed to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationsList"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateDestinationsWithHttpInfo (DestinationListSchema destinationsList);
         /// <summary>
-        /// Create dispatches.
+        /// Create a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Create multiple dispatches at once. 
+        /// Creates a group of dispatches.  Dispatches are the connection between a course and a destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud.  As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination.  &gt;**Caution:** &gt;Only one dispatch can exist for a given course-destination combination.  If calling this method with the same course and destination supplied, the old one will be loaded for modification.  An exception to this is if a dispatchId is passed in the body, the request will fail with a 400 response warning that the dispatch already exists.  This is to prevent confusion over which dispatchId is to be used in future requests. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -57,20 +57,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void CreateDispatches (CreateDispatchListSchema dispatchList);
 
         /// <summary>
-        /// Create dispatches.
+        /// Create a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Create multiple dispatches at once. 
+        /// Creates a group of dispatches.  Dispatches are the connection between a course and a destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud.  As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination.  &gt;**Caution:** &gt;Only one dispatch can exist for a given course-destination combination.  If calling this method with the same course and destination supplied, the old one will be loaded for modification.  An exception to this is if a dispatchId is passed in the body, the request will fail with a 400 response warning that the dispatch already exists.  This is to prevent confusion over which dispatchId is to be used in future requests. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateDispatchesWithHttpInfo (CreateDispatchListSchema dispatchList);
         /// <summary>
-        /// Delete destination 
+        /// Delete a Destination 
         /// </summary>
         /// <remarks>
-        /// Delete the destination with &#x60;destinationId&#x60; 
+        /// Deletes the specified destination.  &gt;**Caution:** &gt;This will also delete all dispatches belonging to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -78,20 +78,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDestination (string destinationId);
 
         /// <summary>
-        /// Delete destination 
+        /// Delete a Destination 
         /// </summary>
         /// <remarks>
-        /// Delete the destination with &#x60;destinationId&#x60; 
+        /// Deletes the specified destination.  &gt;**Caution:** &gt;This will also delete all dispatches belonging to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDestinationWithHttpInfo (string destinationId);
         /// <summary>
-        /// Delete dispatches in destination 
+        /// Delete a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatches in a destination 
+        /// Deletes all the dispatches from the destination.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -99,20 +99,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDestinationDispatches (string destinationId);
 
         /// <summary>
-        /// Delete dispatches in destination 
+        /// Delete a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatches in a destination 
+        /// Deletes all the dispatches from the destination.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDestinationDispatchesWithHttpInfo (string destinationId);
         /// <summary>
-        /// Delete the tags for this destination 
+        /// Delete tags from a Destination 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this destination 
+        /// Deletes the specified tags from the destination.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -121,10 +121,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDestinationTags (string destinationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete the tags for this destination 
+        /// Delete tags from a Destination 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this destination 
+        /// Deletes the specified tags from the destination.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -132,10 +132,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDestinationTagsWithHttpInfo (string destinationId, TagListSchema tags);
         /// <summary>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Delete a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Deletes the specified dispatch.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -143,20 +143,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDispatch (string dispatchId);
 
         /// <summary>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Delete a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Deletes the specified dispatch.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDispatchWithHttpInfo (string dispatchId);
         /// <summary>
-        /// DispatchesByTenantAndDispatchId
+        /// Delete postback information from a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the postback info dispatch with &#39;dispatchId&#39;. 
+        /// Clears the postback settings from the dispatch.  This causes the postback settings to inherit a value from a higher level (e.g. application).  If there is no setting at the application level, this will disable postbacks for the dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -164,20 +164,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDispatchPostbackInfo (string dispatchId);
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId
+        /// Delete postback information from a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the postback info dispatch with &#39;dispatchId&#39;. 
+        /// Clears the postback settings from the dispatch.  This causes the postback settings to inherit a value from a higher level (e.g. application).  If there is no setting at the application level, this will disable postbacks for the dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDispatchPostbackInfoWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Delete the tags for this dispatch. 
+        /// Delete tags from a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this dispatch. 
+        /// Deletes the specified tags from the dispatch.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -186,10 +186,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteDispatchTags (string dispatchId, TagListSchema tags);
 
         /// <summary>
-        /// Delete the tags for this dispatch. 
+        /// Delete tags from a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this dispatch. 
+        /// Deletes the specified tags from the dispatch.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -197,10 +197,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteDispatchTagsWithHttpInfo (string dispatchId, TagListSchema tags);
         /// <summary>
-        /// DestinationsDispatchesRegistrationInstancing
+        /// Delete a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Enable or disable registration instancing.
+        /// Deletes the specified group of dispatches.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental deletion of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns></returns>
+        void DeleteDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null);
+
+        /// <summary>
+        /// Delete a group of Dispatches 
+        /// </summary>
+        /// <remarks>
+        /// Deletes the specified group of dispatches.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental deletion of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null);
+        /// <summary>
+        /// Update registration instancing status for a Destination&#39;s Dispatches 
+        /// </summary>
+        /// <remarks>
+        /// Updates the restration instancing status for all dispatches distributed to the destination.  Registration instancing is the default for dispatches, in order to support versioning of dispatches.  A small portion of users may experience duplicate registrations with content dispatched to some LMS platforms.  If you happen to be dispatching content to an LMS with this issue, disabling registration instancing here will resolve the problems. However, dispatch versioning will also be disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -209,10 +242,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void EnableRegistrationInstancing (string destinationId, EnabledSchema enabled);
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationInstancing
+        /// Update registration instancing status for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Enable or disable registration instancing.
+        /// Updates the restration instancing status for all dispatches distributed to the destination.  Registration instancing is the default for dispatches, in order to support versioning of dispatches.  A small portion of users may experience duplicate registrations with content dispatched to some LMS platforms.  If you happen to be dispatching content to an LMS with this issue, disabling registration instancing here will resolve the problems. However, dispatch versioning will also be disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -220,10 +253,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> EnableRegistrationInstancingWithHttpInfo (string destinationId, EnabledSchema enabled);
         /// <summary>
-        /// Get destination information by destinationId.
+        /// Get detailed information about a Destination 
         /// </summary>
         /// <remarks>
-        /// Gets detailed information about a destination belonging to a destinationId.
+        /// Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -231,20 +264,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         DestinationSchema GetDestination (string destinationId);
 
         /// <summary>
-        /// Get destination information by destinationId.
+        /// Get detailed information about a Destination 
         /// </summary>
         /// <remarks>
-        /// Gets detailed information about a destination belonging to a destinationId.
+        /// Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>ApiResponse of DestinationSchema</returns>
         ApiResponse<DestinationSchema> GetDestinationWithHttpInfo (string destinationId);
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount
+        /// Get registration count for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get an aggregate count of all related dispatch registrations.
+        /// Returns the registration count for all dispatches distributed to the destination.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -252,82 +285,86 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         IntegerResultSchema GetDestinationDispatchRegistrationCount (string destinationId);
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount
+        /// Get registration count for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get an aggregate count of all related dispatch registrations.
+        /// Returns the registration count for all dispatches distributed to the destination.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>ApiResponse of IntegerResultSchema</returns>
         ApiResponse<IntegerResultSchema> GetDestinationDispatchRegistrationCountWithHttpInfo (string destinationId);
         /// <summary>
-        /// Get a ZIP of related dispatches.
+        /// Download a zip file for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Returns a zip file containing all of the dispatch packages for a destination.
+        /// Downloads a zip file containing all of the dispatch packages for the destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
+        /// <param name="type">The type of dispatch package to export (SCORM_12 only supported in SCORM Cloud today) (optional, default to SCORM_12)</param>
         /// <param name="cssUrl"> (optional)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <returns>System.IO.Stream</returns>
         System.IO.Stream GetDestinationDispatchZip (string destinationId, string type = null, string cssUrl = null, List<string> tags = null);
 
         /// <summary>
-        /// Get a ZIP of related dispatches.
+        /// Download a zip file for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Returns a zip file containing all of the dispatch packages for a destination.
+        /// Downloads a zip file containing all of the dispatch packages for the destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
+        /// <param name="type">The type of dispatch package to export (SCORM_12 only supported in SCORM Cloud today) (optional, default to SCORM_12)</param>
         /// <param name="cssUrl"> (optional)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> GetDestinationDispatchZipWithHttpInfo (string destinationId, string type = null, string cssUrl = null, List<string> tags = null);
         /// <summary>
-        /// Get a list of dispatches in this destination
+        /// Get a list of a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get a list of related dispatches.
+        /// Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy"> (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>DispatchListSchema</returns>
-        DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get a list of dispatches in this destination
+        /// Get a list of a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get a list of related dispatches.
+        /// Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy"> (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        ApiResponse<DispatchListSchema> GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        ApiResponse<DispatchListSchema> GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// True if the destination is set to hash user info, or false if it is disabled.
+        /// Get user PII hashing status for a Destination 
         /// </summary>
         /// <remarks>
-        /// True if the destination is set to hash user info, or false if it is disabled.
+        /// Returns whether or not user PII hashing is enabled for the destination.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -335,20 +372,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         EnabledSchema GetDestinationHashUserInfo (string destinationId);
 
         /// <summary>
-        /// True if the destination is set to hash user info, or false if it is disabled.
+        /// Get user PII hashing status for a Destination 
         /// </summary>
         /// <remarks>
-        /// True if the destination is set to hash user info, or false if it is disabled.
+        /// Returns whether or not user PII hashing is enabled for the destination.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>ApiResponse of EnabledSchema</returns>
         ApiResponse<EnabledSchema> GetDestinationHashUserInfoWithHttpInfo (string destinationId);
         /// <summary>
-        /// Get the tags for this destination 
+        /// Get tags for a Destination 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this destination 
+        /// Returns the tags for the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -356,53 +393,57 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         TagListSchema GetDestinationTags (string destinationId);
 
         /// <summary>
-        /// Get the tags for this destination 
+        /// Get tags for a Destination 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this destination 
+        /// Returns the tags for the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>ApiResponse of TagListSchema</returns>
         ApiResponse<TagListSchema> GetDestinationTagsWithHttpInfo (string destinationId);
         /// <summary>
-        /// getAllDestinations
+        /// Get a list of Destinations 
         /// </summary>
         /// <remarks>
-        /// Get a list of destinations.
+        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>DestinationListSchema</returns>
-        DestinationListSchema GetDestinations (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        DestinationListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// getAllDestinations
+        /// Get a list of Destinations 
         /// </summary>
         /// <remarks>
-        /// Get a list of destinations.
+        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of DestinationListSchema</returns>
-        ApiResponse<DestinationListSchema> GetDestinationsWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        ApiResponse<DestinationListSchema> GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Get dispatch by id.
+        /// Get detailed information about a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the dispatch with &#x60;dispatchId&#x60;. 
+        /// Returns detailed information about the dispatch.  This includes destination and course IDs, as well as registration count. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -410,20 +451,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         DispatchSchema GetDispatch (string dispatchId);
 
         /// <summary>
-        /// Get dispatch by id.
+        /// Get detailed information about a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the dispatch with &#x60;dispatchId&#x60;. 
+        /// Returns detailed information about the dispatch.  This includes destination and course IDs, as well as registration count. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of DispatchSchema</returns>
         ApiResponse<DispatchSchema> GetDispatchWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Get enabled status of a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
+        /// Returns the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -431,20 +472,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         EnabledSchema GetDispatchEnabled (string dispatchId);
 
         /// <summary>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Get enabled status of a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
+        /// Returns the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of EnabledSchema</returns>
         ApiResponse<EnabledSchema> GetDispatchEnabledWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled.
+        /// Get user PII hashing status for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
+        /// Returns whether or not user PII hashing is enabled for the dispatch.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -452,20 +493,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         EnabledSchema GetDispatchHashUserInfo (string dispatchId);
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled.
+        /// Get user PII hashing status for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
+        /// Returns whether or not user PII hashing is enabled for the dispatch.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of EnabledSchema</returns>
         ApiResponse<EnabledSchema> GetDispatchHashUserInfoWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the registration count for &#x60;dispatchId&#x60;. 
+        /// Get registration count for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
+        /// Returns the registration count for the dispatch, as well as the date and time of the last count reset, if any.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -473,20 +514,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         DispatchRegistrationCountSchema GetDispatchRegistrationCount (string dispatchId);
 
         /// <summary>
-        /// Get the registration count for &#x60;dispatchId&#x60;. 
+        /// Get registration count for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
+        /// Returns the registration count for the dispatch, as well as the date and time of the last count reset, if any.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of DispatchRegistrationCountSchema</returns>
         ApiResponse<DispatchRegistrationCountSchema> GetDispatchRegistrationCountWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the tags for this dispatch. 
+        /// Get tags for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this dispatch. 
+        /// Returns the tags for the dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -494,78 +535,103 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         TagListSchema GetDispatchTags (string dispatchId);
 
         /// <summary>
-        /// Get the tags for this dispatch. 
+        /// Get tags for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this dispatch. 
+        /// Returns the tags for the dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of TagListSchema</returns>
         ApiResponse<TagListSchema> GetDispatchTagsWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the ZIP for the dispatchId.
+        /// Download a zip package for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
+        /// Downloads a zip package for the dispatch.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
-        /// <param name="cssUrl"> (optional)</param>
+        /// <param name="type">The type of dispatch package to export (currently only SCORM_12 available) (optional, default to SCORM_12)</param>
+        /// <param name="cssUrl">Custom CSS to apply to the dispatch package (optional)</param>
         /// <returns>System.IO.Stream</returns>
         System.IO.Stream GetDispatchZip (string dispatchId, string type = null, string cssUrl = null);
 
         /// <summary>
-        /// Get the ZIP for the dispatchId.
+        /// Download a zip package for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
+        /// Downloads a zip package for the dispatch.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
-        /// <param name="cssUrl"> (optional)</param>
+        /// <param name="type">The type of dispatch package to export (currently only SCORM_12 available) (optional, default to SCORM_12)</param>
+        /// <param name="cssUrl">Custom CSS to apply to the dispatch package (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> GetDispatchZipWithHttpInfo (string dispatchId, string type = null, string cssUrl = null);
         /// <summary>
-        /// All Dispatches in the system for an AppId
+        /// Get a list of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get a list of dispatches.
+        /// Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>DispatchListSchema</returns>
-        DispatchListSchema GetDispatches (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        DispatchListSchema GetDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// All Dispatches in the system for an AppId
+        /// Get a list of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get a list of dispatches.
+        /// Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        ApiResponse<DispatchListSchema> GetDispatchesWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        ApiResponse<DispatchListSchema> GetDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Set the tags for this destination 
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this destination 
+        /// 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>DispatchLtiInfoSchema</returns>
+        DispatchLtiInfoSchema GetLTIDispatch (string dispatchId);
+
+        /// <summary>
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>ApiResponse of DispatchLtiInfoSchema</returns>
+        ApiResponse<DispatchLtiInfoSchema> GetLTIDispatchWithHttpInfo (string dispatchId);
+        /// <summary>
+        /// Add tags to a Destination 
+        /// </summary>
+        /// <remarks>
+        /// Applies the provided tags to the destination.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -574,10 +640,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutDestinationTags (string destinationId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this destination 
+        /// Add tags to a Destination 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this destination 
+        /// Applies the provided tags to the destination.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -585,31 +651,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutDestinationTagsWithHttpInfo (string destinationId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations
+        /// Add a group of tags to a group of Destinations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided destinations
+        /// Applies all of the provided tags on all of the provided destinations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         void PutDestinationTagsBatch (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations
+        /// Add a group of tags to a group of Destinations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided destinations
+        /// Applies all of the provided tags on all of the provided destinations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutDestinationTagsBatchWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set the tags for this dispatch. 
+        /// Add tags to a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this dispatch. 
+        /// Applies the provided tags to the dispatch.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -618,10 +684,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutDispatchTags (string dispatchId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this dispatch. 
+        /// Add tags to a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this dispatch. 
+        /// Applies the provided tags to the dispatch.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -629,31 +695,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutDispatchTagsWithHttpInfo (string dispatchId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Add a group of tags to a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Applies all of the provided tags on all of the provided dispatches.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         void PutDispatchTagsBatch (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Add a group of tags to a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Applies all of the provided tags on all of the provided dispatches.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutDispatchTagsBatchWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount
+        /// Reset registration counts for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Reset registration counts for all related dispatches.
+        /// Clears the registration count for all dispatches distributed to the destination.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -661,20 +727,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void ResetDestinationDispatchRegistrationCount (string destinationId);
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount
+        /// Reset registration counts for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Reset registration counts for all related dispatches.
+        /// Clears the registration count for all dispatches distributed to the destination.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResetDestinationDispatchRegistrationCountWithHttpInfo (string destinationId);
         /// <summary>
-        /// Reset registration count. 
+        /// Reset registration count for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Reset the registration count for this dispatch. 
+        /// Clears the registration count for the dispatch.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -682,20 +748,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void ResetDispatchRegistrationCount (string dispatchId);
 
         /// <summary>
-        /// Reset registration count. 
+        /// Reset registration count for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Reset the registration count for this dispatch. 
+        /// Clears the registration count for the dispatch.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResetDispatchRegistrationCountWithHttpInfo (string dispatchId);
         /// <summary>
-        /// 
+        /// Create or update a Destination 
         /// </summary>
         /// <remarks>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -704,10 +770,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetDestination (string destinationId, DestinationSchema destination);
 
         /// <summary>
-        /// 
+        /// Create or update a Destination 
         /// </summary>
         /// <remarks>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -715,10 +781,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetDestinationWithHttpInfo (string destinationId, DestinationSchema destination);
         /// <summary>
-        /// DestinationsDispatchesEnabledByTenant
+        /// Update enabled status for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Enable or disable all related dispatches.
+        /// Updates the enabled status for all dispatches distributed to the destination.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -727,10 +793,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetDestinationDispatchEnabled (string destinationId, EnabledSchema enabled);
 
         /// <summary>
-        /// DestinationsDispatchesEnabledByTenant
+        /// Update enabled status for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Enable or disable all related dispatches.
+        /// Updates the enabled status for all dispatches distributed to the destination.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -738,10 +804,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetDestinationDispatchEnabledWithHttpInfo (string destinationId, EnabledSchema enabled);
         /// <summary>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Update enabled status for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Updates the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -750,10 +816,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetDispatchEnabled (string dispatchId, EnabledSchema enabled);
 
         /// <summary>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Update enabled status for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Updates the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -761,10 +827,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetDispatchEnabledWithHttpInfo (string dispatchId, EnabledSchema enabled);
         /// <summary>
-        /// Enable or disable hashing of the user info for the destination.
+        /// Update user PII hashing status for a Destination
         /// </summary>
         /// <remarks>
-        /// Enable or disable hashing of the user info for the destination.
+        /// Updates user PII hashing status for the destination.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -773,10 +839,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void UpdateDestinationHashUserInfo (string destinationId, EnabledSchema enabled);
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the destination.
+        /// Update user PII hashing status for a Destination
         /// </summary>
         /// <remarks>
-        /// Enable or disable hashing of the user info for the destination.
+        /// Updates user PII hashing status for the destination.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -784,10 +850,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateDestinationHashUserInfoWithHttpInfo (string destinationId, EnabledSchema enabled);
         /// <summary>
-        /// Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Update information about a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Updates information about the dispatch, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -796,10 +862,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void UpdateDispatch (string dispatchId, UpdateDispatchSchema dispatchProperties);
 
         /// <summary>
-        /// Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Update information about a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Updates information about the dispatch, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -807,10 +873,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateDispatchWithHttpInfo (string dispatchId, UpdateDispatchSchema dispatchProperties);
         /// <summary>
-        /// Enable or disable hashing of the user info for the dispatch.
+        /// Update user PII hashing status for a Dispatch
         /// </summary>
         /// <remarks>
-        /// Enable or disable hashing of the user info for the dispatch.
+        /// Updates user PII hashing status for the dispatch.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -819,23 +885,58 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void UpdateDispatchHashUserInfo (string dispatchId, EnabledSchema enabled);
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the dispatch.
+        /// Update user PII hashing status for a Dispatch
         /// </summary>
         /// <remarks>
-        /// Enable or disable hashing of the user info for the dispatch.
+        /// Updates user PII hashing status for the dispatch.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <param name="enabled"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateDispatchHashUserInfoWithHttpInfo (string dispatchId, EnabledSchema enabled);
+        /// <summary>
+        /// Update a group of Dispatches 
+        /// </summary>
+        /// <remarks>
+        /// Updates information about a group of dispatches, such as registration cap, expiration date, and postback information. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental modification of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchProperties"></param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns></returns>
+        void UpdateDispatches (UpdateDispatchSchema dispatchProperties, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null);
+
+        /// <summary>
+        /// Update a group of Dispatches 
+        /// </summary>
+        /// <remarks>
+        /// Updates information about a group of dispatches, such as registration cap, expiration date, and postback information. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental modification of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchProperties"></param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateDispatchesWithHttpInfo (UpdateDispatchSchema dispatchProperties, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// DestinationsByTenant
+        /// Create a group of Destinations 
         /// </summary>
         /// <remarks>
-        /// Create multiple destinations.
+        /// Creates a group of destinations.  A destination is a label used to identify an entity outside of SCORM Cloud, such as an LMS.  Used in conjunction with dispatches to provide access control mechanisms for the courses distributed to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationsList"></param>
@@ -843,20 +944,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task CreateDestinationsAsync (DestinationListSchema destinationsList);
 
         /// <summary>
-        /// DestinationsByTenant
+        /// Create a group of Destinations 
         /// </summary>
         /// <remarks>
-        /// Create multiple destinations.
+        /// Creates a group of destinations.  A destination is a label used to identify an entity outside of SCORM Cloud, such as an LMS.  Used in conjunction with dispatches to provide access control mechanisms for the courses distributed to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationsList"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateDestinationsAsyncWithHttpInfo (DestinationListSchema destinationsList);
         /// <summary>
-        /// Create dispatches.
+        /// Create a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Create multiple dispatches at once. 
+        /// Creates a group of dispatches.  Dispatches are the connection between a course and a destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud.  As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination.  &gt;**Caution:** &gt;Only one dispatch can exist for a given course-destination combination.  If calling this method with the same course and destination supplied, the old one will be loaded for modification.  An exception to this is if a dispatchId is passed in the body, the request will fail with a 400 response warning that the dispatch already exists.  This is to prevent confusion over which dispatchId is to be used in future requests. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -864,20 +965,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task CreateDispatchesAsync (CreateDispatchListSchema dispatchList);
 
         /// <summary>
-        /// Create dispatches.
+        /// Create a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Create multiple dispatches at once. 
+        /// Creates a group of dispatches.  Dispatches are the connection between a course and a destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud.  As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination.  &gt;**Caution:** &gt;Only one dispatch can exist for a given course-destination combination.  If calling this method with the same course and destination supplied, the old one will be loaded for modification.  An exception to this is if a dispatchId is passed in the body, the request will fail with a 400 response warning that the dispatch already exists.  This is to prevent confusion over which dispatchId is to be used in future requests. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateDispatchesAsyncWithHttpInfo (CreateDispatchListSchema dispatchList);
         /// <summary>
-        /// Delete destination 
+        /// Delete a Destination 
         /// </summary>
         /// <remarks>
-        /// Delete the destination with &#x60;destinationId&#x60; 
+        /// Deletes the specified destination.  &gt;**Caution:** &gt;This will also delete all dispatches belonging to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -885,20 +986,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDestinationAsync (string destinationId);
 
         /// <summary>
-        /// Delete destination 
+        /// Delete a Destination 
         /// </summary>
         /// <remarks>
-        /// Delete the destination with &#x60;destinationId&#x60; 
+        /// Deletes the specified destination.  &gt;**Caution:** &gt;This will also delete all dispatches belonging to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDestinationAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// Delete dispatches in destination 
+        /// Delete a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatches in a destination 
+        /// Deletes all the dispatches from the destination.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -906,20 +1007,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDestinationDispatchesAsync (string destinationId);
 
         /// <summary>
-        /// Delete dispatches in destination 
+        /// Delete a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatches in a destination 
+        /// Deletes all the dispatches from the destination.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDestinationDispatchesAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// Delete the tags for this destination 
+        /// Delete tags from a Destination 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this destination 
+        /// Deletes the specified tags from the destination.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -928,10 +1029,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDestinationTagsAsync (string destinationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete the tags for this destination 
+        /// Delete tags from a Destination 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this destination 
+        /// Deletes the specified tags from the destination.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -939,10 +1040,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDestinationTagsAsyncWithHttpInfo (string destinationId, TagListSchema tags);
         /// <summary>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Delete a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Deletes the specified dispatch.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -950,20 +1051,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDispatchAsync (string dispatchId);
 
         /// <summary>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Delete a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Deletes the specified dispatch.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDispatchAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// DispatchesByTenantAndDispatchId
+        /// Delete postback information from a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the postback info dispatch with &#39;dispatchId&#39;. 
+        /// Clears the postback settings from the dispatch.  This causes the postback settings to inherit a value from a higher level (e.g. application).  If there is no setting at the application level, this will disable postbacks for the dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -971,20 +1072,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDispatchPostbackInfoAsync (string dispatchId);
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId
+        /// Delete postback information from a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the postback info dispatch with &#39;dispatchId&#39;. 
+        /// Clears the postback settings from the dispatch.  This causes the postback settings to inherit a value from a higher level (e.g. application).  If there is no setting at the application level, this will disable postbacks for the dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDispatchPostbackInfoAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Delete the tags for this dispatch. 
+        /// Delete tags from a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this dispatch. 
+        /// Deletes the specified tags from the dispatch.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -993,10 +1094,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteDispatchTagsAsync (string dispatchId, TagListSchema tags);
 
         /// <summary>
-        /// Delete the tags for this dispatch. 
+        /// Delete tags from a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this dispatch. 
+        /// Deletes the specified tags from the dispatch.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1004,10 +1105,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDispatchTagsAsyncWithHttpInfo (string dispatchId, TagListSchema tags);
         /// <summary>
-        /// DestinationsDispatchesRegistrationInstancing
+        /// Delete a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Enable or disable registration instancing.
+        /// Deletes the specified group of dispatches.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental deletion of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null);
+
+        /// <summary>
+        /// Delete a group of Dispatches 
+        /// </summary>
+        /// <remarks>
+        /// Deletes the specified group of dispatches.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental deletion of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null);
+        /// <summary>
+        /// Update registration instancing status for a Destination&#39;s Dispatches 
+        /// </summary>
+        /// <remarks>
+        /// Updates the restration instancing status for all dispatches distributed to the destination.  Registration instancing is the default for dispatches, in order to support versioning of dispatches.  A small portion of users may experience duplicate registrations with content dispatched to some LMS platforms.  If you happen to be dispatching content to an LMS with this issue, disabling registration instancing here will resolve the problems. However, dispatch versioning will also be disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1016,10 +1150,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task EnableRegistrationInstancingAsync (string destinationId, EnabledSchema enabled);
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationInstancing
+        /// Update registration instancing status for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Enable or disable registration instancing.
+        /// Updates the restration instancing status for all dispatches distributed to the destination.  Registration instancing is the default for dispatches, in order to support versioning of dispatches.  A small portion of users may experience duplicate registrations with content dispatched to some LMS platforms.  If you happen to be dispatching content to an LMS with this issue, disabling registration instancing here will resolve the problems. However, dispatch versioning will also be disabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1027,10 +1161,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> EnableRegistrationInstancingAsyncWithHttpInfo (string destinationId, EnabledSchema enabled);
         /// <summary>
-        /// Get destination information by destinationId.
+        /// Get detailed information about a Destination 
         /// </summary>
         /// <remarks>
-        /// Gets detailed information about a destination belonging to a destinationId.
+        /// Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1038,20 +1172,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<DestinationSchema> GetDestinationAsync (string destinationId);
 
         /// <summary>
-        /// Get destination information by destinationId.
+        /// Get detailed information about a Destination 
         /// </summary>
         /// <remarks>
-        /// Gets detailed information about a destination belonging to a destinationId.
+        /// Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>Task of ApiResponse (DestinationSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<DestinationSchema>> GetDestinationAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount
+        /// Get registration count for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get an aggregate count of all related dispatch registrations.
+        /// Returns the registration count for all dispatches distributed to the destination.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1059,82 +1193,86 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<IntegerResultSchema> GetDestinationDispatchRegistrationCountAsync (string destinationId);
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount
+        /// Get registration count for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get an aggregate count of all related dispatch registrations.
+        /// Returns the registration count for all dispatches distributed to the destination.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>Task of ApiResponse (IntegerResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<IntegerResultSchema>> GetDestinationDispatchRegistrationCountAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// Get a ZIP of related dispatches.
+        /// Download a zip file for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Returns a zip file containing all of the dispatch packages for a destination.
+        /// Downloads a zip file containing all of the dispatch packages for the destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
+        /// <param name="type">The type of dispatch package to export (SCORM_12 only supported in SCORM Cloud today) (optional, default to SCORM_12)</param>
         /// <param name="cssUrl"> (optional)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <returns>Task of System.IO.Stream</returns>
         System.Threading.Tasks.Task<System.IO.Stream> GetDestinationDispatchZipAsync (string destinationId, string type = null, string cssUrl = null, List<string> tags = null);
 
         /// <summary>
-        /// Get a ZIP of related dispatches.
+        /// Download a zip file for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Returns a zip file containing all of the dispatch packages for a destination.
+        /// Downloads a zip file containing all of the dispatch packages for the destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
+        /// <param name="type">The type of dispatch package to export (SCORM_12 only supported in SCORM Cloud today) (optional, default to SCORM_12)</param>
         /// <param name="cssUrl"> (optional)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetDestinationDispatchZipAsyncWithHttpInfo (string destinationId, string type = null, string cssUrl = null, List<string> tags = null);
         /// <summary>
-        /// Get a list of dispatches in this destination
+        /// Get a list of a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get a list of related dispatches.
+        /// Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy"> (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get a list of dispatches in this destination
+        /// Get a list of a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get a list of related dispatches.
+        /// Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy"> (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// True if the destination is set to hash user info, or false if it is disabled.
+        /// Get user PII hashing status for a Destination 
         /// </summary>
         /// <remarks>
-        /// True if the destination is set to hash user info, or false if it is disabled.
+        /// Returns whether or not user PII hashing is enabled for the destination.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1142,20 +1280,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<EnabledSchema> GetDestinationHashUserInfoAsync (string destinationId);
 
         /// <summary>
-        /// True if the destination is set to hash user info, or false if it is disabled.
+        /// Get user PII hashing status for a Destination 
         /// </summary>
         /// <remarks>
-        /// True if the destination is set to hash user info, or false if it is disabled.
+        /// Returns whether or not user PII hashing is enabled for the destination.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>Task of ApiResponse (EnabledSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<EnabledSchema>> GetDestinationHashUserInfoAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// Get the tags for this destination 
+        /// Get tags for a Destination 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this destination 
+        /// Returns the tags for the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1163,53 +1301,57 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<TagListSchema> GetDestinationTagsAsync (string destinationId);
 
         /// <summary>
-        /// Get the tags for this destination 
+        /// Get tags for a Destination 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this destination 
+        /// Returns the tags for the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetDestinationTagsAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// getAllDestinations
+        /// Get a list of Destinations 
         /// </summary>
         /// <remarks>
-        /// Get a list of destinations.
+        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of DestinationListSchema</returns>
-        System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// getAllDestinations
+        /// Get a list of Destinations 
         /// </summary>
         /// <remarks>
-        /// Get a list of destinations.
+        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (DestinationListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Get dispatch by id.
+        /// Get detailed information about a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the dispatch with &#x60;dispatchId&#x60;. 
+        /// Returns detailed information about the dispatch.  This includes destination and course IDs, as well as registration count. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1217,20 +1359,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<DispatchSchema> GetDispatchAsync (string dispatchId);
 
         /// <summary>
-        /// Get dispatch by id.
+        /// Get detailed information about a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the dispatch with &#x60;dispatchId&#x60;. 
+        /// Returns detailed information about the dispatch.  This includes destination and course IDs, as well as registration count. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse (DispatchSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<DispatchSchema>> GetDispatchAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Get enabled status of a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
+        /// Returns the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1238,20 +1380,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<EnabledSchema> GetDispatchEnabledAsync (string dispatchId);
 
         /// <summary>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Get enabled status of a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
+        /// Returns the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse (EnabledSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<EnabledSchema>> GetDispatchEnabledAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled.
+        /// Get user PII hashing status for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
+        /// Returns whether or not user PII hashing is enabled for the dispatch.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1259,20 +1401,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<EnabledSchema> GetDispatchHashUserInfoAsync (string dispatchId);
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled.
+        /// Get user PII hashing status for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
+        /// Returns whether or not user PII hashing is enabled for the dispatch.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse (EnabledSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<EnabledSchema>> GetDispatchHashUserInfoAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the registration count for &#x60;dispatchId&#x60;. 
+        /// Get registration count for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
+        /// Returns the registration count for the dispatch, as well as the date and time of the last count reset, if any.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1280,20 +1422,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<DispatchRegistrationCountSchema> GetDispatchRegistrationCountAsync (string dispatchId);
 
         /// <summary>
-        /// Get the registration count for &#x60;dispatchId&#x60;. 
+        /// Get registration count for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
+        /// Returns the registration count for the dispatch, as well as the date and time of the last count reset, if any.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse (DispatchRegistrationCountSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<DispatchRegistrationCountSchema>> GetDispatchRegistrationCountAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the tags for this dispatch. 
+        /// Get tags for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this dispatch. 
+        /// Returns the tags for the dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1301,78 +1443,103 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<TagListSchema> GetDispatchTagsAsync (string dispatchId);
 
         /// <summary>
-        /// Get the tags for this dispatch. 
+        /// Get tags for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this dispatch. 
+        /// Returns the tags for the dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetDispatchTagsAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// Get the ZIP for the dispatchId.
+        /// Download a zip package for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
+        /// Downloads a zip package for the dispatch.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
-        /// <param name="cssUrl"> (optional)</param>
+        /// <param name="type">The type of dispatch package to export (currently only SCORM_12 available) (optional, default to SCORM_12)</param>
+        /// <param name="cssUrl">Custom CSS to apply to the dispatch package (optional)</param>
         /// <returns>Task of System.IO.Stream</returns>
         System.Threading.Tasks.Task<System.IO.Stream> GetDispatchZipAsync (string dispatchId, string type = null, string cssUrl = null);
 
         /// <summary>
-        /// Get the ZIP for the dispatchId.
+        /// Download a zip package for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
+        /// Downloads a zip package for the dispatch.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
-        /// <param name="cssUrl"> (optional)</param>
+        /// <param name="type">The type of dispatch package to export (currently only SCORM_12 available) (optional, default to SCORM_12)</param>
+        /// <param name="cssUrl">Custom CSS to apply to the dispatch package (optional)</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetDispatchZipAsyncWithHttpInfo (string dispatchId, string type = null, string cssUrl = null);
         /// <summary>
-        /// All Dispatches in the system for an AppId
+        /// Get a list of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get a list of dispatches.
+        /// Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// All Dispatches in the system for an AppId
+        /// Get a list of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Get a list of dispatches.
+        /// Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null);
+        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Set the tags for this destination 
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this destination 
+        /// 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>Task of DispatchLtiInfoSchema</returns>
+        System.Threading.Tasks.Task<DispatchLtiInfoSchema> GetLTIDispatchAsync (string dispatchId);
+
+        /// <summary>
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>Task of ApiResponse (DispatchLtiInfoSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DispatchLtiInfoSchema>> GetLTIDispatchAsyncWithHttpInfo (string dispatchId);
+        /// <summary>
+        /// Add tags to a Destination 
+        /// </summary>
+        /// <remarks>
+        /// Applies the provided tags to the destination.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1381,10 +1548,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutDestinationTagsAsync (string destinationId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this destination 
+        /// Add tags to a Destination 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this destination 
+        /// Applies the provided tags to the destination.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1392,31 +1559,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutDestinationTagsAsyncWithHttpInfo (string destinationId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations
+        /// Add a group of tags to a group of Destinations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided destinations
+        /// Applies all of the provided tags on all of the provided destinations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PutDestinationTagsBatchAsync (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations
+        /// Add a group of tags to a group of Destinations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided destinations
+        /// Applies all of the provided tags on all of the provided destinations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutDestinationTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set the tags for this dispatch. 
+        /// Add tags to a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this dispatch. 
+        /// Applies the provided tags to the dispatch.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1425,10 +1592,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutDispatchTagsAsync (string dispatchId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this dispatch. 
+        /// Add tags to a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this dispatch. 
+        /// Applies the provided tags to the dispatch.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1436,31 +1603,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutDispatchTagsAsyncWithHttpInfo (string dispatchId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Add a group of tags to a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Applies all of the provided tags on all of the provided dispatches.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PutDispatchTagsBatchAsync (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Add a group of tags to a group of Dispatches 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided dispatches 
+        /// Applies all of the provided tags on all of the provided dispatches.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutDispatchTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount
+        /// Reset registration counts for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Reset registration counts for all related dispatches.
+        /// Clears the registration count for all dispatches distributed to the destination.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1468,20 +1635,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task ResetDestinationDispatchRegistrationCountAsync (string destinationId);
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount
+        /// Reset registration counts for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Reset registration counts for all related dispatches.
+        /// Clears the registration count for all dispatches distributed to the destination.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ResetDestinationDispatchRegistrationCountAsyncWithHttpInfo (string destinationId);
         /// <summary>
-        /// Reset registration count. 
+        /// Reset registration count for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Reset the registration count for this dispatch. 
+        /// Clears the registration count for the dispatch.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1489,20 +1656,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task ResetDispatchRegistrationCountAsync (string dispatchId);
 
         /// <summary>
-        /// Reset registration count. 
+        /// Reset registration count for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Reset the registration count for this dispatch. 
+        /// Clears the registration count for the dispatch.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ResetDispatchRegistrationCountAsyncWithHttpInfo (string dispatchId);
         /// <summary>
-        /// 
+        /// Create or update a Destination 
         /// </summary>
         /// <remarks>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1511,10 +1678,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetDestinationAsync (string destinationId, DestinationSchema destination);
 
         /// <summary>
-        /// 
+        /// Create or update a Destination 
         /// </summary>
         /// <remarks>
-        /// Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1522,10 +1689,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetDestinationAsyncWithHttpInfo (string destinationId, DestinationSchema destination);
         /// <summary>
-        /// DestinationsDispatchesEnabledByTenant
+        /// Update enabled status for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Enable or disable all related dispatches.
+        /// Updates the enabled status for all dispatches distributed to the destination.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1534,10 +1701,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetDestinationDispatchEnabledAsync (string destinationId, EnabledSchema enabled);
 
         /// <summary>
-        /// DestinationsDispatchesEnabledByTenant
+        /// Update enabled status for a Destination&#39;s Dispatches 
         /// </summary>
         /// <remarks>
-        /// Enable or disable all related dispatches.
+        /// Updates the enabled status for all dispatches distributed to the destination.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1545,10 +1712,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetDestinationDispatchEnabledAsyncWithHttpInfo (string destinationId, EnabledSchema enabled);
         /// <summary>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Update enabled status for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Updates the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1557,10 +1724,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetDispatchEnabledAsync (string dispatchId, EnabledSchema enabled);
 
         /// <summary>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Update enabled status for a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Updates the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1568,10 +1735,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetDispatchEnabledAsyncWithHttpInfo (string dispatchId, EnabledSchema enabled);
         /// <summary>
-        /// Enable or disable hashing of the user info for the destination.
+        /// Update user PII hashing status for a Destination
         /// </summary>
         /// <remarks>
-        /// Enable or disable hashing of the user info for the destination.
+        /// Updates user PII hashing status for the destination.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1580,10 +1747,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task UpdateDestinationHashUserInfoAsync (string destinationId, EnabledSchema enabled);
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the destination.
+        /// Update user PII hashing status for a Destination
         /// </summary>
         /// <remarks>
-        /// Enable or disable hashing of the user info for the destination.
+        /// Updates user PII hashing status for the destination.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1591,10 +1758,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateDestinationHashUserInfoAsyncWithHttpInfo (string destinationId, EnabledSchema enabled);
         /// <summary>
-        /// Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Update information about a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Updates information about the dispatch, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1603,10 +1770,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task UpdateDispatchAsync (string dispatchId, UpdateDispatchSchema dispatchProperties);
 
         /// <summary>
-        /// Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Update information about a Dispatch 
         /// </summary>
         /// <remarks>
-        /// Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Updates information about the dispatch, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1614,10 +1781,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateDispatchAsyncWithHttpInfo (string dispatchId, UpdateDispatchSchema dispatchProperties);
         /// <summary>
-        /// Enable or disable hashing of the user info for the dispatch.
+        /// Update user PII hashing status for a Dispatch
         /// </summary>
         /// <remarks>
-        /// Enable or disable hashing of the user info for the dispatch.
+        /// Updates user PII hashing status for the dispatch.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1626,16 +1793,51 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task UpdateDispatchHashUserInfoAsync (string dispatchId, EnabledSchema enabled);
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the dispatch.
+        /// Update user PII hashing status for a Dispatch
         /// </summary>
         /// <remarks>
-        /// Enable or disable hashing of the user info for the dispatch.
+        /// Updates user PII hashing status for the dispatch.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <param name="enabled"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateDispatchHashUserInfoAsyncWithHttpInfo (string dispatchId, EnabledSchema enabled);
+        /// <summary>
+        /// Update a group of Dispatches 
+        /// </summary>
+        /// <remarks>
+        /// Updates information about a group of dispatches, such as registration cap, expiration date, and postback information. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental modification of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchProperties"></param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateDispatchesAsync (UpdateDispatchSchema dispatchProperties, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null);
+
+        /// <summary>
+        /// Update a group of Dispatches 
+        /// </summary>
+        /// <remarks>
+        /// Updates information about a group of dispatches, such as registration cap, expiration date, and postback information. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental modification of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchProperties"></param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateDispatchesAsyncWithHttpInfo (UpdateDispatchSchema dispatchProperties, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null);
         #endregion Asynchronous Operations
     }
 
@@ -1737,7 +1939,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsByTenant Create multiple destinations.
+        /// Create a group of Destinations  Creates a group of destinations.  A destination is a label used to identify an entity outside of SCORM Cloud, such as an LMS.  Used in conjunction with dispatches to provide access control mechanisms for the courses distributed to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationsList"></param>
@@ -1748,7 +1950,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsByTenant Create multiple destinations.
+        /// Create a group of Destinations  Creates a group of destinations.  A destination is a label used to identify an entity outside of SCORM Cloud, such as an LMS.  Used in conjunction with dispatches to provide access control mechanisms for the courses distributed to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationsList"></param>
@@ -1822,7 +2024,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsByTenant Create multiple destinations.
+        /// Create a group of Destinations  Creates a group of destinations.  A destination is a label used to identify an entity outside of SCORM Cloud, such as an LMS.  Used in conjunction with dispatches to provide access control mechanisms for the courses distributed to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationsList"></param>
@@ -1834,7 +2036,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsByTenant Create multiple destinations.
+        /// Create a group of Destinations  Creates a group of destinations.  A destination is a label used to identify an entity outside of SCORM Cloud, such as an LMS.  Used in conjunction with dispatches to provide access control mechanisms for the courses distributed to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationsList"></param>
@@ -1908,7 +2110,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create dispatches. Create multiple dispatches at once. 
+        /// Create a group of Dispatches  Creates a group of dispatches.  Dispatches are the connection between a course and a destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud.  As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination.  &gt;**Caution:** &gt;Only one dispatch can exist for a given course-destination combination.  If calling this method with the same course and destination supplied, the old one will be loaded for modification.  An exception to this is if a dispatchId is passed in the body, the request will fail with a 400 response warning that the dispatch already exists.  This is to prevent confusion over which dispatchId is to be used in future requests. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -1919,7 +2121,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create dispatches. Create multiple dispatches at once. 
+        /// Create a group of Dispatches  Creates a group of dispatches.  Dispatches are the connection between a course and a destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud.  As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination.  &gt;**Caution:** &gt;Only one dispatch can exist for a given course-destination combination.  If calling this method with the same course and destination supplied, the old one will be loaded for modification.  An exception to this is if a dispatchId is passed in the body, the request will fail with a 400 response warning that the dispatch already exists.  This is to prevent confusion over which dispatchId is to be used in future requests. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -1993,7 +2195,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create dispatches. Create multiple dispatches at once. 
+        /// Create a group of Dispatches  Creates a group of dispatches.  Dispatches are the connection between a course and a destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud.  As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination.  &gt;**Caution:** &gt;Only one dispatch can exist for a given course-destination combination.  If calling this method with the same course and destination supplied, the old one will be loaded for modification.  An exception to this is if a dispatchId is passed in the body, the request will fail with a 400 response warning that the dispatch already exists.  This is to prevent confusion over which dispatchId is to be used in future requests. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -2005,7 +2207,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create dispatches. Create multiple dispatches at once. 
+        /// Create a group of Dispatches  Creates a group of dispatches.  Dispatches are the connection between a course and a destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud.  As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination.  &gt;**Caution:** &gt;Only one dispatch can exist for a given course-destination combination.  If calling this method with the same course and destination supplied, the old one will be loaded for modification.  An exception to this is if a dispatchId is passed in the body, the request will fail with a 400 response warning that the dispatch already exists.  This is to prevent confusion over which dispatchId is to be used in future requests. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchList"></param>
@@ -2079,7 +2281,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete destination  Delete the destination with &#x60;destinationId&#x60; 
+        /// Delete a Destination  Deletes the specified destination.  &gt;**Caution:** &gt;This will also delete all dispatches belonging to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2090,7 +2292,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete destination  Delete the destination with &#x60;destinationId&#x60; 
+        /// Delete a Destination  Deletes the specified destination.  &gt;**Caution:** &gt;This will also delete all dispatches belonging to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2157,7 +2359,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete destination  Delete the destination with &#x60;destinationId&#x60; 
+        /// Delete a Destination  Deletes the specified destination.  &gt;**Caution:** &gt;This will also delete all dispatches belonging to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2169,7 +2371,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete destination  Delete the destination with &#x60;destinationId&#x60; 
+        /// Delete a Destination  Deletes the specified destination.  &gt;**Caution:** &gt;This will also delete all dispatches belonging to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2236,7 +2438,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete dispatches in destination  Delete the dispatches in a destination 
+        /// Delete a Destination&#39;s Dispatches  Deletes all the dispatches from the destination.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2247,7 +2449,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete dispatches in destination  Delete the dispatches in a destination 
+        /// Delete a Destination&#39;s Dispatches  Deletes all the dispatches from the destination.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2314,7 +2516,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete dispatches in destination  Delete the dispatches in a destination 
+        /// Delete a Destination&#39;s Dispatches  Deletes all the dispatches from the destination.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2326,7 +2528,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete dispatches in destination  Delete the dispatches in a destination 
+        /// Delete a Destination&#39;s Dispatches  Deletes all the dispatches from the destination.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2393,7 +2595,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this destination  Delete the tags for this destination 
+        /// Delete tags from a Destination  Deletes the specified tags from the destination.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2405,7 +2607,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this destination  Delete the tags for this destination 
+        /// Delete tags from a Destination  Deletes the specified tags from the destination.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2484,7 +2686,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this destination  Delete the tags for this destination 
+        /// Delete tags from a Destination  Deletes the specified tags from the destination.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2497,7 +2699,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this destination  Delete the tags for this destination 
+        /// Delete tags from a Destination  Deletes the specified tags from the destination.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -2576,7 +2778,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;.  Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Delete a Dispatch  Deletes the specified dispatch.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2587,7 +2789,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;.  Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Delete a Dispatch  Deletes the specified dispatch.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2654,7 +2856,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;.  Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Delete a Dispatch  Deletes the specified dispatch.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2666,7 +2868,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the dispatch with &#x60;dispatchId&#x60;.  Delete the dispatch with &#x60;dispatchId&#x60;. 
+        /// Delete a Dispatch  Deletes the specified dispatch.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2733,7 +2935,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with &#39;dispatchId&#39;. 
+        /// Delete postback information from a Dispatch  Clears the postback settings from the dispatch.  This causes the postback settings to inherit a value from a higher level (e.g. application).  If there is no setting at the application level, this will disable postbacks for the dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2744,7 +2946,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with &#39;dispatchId&#39;. 
+        /// Delete postback information from a Dispatch  Clears the postback settings from the dispatch.  This causes the postback settings to inherit a value from a higher level (e.g. application).  If there is no setting at the application level, this will disable postbacks for the dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2811,7 +3013,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with &#39;dispatchId&#39;. 
+        /// Delete postback information from a Dispatch  Clears the postback settings from the dispatch.  This causes the postback settings to inherit a value from a higher level (e.g. application).  If there is no setting at the application level, this will disable postbacks for the dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2823,7 +3025,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DispatchesByTenantAndDispatchId Delete the postback info dispatch with &#39;dispatchId&#39;. 
+        /// Delete postback information from a Dispatch  Clears the postback settings from the dispatch.  This causes the postback settings to inherit a value from a higher level (e.g. application).  If there is no setting at the application level, this will disable postbacks for the dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2890,7 +3092,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this dispatch.  Delete the tags for this dispatch. 
+        /// Delete tags from a Dispatch  Deletes the specified tags from the dispatch.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2902,7 +3104,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this dispatch.  Delete the tags for this dispatch. 
+        /// Delete tags from a Dispatch  Deletes the specified tags from the dispatch.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2981,7 +3183,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this dispatch.  Delete the tags for this dispatch. 
+        /// Delete tags from a Dispatch  Deletes the specified tags from the dispatch.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -2994,7 +3196,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this dispatch.  Delete the tags for this dispatch. 
+        /// Delete tags from a Dispatch  Deletes the specified tags from the dispatch.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -3073,7 +3275,194 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationInstancing Enable or disable registration instancing.
+        /// Delete a group of Dispatches  Deletes the specified group of dispatches.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental deletion of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns></returns>
+        public void DeleteDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null)
+        {
+             DeleteDispatchesWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy);
+        }
+
+        /// <summary>
+        /// Delete a group of Dispatches  Deletes the specified group of dispatches.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental deletion of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null)
+        {
+
+            var localVarPath = "/dispatch/dispatches";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteDispatches", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a group of Dispatches  Deletes the specified group of dispatches.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental deletion of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null)
+        {
+             await DeleteDispatchesAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy);
+
+        }
+
+        /// <summary>
+        /// Delete a group of Dispatches  Deletes the specified group of dispatches.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Caution:** &gt;This will invalidate any existing dispatch packages, rendering them unlaunchable.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental deletion of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null)
+        {
+
+            var localVarPath = "/dispatch/dispatches";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteDispatches", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update registration instancing status for a Destination&#39;s Dispatches  Updates the restration instancing status for all dispatches distributed to the destination.  Registration instancing is the default for dispatches, in order to support versioning of dispatches.  A small portion of users may experience duplicate registrations with content dispatched to some LMS platforms.  If you happen to be dispatching content to an LMS with this issue, disabling registration instancing here will resolve the problems. However, dispatch versioning will also be disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3085,7 +3474,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationInstancing Enable or disable registration instancing.
+        /// Update registration instancing status for a Destination&#39;s Dispatches  Updates the restration instancing status for all dispatches distributed to the destination.  Registration instancing is the default for dispatches, in order to support versioning of dispatches.  A small portion of users may experience duplicate registrations with content dispatched to some LMS platforms.  If you happen to be dispatching content to an LMS with this issue, disabling registration instancing here will resolve the problems. However, dispatch versioning will also be disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3164,7 +3553,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationInstancing Enable or disable registration instancing.
+        /// Update registration instancing status for a Destination&#39;s Dispatches  Updates the restration instancing status for all dispatches distributed to the destination.  Registration instancing is the default for dispatches, in order to support versioning of dispatches.  A small portion of users may experience duplicate registrations with content dispatched to some LMS platforms.  If you happen to be dispatching content to an LMS with this issue, disabling registration instancing here will resolve the problems. However, dispatch versioning will also be disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3177,7 +3566,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationInstancing Enable or disable registration instancing.
+        /// Update registration instancing status for a Destination&#39;s Dispatches  Updates the restration instancing status for all dispatches distributed to the destination.  Registration instancing is the default for dispatches, in order to support versioning of dispatches.  A small portion of users may experience duplicate registrations with content dispatched to some LMS platforms.  If you happen to be dispatching content to an LMS with this issue, disabling registration instancing here will resolve the problems. However, dispatch versioning will also be disabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3256,7 +3645,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get destination information by destinationId. Gets detailed information about a destination belonging to a destinationId.
+        /// Get detailed information about a Destination  Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3268,7 +3657,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get destination information by destinationId. Gets detailed information about a destination belonging to a destinationId.
+        /// Get detailed information about a Destination  Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3335,7 +3724,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get destination information by destinationId. Gets detailed information about a destination belonging to a destinationId.
+        /// Get detailed information about a Destination  Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3348,7 +3737,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get destination information by destinationId. Gets detailed information about a destination belonging to a destinationId.
+        /// Get detailed information about a Destination  Returns detailed information about the destination.  This includes name, tags, and launchAuth information. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3415,7 +3804,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount Get an aggregate count of all related dispatch registrations.
+        /// Get registration count for a Destination&#39;s Dispatches  Returns the registration count for all dispatches distributed to the destination.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3427,7 +3816,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount Get an aggregate count of all related dispatch registrations.
+        /// Get registration count for a Destination&#39;s Dispatches  Returns the registration count for all dispatches distributed to the destination.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3494,7 +3883,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount Get an aggregate count of all related dispatch registrations.
+        /// Get registration count for a Destination&#39;s Dispatches  Returns the registration count for all dispatches distributed to the destination.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3507,7 +3896,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount Get an aggregate count of all related dispatch registrations.
+        /// Get registration count for a Destination&#39;s Dispatches  Returns the registration count for all dispatches distributed to the destination.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3574,13 +3963,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a ZIP of related dispatches. Returns a zip file containing all of the dispatch packages for a destination.
+        /// Download a zip file for a Destination&#39;s Dispatches  Downloads a zip file containing all of the dispatch packages for the destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
+        /// <param name="type">The type of dispatch package to export (SCORM_12 only supported in SCORM Cloud today) (optional, default to SCORM_12)</param>
         /// <param name="cssUrl"> (optional)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <returns>System.IO.Stream</returns>
         public System.IO.Stream GetDestinationDispatchZip (string destinationId, string type = null, string cssUrl = null, List<string> tags = null)
         {
@@ -3589,13 +3978,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a ZIP of related dispatches. Returns a zip file containing all of the dispatch packages for a destination.
+        /// Download a zip file for a Destination&#39;s Dispatches  Downloads a zip file containing all of the dispatch packages for the destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
+        /// <param name="type">The type of dispatch package to export (SCORM_12 only supported in SCORM Cloud today) (optional, default to SCORM_12)</param>
         /// <param name="cssUrl"> (optional)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         public ApiResponse< System.IO.Stream > GetDestinationDispatchZipWithHttpInfo (string destinationId, string type = null, string cssUrl = null, List<string> tags = null)
         {
@@ -3662,13 +4051,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a ZIP of related dispatches. Returns a zip file containing all of the dispatch packages for a destination.
+        /// Download a zip file for a Destination&#39;s Dispatches  Downloads a zip file containing all of the dispatch packages for the destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
+        /// <param name="type">The type of dispatch package to export (SCORM_12 only supported in SCORM Cloud today) (optional, default to SCORM_12)</param>
         /// <param name="cssUrl"> (optional)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <returns>Task of System.IO.Stream</returns>
         public async System.Threading.Tasks.Task<System.IO.Stream> GetDestinationDispatchZipAsync (string destinationId, string type = null, string cssUrl = null, List<string> tags = null)
         {
@@ -3678,13 +4067,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a ZIP of related dispatches. Returns a zip file containing all of the dispatch packages for a destination.
+        /// Download a zip file for a Destination&#39;s Dispatches  Downloads a zip file containing all of the dispatch packages for the destination.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
+        /// <param name="type">The type of dispatch package to export (SCORM_12 only supported in SCORM Cloud today) (optional, default to SCORM_12)</param>
         /// <param name="cssUrl"> (optional)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetDestinationDispatchZipAsyncWithHttpInfo (string destinationId, string type = null, string cssUrl = null, List<string> tags = null)
         {
@@ -3751,38 +4140,42 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of dispatches in this destination Get a list of related dispatches.
+        /// Get a list of a Destination&#39;s Dispatches  Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy"> (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>DispatchListSchema</returns>
-        public DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = GetDestinationDispatchesWithHttpInfo(destinationId, courseId, more, since, until, tags, datetimeFilter, orderBy);
+             ApiResponse<DispatchListSchema> localVarResponse = GetDestinationDispatchesWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of dispatches in this destination Get a list of related dispatches.
+        /// Get a list of a Destination&#39;s Dispatches  Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy"> (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        public ApiResponse< DispatchListSchema > GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public ApiResponse< DispatchListSchema > GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
             // verify the required parameter 'destinationId' is set
             if (destinationId == null)
@@ -3812,12 +4205,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             if (destinationId != null) localVarPathParams.Add("destinationId", this.Configuration.ApiClient.ParameterToString(destinationId)); // path parameter
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -3851,39 +4246,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of dispatches in this destination Get a list of related dispatches.
+        /// Get a list of a Destination&#39;s Dispatches  Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy"> (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        public async System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = await GetDestinationDispatchesAsyncWithHttpInfo(destinationId, courseId, more, since, until, tags, datetimeFilter, orderBy);
+             ApiResponse<DispatchListSchema> localVarResponse = await GetDestinationDispatchesAsyncWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of dispatches in this destination Get a list of related dispatches.
+        /// Get a list of a Destination&#39;s Dispatches  Returns a list of dispatches belonging to the destination.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter should only ever yield 0 or 1 results, as a dispatch is the intersection of a course and a destination.  This can be useful for identifying if a certain course is dispatched to the destination.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy"> (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
             // verify the required parameter 'destinationId' is set
             if (destinationId == null)
@@ -3913,12 +4312,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             if (destinationId != null) localVarPathParams.Add("destinationId", this.Configuration.ApiClient.ParameterToString(destinationId)); // path parameter
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -3952,7 +4353,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// True if the destination is set to hash user info, or false if it is disabled. True if the destination is set to hash user info, or false if it is disabled.
+        /// Get user PII hashing status for a Destination  Returns whether or not user PII hashing is enabled for the destination.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -3964,7 +4365,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// True if the destination is set to hash user info, or false if it is disabled. True if the destination is set to hash user info, or false if it is disabled.
+        /// Get user PII hashing status for a Destination  Returns whether or not user PII hashing is enabled for the destination.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4031,7 +4432,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// True if the destination is set to hash user info, or false if it is disabled. True if the destination is set to hash user info, or false if it is disabled.
+        /// Get user PII hashing status for a Destination  Returns whether or not user PII hashing is enabled for the destination.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4044,7 +4445,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// True if the destination is set to hash user info, or false if it is disabled. True if the destination is set to hash user info, or false if it is disabled.
+        /// Get user PII hashing status for a Destination  Returns whether or not user PII hashing is enabled for the destination.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4111,7 +4512,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this destination  Get the tags for this destination 
+        /// Get tags for a Destination  Returns the tags for the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4123,7 +4524,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this destination  Get the tags for this destination 
+        /// Get tags for a Destination  Returns the tags for the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4190,7 +4591,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this destination  Get the tags for this destination 
+        /// Get tags for a Destination  Returns the tags for the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4203,7 +4604,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this destination  Get the tags for this destination 
+        /// Get tags for a Destination  Returns the tags for the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -4270,36 +4671,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// getAllDestinations Get a list of destinations.
+        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>DestinationListSchema</returns>
-        public DestinationListSchema GetDestinations (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public DestinationListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<DestinationListSchema> localVarResponse = GetDestinationsWithHttpInfo(courseId, more, since, until, tags, datetimeFilter, orderBy);
+             ApiResponse<DestinationListSchema> localVarResponse = GetDestinationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// getAllDestinations Get a list of destinations.
+        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of DestinationListSchema</returns>
-        public ApiResponse< DestinationListSchema > GetDestinationsWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public ApiResponse< DestinationListSchema > GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/dispatch/destinations";
@@ -4325,12 +4730,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -4364,37 +4771,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// getAllDestinations Get a list of destinations.
+        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of DestinationListSchema</returns>
-        public async System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<DestinationListSchema> localVarResponse = await GetDestinationsAsyncWithHttpInfo(courseId, more, since, until, tags, datetimeFilter, orderBy);
+             ApiResponse<DestinationListSchema> localVarResponse = await GetDestinationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// getAllDestinations Get a list of destinations.
+        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (DestinationListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/dispatch/destinations";
@@ -4420,12 +4831,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -4459,7 +4872,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get dispatch by id. Get the dispatch with &#x60;dispatchId&#x60;. 
+        /// Get detailed information about a Dispatch  Returns detailed information about the dispatch.  This includes destination and course IDs, as well as registration count. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4471,7 +4884,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get dispatch by id. Get the dispatch with &#x60;dispatchId&#x60;. 
+        /// Get detailed information about a Dispatch  Returns detailed information about the dispatch.  This includes destination and course IDs, as well as registration count. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4538,7 +4951,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get dispatch by id. Get the dispatch with &#x60;dispatchId&#x60;. 
+        /// Get detailed information about a Dispatch  Returns detailed information about the dispatch.  This includes destination and course IDs, as well as registration count. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4551,7 +4964,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get dispatch by id. Get the dispatch with &#x60;dispatchId&#x60;. 
+        /// Get detailed information about a Dispatch  Returns detailed information about the dispatch.  This includes destination and course IDs, as well as registration count. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4618,7 +5031,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
+        /// Get enabled status of a Dispatch  Returns the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4630,7 +5043,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
+        /// Get enabled status of a Dispatch  Returns the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4697,7 +5110,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
+        /// Get enabled status of a Dispatch  Returns the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4710,7 +5123,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Get the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  True if the dispatch is enabled, or false if it is disabled. 
+        /// Get enabled status of a Dispatch  Returns the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4777,7 +5190,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled. Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
+        /// Get user PII hashing status for a Dispatch  Returns whether or not user PII hashing is enabled for the dispatch.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4789,7 +5202,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled. Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
+        /// Get user PII hashing status for a Dispatch  Returns whether or not user PII hashing is enabled for the dispatch.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4856,7 +5269,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled. Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
+        /// Get user PII hashing status for a Dispatch  Returns whether or not user PII hashing is enabled for the dispatch.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4869,7 +5282,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get if this dispatch has PII hashing enabled. Get if this dispatch has PII hashing enabled. True if the dispatch is set to hash user info, or false if it is disabled. 
+        /// Get user PII hashing status for a Dispatch  Returns whether or not user PII hashing is enabled for the dispatch.  Enabling it will cause all user PII to be hashed.  Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4936,7 +5349,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the registration count for &#x60;dispatchId&#x60;.  Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
+        /// Get registration count for a Dispatch  Returns the registration count for the dispatch, as well as the date and time of the last count reset, if any.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -4948,7 +5361,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the registration count for &#x60;dispatchId&#x60;.  Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
+        /// Get registration count for a Dispatch  Returns the registration count for the dispatch, as well as the date and time of the last count reset, if any.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5015,7 +5428,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the registration count for &#x60;dispatchId&#x60;.  Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
+        /// Get registration count for a Dispatch  Returns the registration count for the dispatch, as well as the date and time of the last count reset, if any.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5028,7 +5441,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the registration count for &#x60;dispatchId&#x60;.  Get the registration count for this dispatch, and the date and time of the last count reset, if any. 
+        /// Get registration count for a Dispatch  Returns the registration count for the dispatch, as well as the date and time of the last count reset, if any.  &gt;**Note:** &gt;The count here is a convenience counter.  Since it has the capability of being reset, it may not match the actual billed registration count for a dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5095,7 +5508,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this dispatch.  Get the tags for this dispatch. 
+        /// Get tags for a Dispatch  Returns the tags for the dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5107,7 +5520,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this dispatch.  Get the tags for this dispatch. 
+        /// Get tags for a Dispatch  Returns the tags for the dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5174,7 +5587,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this dispatch.  Get the tags for this dispatch. 
+        /// Get tags for a Dispatch  Returns the tags for the dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5187,7 +5600,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this dispatch.  Get the tags for this dispatch. 
+        /// Get tags for a Dispatch  Returns the tags for the dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5254,12 +5667,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
+        /// Download a zip package for a Dispatch  Downloads a zip package for the dispatch.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
-        /// <param name="cssUrl"> (optional)</param>
+        /// <param name="type">The type of dispatch package to export (currently only SCORM_12 available) (optional, default to SCORM_12)</param>
+        /// <param name="cssUrl">Custom CSS to apply to the dispatch package (optional)</param>
         /// <returns>System.IO.Stream</returns>
         public System.IO.Stream GetDispatchZip (string dispatchId, string type = null, string cssUrl = null)
         {
@@ -5268,12 +5681,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
+        /// Download a zip package for a Dispatch  Downloads a zip package for the dispatch.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
-        /// <param name="cssUrl"> (optional)</param>
+        /// <param name="type">The type of dispatch package to export (currently only SCORM_12 available) (optional, default to SCORM_12)</param>
+        /// <param name="cssUrl">Custom CSS to apply to the dispatch package (optional)</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         public ApiResponse< System.IO.Stream > GetDispatchZipWithHttpInfo (string dispatchId, string type = null, string cssUrl = null)
         {
@@ -5339,12 +5752,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
+        /// Download a zip package for a Dispatch  Downloads a zip package for the dispatch.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
-        /// <param name="cssUrl"> (optional)</param>
+        /// <param name="type">The type of dispatch package to export (currently only SCORM_12 available) (optional, default to SCORM_12)</param>
+        /// <param name="cssUrl">Custom CSS to apply to the dispatch package (optional)</param>
         /// <returns>Task of System.IO.Stream</returns>
         public async System.Threading.Tasks.Task<System.IO.Stream> GetDispatchZipAsync (string dispatchId, string type = null, string cssUrl = null)
         {
@@ -5354,12 +5767,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the ZIP for the dispatchId. Get the ZIP for the dispatch with &#x60;dispatchId&#x60; 
+        /// Download a zip package for a Dispatch  Downloads a zip package for the dispatch.  A dispatch zip package is a distributable course stub which, upon launch in a third-party LMS, will reference and launch the underlying course in SCORM Cloud. As an extension, dispatches allow for limiting access control even after the zip file has been given to the destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
-        /// <param name="type">The type of dispatch package to export (SCORM12 only supported in cloud today) (optional, default to SCORM12)</param>
-        /// <param name="cssUrl"> (optional)</param>
+        /// <param name="type">The type of dispatch package to export (currently only SCORM_12 available) (optional, default to SCORM_12)</param>
+        /// <param name="cssUrl">Custom CSS to apply to the dispatch package (optional)</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetDispatchZipAsyncWithHttpInfo (string dispatchId, string type = null, string cssUrl = null)
         {
@@ -5425,36 +5838,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// All Dispatches in the system for an AppId Get a list of dispatches.
+        /// Get a list of Dispatches  Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>DispatchListSchema</returns>
-        public DispatchListSchema GetDispatches (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public DispatchListSchema GetDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = GetDispatchesWithHttpInfo(courseId, more, since, until, tags, datetimeFilter, orderBy);
+             ApiResponse<DispatchListSchema> localVarResponse = GetDispatchesWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// All Dispatches in the system for an AppId Get a list of dispatches.
+        /// Get a list of Dispatches  Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        public ApiResponse< DispatchListSchema > GetDispatchesWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public ApiResponse< DispatchListSchema > GetDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/dispatch/dispatches";
@@ -5480,12 +5897,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -5519,37 +5938,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// All Dispatches in the system for an AppId Get a list of dispatches.
+        /// Get a list of Dispatches  Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        public async System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = await GetDispatchesAsyncWithHttpInfo(courseId, more, since, until, tags, datetimeFilter, orderBy);
+             ApiResponse<DispatchListSchema> localVarResponse = await GetDispatchesAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// All Dispatches in the system for an AppId Get a list of dispatches.
+        /// Get a list of Dispatches  Returns a list of dispatches.  Can be filtered using the request parameters to provide a subset of results.  Using the &#x60;courseId&#x60; filter will allow for viewing which destinations the course has been dispatched to.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only retreive resources having &#x60;courseId&#x60;  (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to updated_asc (optional, default to updated_asc)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, string more = null, DateTime? since = null, DateTime? until = null, List<string> tags = null, string datetimeFilter = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/dispatch/dispatches";
@@ -5575,12 +5998,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -5614,7 +6039,166 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this destination  Set the tags for this destination 
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>DispatchLtiInfoSchema</returns>
+        public DispatchLtiInfoSchema GetLTIDispatch (string dispatchId)
+        {
+             ApiResponse<DispatchLtiInfoSchema> localVarResponse = GetLTIDispatchWithHttpInfo(dispatchId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>ApiResponse of DispatchLtiInfoSchema</returns>
+        public ApiResponse< DispatchLtiInfoSchema > GetLTIDispatchWithHttpInfo (string dispatchId)
+        {
+            // verify the required parameter 'dispatchId' is set
+            if (dispatchId == null)
+                throw new ApiException(400, "Missing required parameter 'dispatchId' when calling DispatchApi->GetLTIDispatch");
+
+            var localVarPath = "/dispatch/dispatches/{dispatchId}/lti";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dispatchId != null) localVarPathParams.Add("dispatchId", this.Configuration.ApiClient.ParameterToString(dispatchId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLTIDispatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DispatchLtiInfoSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DispatchLtiInfoSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DispatchLtiInfoSchema)));
+        }
+
+        /// <summary>
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>Task of DispatchLtiInfoSchema</returns>
+        public async System.Threading.Tasks.Task<DispatchLtiInfoSchema> GetLTIDispatchAsync (string dispatchId)
+        {
+             ApiResponse<DispatchLtiInfoSchema> localVarResponse = await GetLTIDispatchAsyncWithHttpInfo(dispatchId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>Task of ApiResponse (DispatchLtiInfoSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DispatchLtiInfoSchema>> GetLTIDispatchAsyncWithHttpInfo (string dispatchId)
+        {
+            // verify the required parameter 'dispatchId' is set
+            if (dispatchId == null)
+                throw new ApiException(400, "Missing required parameter 'dispatchId' when calling DispatchApi->GetLTIDispatch");
+
+            var localVarPath = "/dispatch/dispatches/{dispatchId}/lti";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dispatchId != null) localVarPathParams.Add("dispatchId", this.Configuration.ApiClient.ParameterToString(dispatchId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLTIDispatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DispatchLtiInfoSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DispatchLtiInfoSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DispatchLtiInfoSchema)));
+        }
+
+        /// <summary>
+        /// Add tags to a Destination  Applies the provided tags to the destination.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -5626,7 +6210,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this destination  Set the tags for this destination 
+        /// Add tags to a Destination  Applies the provided tags to the destination.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -5705,7 +6289,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this destination  Set the tags for this destination 
+        /// Add tags to a Destination  Applies the provided tags to the destination.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -5718,7 +6302,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this destination  Set the tags for this destination 
+        /// Add tags to a Destination  Applies the provided tags to the destination.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -5797,10 +6381,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations Sets all of the provided tags on all of the provided destinations
+        /// Add a group of tags to a group of Destinations  Applies all of the provided tags on all of the provided destinations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         public void PutDestinationTagsBatch (BatchTagsSchema batch)
         {
@@ -5808,10 +6392,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations Sets all of the provided tags on all of the provided destinations
+        /// Add a group of tags to a group of Destinations  Applies all of the provided tags on all of the provided destinations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PutDestinationTagsBatchWithHttpInfo (BatchTagsSchema batch)
         {
@@ -5882,10 +6466,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations Sets all of the provided tags on all of the provided destinations
+        /// Add a group of tags to a group of Destinations  Applies all of the provided tags on all of the provided destinations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PutDestinationTagsBatchAsync (BatchTagsSchema batch)
         {
@@ -5894,10 +6478,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided destinations Sets all of the provided tags on all of the provided destinations
+        /// Add a group of tags to a group of Destinations  Applies all of the provided tags on all of the provided destinations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDestinations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> PutDestinationTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch)
         {
@@ -5968,7 +6552,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this dispatch.  Set the tags for this dispatch. 
+        /// Add tags to a Dispatch  Applies the provided tags to the dispatch.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -5980,7 +6564,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this dispatch.  Set the tags for this dispatch. 
+        /// Add tags to a Dispatch  Applies the provided tags to the dispatch.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6059,7 +6643,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this dispatch.  Set the tags for this dispatch. 
+        /// Add tags to a Dispatch  Applies the provided tags to the dispatch.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6072,7 +6656,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this dispatch.  Set the tags for this dispatch. 
+        /// Add tags to a Dispatch  Applies the provided tags to the dispatch.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6151,10 +6735,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches  Sets all of the provided tags on all of the provided dispatches 
+        /// Add a group of tags to a group of Dispatches  Applies all of the provided tags on all of the provided dispatches.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         public void PutDispatchTagsBatch (BatchTagsSchema batch)
         {
@@ -6162,10 +6746,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches  Sets all of the provided tags on all of the provided dispatches 
+        /// Add a group of tags to a group of Dispatches  Applies all of the provided tags on all of the provided dispatches.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PutDispatchTagsBatchWithHttpInfo (BatchTagsSchema batch)
         {
@@ -6236,10 +6820,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches  Sets all of the provided tags on all of the provided dispatches 
+        /// Add a group of tags to a group of Dispatches  Applies all of the provided tags on all of the provided dispatches.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PutDispatchTagsBatchAsync (BatchTagsSchema batch)
         {
@@ -6248,10 +6832,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided dispatches  Sets all of the provided tags on all of the provided dispatches 
+        /// Add a group of tags to a group of Dispatches  Applies all of the provided tags on all of the provided dispatches.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetDispatches). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> PutDispatchTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch)
         {
@@ -6322,7 +6906,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount Reset registration counts for all related dispatches.
+        /// Reset registration counts for a Destination&#39;s Dispatches  Clears the registration count for all dispatches distributed to the destination.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6333,7 +6917,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount Reset registration counts for all related dispatches.
+        /// Reset registration counts for a Destination&#39;s Dispatches  Clears the registration count for all dispatches distributed to the destination.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6400,7 +6984,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount Reset registration counts for all related dispatches.
+        /// Reset registration counts for a Destination&#39;s Dispatches  Clears the registration count for all dispatches distributed to the destination.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6412,7 +6996,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesRegistrationCount Reset registration counts for all related dispatches.
+        /// Reset registration counts for a Destination&#39;s Dispatches  Clears the registration count for all dispatches distributed to the destination.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6479,7 +7063,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Reset registration count.  Reset the registration count for this dispatch. 
+        /// Reset registration count for a Dispatch  Clears the registration count for the dispatch.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6490,7 +7074,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Reset registration count.  Reset the registration count for this dispatch. 
+        /// Reset registration count for a Dispatch  Clears the registration count for the dispatch.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6557,7 +7141,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Reset registration count.  Reset the registration count for this dispatch. 
+        /// Reset registration count for a Dispatch  Clears the registration count for the dispatch.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6569,7 +7153,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Reset registration count.  Reset the registration count for this dispatch. 
+        /// Reset registration count for a Dispatch  Clears the registration count for the dispatch.  This resets the registration counter on the dispatch itself, but has no effect on the existing registrations.  Can be used in situations where the license for the course material has been renewed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6636,7 +7220,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6648,7 +7232,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6727,7 +7311,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6740,7 +7324,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Creates or updates the destination identified by the &#x60;destinationId&#x60; provided in the path. If the destination is being created, a name should be provided in the DestinationSchema, else an error will be thrown.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. If you do not supply an e-mail address upon the creation of a destination, the owner of the Realm will be used.  This can, of course, also be changed via calling this method to update an existing destination. 
+        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6819,7 +7403,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesEnabledByTenant Enable or disable all related dispatches.
+        /// Update enabled status for a Destination&#39;s Dispatches  Updates the enabled status for all dispatches distributed to the destination.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6831,7 +7415,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesEnabledByTenant Enable or disable all related dispatches.
+        /// Update enabled status for a Destination&#39;s Dispatches  Updates the enabled status for all dispatches distributed to the destination.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6910,7 +7494,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesEnabledByTenant Enable or disable all related dispatches.
+        /// Update enabled status for a Destination&#39;s Dispatches  Updates the enabled status for all dispatches distributed to the destination.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6923,7 +7507,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// DestinationsDispatchesEnabledByTenant Enable or disable all related dispatches.
+        /// Update enabled status for a Destination&#39;s Dispatches  Updates the enabled status for all dispatches distributed to the destination.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7002,7 +7586,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Update enabled status for a Dispatch  Updates the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7014,7 +7598,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Update enabled status for a Dispatch  Updates the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7093,7 +7677,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Update enabled status for a Dispatch  Updates the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7106,7 +7690,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;.  Set the &#x60;enabled&#x60; status for &#x60;dispatchId&#x60;. 
+        /// Update enabled status for a Dispatch  Updates the enabled status for the dispatch.  This is an access control measure allowing you to turn access to a previously distributed dispatch packages on or off. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7185,7 +7769,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the destination. Enable or disable hashing of the user info for the destination.
+        /// Update user PII hashing status for a Destination Updates user PII hashing status for the destination.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7197,7 +7781,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the destination. Enable or disable hashing of the user info for the destination.
+        /// Update user PII hashing status for a Destination Updates user PII hashing status for the destination.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7276,7 +7860,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the destination. Enable or disable hashing of the user info for the destination.
+        /// Update user PII hashing status for a Destination Updates user PII hashing status for the destination.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7289,7 +7873,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the destination. Enable or disable hashing of the user info for the destination.
+        /// Update user PII hashing status for a Destination Updates user PII hashing status for the destination.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7368,7 +7952,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update the dispatch with &#x60;dispatchId&#x60;.  Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Update information about a Dispatch  Updates information about the dispatch, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7380,7 +7964,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update the dispatch with &#x60;dispatchId&#x60;.  Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Update information about a Dispatch  Updates information about the dispatch, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7459,7 +8043,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update the dispatch with &#x60;dispatchId&#x60;.  Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Update information about a Dispatch  Updates information about the dispatch, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7472,7 +8056,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update the dispatch with &#x60;dispatchId&#x60;.  Update the dispatch with &#x60;dispatchId&#x60;. 
+        /// Update information about a Dispatch  Updates information about the dispatch, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7551,7 +8135,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the dispatch. Enable or disable hashing of the user info for the dispatch.
+        /// Update user PII hashing status for a Dispatch Updates user PII hashing status for the dispatch.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7563,7 +8147,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the dispatch. Enable or disable hashing of the user info for the dispatch.
+        /// Update user PII hashing status for a Dispatch Updates user PII hashing status for the dispatch.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7642,7 +8226,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the dispatch. Enable or disable hashing of the user info for the dispatch.
+        /// Update user PII hashing status for a Dispatch Updates user PII hashing status for the dispatch.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7655,7 +8239,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Enable or disable hashing of the user info for the dispatch. Enable or disable hashing of the user info for the dispatch.
+        /// Update user PII hashing status for a Dispatch Updates user PII hashing status for the dispatch.  Enabling it will cause all user PII to be hashed. Hashing PII will anonymize the learner data from the dispatched course.  This will make looking up specific details about a learner difficult. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -7725,6 +8309,219 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("UpdateDispatchHashUserInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update a group of Dispatches  Updates information about a group of dispatches, such as registration cap, expiration date, and postback information. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental modification of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchProperties"></param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns></returns>
+        public void UpdateDispatches (UpdateDispatchSchema dispatchProperties, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null)
+        {
+             UpdateDispatchesWithHttpInfo(dispatchProperties, courseId, since, until, datetimeFilter, tags, filter, filterBy);
+        }
+
+        /// <summary>
+        /// Update a group of Dispatches  Updates information about a group of dispatches, such as registration cap, expiration date, and postback information. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental modification of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchProperties"></param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateDispatchesWithHttpInfo (UpdateDispatchSchema dispatchProperties, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null)
+        {
+            // verify the required parameter 'dispatchProperties' is set
+            if (dispatchProperties == null)
+                throw new ApiException(400, "Missing required parameter 'dispatchProperties' when calling DispatchApi->UpdateDispatches");
+
+            var localVarPath = "/dispatch/dispatches";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (dispatchProperties != null && dispatchProperties.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dispatchProperties); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dispatchProperties; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateDispatches", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update a group of Dispatches  Updates information about a group of dispatches, such as registration cap, expiration date, and postback information. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental modification of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchProperties"></param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateDispatchesAsync (UpdateDispatchSchema dispatchProperties, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null)
+        {
+             await UpdateDispatchesAsyncWithHttpInfo(dispatchProperties, courseId, since, until, datetimeFilter, tags, filter, filterBy);
+
+        }
+
+        /// <summary>
+        /// Update a group of Dispatches  Updates information about a group of dispatches, such as registration cap, expiration date, and postback information. Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;One of the filter parameters (i.e. &#x60;courseId&#x60;, &#x60;since&#x60;/&#x60;until&#x60;, &#x60;tags&#x60;, or &#x60;filter&#x60;) needs to be provided.  This is to prevent accidental modification of all dispatches.  If you do wish to update all dispatches, try setting the since parameter to a value prior to the creation of any dispatches.  &gt;**Info:** &gt;If using one of our client libraries, refer to its README for additional information on how to work with the &#x60;X-Total-Count&#x60; header. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchProperties"></param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateDispatchesAsyncWithHttpInfo (UpdateDispatchSchema dispatchProperties, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null)
+        {
+            // verify the required parameter 'dispatchProperties' is set
+            if (dispatchProperties == null)
+                throw new ApiException(400, "Missing required parameter 'dispatchProperties' when calling DispatchApi->UpdateDispatches");
+
+            var localVarPath = "/dispatch/dispatches";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (dispatchProperties != null && dispatchProperties.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(dispatchProperties); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = dispatchProperties; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateDispatches", localVarResponse);
                 if (exception != null) throw exception;
             }
 

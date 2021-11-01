@@ -25,47 +25,43 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// RegistrationListSchema
+    /// FileListItemSchema
     /// </summary>
     [DataContract]
-    public partial class RegistrationListSchema :  IEquatable<RegistrationListSchema>, IValidatableObject
+    public partial class FileListItemSchema :  IEquatable<FileListItemSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegistrationListSchema" /> class.
+        /// Initializes a new instance of the <see cref="FileListItemSchema" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected RegistrationListSchema() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RegistrationListSchema" /> class.
-        /// </summary>
-        /// <param name="registrations">registrations (required).</param>
-        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
-        public RegistrationListSchema(List<RegistrationSchema> registrations = default(List<RegistrationSchema>), string more = default(string))
+        /// <param name="path">Relative file path of the file. Used in asset manipulation calls.</param>
+        /// <param name="size">File size in bytes of the file.</param>
+        /// <param name="modified">modified.</param>
+        public FileListItemSchema(string path = default(string), long? size = default(long?), DateTime? modified = default(DateTime?))
         {
-            // to ensure "registrations" is required (not null)
-            if (registrations == null)
-            {
-                throw new InvalidDataException("registrations is a required property for RegistrationListSchema and cannot be null");
-            }
-            else
-            {
-                this.Registrations = registrations;
-            }
-            this.More = more;
+            this.Path = path;
+            this.Size = size;
+            this.Modified = modified;
         }
         
         /// <summary>
-        /// Gets or Sets Registrations
+        /// Relative file path of the file. Used in asset manipulation calls
         /// </summary>
-        [DataMember(Name="registrations", EmitDefaultValue=false)]
-        public List<RegistrationSchema> Registrations { get; set; }
+        /// <value>Relative file path of the file. Used in asset manipulation calls</value>
+        [DataMember(Name="path", EmitDefaultValue=false)]
+        public string Path { get; set; }
 
         /// <summary>
-        /// Token for getting the next set of results, from the prior set of results.
+        /// File size in bytes of the file
         /// </summary>
-        /// <value>Token for getting the next set of results, from the prior set of results.</value>
-        [DataMember(Name="more", EmitDefaultValue=false)]
-        public string More { get; set; }
+        /// <value>File size in bytes of the file</value>
+        [DataMember(Name="size", EmitDefaultValue=false)]
+        public long? Size { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Modified
+        /// </summary>
+        [DataMember(Name="modified", EmitDefaultValue=false)]
+        public DateTime? Modified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +70,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RegistrationListSchema {\n");
-            sb.Append("  Registrations: ").Append(Registrations).Append("\n");
-            sb.Append("  More: ").Append(More).Append("\n");
+            sb.Append("class FileListItemSchema {\n");
+            sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  Size: ").Append(Size).Append("\n");
+            sb.Append("  Modified: ").Append(Modified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,29 +94,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RegistrationListSchema);
+            return this.Equals(input as FileListItemSchema);
         }
 
         /// <summary>
-        /// Returns true if RegistrationListSchema instances are equal
+        /// Returns true if FileListItemSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of RegistrationListSchema to be compared</param>
+        /// <param name="input">Instance of FileListItemSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RegistrationListSchema input)
+        public bool Equals(FileListItemSchema input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Registrations == input.Registrations ||
-                    this.Registrations != null &&
-                    this.Registrations.SequenceEqual(input.Registrations)
+                    this.Path == input.Path ||
+                    (this.Path != null &&
+                    this.Path.Equals(input.Path))
                 ) && 
                 (
-                    this.More == input.More ||
-                    (this.More != null &&
-                    this.More.Equals(input.More))
+                    this.Size == input.Size ||
+                    (this.Size != null &&
+                    this.Size.Equals(input.Size))
+                ) && 
+                (
+                    this.Modified == input.Modified ||
+                    (this.Modified != null &&
+                    this.Modified.Equals(input.Modified))
                 );
         }
 
@@ -132,10 +134,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Registrations != null)
-                    hashCode = hashCode * 59 + this.Registrations.GetHashCode();
-                if (this.More != null)
-                    hashCode = hashCode * 59 + this.More.GetHashCode();
+                if (this.Path != null)
+                    hashCode = hashCode * 59 + this.Path.GetHashCode();
+                if (this.Size != null)
+                    hashCode = hashCode * 59 + this.Size.GetHashCode();
+                if (this.Modified != null)
+                    hashCode = hashCode * 59 + this.Modified.GetHashCode();
                 return hashCode;
             }
         }

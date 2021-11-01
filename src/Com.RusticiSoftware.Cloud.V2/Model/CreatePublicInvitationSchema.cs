@@ -42,7 +42,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="creatingUserEmail">The email of the user who is creating the invitation. (required).</param>
         /// <param name="registrationCap">Integer value that limits the amount of registrations a public invitation can generate. (default to 0).</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
-        /// <param name="expirationDate">The date this invitation will expire and can no longer be launched (formatted yyyyMMddHHmmss in UTC time)..</param>
+        /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
         /// <param name="tags">Optional tags to be applied to this invitation..</param>
         public CreatePublicInvitationSchema(string courseId = default(string), string creatingUserEmail = default(string), int? registrationCap = 0, PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), List<string> tags = default(List<string>))
         {
@@ -107,9 +107,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public PostBackSchema PostBack { get; set; }
 
         /// <summary>
-        /// The date this invitation will expire and can no longer be launched (formatted yyyyMMddHHmmss in UTC time).
+        /// The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. 
         /// </summary>
-        /// <value>The date this invitation will expire and can no longer be launched (formatted yyyyMMddHHmmss in UTC time).</value>
+        /// <value>The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. </value>
         [DataMember(Name="expirationDate", EmitDefaultValue=false)]
         public DateTime? ExpirationDate { get; set; }
 

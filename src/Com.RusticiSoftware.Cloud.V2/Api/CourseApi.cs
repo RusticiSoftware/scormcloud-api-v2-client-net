@@ -25,60 +25,58 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get a link to preview a course. 
+        /// Get a launch link to preview a Course 
         /// </summary>
         /// <remarks>
-        /// Returns the launch link to use to preview this course. 
+        /// Returns the launch link to use to preview the course.  Course preview does not require an underlying registration. As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
-        /// <param name="cssUrl"> (optional)</param>
         /// <returns>LaunchLinkSchema</returns>
-        LaunchLinkSchema BuildCoursePreviewLaunchLink (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null);
+        LaunchLinkSchema BuildCoursePreviewLaunchLink (string courseId, LaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
-        /// Get a link to preview a course. 
+        /// Get a launch link to preview a Course 
         /// </summary>
         /// <remarks>
-        /// Returns the launch link to use to preview this course. 
+        /// Returns the launch link to use to preview the course.  Course preview does not require an underlying registration. As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
-        /// <param name="cssUrl"> (optional)</param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
-        ApiResponse<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null);
+        ApiResponse<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
-        /// Get a link to preview a particular course version. 
+        /// Get a launch link to preview a Course Version 
         /// </summary>
         /// <remarks>
-        /// Returns the link to use to preview a particular version of a course. 
+        /// Returns the launch link to use to preview the course version.  Course preview does not require an underlying registration.  As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>LaunchLinkSchema</returns>
         LaunchLinkSchema BuildCoursePreviewLaunchLinkWithVersion (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
-        /// Get a link to preview a particular course version. 
+        /// Get a launch link to preview a Course Version 
         /// </summary>
         /// <remarks>
-        /// Returns the link to use to preview a particular version of a course. 
+        /// Returns the launch link to use to preview the course version.  Course preview does not require an underlying registration.  As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
         ApiResponse<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
-        /// Fetch and import a course. 
+        /// Create a Course from a package fetched from an external source 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Creates a course from a package fetched and imported from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -89,10 +87,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         StringResultSchema CreateFetchAndImportCourseJob (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
 
         /// <summary>
-        /// Fetch and import a course. 
+        /// Create a Course from a package fetched from an external source 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Creates a course from a package fetched and imported from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -102,37 +100,68 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> CreateFetchAndImportCourseJobWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
         /// <summary>
-        /// Upload and import a course.
+        /// Create a Course from a fetched or referenced external media file 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
-        /// <param name="_file">The zip file of the course contents to import. (optional)</param>
         /// <returns>StringResultSchema</returns>
-        StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream _file = null);
+        StringResultSchema CreateNoUploadAndImportCourseJob (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
 
         /// <summary>
-        /// Upload and import a course.
+        /// Create a Course from a fetched or referenced external media file 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="importRequest"></param>
+        /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
+        /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <returns>ApiResponse of StringResultSchema</returns>
+        ApiResponse<StringResultSchema> CreateNoUploadAndImportCourseJobWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        /// <summary>
+        /// Create a Course from an uploaded package 
+        /// </summary>
+        /// <remarks>
+        /// Creates a course from a package uploaded from your file system.  The package will be sent as part of the request and will be stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
-        /// <param name="_file">The zip file of the course contents to import. (optional)</param>
-        /// <returns>ApiResponse of StringResultSchema</returns>
-        ApiResponse<StringResultSchema> CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream _file = null);
+        /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
+        /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
+        /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
+        /// <returns>StringResultSchema</returns>
+        StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
+
         /// <summary>
-        /// Delete a course. 
+        /// Create a Course from an uploaded package 
         /// </summary>
         /// <remarks>
-        /// Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
+        /// Creates a course from a package uploaded from your file system.  The package will be sent as part of the request and will be stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
+        /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
+        /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
+        /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
+        /// <returns>ApiResponse of StringResultSchema</returns>
+        ApiResponse<StringResultSchema> CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
+        /// <summary>
+        /// Delete a Course 
+        /// </summary>
+        /// <remarks>
+        /// Deletes the specified course.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to the course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -140,20 +169,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCourse (string courseId);
 
         /// <summary>
-        /// Delete a course. 
+        /// Delete a Course 
         /// </summary>
         /// <remarks>
-        /// Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
+        /// Deletes the specified course.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to the course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseWithHttpInfo (string courseId);
         /// <summary>
-        /// Clear a course configuration. 
+        /// Delete an asset file from a Course 
         /// </summary>
         /// <remarks>
-        /// Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
+        /// Deletes the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseAssetFile or UploadCourseAssetFile endpoints. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns></returns>
+        void DeleteCourseAsset (string courseId, string relativePath);
+
+        /// <summary>
+        /// Delete an asset file from a Course 
+        /// </summary>
+        /// <remarks>
+        /// Deletes the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseAssetFile or UploadCourseAssetFile endpoints. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteCourseAssetWithHttpInfo (string courseId, string relativePath);
+        /// <summary>
+        /// Delete a configuration setting explicitly set for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Clears the specified setting from the course.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -162,10 +214,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCourseConfigurationSetting (string courseId, string settingId);
 
         /// <summary>
-        /// Clear a course configuration. 
+        /// Delete a configuration setting explicitly set for a Course 
         /// </summary>
         /// <remarks>
-        /// Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
+        /// Clears the specified setting from the course.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -173,10 +225,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseConfigurationSettingWithHttpInfo (string courseId, string settingId);
         /// <summary>
-        /// Delete course tags. 
+        /// Delete tags from a Course 
         /// </summary>
         /// <remarks>
-        /// Delete the provided tags from this course. 
+        /// Deletes the specified tags from the course.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -185,10 +237,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCourseTags (string courseId, TagListSchema tags);
 
         /// <summary>
-        /// Delete course tags. 
+        /// Delete tags from a Course 
         /// </summary>
         /// <remarks>
-        /// Delete the provided tags from this course. 
+        /// Deletes the specified tags from the course.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -196,58 +248,83 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseTagsWithHttpInfo (string courseId, TagListSchema tags);
         /// <summary>
-        /// Delete a course version. 
+        /// Delete a Course Version 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
+        /// Deletes the specified version of the course.  If deleting the last remaining version of the course, the course itself will be deleted and no longer accessible.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to this course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns></returns>
         void DeleteCourseVersion (string courseId, int? versionId);
 
         /// <summary>
-        /// Delete a course version. 
+        /// Delete a Course Version 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
+        /// Deletes the specified version of the course.  If deleting the last remaining version of the course, the course itself will be deleted and no longer accessible.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to this course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseVersionWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Clear a configuration setting for a version of a course. 
+        /// Delete an asset file from a Course Version 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this course and version. 
+        /// Deletes the asset file at the specified relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseVersionAssetFile or UploadCourseVersionAssetFile endpoints. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns></returns>
+        void DeleteCourseVersionAsset (string courseId, int? versionId, string relativePath);
+
+        /// <summary>
+        /// Delete an asset file from a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Deletes the asset file at the specified relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseVersionAssetFile or UploadCourseVersionAssetFile endpoints. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteCourseVersionAssetWithHttpInfo (string courseId, int? versionId, string relativePath);
+        /// <summary>
+        /// Delete a configuration setting explicitly set for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Clears the specified setting from the course version.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
         /// <param name="settingId"></param>
         /// <returns></returns>
         void DeleteCourseVersionConfigurationSetting (string courseId, int? versionId, string settingId);
 
         /// <summary>
-        /// Clear a configuration setting for a version of a course. 
+        /// Delete a configuration setting explicitly set for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this course and version. 
+        /// Clears the specified setting from the course version.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="settingId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCourseVersionConfigurationSettingWithHttpInfo (string courseId, int? versionId, string settingId);
         /// <summary>
-        /// Get course details. 
+        /// Get detailed information about a Course 
         /// </summary>
         /// <remarks>
-        /// Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
+        /// Returns detailed information about the course.  This includes title, update date, learning standard, and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -257,10 +334,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         CourseSchema GetCourse (string courseId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get course details. 
+        /// Get detailed information about a Course 
         /// </summary>
         /// <remarks>
-        /// Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
+        /// Returns detailed information about the course.  This includes title, update date, learning standard, and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -269,10 +346,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of CourseSchema</returns>
         ApiResponse<CourseSchema> GetCourseWithHttpInfo (string courseId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get course configuration. 
+        /// Download an asset file from a Course 
         /// </summary>
         /// <remarks>
-        /// Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
+        /// Downloads the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream GetCourseAsset (string courseId, string relativePath);
+
+        /// <summary>
+        /// Download an asset file from a Course 
+        /// </summary>
+        /// <remarks>
+        /// Downloads the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> GetCourseAssetWithHttpInfo (string courseId, string relativePath);
+        /// <summary>
+        /// Get effective configuration settings for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective configuration settings for the course.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -281,10 +381,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         SettingListSchema GetCourseConfiguration (string courseId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Get course configuration. 
+        /// Get effective configuration settings for a Course 
         /// </summary>
         /// <remarks>
-        /// Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
+        /// Returns the effective configuration settings for the course.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -292,39 +392,60 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of SettingListSchema</returns>
         ApiResponse<SettingListSchema> GetCourseConfigurationWithHttpInfo (string courseId, bool? includeMetadata = null);
         /// <summary>
-        /// Get course xAPI statements. 
+        /// Get a list of asset files in a Course 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for &#x60;courseId&#x60;. 
+        /// Returns a list of asset files in the course.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>FileListSchema</returns>
+        FileListSchema GetCourseFileList (string courseId);
+
+        /// <summary>
+        /// Get a list of asset files in a Course 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of asset files in the course.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>ApiResponse of FileListSchema</returns>
+        ApiResponse<FileListSchema> GetCourseFileListWithHttpInfo (string courseId);
+        /// <summary>
+        /// Get xAPI statements for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Returns xAPI statements for the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiStatementResult</returns>
         XapiStatementResult GetCourseStatements (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get course xAPI statements. 
+        /// Get xAPI statements for a Course 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for &#x60;courseId&#x60;. 
+        /// Returns xAPI statements for the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiStatementResult</returns>
         ApiResponse<XapiStatementResult> GetCourseStatementsWithHttpInfo (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get course tags. 
+        /// Get tags for a Course 
         /// </summary>
         /// <remarks>
-        /// Get a list of the tags for this course. 
+        /// Returns the tags for the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -332,169 +453,219 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         TagListSchema GetCourseTags (string courseId);
 
         /// <summary>
-        /// Get course tags. 
+        /// Get tags for a Course 
         /// </summary>
         /// <remarks>
-        /// Get a list of the tags for this course. 
+        /// Returns the tags for the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <returns>ApiResponse of TagListSchema</returns>
         ApiResponse<TagListSchema> GetCourseTagsWithHttpInfo (string courseId);
         /// <summary>
-        /// Get configuration for a version of a course. 
+        /// Download an asset file from a specific Course Version 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this course and version. 
+        /// Downloads the asset file at the provided relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream GetCourseVersionAsset (string courseId, int? versionId, string relativePath);
+
+        /// <summary>
+        /// Download an asset file from a specific Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Downloads the asset file at the provided relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> GetCourseVersionAssetWithHttpInfo (string courseId, int? versionId, string relativePath);
+        /// <summary>
+        /// Get effective configuration settings for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective configuration settings for the course version.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>SettingListSchema</returns>
         SettingListSchema GetCourseVersionConfiguration (string courseId, int? versionId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Get configuration for a version of a course. 
+        /// Get effective configuration settings for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this course and version. 
+        /// Returns the effective configuration settings for the course version.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>ApiResponse of SettingListSchema</returns>
         ApiResponse<SettingListSchema> GetCourseVersionConfigurationWithHttpInfo (string courseId, int? versionId, bool? includeMetadata = null);
         /// <summary>
-        /// Get details on a course version. 
+        /// Get a list of asset files in a Course Version 
         /// </summary>
         /// <remarks>
-        /// Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Returns a list of asset files in the course version.  Included will be the relative path to use for the other course asset manipulation calls. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
+        /// <returns>FileListSchema</returns>
+        FileListSchema GetCourseVersionFileList (string courseId, int? versionId);
+
+        /// <summary>
+        /// Get a list of asset files in a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of asset files in the course version.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>ApiResponse of FileListSchema</returns>
+        ApiResponse<FileListSchema> GetCourseVersionFileListWithHttpInfo (string courseId, int? versionId);
+        /// <summary>
+        /// Get detailed information about a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Returns detailed information about the course version.  This includes update date and registration count (if optional value is passed in). 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>CourseSchema</returns>
         CourseSchema GetCourseVersionInfo (string courseId, int? versionId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get details on a course version. 
+        /// Get detailed information about a Course Version 
         /// </summary>
         /// <remarks>
-        /// Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Returns detailed information about the course version.  This includes update date and registration count (if optional value is passed in). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>ApiResponse of CourseSchema</returns>
         ApiResponse<CourseSchema> GetCourseVersionInfoWithHttpInfo (string courseId, int? versionId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get xAPI statements for a course version. 
+        /// Get xAPI statements for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Returns xAPI statements for the course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiStatementResult</returns>
         XapiStatementResult GetCourseVersionStatements (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for a course version. 
+        /// Get xAPI statements for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Returns xAPI statements for the course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiStatementResult</returns>
         ApiResponse<XapiStatementResult> GetCourseVersionStatementsWithHttpInfo (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get details on a course&#39;s versions. 
+        /// Get a list of a Course&#39;s Versions 
         /// </summary>
         /// <remarks>
-        /// Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
+        /// Returns information about all versions of the course.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>CourseListNonPagedSchema</returns>
         CourseListNonPagedSchema GetCourseVersions (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get details on a course&#39;s versions. 
+        /// Get a list of a Course&#39;s Versions 
         /// </summary>
         /// <remarks>
-        /// Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
+        /// Returns information about all versions of the course.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>ApiResponse of CourseListNonPagedSchema</returns>
         ApiResponse<CourseListNonPagedSchema> GetCourseVersionsWithHttpInfo (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get all courses. 
+        /// Get a list of Courses 
         /// </summary>
         /// <remarks>
-        /// Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
+        /// Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
-        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id. (optional)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. (optional)</param>
-        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to course_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>CourseListSchema</returns>
-        CourseListSchema GetCourses (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null);
+        CourseListSchema GetCourses (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseMetadata = null, bool? includeRegistrationCount = null);
 
         /// <summary>
-        /// Get all courses. 
+        /// Get a list of Courses 
         /// </summary>
         /// <remarks>
-        /// Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
+        /// Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
-        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id. (optional)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. (optional)</param>
-        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to course_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>ApiResponse of CourseListSchema</returns>
-        ApiResponse<CourseListSchema> GetCoursesWithHttpInfo (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null);
+        ApiResponse<CourseListSchema> GetCoursesWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseMetadata = null, bool? includeRegistrationCount = null);
         /// <summary>
-        /// Get course import job status. 
+        /// Get import job status for a Course 
         /// </summary>
         /// <remarks>
-        /// Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
+        /// Check the status of a course import.  This can be called incrementally to check the progress of a call to any of the import options.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -502,20 +673,72 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         ImportJobResultSchema GetImportJobStatus (string importJobId);
 
         /// <summary>
-        /// Get course import job status. 
+        /// Get import job status for a Course 
         /// </summary>
         /// <remarks>
-        /// Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
+        /// Check the status of a course import.  This can be called incrementally to check the progress of a call to any of the import options.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
         /// <returns>ApiResponse of ImportJobResultSchema</returns>
         ApiResponse<ImportJobResultSchema> GetImportJobStatusWithHttpInfo (string importJobId);
         /// <summary>
-        /// Set course tags. 
+        /// Import an asset file for a Course 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
+        /// Creates or updates an asset file fetched from the provided url into the course.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>AssetFileSchema</returns>
+        AssetFileSchema ImportCourseAssetFile (string courseId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null);
+
+        /// <summary>
+        /// Import an asset file for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file fetched from the provided url into the course.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>ApiResponse of AssetFileSchema</returns>
+        ApiResponse<AssetFileSchema> ImportCourseAssetFileWithHttpInfo (string courseId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null);
+        /// <summary>
+        /// Import an asset file for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file fetched from the provided url into the course version.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>AssetFileSchema</returns>
+        AssetFileSchema ImportCourseVersionAssetFile (string courseId, int? versionId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null);
+
+        /// <summary>
+        /// Import an asset file for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file fetched from the provided url into the course version.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>ApiResponse of AssetFileSchema</returns>
+        ApiResponse<AssetFileSchema> ImportCourseVersionAssetFileWithHttpInfo (string courseId, int? versionId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null);
+        /// <summary>
+        /// Add tags to a Course 
+        /// </summary>
+        /// <remarks>
+        /// Applies the provided tags to the course.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -524,10 +747,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void PutCourseTags (string courseId, TagListSchema tags);
 
         /// <summary>
-        /// Set course tags. 
+        /// Add tags to a Course 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
+        /// Applies the provided tags to the course.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -535,31 +758,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutCourseTagsWithHttpInfo (string courseId, TagListSchema tags);
         /// <summary>
-        /// Set tags on courses. 
+        /// Add a group of tags to a group of Courses 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided courses. 
+        /// Applies all of the provided tags on all of the provided courses.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         void PutCourseTagsBatch (BatchTagsSchema batch);
 
         /// <summary>
-        /// Set tags on courses. 
+        /// Add a group of tags to a group of Courses 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided courses. 
+        /// Applies all of the provided tags on all of the provided courses.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutCourseTagsBatchWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set course configuration. 
+        /// Update configuration settings for a Course 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
+        /// Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -568,10 +791,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetCourseConfiguration (string courseId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set course configuration. 
+        /// Update configuration settings for a Course 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
+        /// Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -579,10 +802,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetCourseConfigurationWithHttpInfo (string courseId, SettingsPostSchema configurationSettings);
         /// <summary>
-        /// Set the title of a course. 
+        /// Update title for a Course 
         /// </summary>
         /// <remarks>
-        /// Sets the course title for the provided courseId. 
+        /// Updates the title of the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -591,10 +814,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void SetCourseTitle (string courseId, TitleSchema title);
 
         /// <summary>
-        /// Set the title of a course. 
+        /// Update title for a Course 
         /// </summary>
         /// <remarks>
-        /// Sets the course title for the provided courseId. 
+        /// Updates the title of the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -602,87 +825,141 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetCourseTitleWithHttpInfo (string courseId, TitleSchema title);
         /// <summary>
-        /// Set configuration for a version of a course. 
+        /// Update configuration settings for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this course and version. 
+        /// Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns></returns>
         void SetCourseVersionConfiguration (string courseId, int? versionId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set configuration for a version of a course. 
+        /// Update configuration settings for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this course and version. 
+        /// Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetCourseVersionConfigurationWithHttpInfo (string courseId, int? versionId, SettingsPostSchema configurationSettings);
+        /// <summary>
+        /// Upload an asset file for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file uploaded from your file system into the course.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>AssetFileSchema</returns>
+        AssetFileSchema UploadCourseAssetFile (string courseId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null);
+
+        /// <summary>
+        /// Upload an asset file for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file uploaded from your file system into the course.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>ApiResponse of AssetFileSchema</returns>
+        ApiResponse<AssetFileSchema> UploadCourseAssetFileWithHttpInfo (string courseId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null);
+        /// <summary>
+        /// Upload an asset file for Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file uploaded from your file system into the course version.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>AssetFileSchema</returns>
+        AssetFileSchema UploadCourseVersionAssetFile (string courseId, int? versionId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null);
+
+        /// <summary>
+        /// Upload an asset file for Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file uploaded from your file system into the course version.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>ApiResponse of AssetFileSchema</returns>
+        ApiResponse<AssetFileSchema> UploadCourseVersionAssetFileWithHttpInfo (string courseId, int? versionId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get a link to preview a course. 
+        /// Get a launch link to preview a Course 
         /// </summary>
         /// <remarks>
-        /// Returns the launch link to use to preview this course. 
+        /// Returns the launch link to use to preview the course.  Course preview does not require an underlying registration. As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
-        /// <param name="cssUrl"> (optional)</param>
         /// <returns>Task of LaunchLinkSchema</returns>
-        System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkAsync (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null);
+        System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkAsync (string courseId, LaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
-        /// Get a link to preview a course. 
+        /// Get a launch link to preview a Course 
         /// </summary>
         /// <remarks>
-        /// Returns the launch link to use to preview this course. 
+        /// Returns the launch link to use to preview the course.  Course preview does not require an underlying registration. As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
-        /// <param name="cssUrl"> (optional)</param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkAsyncWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null);
+        System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkAsyncWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
-        /// Get a link to preview a particular course version. 
+        /// Get a launch link to preview a Course Version 
         /// </summary>
         /// <remarks>
-        /// Returns the link to use to preview a particular version of a course. 
+        /// Returns the launch link to use to preview the course version.  Course preview does not require an underlying registration.  As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of LaunchLinkSchema</returns>
         System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionAsync (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
-        /// Get a link to preview a particular course version. 
+        /// Get a launch link to preview a Course Version 
         /// </summary>
         /// <remarks>
-        /// Returns the link to use to preview a particular version of a course. 
+        /// Returns the launch link to use to preview the course version.  Course preview does not require an underlying registration.  As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkWithVersionAsyncWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
-        /// Fetch and import a course. 
+        /// Create a Course from a package fetched from an external source 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Creates a course from a package fetched and imported from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -693,10 +970,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<StringResultSchema> CreateFetchAndImportCourseJobAsync (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
 
         /// <summary>
-        /// Fetch and import a course. 
+        /// Create a Course from a package fetched from an external source 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Creates a course from a package fetched and imported from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -706,37 +983,68 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateFetchAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
         /// <summary>
-        /// Upload and import a course.
+        /// Create a Course from a fetched or referenced external media file 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
-        /// <param name="_file">The zip file of the course contents to import. (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream _file = null);
+        System.Threading.Tasks.Task<StringResultSchema> CreateNoUploadAndImportCourseJobAsync (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
 
         /// <summary>
-        /// Upload and import a course.
+        /// Create a Course from a fetched or referenced external media file 
         /// </summary>
         /// <remarks>
-        /// An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="importRequest"></param>
+        /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
+        /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <returns>Task of ApiResponse (StringResultSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateNoUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        /// <summary>
+        /// Create a Course from an uploaded package 
+        /// </summary>
+        /// <remarks>
+        /// Creates a course from a package uploaded from your file system.  The package will be sent as part of the request and will be stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
-        /// <param name="_file">The zip file of the course contents to import. (optional)</param>
-        /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream _file = null);
+        /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
+        /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
+        /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
+        /// <returns>Task of StringResultSchema</returns>
+        System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
+
         /// <summary>
-        /// Delete a course. 
+        /// Create a Course from an uploaded package 
         /// </summary>
         /// <remarks>
-        /// Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
+        /// Creates a course from a package uploaded from your file system.  The package will be sent as part of the request and will be stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
+        /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
+        /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
+        /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
+        /// <returns>Task of ApiResponse (StringResultSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
+        /// <summary>
+        /// Delete a Course 
+        /// </summary>
+        /// <remarks>
+        /// Deletes the specified course.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to the course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -744,20 +1052,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCourseAsync (string courseId);
 
         /// <summary>
-        /// Delete a course. 
+        /// Delete a Course 
         /// </summary>
         /// <remarks>
-        /// Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
+        /// Deletes the specified course.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to the course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseAsyncWithHttpInfo (string courseId);
         /// <summary>
-        /// Clear a course configuration. 
+        /// Delete an asset file from a Course 
         /// </summary>
         /// <remarks>
-        /// Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
+        /// Deletes the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseAssetFile or UploadCourseAssetFile endpoints. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteCourseAssetAsync (string courseId, string relativePath);
+
+        /// <summary>
+        /// Delete an asset file from a Course 
+        /// </summary>
+        /// <remarks>
+        /// Deletes the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseAssetFile or UploadCourseAssetFile endpoints. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseAssetAsyncWithHttpInfo (string courseId, string relativePath);
+        /// <summary>
+        /// Delete a configuration setting explicitly set for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Clears the specified setting from the course.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -766,10 +1097,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCourseConfigurationSettingAsync (string courseId, string settingId);
 
         /// <summary>
-        /// Clear a course configuration. 
+        /// Delete a configuration setting explicitly set for a Course 
         /// </summary>
         /// <remarks>
-        /// Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
+        /// Clears the specified setting from the course.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -777,10 +1108,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseConfigurationSettingAsyncWithHttpInfo (string courseId, string settingId);
         /// <summary>
-        /// Delete course tags. 
+        /// Delete tags from a Course 
         /// </summary>
         /// <remarks>
-        /// Delete the provided tags from this course. 
+        /// Deletes the specified tags from the course.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -789,10 +1120,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCourseTagsAsync (string courseId, TagListSchema tags);
 
         /// <summary>
-        /// Delete course tags. 
+        /// Delete tags from a Course 
         /// </summary>
         /// <remarks>
-        /// Delete the provided tags from this course. 
+        /// Deletes the specified tags from the course.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -800,58 +1131,83 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseTagsAsyncWithHttpInfo (string courseId, TagListSchema tags);
         /// <summary>
-        /// Delete a course version. 
+        /// Delete a Course Version 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
+        /// Deletes the specified version of the course.  If deleting the last remaining version of the course, the course itself will be deleted and no longer accessible.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to this course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteCourseVersionAsync (string courseId, int? versionId);
 
         /// <summary>
-        /// Delete a course version. 
+        /// Delete a Course Version 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
+        /// Deletes the specified version of the course.  If deleting the last remaining version of the course, the course itself will be deleted and no longer accessible.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to this course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseVersionAsyncWithHttpInfo (string courseId, int? versionId);
         /// <summary>
-        /// Clear a configuration setting for a version of a course. 
+        /// Delete an asset file from a Course Version 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this course and version. 
+        /// Deletes the asset file at the specified relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseVersionAssetFile or UploadCourseVersionAssetFile endpoints. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteCourseVersionAssetAsync (string courseId, int? versionId, string relativePath);
+
+        /// <summary>
+        /// Delete an asset file from a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Deletes the asset file at the specified relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseVersionAssetFile or UploadCourseVersionAssetFile endpoints. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseVersionAssetAsyncWithHttpInfo (string courseId, int? versionId, string relativePath);
+        /// <summary>
+        /// Delete a configuration setting explicitly set for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Clears the specified setting from the course version.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteCourseVersionConfigurationSettingAsync (string courseId, int? versionId, string settingId);
 
         /// <summary>
-        /// Clear a configuration setting for a version of a course. 
+        /// Delete a configuration setting explicitly set for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this course and version. 
+        /// Clears the specified setting from the course version.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseVersionConfigurationSettingAsyncWithHttpInfo (string courseId, int? versionId, string settingId);
         /// <summary>
-        /// Get course details. 
+        /// Get detailed information about a Course 
         /// </summary>
         /// <remarks>
-        /// Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
+        /// Returns detailed information about the course.  This includes title, update date, learning standard, and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -861,10 +1217,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<CourseSchema> GetCourseAsync (string courseId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get course details. 
+        /// Get detailed information about a Course 
         /// </summary>
         /// <remarks>
-        /// Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
+        /// Returns detailed information about the course.  This includes title, update date, learning standard, and version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -873,10 +1229,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (CourseSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CourseSchema>> GetCourseAsyncWithHttpInfo (string courseId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get course configuration. 
+        /// Download an asset file from a Course 
         /// </summary>
         /// <remarks>
-        /// Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
+        /// Downloads the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> GetCourseAssetAsync (string courseId, string relativePath);
+
+        /// <summary>
+        /// Download an asset file from a Course 
+        /// </summary>
+        /// <remarks>
+        /// Downloads the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCourseAssetAsyncWithHttpInfo (string courseId, string relativePath);
+        /// <summary>
+        /// Get effective configuration settings for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective configuration settings for the course.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -885,10 +1264,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<SettingListSchema> GetCourseConfigurationAsync (string courseId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Get course configuration. 
+        /// Get effective configuration settings for a Course 
         /// </summary>
         /// <remarks>
-        /// Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
+        /// Returns the effective configuration settings for the course.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -896,39 +1275,60 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetCourseConfigurationAsyncWithHttpInfo (string courseId, bool? includeMetadata = null);
         /// <summary>
-        /// Get course xAPI statements. 
+        /// Get a list of asset files in a Course 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for &#x60;courseId&#x60;. 
+        /// Returns a list of asset files in the course.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>Task of FileListSchema</returns>
+        System.Threading.Tasks.Task<FileListSchema> GetCourseFileListAsync (string courseId);
+
+        /// <summary>
+        /// Get a list of asset files in a Course 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of asset files in the course.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>Task of ApiResponse (FileListSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileListSchema>> GetCourseFileListAsyncWithHttpInfo (string courseId);
+        /// <summary>
+        /// Get xAPI statements for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Returns xAPI statements for the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiStatementResult</returns>
         System.Threading.Tasks.Task<XapiStatementResult> GetCourseStatementsAsync (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get course xAPI statements. 
+        /// Get xAPI statements for a Course 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for &#x60;courseId&#x60;. 
+        /// Returns xAPI statements for the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetCourseStatementsAsyncWithHttpInfo (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get course tags. 
+        /// Get tags for a Course 
         /// </summary>
         /// <remarks>
-        /// Get a list of the tags for this course. 
+        /// Returns the tags for the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -936,169 +1336,219 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<TagListSchema> GetCourseTagsAsync (string courseId);
 
         /// <summary>
-        /// Get course tags. 
+        /// Get tags for a Course 
         /// </summary>
         /// <remarks>
-        /// Get a list of the tags for this course. 
+        /// Returns the tags for the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetCourseTagsAsyncWithHttpInfo (string courseId);
         /// <summary>
-        /// Get configuration for a version of a course. 
+        /// Download an asset file from a specific Course Version 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this course and version. 
+        /// Downloads the asset file at the provided relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> GetCourseVersionAssetAsync (string courseId, int? versionId, string relativePath);
+
+        /// <summary>
+        /// Download an asset file from a specific Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Downloads the asset file at the provided relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCourseVersionAssetAsyncWithHttpInfo (string courseId, int? versionId, string relativePath);
+        /// <summary>
+        /// Get effective configuration settings for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective configuration settings for the course version.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of SettingListSchema</returns>
         System.Threading.Tasks.Task<SettingListSchema> GetCourseVersionConfigurationAsync (string courseId, int? versionId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Get configuration for a version of a course. 
+        /// Get effective configuration settings for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this course and version. 
+        /// Returns the effective configuration settings for the course version.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetCourseVersionConfigurationAsyncWithHttpInfo (string courseId, int? versionId, bool? includeMetadata = null);
         /// <summary>
-        /// Get details on a course version. 
+        /// Get a list of asset files in a Course Version 
         /// </summary>
         /// <remarks>
-        /// Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Returns a list of asset files in the course version.  Included will be the relative path to use for the other course asset manipulation calls. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
+        /// <returns>Task of FileListSchema</returns>
+        System.Threading.Tasks.Task<FileListSchema> GetCourseVersionFileListAsync (string courseId, int? versionId);
+
+        /// <summary>
+        /// Get a list of asset files in a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of asset files in the course version.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>Task of ApiResponse (FileListSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileListSchema>> GetCourseVersionFileListAsyncWithHttpInfo (string courseId, int? versionId);
+        /// <summary>
+        /// Get detailed information about a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Returns detailed information about the course version.  This includes update date and registration count (if optional value is passed in). 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>Task of CourseSchema</returns>
         System.Threading.Tasks.Task<CourseSchema> GetCourseVersionInfoAsync (string courseId, int? versionId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get details on a course version. 
+        /// Get detailed information about a Course Version 
         /// </summary>
         /// <remarks>
-        /// Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Returns detailed information about the course version.  This includes update date and registration count (if optional value is passed in). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (CourseSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CourseSchema>> GetCourseVersionInfoAsyncWithHttpInfo (string courseId, int? versionId, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get xAPI statements for a course version. 
+        /// Get xAPI statements for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Returns xAPI statements for the course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiStatementResult</returns>
         System.Threading.Tasks.Task<XapiStatementResult> GetCourseVersionStatementsAsync (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for a course version. 
+        /// Get xAPI statements for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Returns xAPI statements for the course version. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetCourseVersionStatementsAsyncWithHttpInfo (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get details on a course&#39;s versions. 
+        /// Get a list of a Course&#39;s Versions 
         /// </summary>
         /// <remarks>
-        /// Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
+        /// Returns information about all versions of the course.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>Task of CourseListNonPagedSchema</returns>
         System.Threading.Tasks.Task<CourseListNonPagedSchema> GetCourseVersionsAsync (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
 
         /// <summary>
-        /// Get details on a course&#39;s versions. 
+        /// Get a list of a Course&#39;s Versions 
         /// </summary>
         /// <remarks>
-        /// Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
+        /// Returns information about all versions of the course.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (CourseListNonPagedSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CourseListNonPagedSchema>> GetCourseVersionsAsyncWithHttpInfo (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
-        /// Get all courses. 
+        /// Get a list of Courses 
         /// </summary>
         /// <remarks>
-        /// Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
+        /// Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
-        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id. (optional)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. (optional)</param>
-        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to course_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of CourseListSchema</returns>
-        System.Threading.Tasks.Task<CourseListSchema> GetCoursesAsync (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null);
+        System.Threading.Tasks.Task<CourseListSchema> GetCoursesAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseMetadata = null, bool? includeRegistrationCount = null);
 
         /// <summary>
-        /// Get all courses. 
+        /// Get a list of Courses 
         /// </summary>
         /// <remarks>
-        /// Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
+        /// Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
-        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id. (optional)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. (optional)</param>
-        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to course_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of ApiResponse (CourseListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CourseListSchema>> GetCoursesAsyncWithHttpInfo (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null);
+        System.Threading.Tasks.Task<ApiResponse<CourseListSchema>> GetCoursesAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseMetadata = null, bool? includeRegistrationCount = null);
         /// <summary>
-        /// Get course import job status. 
+        /// Get import job status for a Course 
         /// </summary>
         /// <remarks>
-        /// Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
+        /// Check the status of a course import.  This can be called incrementally to check the progress of a call to any of the import options.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -1106,20 +1556,72 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<ImportJobResultSchema> GetImportJobStatusAsync (string importJobId);
 
         /// <summary>
-        /// Get course import job status. 
+        /// Get import job status for a Course 
         /// </summary>
         /// <remarks>
-        /// Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
+        /// Check the status of a course import.  This can be called incrementally to check the progress of a call to any of the import options.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
         /// <returns>Task of ApiResponse (ImportJobResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<ImportJobResultSchema>> GetImportJobStatusAsyncWithHttpInfo (string importJobId);
         /// <summary>
-        /// Set course tags. 
+        /// Import an asset file for a Course 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
+        /// Creates or updates an asset file fetched from the provided url into the course.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of AssetFileSchema</returns>
+        System.Threading.Tasks.Task<AssetFileSchema> ImportCourseAssetFileAsync (string courseId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null);
+
+        /// <summary>
+        /// Import an asset file for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file fetched from the provided url into the course.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of ApiResponse (AssetFileSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AssetFileSchema>> ImportCourseAssetFileAsyncWithHttpInfo (string courseId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null);
+        /// <summary>
+        /// Import an asset file for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file fetched from the provided url into the course version.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of AssetFileSchema</returns>
+        System.Threading.Tasks.Task<AssetFileSchema> ImportCourseVersionAssetFileAsync (string courseId, int? versionId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null);
+
+        /// <summary>
+        /// Import an asset file for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file fetched from the provided url into the course version.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of ApiResponse (AssetFileSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AssetFileSchema>> ImportCourseVersionAssetFileAsyncWithHttpInfo (string courseId, int? versionId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null);
+        /// <summary>
+        /// Add tags to a Course 
+        /// </summary>
+        /// <remarks>
+        /// Applies the provided tags to the course.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1128,10 +1630,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task PutCourseTagsAsync (string courseId, TagListSchema tags);
 
         /// <summary>
-        /// Set course tags. 
+        /// Add tags to a Course 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
+        /// Applies the provided tags to the course.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1139,31 +1641,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutCourseTagsAsyncWithHttpInfo (string courseId, TagListSchema tags);
         /// <summary>
-        /// Set tags on courses. 
+        /// Add a group of tags to a group of Courses 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided courses. 
+        /// Applies all of the provided tags on all of the provided courses.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PutCourseTagsBatchAsync (BatchTagsSchema batch);
 
         /// <summary>
-        /// Set tags on courses. 
+        /// Add a group of tags to a group of Courses 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided courses. 
+        /// Applies all of the provided tags on all of the provided courses.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutCourseTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set course configuration. 
+        /// Update configuration settings for a Course 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
+        /// Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1172,10 +1674,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetCourseConfigurationAsync (string courseId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set course configuration. 
+        /// Update configuration settings for a Course 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
+        /// Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1183,10 +1685,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseConfigurationAsyncWithHttpInfo (string courseId, SettingsPostSchema configurationSettings);
         /// <summary>
-        /// Set the title of a course. 
+        /// Update title for a Course 
         /// </summary>
         /// <remarks>
-        /// Sets the course title for the provided courseId. 
+        /// Updates the title of the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1195,10 +1697,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task SetCourseTitleAsync (string courseId, TitleSchema title);
 
         /// <summary>
-        /// Set the title of a course. 
+        /// Update title for a Course 
         /// </summary>
         /// <remarks>
-        /// Sets the course title for the provided courseId. 
+        /// Updates the title of the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -1206,30 +1708,86 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseTitleAsyncWithHttpInfo (string courseId, TitleSchema title);
         /// <summary>
-        /// Set configuration for a version of a course. 
+        /// Update configuration settings for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this course and version. 
+        /// Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SetCourseVersionConfigurationAsync (string courseId, int? versionId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set configuration for a version of a course. 
+        /// Update configuration settings for a Course Version 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this course and version. 
+        /// Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseVersionConfigurationAsyncWithHttpInfo (string courseId, int? versionId, SettingsPostSchema configurationSettings);
+        /// <summary>
+        /// Upload an asset file for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file uploaded from your file system into the course.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of AssetFileSchema</returns>
+        System.Threading.Tasks.Task<AssetFileSchema> UploadCourseAssetFileAsync (string courseId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null);
+
+        /// <summary>
+        /// Upload an asset file for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file uploaded from your file system into the course.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of ApiResponse (AssetFileSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AssetFileSchema>> UploadCourseAssetFileAsyncWithHttpInfo (string courseId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null);
+        /// <summary>
+        /// Upload an asset file for Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file uploaded from your file system into the course version.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of AssetFileSchema</returns>
+        System.Threading.Tasks.Task<AssetFileSchema> UploadCourseVersionAssetFileAsync (string courseId, int? versionId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null);
+
+        /// <summary>
+        /// Upload an asset file for Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Creates or updates an asset file uploaded from your file system into the course version.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of ApiResponse (AssetFileSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AssetFileSchema>> UploadCourseVersionAssetFileAsyncWithHttpInfo (string courseId, int? versionId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null);
         #endregion Asynchronous Operations
     }
 
@@ -1331,28 +1889,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a link to preview a course.  Returns the launch link to use to preview this course. 
+        /// Get a launch link to preview a Course  Returns the launch link to use to preview the course.  Course preview does not require an underlying registration. As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
-        /// <param name="cssUrl"> (optional)</param>
         /// <returns>LaunchLinkSchema</returns>
-        public LaunchLinkSchema BuildCoursePreviewLaunchLink (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null)
+        public LaunchLinkSchema BuildCoursePreviewLaunchLink (string courseId, LaunchLinkRequestSchema launchLinkRequest)
         {
-             ApiResponse<LaunchLinkSchema> localVarResponse = BuildCoursePreviewLaunchLinkWithHttpInfo(courseId, launchLinkRequest, cssUrl);
+             ApiResponse<LaunchLinkSchema> localVarResponse = BuildCoursePreviewLaunchLinkWithHttpInfo(courseId, launchLinkRequest);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a link to preview a course.  Returns the launch link to use to preview this course. 
+        /// Get a launch link to preview a Course  Returns the launch link to use to preview the course.  Course preview does not require an underlying registration. As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
-        /// <param name="cssUrl"> (optional)</param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
-        public ApiResponse< LaunchLinkSchema > BuildCoursePreviewLaunchLinkWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null)
+        public ApiResponse< LaunchLinkSchema > BuildCoursePreviewLaunchLinkWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -1384,7 +1940,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (cssUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "cssUrl", cssUrl)); // query parameter
             if (launchLinkRequest != null && launchLinkRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
@@ -1426,29 +1981,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a link to preview a course.  Returns the launch link to use to preview this course. 
+        /// Get a launch link to preview a Course  Returns the launch link to use to preview the course.  Course preview does not require an underlying registration. As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
-        /// <param name="cssUrl"> (optional)</param>
         /// <returns>Task of LaunchLinkSchema</returns>
-        public async System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkAsync (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null)
+        public async System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkAsync (string courseId, LaunchLinkRequestSchema launchLinkRequest)
         {
-             ApiResponse<LaunchLinkSchema> localVarResponse = await BuildCoursePreviewLaunchLinkAsyncWithHttpInfo(courseId, launchLinkRequest, cssUrl);
+             ApiResponse<LaunchLinkSchema> localVarResponse = await BuildCoursePreviewLaunchLinkAsyncWithHttpInfo(courseId, launchLinkRequest);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a link to preview a course.  Returns the launch link to use to preview this course. 
+        /// Get a launch link to preview a Course  Returns the launch link to use to preview the course.  Course preview does not require an underlying registration. As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
-        /// <param name="cssUrl"> (optional)</param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkAsyncWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest, string cssUrl = null)
+        public async System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkAsyncWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -1480,7 +2033,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
-            if (cssUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "cssUrl", cssUrl)); // query parameter
             if (launchLinkRequest != null && launchLinkRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(launchLinkRequest); // http body (model) parameter
@@ -1522,11 +2074,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a link to preview a particular course version.  Returns the link to use to preview a particular version of a course. 
+        /// Get a launch link to preview a Course Version  Returns the launch link to use to preview the course version.  Course preview does not require an underlying registration.  As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>LaunchLinkSchema</returns>
         public LaunchLinkSchema BuildCoursePreviewLaunchLinkWithVersion (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest)
@@ -1536,11 +2088,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a link to preview a particular course version.  Returns the link to use to preview a particular version of a course. 
+        /// Get a launch link to preview a Course Version  Returns the launch link to use to preview the course version.  Course preview does not require an underlying registration.  As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
         public ApiResponse< LaunchLinkSchema > BuildCoursePreviewLaunchLinkWithVersionWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest)
@@ -1620,11 +2172,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a link to preview a particular course version.  Returns the link to use to preview a particular version of a course. 
+        /// Get a launch link to preview a Course Version  Returns the launch link to use to preview the course version.  Course preview does not require an underlying registration.  As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of LaunchLinkSchema</returns>
         public async System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionAsync (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest)
@@ -1635,11 +2187,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a link to preview a particular course version.  Returns the link to use to preview a particular version of a course. 
+        /// Get a launch link to preview a Course Version  Returns the launch link to use to preview the course version.  Course preview does not require an underlying registration.  As such, no interactions will be tracked during the preview launch.  Previews are meant to be a way to confirm the course looks and acts the way it should.  &gt;**Note:** &gt;The cmi5 standard does not support the ability to preview a course.  A launch link can be built for a cmi5 course, but visiting the link will result in an error page.  More details can be found in this [article explaining the complications behind cmi5 preview launches](https://support.scorm.com/hc/en-us/articles/1260805676710). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkWithVersionAsyncWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest)
@@ -1719,7 +2271,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Fetch and import a course.  An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Create a Course from a package fetched from an external source  Creates a course from a package fetched and imported from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1734,7 +2286,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Fetch and import a course.  An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Create a Course from a package fetched from an external source  Creates a course from a package fetched and imported from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1817,7 +2369,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Fetch and import a course.  An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Create a Course from a package fetched from an external source  Creates a course from a package fetched and imported from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1833,7 +2385,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Fetch and import a course.  An import job will be started to fetch and import the referenced file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Create a Course from a package fetched from an external source  Creates a course from a package fetched and imported from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1916,30 +2468,231 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Upload and import a course. An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Create a Course from a fetched or referenced external media file  Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
-        /// <param name="_file">The zip file of the course contents to import. (optional)</param>
         /// <returns>StringResultSchema</returns>
-        public StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream _file = null)
+        public StringResultSchema CreateNoUploadAndImportCourseJob (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = CreateUploadAndImportCourseJobWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, _file);
+             ApiResponse<StringResultSchema> localVarResponse = CreateNoUploadAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Upload and import a course. An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Create a Course from a fetched or referenced external media file  Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="importRequest"></param>
+        /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
+        /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <returns>ApiResponse of StringResultSchema</returns>
+        public ApiResponse< StringResultSchema > CreateNoUploadAndImportCourseJobWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->CreateNoUploadAndImportCourseJob");
+            // verify the required parameter 'importRequest' is set
+            if (importRequest == null)
+                throw new ApiException(400, "Missing required parameter 'importRequest' when calling CourseApi->CreateNoUploadAndImportCourseJob");
+
+            var localVarPath = "/courses/importJobs/noUpload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
+            if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (importRequest != null && importRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = importRequest; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateNoUploadAndImportCourseJob", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<StringResultSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (StringResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+        }
+
+        /// <summary>
+        /// Create a Course from a fetched or referenced external media file  Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="importRequest"></param>
+        /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
+        /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <returns>Task of StringResultSchema</returns>
+        public async System.Threading.Tasks.Task<StringResultSchema> CreateNoUploadAndImportCourseJobAsync (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        {
+             ApiResponse<StringResultSchema> localVarResponse = await CreateNoUploadAndImportCourseJobAsyncWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a Course from a fetched or referenced external media file  Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="importRequest"></param>
+        /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
+        /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <returns>Task of ApiResponse (StringResultSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateNoUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->CreateNoUploadAndImportCourseJob");
+            // verify the required parameter 'importRequest' is set
+            if (importRequest == null)
+                throw new ApiException(400, "Missing required parameter 'importRequest' when calling CourseApi->CreateNoUploadAndImportCourseJob");
+
+            var localVarPath = "/courses/importJobs/noUpload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
+            if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (importRequest != null && importRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = importRequest; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateNoUploadAndImportCourseJob", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<StringResultSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (StringResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResultSchema)));
+        }
+
+        /// <summary>
+        /// Create a Course from an uploaded package  Creates a course from a package uploaded from your file system.  The package will be sent as part of the request and will be stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
-        /// <param name="_file">The zip file of the course contents to import. (optional)</param>
+        /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
+        /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
+        /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
+        /// <returns>StringResultSchema</returns>
+        public StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
+        {
+             ApiResponse<StringResultSchema> localVarResponse = CreateUploadAndImportCourseJobWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, uploadedContentType, contentMetadata, _file);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a Course from an uploaded package  Creates a course from a package uploaded from your file system.  The package will be sent as part of the request and will be stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
+        /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
+        /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
+        /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
+        /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        public ApiResponse< StringResultSchema > CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream _file = null)
+        public ApiResponse< StringResultSchema > CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -1970,6 +2723,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
             if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
             if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (uploadedContentType != null) localVarHeaderParams.Add("uploadedContentType", this.Configuration.ApiClient.ParameterToString(uploadedContentType)); // header parameter
+            if (contentMetadata != null) localVarFormParams.Add("contentMetadata", this.Configuration.ApiClient.ParameterToString(contentMetadata)); // form parameter
             if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));
 
             // authentication (APP_NORMAL) required
@@ -2004,31 +2759,35 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Upload and import a course. An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Create a Course from an uploaded package  Creates a course from a package uploaded from your file system.  The package will be sent as part of the request and will be stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
-        /// <param name="_file">The zip file of the course contents to import. (optional)</param>
+        /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
+        /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
+        /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        public async System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream _file = null)
+        public async System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = await CreateUploadAndImportCourseJobAsyncWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, _file);
+             ApiResponse<StringResultSchema> localVarResponse = await CreateUploadAndImportCourseJobAsyncWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, uploadedContentType, contentMetadata, _file);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Upload and import a course. An import job will be started to import the posted file, and the import job ID will be returned. If the import is successful, the imported course will be registered using the courseId provided.  To check the progress of the import job, GetImportJobStatus should be called with the job ID returned from this call. 
+        /// Create a Course from an uploaded package  Creates a course from a package uploaded from your file system.  The package will be sent as part of the request and will be stored in SCORM Cloud.  An import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
-        /// <param name="_file">The zip file of the course contents to import. (optional)</param>
+        /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
+        /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
+        /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, System.IO.Stream _file = null)
+        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2059,6 +2818,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
             if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
             if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (uploadedContentType != null) localVarHeaderParams.Add("uploadedContentType", this.Configuration.ApiClient.ParameterToString(uploadedContentType)); // header parameter
+            if (contentMetadata != null) localVarFormParams.Add("contentMetadata", this.Configuration.ApiClient.ParameterToString(contentMetadata)); // form parameter
             if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));
 
             // authentication (APP_NORMAL) required
@@ -2093,7 +2854,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a course.  Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
+        /// Delete a Course  Deletes the specified course.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to the course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2104,7 +2865,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a course.  Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
+        /// Delete a Course  Deletes the specified course.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to the course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2171,7 +2932,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a course.  Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
+        /// Delete a Course  Deletes the specified course.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to the course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2183,7 +2944,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a course.  Delete course identified by &#x60;courseId&#x60;.  When a course is deleted, so is everything connected to this course.  This includes:  - Registrations - Invitations - Dispatches - Debug Logs 
+        /// Delete a Course  Deletes the specified course.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to the course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2250,7 +3011,176 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a course configuration.  Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
+        /// Delete an asset file from a Course  Deletes the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseAssetFile or UploadCourseAssetFile endpoints. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns></returns>
+        public void DeleteCourseAsset (string courseId, string relativePath)
+        {
+             DeleteCourseAssetWithHttpInfo(courseId, relativePath);
+        }
+
+        /// <summary>
+        /// Delete an asset file from a Course  Deletes the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseAssetFile or UploadCourseAssetFile endpoints. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteCourseAssetWithHttpInfo (string courseId, string relativePath)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->DeleteCourseAsset");
+            // verify the required parameter 'relativePath' is set
+            if (relativePath == null)
+                throw new ApiException(400, "Missing required parameter 'relativePath' when calling CourseApi->DeleteCourseAsset");
+
+            var localVarPath = "/courses/{courseId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (relativePath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "relativePath", relativePath)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCourseAsset", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete an asset file from a Course  Deletes the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseAssetFile or UploadCourseAssetFile endpoints. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteCourseAssetAsync (string courseId, string relativePath)
+        {
+             await DeleteCourseAssetAsyncWithHttpInfo(courseId, relativePath);
+
+        }
+
+        /// <summary>
+        /// Delete an asset file from a Course  Deletes the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseAssetFile or UploadCourseAssetFile endpoints. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseAssetAsyncWithHttpInfo (string courseId, string relativePath)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->DeleteCourseAsset");
+            // verify the required parameter 'relativePath' is set
+            if (relativePath == null)
+                throw new ApiException(400, "Missing required parameter 'relativePath' when calling CourseApi->DeleteCourseAsset");
+
+            var localVarPath = "/courses/{courseId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (relativePath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "relativePath", relativePath)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCourseAsset", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a configuration setting explicitly set for a Course  Clears the specified setting from the course.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2262,7 +3192,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a course configuration.  Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
+        /// Delete a configuration setting explicitly set for a Course  Clears the specified setting from the course.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2334,7 +3264,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a course configuration.  Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
+        /// Delete a configuration setting explicitly set for a Course  Clears the specified setting from the course.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2347,7 +3277,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a course configuration.  Clears the value of the given &#x60;settingId&#x60; for this course.  The effective setting value will become any value set at the application level (if this value is set at the application level) or the default setting. 
+        /// Delete a configuration setting explicitly set for a Course  Clears the specified setting from the course.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2419,7 +3349,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete course tags.  Delete the provided tags from this course. 
+        /// Delete tags from a Course  Deletes the specified tags from the course.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2431,7 +3361,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete course tags.  Delete the provided tags from this course. 
+        /// Delete tags from a Course  Deletes the specified tags from the course.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2510,7 +3440,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete course tags.  Delete the provided tags from this course. 
+        /// Delete tags from a Course  Deletes the specified tags from the course.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2523,7 +3453,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete course tags.  Delete the provided tags from this course. 
+        /// Delete tags from a Course  Deletes the specified tags from the course.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2602,11 +3532,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a course version.  Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
+        /// Delete a Course Version  Deletes the specified version of the course.  If deleting the last remaining version of the course, the course itself will be deleted and no longer accessible.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to this course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns></returns>
         public void DeleteCourseVersion (string courseId, int? versionId)
         {
@@ -2614,11 +3544,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a course version.  Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
+        /// Delete a Course Version  Deletes the specified version of the course.  If deleting the last remaining version of the course, the course itself will be deleted and no longer accessible.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to this course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteCourseVersionWithHttpInfo (string courseId, int? versionId)
         {
@@ -2686,11 +3616,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a course version.  Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
+        /// Delete a Course Version  Deletes the specified version of the course.  If deleting the last remaining version of the course, the course itself will be deleted and no longer accessible.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to this course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteCourseVersionAsync (string courseId, int? versionId)
         {
@@ -2699,11 +3629,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a course version.  Delete &#x60;versionId&#x60; of &#x60;courseId&#x60;.  If this is the last remaining version of this course, the course itself will be deleted and no longer accessible. 
+        /// Delete a Course Version  Deletes the specified version of the course.  If deleting the last remaining version of the course, the course itself will be deleted and no longer accessible.  &gt;**Caution:** &gt;When a course is deleted, so is everything connected to this course.  This includes: &gt;- Registrations &gt;- Invitations &gt;- Dispatches &gt;- Debug Logs 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseVersionAsyncWithHttpInfo (string courseId, int? versionId)
         {
@@ -2771,11 +3701,192 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a configuration setting for a version of a course.  Clears the &#x60;settingId&#x60; value for this course and version. 
+        /// Delete an asset file from a Course Version  Deletes the asset file at the specified relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseVersionAssetFile or UploadCourseVersionAssetFile endpoints. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns></returns>
+        public void DeleteCourseVersionAsset (string courseId, int? versionId, string relativePath)
+        {
+             DeleteCourseVersionAssetWithHttpInfo(courseId, versionId, relativePath);
+        }
+
+        /// <summary>
+        /// Delete an asset file from a Course Version  Deletes the asset file at the specified relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseVersionAssetFile or UploadCourseVersionAssetFile endpoints. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteCourseVersionAssetWithHttpInfo (string courseId, int? versionId, string relativePath)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->DeleteCourseVersionAsset");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->DeleteCourseVersionAsset");
+            // verify the required parameter 'relativePath' is set
+            if (relativePath == null)
+                throw new ApiException(400, "Missing required parameter 'relativePath' when calling CourseApi->DeleteCourseVersionAsset");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (relativePath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "relativePath", relativePath)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCourseVersionAsset", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete an asset file from a Course Version  Deletes the asset file at the specified relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseVersionAssetFile or UploadCourseVersionAssetFile endpoints. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteCourseVersionAssetAsync (string courseId, int? versionId, string relativePath)
+        {
+             await DeleteCourseVersionAssetAsyncWithHttpInfo(courseId, versionId, relativePath);
+
+        }
+
+        /// <summary>
+        /// Delete an asset file from a Course Version  Deletes the asset file at the specified relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file.  &gt;**Caution:** &gt;This may have unintended consequences if the asset is still being linked to in other files in the course.  Make sure that other files relying on this asset are modified or removed as well.  This can be done with the ImportCourseVersionAssetFile or UploadCourseVersionAssetFile endpoints. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseVersionAssetAsyncWithHttpInfo (string courseId, int? versionId, string relativePath)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->DeleteCourseVersionAsset");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->DeleteCourseVersionAsset");
+            // verify the required parameter 'relativePath' is set
+            if (relativePath == null)
+                throw new ApiException(400, "Missing required parameter 'relativePath' when calling CourseApi->DeleteCourseVersionAsset");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (relativePath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "relativePath", relativePath)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCourseVersionAsset", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a configuration setting explicitly set for a Course Version  Clears the specified setting from the course version.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
         /// <param name="settingId"></param>
         /// <returns></returns>
         public void DeleteCourseVersionConfigurationSetting (string courseId, int? versionId, string settingId)
@@ -2784,11 +3895,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a configuration setting for a version of a course.  Clears the &#x60;settingId&#x60; value for this course and version. 
+        /// Delete a configuration setting explicitly set for a Course Version  Clears the specified setting from the course version.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="settingId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteCourseVersionConfigurationSettingWithHttpInfo (string courseId, int? versionId, string settingId)
@@ -2861,11 +3972,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a configuration setting for a version of a course.  Clears the &#x60;settingId&#x60; value for this course and version. 
+        /// Delete a configuration setting explicitly set for a Course Version  Clears the specified setting from the course version.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteCourseVersionConfigurationSettingAsync (string courseId, int? versionId, string settingId)
@@ -2875,11 +3986,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a configuration setting for a version of a course.  Clears the &#x60;settingId&#x60; value for this course and version. 
+        /// Delete a configuration setting explicitly set for a Course Version  Clears the specified setting from the course version.  This causes the setting to inherit a value from a higher level (e.g. application).  If the configuration setting was not set at the course level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCourseVersionConfigurationSettingAsyncWithHttpInfo (string courseId, int? versionId, string settingId)
@@ -2952,7 +4063,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course details.  Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
+        /// Get detailed information about a Course  Returns detailed information about the course.  This includes title, update date, learning standard, and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -2966,7 +4077,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course details.  Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
+        /// Get detailed information about a Course  Returns detailed information about the course.  This includes title, update date, learning standard, and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3037,7 +4148,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course details.  Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
+        /// Get detailed information about a Course  Returns detailed information about the course.  This includes title, update date, learning standard, and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3052,7 +4163,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course details.  Get detailed information about &#x60;courseId&#x60;.  Futher detail can be obtained with the optional query parameters flags. 
+        /// Get detailed information about a Course  Returns detailed information about the course.  This includes title, update date, learning standard, and version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3123,7 +4234,178 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course configuration.  Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
+        /// Download an asset file from a Course  Downloads the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream GetCourseAsset (string courseId, string relativePath)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = GetCourseAssetWithHttpInfo(courseId, relativePath);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Download an asset file from a Course  Downloads the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public ApiResponse< System.IO.Stream > GetCourseAssetWithHttpInfo (string courseId, string relativePath)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseAsset");
+            // verify the required parameter 'relativePath' is set
+            if (relativePath == null)
+                throw new ApiException(400, "Missing required parameter 'relativePath' when calling CourseApi->GetCourseAsset");
+
+            var localVarPath = "/courses/{courseId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (relativePath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "relativePath", relativePath)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseAsset", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
+        /// Download an asset file from a Course  Downloads the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetCourseAssetAsync (string courseId, string relativePath)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = await GetCourseAssetAsyncWithHttpInfo(courseId, relativePath);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Download an asset file from a Course  Downloads the asset file at the specified relative path from the latest version of the course. GetCourseFileList can be used to find the relative path of the file. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCourseAssetAsyncWithHttpInfo (string courseId, string relativePath)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseAsset");
+            // verify the required parameter 'relativePath' is set
+            if (relativePath == null)
+                throw new ApiException(400, "Missing required parameter 'relativePath' when calling CourseApi->GetCourseAsset");
+
+            var localVarPath = "/courses/{courseId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (relativePath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "relativePath", relativePath)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseAsset", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
+        /// Get effective configuration settings for a Course  Returns the effective configuration settings for the course.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3136,7 +4418,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course configuration.  Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
+        /// Get effective configuration settings for a Course  Returns the effective configuration settings for the course.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3205,7 +4487,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course configuration.  Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
+        /// Get effective configuration settings for a Course  Returns the effective configuration settings for the course.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3219,7 +4501,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course configuration.  Returns all effective configuration settings for this course.  For any setting which is not explicitly set at the course level, the effective value will be either the value set at the application level (if there is one) or the default value for the setting. 
+        /// Get effective configuration settings for a Course  Returns the effective configuration settings for the course.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3288,14 +4570,173 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course xAPI statements.  Get xAPI statements for &#x60;courseId&#x60;. 
+        /// Get a list of asset files in a Course  Returns a list of asset files in the course.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>FileListSchema</returns>
+        public FileListSchema GetCourseFileList (string courseId)
+        {
+             ApiResponse<FileListSchema> localVarResponse = GetCourseFileListWithHttpInfo(courseId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a list of asset files in a Course  Returns a list of asset files in the course.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>ApiResponse of FileListSchema</returns>
+        public ApiResponse< FileListSchema > GetCourseFileListWithHttpInfo (string courseId)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseFileList");
+
+            var localVarPath = "/courses/{courseId}/asset/list";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseFileList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileListSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileListSchema)));
+        }
+
+        /// <summary>
+        /// Get a list of asset files in a Course  Returns a list of asset files in the course.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>Task of FileListSchema</returns>
+        public async System.Threading.Tasks.Task<FileListSchema> GetCourseFileListAsync (string courseId)
+        {
+             ApiResponse<FileListSchema> localVarResponse = await GetCourseFileListAsyncWithHttpInfo(courseId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a list of asset files in a Course  Returns a list of asset files in the course.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>Task of ApiResponse (FileListSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileListSchema>> GetCourseFileListAsyncWithHttpInfo (string courseId)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseFileList");
+
+            var localVarPath = "/courses/{courseId}/asset/list";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseFileList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileListSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileListSchema)));
+        }
+
+        /// <summary>
+        /// Get xAPI statements for a Course  Returns xAPI statements for the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiStatementResult</returns>
         public XapiStatementResult GetCourseStatements (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -3304,14 +4745,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course xAPI statements.  Get xAPI statements for &#x60;courseId&#x60;. 
+        /// Get xAPI statements for a Course  Returns xAPI statements for the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiStatementResult</returns>
         public ApiResponse< XapiStatementResult > GetCourseStatementsWithHttpInfo (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -3379,14 +4820,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course xAPI statements.  Get xAPI statements for &#x60;courseId&#x60;. 
+        /// Get xAPI statements for a Course  Returns xAPI statements for the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiStatementResult</returns>
         public async System.Threading.Tasks.Task<XapiStatementResult> GetCourseStatementsAsync (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -3396,14 +4837,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course xAPI statements.  Get xAPI statements for &#x60;courseId&#x60;. 
+        /// Get xAPI statements for a Course  Returns xAPI statements for the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetCourseStatementsAsyncWithHttpInfo (string courseId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -3471,7 +4912,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course tags.  Get a list of the tags for this course. 
+        /// Get tags for a Course  Returns the tags for the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3483,7 +4924,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course tags.  Get a list of the tags for this course. 
+        /// Get tags for a Course  Returns the tags for the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3550,7 +4991,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course tags.  Get a list of the tags for this course. 
+        /// Get tags for a Course  Returns the tags for the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3563,7 +5004,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course tags.  Get a list of the tags for this course. 
+        /// Get tags for a Course  Returns the tags for the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -3630,11 +5071,194 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get configuration for a version of a course.  Returns all configuration settings for this course and version. 
+        /// Download an asset file from a specific Course Version  Downloads the asset file at the provided relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream GetCourseVersionAsset (string courseId, int? versionId, string relativePath)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = GetCourseVersionAssetWithHttpInfo(courseId, versionId, relativePath);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Download an asset file from a specific Course Version  Downloads the asset file at the provided relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public ApiResponse< System.IO.Stream > GetCourseVersionAssetWithHttpInfo (string courseId, int? versionId, string relativePath)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseVersionAsset");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->GetCourseVersionAsset");
+            // verify the required parameter 'relativePath' is set
+            if (relativePath == null)
+                throw new ApiException(400, "Missing required parameter 'relativePath' when calling CourseApi->GetCourseVersionAsset");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (relativePath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "relativePath", relativePath)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseVersionAsset", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
+        /// Download an asset file from a specific Course Version  Downloads the asset file at the provided relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetCourseVersionAssetAsync (string courseId, int? versionId, string relativePath)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = await GetCourseVersionAssetAsyncWithHttpInfo(courseId, versionId, relativePath);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Download an asset file from a specific Course Version  Downloads the asset file at the provided relative path from the course version.  GetCourseVersionFileList can be used to find the relative path of the file. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="relativePath">Relative path of the asset within the course. </param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCourseVersionAssetAsyncWithHttpInfo (string courseId, int? versionId, string relativePath)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseVersionAsset");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->GetCourseVersionAsset");
+            // verify the required parameter 'relativePath' is set
+            if (relativePath == null)
+                throw new ApiException(400, "Missing required parameter 'relativePath' when calling CourseApi->GetCourseVersionAsset");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (relativePath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "relativePath", relativePath)); // query parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseVersionAsset", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
+        /// Get effective configuration settings for a Course Version  Returns the effective configuration settings for the course version.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>SettingListSchema</returns>
         public SettingListSchema GetCourseVersionConfiguration (string courseId, int? versionId, bool? includeMetadata = null)
@@ -3644,11 +5268,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get configuration for a version of a course.  Returns all configuration settings for this course and version. 
+        /// Get effective configuration settings for a Course Version  Returns the effective configuration settings for the course version.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>ApiResponse of SettingListSchema</returns>
         public ApiResponse< SettingListSchema > GetCourseVersionConfigurationWithHttpInfo (string courseId, int? versionId, bool? includeMetadata = null)
@@ -3718,11 +5342,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get configuration for a version of a course.  Returns all configuration settings for this course and version. 
+        /// Get effective configuration settings for a Course Version  Returns the effective configuration settings for the course version.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of SettingListSchema</returns>
         public async System.Threading.Tasks.Task<SettingListSchema> GetCourseVersionConfigurationAsync (string courseId, int? versionId, bool? includeMetadata = null)
@@ -3733,11 +5357,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get configuration for a version of a course.  Returns all configuration settings for this course and version. 
+        /// Get effective configuration settings for a Course Version  Returns the effective configuration settings for the course version.  If not set at the course level, the setting will inherit a value from a higher level (e.g. application).  If there is a configuration setting present at a more specific level, that setting will override the one set at the course level. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetCourseVersionConfigurationAsyncWithHttpInfo (string courseId, int? versionId, bool? includeMetadata = null)
@@ -3807,11 +5431,182 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details on a course version.  Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Get a list of asset files in a Course Version  Returns a list of asset files in the course version.  Included will be the relative path to use for the other course asset manipulation calls. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
+        /// <returns>FileListSchema</returns>
+        public FileListSchema GetCourseVersionFileList (string courseId, int? versionId)
+        {
+             ApiResponse<FileListSchema> localVarResponse = GetCourseVersionFileListWithHttpInfo(courseId, versionId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a list of asset files in a Course Version  Returns a list of asset files in the course version.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>ApiResponse of FileListSchema</returns>
+        public ApiResponse< FileListSchema > GetCourseVersionFileListWithHttpInfo (string courseId, int? versionId)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseVersionFileList");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->GetCourseVersionFileList");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset/list";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseVersionFileList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileListSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileListSchema)));
+        }
+
+        /// <summary>
+        /// Get a list of asset files in a Course Version  Returns a list of asset files in the course version.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>Task of FileListSchema</returns>
+        public async System.Threading.Tasks.Task<FileListSchema> GetCourseVersionFileListAsync (string courseId, int? versionId)
+        {
+             ApiResponse<FileListSchema> localVarResponse = await GetCourseVersionFileListAsyncWithHttpInfo(courseId, versionId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a list of asset files in a Course Version  Returns a list of asset files in the course version.  Included will be the relative path to use for the other course asset manipulation calls. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>Task of ApiResponse (FileListSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileListSchema>> GetCourseVersionFileListAsyncWithHttpInfo (string courseId, int? versionId)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseVersionFileList");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->GetCourseVersionFileList");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset/list";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseVersionFileList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileListSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileListSchema)));
+        }
+
+        /// <summary>
+        /// Get detailed information about a Course Version  Returns detailed information about the course version.  This includes update date and registration count (if optional value is passed in). 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>CourseSchema</returns>
@@ -3822,11 +5617,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details on a course version.  Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Get detailed information about a Course Version  Returns detailed information about the course version.  This includes update date and registration count (if optional value is passed in). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>ApiResponse of CourseSchema</returns>
@@ -3898,11 +5693,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details on a course version.  Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Get detailed information about a Course Version  Returns detailed information about the course version.  This includes update date and registration count (if optional value is passed in). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>Task of CourseSchema</returns>
@@ -3914,11 +5709,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details on a course version.  Get specific version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Get detailed information about a Course Version  Returns detailed information about the course version.  This includes update date and registration count (if optional value is passed in). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (CourseSchema)</returns>
@@ -3990,15 +5785,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for a course version.  Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Get xAPI statements for a Course Version  Returns xAPI statements for the course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiStatementResult</returns>
         public XapiStatementResult GetCourseVersionStatements (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4007,15 +5802,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for a course version.  Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Get xAPI statements for a Course Version  Returns xAPI statements for the course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiStatementResult</returns>
         public ApiResponse< XapiStatementResult > GetCourseVersionStatementsWithHttpInfo (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4087,15 +5882,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for a course version.  Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Get xAPI statements for a Course Version  Returns xAPI statements for the course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiStatementResult</returns>
         public async System.Threading.Tasks.Task<XapiStatementResult> GetCourseVersionStatementsAsync (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4105,15 +5900,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for a course version.  Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60; 
+        /// Get xAPI statements for a Course Version  Returns xAPI statements for the course version. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="learnerId">Only entries for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetCourseVersionStatementsAsyncWithHttpInfo (string courseId, int? versionId, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4185,12 +5980,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details on a course&#39;s versions.  Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
+        /// Get a list of a Course&#39;s Versions  Returns information about all versions of the course.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>CourseListNonPagedSchema</returns>
@@ -4201,12 +5996,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details on a course&#39;s versions.  Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
+        /// Get a list of a Course&#39;s Versions  Returns information about all versions of the course.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>ApiResponse of CourseListNonPagedSchema</returns>
@@ -4276,12 +6071,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details on a course&#39;s versions.  Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
+        /// Get a list of a Course&#39;s Versions  Returns information about all versions of the course.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>Task of CourseListNonPagedSchema</returns>
@@ -4293,12 +6088,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details on a course&#39;s versions.  Get information about all versions of &#x60;courseId&#x60;.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
+        /// Get a list of a Course&#39;s Versions  Returns information about all versions of the course.  This can be useful to see information such as registration counts and modification times across the versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (CourseListNonPagedSchema)</returns>
@@ -4368,40 +6163,42 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all courses.  Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
+        /// Get a list of Courses  Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
-        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id. (optional)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. (optional)</param>
-        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to course_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>CourseListSchema</returns>
-        public CourseListSchema GetCourses (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null)
+        public CourseListSchema GetCourses (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseMetadata = null, bool? includeRegistrationCount = null)
         {
-             ApiResponse<CourseListSchema> localVarResponse = GetCoursesWithHttpInfo(more, since, until, filter, filterBy, orderBy, includeRegistrationCount, includeCourseMetadata, tags);
+             ApiResponse<CourseListSchema> localVarResponse = GetCoursesWithHttpInfo(since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeCourseMetadata, includeRegistrationCount);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get all courses.  Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
+        /// Get a list of Courses  Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
-        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id. (optional)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. (optional)</param>
-        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to course_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>ApiResponse of CourseListSchema</returns>
-        public ApiResponse< CourseListSchema > GetCoursesWithHttpInfo (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null)
+        public ApiResponse< CourseListSchema > GetCoursesWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseMetadata = null, bool? includeRegistrationCount = null)
         {
 
             var localVarPath = "/courses";
@@ -4426,15 +6223,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -4468,41 +6266,43 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all courses.  Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
+        /// Get a list of Courses  Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
-        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id. (optional)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. (optional)</param>
-        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to course_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of CourseListSchema</returns>
-        public async System.Threading.Tasks.Task<CourseListSchema> GetCoursesAsync (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null)
+        public async System.Threading.Tasks.Task<CourseListSchema> GetCoursesAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseMetadata = null, bool? includeRegistrationCount = null)
         {
-             ApiResponse<CourseListSchema> localVarResponse = await GetCoursesAsyncWithHttpInfo(more, since, until, filter, filterBy, orderBy, includeRegistrationCount, includeCourseMetadata, tags);
+             ApiResponse<CourseListSchema> localVarResponse = await GetCoursesAsyncWithHttpInfo(since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeCourseMetadata, includeRegistrationCount);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get all courses.  Get all courses for the &#x60;appId&#x60; which was used to authenticate this call. 
+        /// Get a list of Courses  Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
         /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
-        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  Defaults to course_id. (optional)</param>
-        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  Defaults to creation_date_desc. (optional)</param>
-        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to course_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeCourseMetadata">Include course metadata in the results. If the course has no metadata, adding this parameter has no effect. (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of ApiResponse (CourseListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CourseListSchema>> GetCoursesAsyncWithHttpInfo (string more = null, DateTime? since = null, DateTime? until = null, string filter = null, string filterBy = null, string orderBy = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null, List<string> tags = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CourseListSchema>> GetCoursesAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseMetadata = null, bool? includeRegistrationCount = null)
         {
 
             var localVarPath = "/courses";
@@ -4527,15 +6327,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
-            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (includeCourseMetadata != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseMetadata", includeCourseMetadata)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -4569,7 +6370,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course import job status.  Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
+        /// Get import job status for a Course  Check the status of a course import.  This can be called incrementally to check the progress of a call to any of the import options.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -4581,7 +6382,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course import job status.  Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
+        /// Get import job status for a Course  Check the status of a course import.  This can be called incrementally to check the progress of a call to any of the import options.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -4648,7 +6449,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course import job status.  Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
+        /// Get import job status for a Course  Check the status of a course import.  This can be called incrementally to check the progress of a call to any of the import options.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -4661,7 +6462,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get course import job status.  Check the status of an import job.  This can be called incrementally to check to progress of a call to either of the import options. 
+        /// Get import job status for a Course  Check the status of a course import.  This can be called incrementally to check the progress of a call to any of the import options.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
@@ -4728,7 +6529,401 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set course tags.  Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
+        /// Import an asset file for a Course  Creates or updates an asset file fetched from the provided url into the course.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>AssetFileSchema</returns>
+        public AssetFileSchema ImportCourseAssetFile (string courseId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null)
+        {
+             ApiResponse<AssetFileSchema> localVarResponse = ImportCourseAssetFileWithHttpInfo(courseId, assetSchema, updateAssetPolicy);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Import an asset file for a Course  Creates or updates an asset file fetched from the provided url into the course.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>ApiResponse of AssetFileSchema</returns>
+        public ApiResponse< AssetFileSchema > ImportCourseAssetFileWithHttpInfo (string courseId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->ImportCourseAssetFile");
+            // verify the required parameter 'assetSchema' is set
+            if (assetSchema == null)
+                throw new ApiException(400, "Missing required parameter 'assetSchema' when calling CourseApi->ImportCourseAssetFile");
+
+            var localVarPath = "/courses/{courseId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (updateAssetPolicy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "updateAssetPolicy", updateAssetPolicy)); // query parameter
+            if (assetSchema != null && assetSchema.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(assetSchema); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = assetSchema; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportCourseAssetFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AssetFileSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AssetFileSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetFileSchema)));
+        }
+
+        /// <summary>
+        /// Import an asset file for a Course  Creates or updates an asset file fetched from the provided url into the course.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of AssetFileSchema</returns>
+        public async System.Threading.Tasks.Task<AssetFileSchema> ImportCourseAssetFileAsync (string courseId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null)
+        {
+             ApiResponse<AssetFileSchema> localVarResponse = await ImportCourseAssetFileAsyncWithHttpInfo(courseId, assetSchema, updateAssetPolicy);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Import an asset file for a Course  Creates or updates an asset file fetched from the provided url into the course.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of ApiResponse (AssetFileSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AssetFileSchema>> ImportCourseAssetFileAsyncWithHttpInfo (string courseId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->ImportCourseAssetFile");
+            // verify the required parameter 'assetSchema' is set
+            if (assetSchema == null)
+                throw new ApiException(400, "Missing required parameter 'assetSchema' when calling CourseApi->ImportCourseAssetFile");
+
+            var localVarPath = "/courses/{courseId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (updateAssetPolicy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "updateAssetPolicy", updateAssetPolicy)); // query parameter
+            if (assetSchema != null && assetSchema.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(assetSchema); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = assetSchema; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportCourseAssetFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AssetFileSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AssetFileSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetFileSchema)));
+        }
+
+        /// <summary>
+        /// Import an asset file for a Course Version  Creates or updates an asset file fetched from the provided url into the course version.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>AssetFileSchema</returns>
+        public AssetFileSchema ImportCourseVersionAssetFile (string courseId, int? versionId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null)
+        {
+             ApiResponse<AssetFileSchema> localVarResponse = ImportCourseVersionAssetFileWithHttpInfo(courseId, versionId, assetSchema, updateAssetPolicy);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Import an asset file for a Course Version  Creates or updates an asset file fetched from the provided url into the course version.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>ApiResponse of AssetFileSchema</returns>
+        public ApiResponse< AssetFileSchema > ImportCourseVersionAssetFileWithHttpInfo (string courseId, int? versionId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->ImportCourseVersionAssetFile");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->ImportCourseVersionAssetFile");
+            // verify the required parameter 'assetSchema' is set
+            if (assetSchema == null)
+                throw new ApiException(400, "Missing required parameter 'assetSchema' when calling CourseApi->ImportCourseVersionAssetFile");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (updateAssetPolicy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "updateAssetPolicy", updateAssetPolicy)); // query parameter
+            if (assetSchema != null && assetSchema.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(assetSchema); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = assetSchema; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportCourseVersionAssetFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AssetFileSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AssetFileSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetFileSchema)));
+        }
+
+        /// <summary>
+        /// Import an asset file for a Course Version  Creates or updates an asset file fetched from the provided url into the course version.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of AssetFileSchema</returns>
+        public async System.Threading.Tasks.Task<AssetFileSchema> ImportCourseVersionAssetFileAsync (string courseId, int? versionId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null)
+        {
+             ApiResponse<AssetFileSchema> localVarResponse = await ImportCourseVersionAssetFileAsyncWithHttpInfo(courseId, versionId, assetSchema, updateAssetPolicy);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Import an asset file for a Course Version  Creates or updates an asset file fetched from the provided url into the course version.  The file will be downloaded from the url and stored in SCORM Cloud.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="assetSchema"></param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of ApiResponse (AssetFileSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AssetFileSchema>> ImportCourseVersionAssetFileAsyncWithHttpInfo (string courseId, int? versionId, ImportAssetRequestSchema assetSchema, string updateAssetPolicy = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->ImportCourseVersionAssetFile");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->ImportCourseVersionAssetFile");
+            // verify the required parameter 'assetSchema' is set
+            if (assetSchema == null)
+                throw new ApiException(400, "Missing required parameter 'assetSchema' when calling CourseApi->ImportCourseVersionAssetFile");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (updateAssetPolicy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "updateAssetPolicy", updateAssetPolicy)); // query parameter
+            if (assetSchema != null && assetSchema.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(assetSchema); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = assetSchema; // byte array
+            }
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportCourseVersionAssetFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AssetFileSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AssetFileSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetFileSchema)));
+        }
+
+        /// <summary>
+        /// Add tags to a Course  Applies the provided tags to the course.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4740,7 +6935,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set course tags.  Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
+        /// Add tags to a Course  Applies the provided tags to the course.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4819,7 +7014,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set course tags.  Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
+        /// Add tags to a Course  Applies the provided tags to the course.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4832,7 +7027,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set course tags.  Set the tags for this course.  Note: any tags currently on this course will be overwritten with the new array of tags. 
+        /// Add tags to a Course  Applies the provided tags to the course.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -4911,10 +7106,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on courses.  Sets all of the provided tags on all of the provided courses. 
+        /// Add a group of tags to a group of Courses  Applies all of the provided tags on all of the provided courses.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         public void PutCourseTagsBatch (BatchTagsSchema batch)
         {
@@ -4922,10 +7117,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on courses.  Sets all of the provided tags on all of the provided courses. 
+        /// Add a group of tags to a group of Courses  Applies all of the provided tags on all of the provided courses.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PutCourseTagsBatchWithHttpInfo (BatchTagsSchema batch)
         {
@@ -4996,10 +7191,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on courses.  Sets all of the provided tags on all of the provided courses. 
+        /// Add a group of tags to a group of Courses  Applies all of the provided tags on all of the provided courses.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PutCourseTagsBatchAsync (BatchTagsSchema batch)
         {
@@ -5008,10 +7203,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on courses.  Sets all of the provided tags on all of the provided courses. 
+        /// Add a group of tags to a group of Courses  Applies all of the provided tags on all of the provided courses.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetCourses). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> PutCourseTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch)
         {
@@ -5082,7 +7277,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set course configuration.  Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
+        /// Update configuration settings for a Course  Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5094,7 +7289,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set course configuration.  Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
+        /// Update configuration settings for a Course  Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5173,7 +7368,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set course configuration.  Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
+        /// Update configuration settings for a Course  Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5186,7 +7381,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set course configuration.  Set configuration settings for this course.  Setting a value at this level will override any value which is set at the application level. 
+        /// Update configuration settings for a Course  Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5265,7 +7460,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the title of a course.  Sets the course title for the provided courseId. 
+        /// Update title for a Course  Updates the title of the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5277,7 +7472,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the title of a course.  Sets the course title for the provided courseId. 
+        /// Update title for a Course  Updates the title of the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5356,7 +7551,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the title of a course.  Sets the course title for the provided courseId. 
+        /// Update title for a Course  Updates the title of the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5369,7 +7564,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the title of a course.  Sets the course title for the provided courseId. 
+        /// Update title for a Course  Updates the title of the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
@@ -5448,11 +7643,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration for a version of a course.  Set configuration settings for this course and version. 
+        /// Update configuration settings for a Course Version  Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns></returns>
         public void SetCourseVersionConfiguration (string courseId, int? versionId, SettingsPostSchema configurationSettings)
@@ -5461,11 +7656,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration for a version of a course.  Set configuration settings for this course and version. 
+        /// Update configuration settings for a Course Version  Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SetCourseVersionConfigurationWithHttpInfo (string courseId, int? versionId, SettingsPostSchema configurationSettings)
@@ -5545,11 +7740,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration for a version of a course.  Set configuration settings for this course and version. 
+        /// Update configuration settings for a Course Version  Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task SetCourseVersionConfigurationAsync (string courseId, int? versionId, SettingsPostSchema configurationSettings)
@@ -5559,11 +7754,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration for a version of a course.  Set configuration settings for this course and version. 
+        /// Update configuration settings for a Course Version  Updates configuration settings at the course level.  This will explicitly set a value at the course level and override any settings from a higher level.  These settings will affect all items within the course which do not have their own explicit configuration set.  This can effectively be used to set course level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId"></param>
-        /// <param name="versionId">The course version</param>
+        /// <param name="versionId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> SetCourseVersionConfigurationAsyncWithHttpInfo (string courseId, int? versionId, SettingsPostSchema configurationSettings)
@@ -5640,6 +7835,384 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Upload an asset file for a Course  Creates or updates an asset file uploaded from your file system into the course.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>AssetFileSchema</returns>
+        public AssetFileSchema UploadCourseAssetFile (string courseId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null)
+        {
+             ApiResponse<AssetFileSchema> localVarResponse = UploadCourseAssetFileWithHttpInfo(courseId, destination, _file, updateAssetPolicy);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Upload an asset file for a Course  Creates or updates an asset file uploaded from your file system into the course.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>ApiResponse of AssetFileSchema</returns>
+        public ApiResponse< AssetFileSchema > UploadCourseAssetFileWithHttpInfo (string courseId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->UploadCourseAssetFile");
+            // verify the required parameter 'destination' is set
+            if (destination == null)
+                throw new ApiException(400, "Missing required parameter 'destination' when calling CourseApi->UploadCourseAssetFile");
+
+            var localVarPath = "/courses/{courseId}/asset/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (updateAssetPolicy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "updateAssetPolicy", updateAssetPolicy)); // query parameter
+            if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));
+            if (destination != null) localVarFormParams.Add("destination", this.Configuration.ApiClient.ParameterToString(destination)); // form parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UploadCourseAssetFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AssetFileSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AssetFileSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetFileSchema)));
+        }
+
+        /// <summary>
+        /// Upload an asset file for a Course  Creates or updates an asset file uploaded from your file system into the course.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of AssetFileSchema</returns>
+        public async System.Threading.Tasks.Task<AssetFileSchema> UploadCourseAssetFileAsync (string courseId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null)
+        {
+             ApiResponse<AssetFileSchema> localVarResponse = await UploadCourseAssetFileAsyncWithHttpInfo(courseId, destination, _file, updateAssetPolicy);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Upload an asset file for a Course  Creates or updates an asset file uploaded from your file system into the course.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of ApiResponse (AssetFileSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AssetFileSchema>> UploadCourseAssetFileAsyncWithHttpInfo (string courseId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->UploadCourseAssetFile");
+            // verify the required parameter 'destination' is set
+            if (destination == null)
+                throw new ApiException(400, "Missing required parameter 'destination' when calling CourseApi->UploadCourseAssetFile");
+
+            var localVarPath = "/courses/{courseId}/asset/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (updateAssetPolicy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "updateAssetPolicy", updateAssetPolicy)); // query parameter
+            if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));
+            if (destination != null) localVarFormParams.Add("destination", this.Configuration.ApiClient.ParameterToString(destination)); // form parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UploadCourseAssetFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AssetFileSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AssetFileSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetFileSchema)));
+        }
+
+        /// <summary>
+        /// Upload an asset file for Course Version  Creates or updates an asset file uploaded from your file system into the course version.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>AssetFileSchema</returns>
+        public AssetFileSchema UploadCourseVersionAssetFile (string courseId, int? versionId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null)
+        {
+             ApiResponse<AssetFileSchema> localVarResponse = UploadCourseVersionAssetFileWithHttpInfo(courseId, versionId, destination, _file, updateAssetPolicy);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Upload an asset file for Course Version  Creates or updates an asset file uploaded from your file system into the course version.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>ApiResponse of AssetFileSchema</returns>
+        public ApiResponse< AssetFileSchema > UploadCourseVersionAssetFileWithHttpInfo (string courseId, int? versionId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->UploadCourseVersionAssetFile");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->UploadCourseVersionAssetFile");
+            // verify the required parameter 'destination' is set
+            if (destination == null)
+                throw new ApiException(400, "Missing required parameter 'destination' when calling CourseApi->UploadCourseVersionAssetFile");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (updateAssetPolicy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "updateAssetPolicy", updateAssetPolicy)); // query parameter
+            if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));
+            if (destination != null) localVarFormParams.Add("destination", this.Configuration.ApiClient.ParameterToString(destination)); // form parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UploadCourseVersionAssetFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AssetFileSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AssetFileSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetFileSchema)));
+        }
+
+        /// <summary>
+        /// Upload an asset file for Course Version  Creates or updates an asset file uploaded from your file system into the course version.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of AssetFileSchema</returns>
+        public async System.Threading.Tasks.Task<AssetFileSchema> UploadCourseVersionAssetFileAsync (string courseId, int? versionId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null)
+        {
+             ApiResponse<AssetFileSchema> localVarResponse = await UploadCourseVersionAssetFileAsyncWithHttpInfo(courseId, versionId, destination, _file, updateAssetPolicy);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Upload an asset file for Course Version  Creates or updates an asset file uploaded from your file system into the course version.  The file will be sent as part of the request and will be stored in SCORM Cloud alongside the course.  This is a useful way to modify the course structure without needing to reimport the whole course after you&#39;ve made changes.  &gt;**Info:** &gt;If the course structure is being heavily modified, consider creating a new version instead.  This can be done by calling one of the course import jobs while passing true for &#x60;mayCreateNewVersion&#x60;. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="destination">Relative path from the course&#39;s base directory where the asset file will be uploaded. &#x60;/Etiquette/Course.html&#x60; will upload the file into the Etiquette folder of the course. </param>
+        /// <param name="_file">The asset file to import into the course.  (optional)</param>
+        /// <param name="updateAssetPolicy">Describes how SCORM Cloud should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).  (optional, default to lax)</param>
+        /// <returns>Task of ApiResponse (AssetFileSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AssetFileSchema>> UploadCourseVersionAssetFileAsyncWithHttpInfo (string courseId, int? versionId, string destination, System.IO.Stream _file = null, string updateAssetPolicy = null)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->UploadCourseVersionAssetFile");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->UploadCourseVersionAssetFile");
+            // verify the required parameter 'destination' is set
+            if (destination == null)
+                throw new ApiException(400, "Missing required parameter 'destination' when calling CourseApi->UploadCourseVersionAssetFile");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/asset/upload";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+            if (updateAssetPolicy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "updateAssetPolicy", updateAssetPolicy)); // query parameter
+            if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));
+            if (destination != null) localVarFormParams.Add("destination", this.Configuration.ApiClient.ParameterToString(destination)); // form parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UploadCourseVersionAssetFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AssetFileSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AssetFileSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AssetFileSchema)));
         }
 
     }

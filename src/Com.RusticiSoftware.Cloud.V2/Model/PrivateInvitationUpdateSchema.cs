@@ -25,72 +25,32 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// CreatePrivateInvitationSchema
+    /// PrivateInvitationUpdateSchema
     /// </summary>
     [DataContract]
-    public partial class CreatePrivateInvitationSchema :  IEquatable<CreatePrivateInvitationSchema>, IValidatableObject
+    public partial class PrivateInvitationUpdateSchema :  IEquatable<PrivateInvitationUpdateSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreatePrivateInvitationSchema" /> class.
+        /// Initializes a new instance of the <see cref="PrivateInvitationUpdateSchema" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CreatePrivateInvitationSchema() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CreatePrivateInvitationSchema" /> class.
-        /// </summary>
-        /// <param name="courseId">The id of the course for which to create an invitation. (required).</param>
-        /// <param name="creatingUserEmail">The email of the user who is creating the invitation. (required).</param>
-        /// <param name="invitationEmail">invitationEmail (required).</param>
+        /// <param name="allowLaunch">If true, then new registrations can be created for this invitation..</param>
+        /// <param name="invitationEmail">invitationEmail.</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
-        /// <param name="tags">Optional tags to be applied to this invitation..</param>
-        public CreatePrivateInvitationSchema(string courseId = default(string), string creatingUserEmail = default(string), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), List<string> tags = default(List<string>))
+        public PrivateInvitationUpdateSchema(bool? allowLaunch = default(bool?), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?))
         {
-            // to ensure "courseId" is required (not null)
-            if (courseId == null)
-            {
-                throw new InvalidDataException("courseId is a required property for CreatePrivateInvitationSchema and cannot be null");
-            }
-            else
-            {
-                this.CourseId = courseId;
-            }
-            // to ensure "creatingUserEmail" is required (not null)
-            if (creatingUserEmail == null)
-            {
-                throw new InvalidDataException("creatingUserEmail is a required property for CreatePrivateInvitationSchema and cannot be null");
-            }
-            else
-            {
-                this.CreatingUserEmail = creatingUserEmail;
-            }
-            // to ensure "invitationEmail" is required (not null)
-            if (invitationEmail == null)
-            {
-                throw new InvalidDataException("invitationEmail is a required property for CreatePrivateInvitationSchema and cannot be null");
-            }
-            else
-            {
-                this.InvitationEmail = invitationEmail;
-            }
+            this.AllowLaunch = allowLaunch;
+            this.InvitationEmail = invitationEmail;
             this.PostBack = postBack;
             this.ExpirationDate = expirationDate;
-            this.Tags = tags;
         }
         
         /// <summary>
-        /// The id of the course for which to create an invitation.
+        /// If true, then new registrations can be created for this invitation.
         /// </summary>
-        /// <value>The id of the course for which to create an invitation.</value>
-        [DataMember(Name="courseId", EmitDefaultValue=false)]
-        public string CourseId { get; set; }
-
-        /// <summary>
-        /// The email of the user who is creating the invitation.
-        /// </summary>
-        /// <value>The email of the user who is creating the invitation.</value>
-        [DataMember(Name="creatingUserEmail", EmitDefaultValue=false)]
-        public string CreatingUserEmail { get; set; }
+        /// <value>If true, then new registrations can be created for this invitation.</value>
+        [DataMember(Name="allowLaunch", EmitDefaultValue=false)]
+        public bool? AllowLaunch { get; set; }
 
         /// <summary>
         /// Gets or Sets InvitationEmail
@@ -113,26 +73,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
-        /// Optional tags to be applied to this invitation.
-        /// </summary>
-        /// <value>Optional tags to be applied to this invitation.</value>
-        [DataMember(Name="tags", EmitDefaultValue=false)]
-        public List<string> Tags { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CreatePrivateInvitationSchema {\n");
-            sb.Append("  CourseId: ").Append(CourseId).Append("\n");
-            sb.Append("  CreatingUserEmail: ").Append(CreatingUserEmail).Append("\n");
+            sb.Append("class PrivateInvitationUpdateSchema {\n");
+            sb.Append("  AllowLaunch: ").Append(AllowLaunch).Append("\n");
             sb.Append("  InvitationEmail: ").Append(InvitationEmail).Append("\n");
             sb.Append("  PostBack: ").Append(PostBack).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,29 +104,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreatePrivateInvitationSchema);
+            return this.Equals(input as PrivateInvitationUpdateSchema);
         }
 
         /// <summary>
-        /// Returns true if CreatePrivateInvitationSchema instances are equal
+        /// Returns true if PrivateInvitationUpdateSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreatePrivateInvitationSchema to be compared</param>
+        /// <param name="input">Instance of PrivateInvitationUpdateSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreatePrivateInvitationSchema input)
+        public bool Equals(PrivateInvitationUpdateSchema input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.CourseId == input.CourseId ||
-                    (this.CourseId != null &&
-                    this.CourseId.Equals(input.CourseId))
-                ) && 
-                (
-                    this.CreatingUserEmail == input.CreatingUserEmail ||
-                    (this.CreatingUserEmail != null &&
-                    this.CreatingUserEmail.Equals(input.CreatingUserEmail))
+                    this.AllowLaunch == input.AllowLaunch ||
+                    (this.AllowLaunch != null &&
+                    this.AllowLaunch.Equals(input.AllowLaunch))
                 ) && 
                 (
                     this.InvitationEmail == input.InvitationEmail ||
@@ -191,11 +137,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.ExpirationDate == input.ExpirationDate ||
                     (this.ExpirationDate != null &&
                     this.ExpirationDate.Equals(input.ExpirationDate))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
                 );
         }
 
@@ -208,18 +149,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CourseId != null)
-                    hashCode = hashCode * 59 + this.CourseId.GetHashCode();
-                if (this.CreatingUserEmail != null)
-                    hashCode = hashCode * 59 + this.CreatingUserEmail.GetHashCode();
+                if (this.AllowLaunch != null)
+                    hashCode = hashCode * 59 + this.AllowLaunch.GetHashCode();
                 if (this.InvitationEmail != null)
                     hashCode = hashCode * 59 + this.InvitationEmail.GetHashCode();
                 if (this.PostBack != null)
                     hashCode = hashCode * 59 + this.PostBack.GetHashCode();
                 if (this.ExpirationDate != null)
                     hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
-                if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 return hashCode;
             }
         }

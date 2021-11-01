@@ -34,7 +34,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Initializes a new instance of the <see cref="CourseListSchema" /> class.
         /// </summary>
         /// <param name="courses">courses.</param>
-        /// <param name="more">more.</param>
+        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
         public CourseListSchema(List<CourseSchema> courses = default(List<CourseSchema>), string more = default(string))
         {
             this.Courses = courses;
@@ -48,8 +48,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public List<CourseSchema> Courses { get; set; }
 
         /// <summary>
-        /// Gets or Sets More
+        /// Token for getting the next set of results, from the prior set of results.
         /// </summary>
+        /// <value>Token for getting the next set of results, from the prior set of results.</value>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public string More { get; set; }
 

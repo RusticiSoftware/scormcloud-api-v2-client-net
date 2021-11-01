@@ -25,34 +25,25 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// DispatchListSchema
+    /// FileListSchema
     /// </summary>
     [DataContract]
-    public partial class DispatchListSchema :  IEquatable<DispatchListSchema>, IValidatableObject
+    public partial class FileListSchema :  IEquatable<FileListSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DispatchListSchema" /> class.
+        /// Initializes a new instance of the <see cref="FileListSchema" /> class.
         /// </summary>
-        /// <param name="dispatches">dispatches.</param>
-        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
-        public DispatchListSchema(List<DispatchIdSchema> dispatches = default(List<DispatchIdSchema>), string more = default(string))
+        /// <param name="files">files.</param>
+        public FileListSchema(List<FileListItemSchema> files = default(List<FileListItemSchema>))
         {
-            this.Dispatches = dispatches;
-            this.More = more;
+            this.Files = files;
         }
         
         /// <summary>
-        /// Gets or Sets Dispatches
+        /// Gets or Sets Files
         /// </summary>
-        [DataMember(Name="dispatches", EmitDefaultValue=false)]
-        public List<DispatchIdSchema> Dispatches { get; set; }
-
-        /// <summary>
-        /// Token for getting the next set of results, from the prior set of results.
-        /// </summary>
-        /// <value>Token for getting the next set of results, from the prior set of results.</value>
-        [DataMember(Name="more", EmitDefaultValue=false)]
-        public string More { get; set; }
+        [DataMember(Name="files", EmitDefaultValue=false)]
+        public List<FileListItemSchema> Files { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,9 +52,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DispatchListSchema {\n");
-            sb.Append("  Dispatches: ").Append(Dispatches).Append("\n");
-            sb.Append("  More: ").Append(More).Append("\n");
+            sb.Append("class FileListSchema {\n");
+            sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,29 +74,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DispatchListSchema);
+            return this.Equals(input as FileListSchema);
         }
 
         /// <summary>
-        /// Returns true if DispatchListSchema instances are equal
+        /// Returns true if FileListSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of DispatchListSchema to be compared</param>
+        /// <param name="input">Instance of FileListSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DispatchListSchema input)
+        public bool Equals(FileListSchema input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Dispatches == input.Dispatches ||
-                    this.Dispatches != null &&
-                    this.Dispatches.SequenceEqual(input.Dispatches)
-                ) && 
-                (
-                    this.More == input.More ||
-                    (this.More != null &&
-                    this.More.Equals(input.More))
+                    this.Files == input.Files ||
+                    this.Files != null &&
+                    this.Files.SequenceEqual(input.Files)
                 );
         }
 
@@ -119,10 +104,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Dispatches != null)
-                    hashCode = hashCode * 59 + this.Dispatches.GetHashCode();
-                if (this.More != null)
-                    hashCode = hashCode * 59 + this.More.GetHashCode();
+                if (this.Files != null)
+                    hashCode = hashCode * 59 + this.Files.GetHashCode();
                 return hashCode;
             }
         }
