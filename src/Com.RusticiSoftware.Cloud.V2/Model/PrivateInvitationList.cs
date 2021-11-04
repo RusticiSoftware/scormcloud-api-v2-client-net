@@ -34,7 +34,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Initializes a new instance of the <see cref="PrivateInvitationList" /> class.
         /// </summary>
         /// <param name="invitations">A list of private invitation objects..</param>
-        /// <param name="more">more.</param>
+        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
         public PrivateInvitationList(List<PrivateInvitationSchema> invitations = default(List<PrivateInvitationSchema>), string more = default(string))
         {
             this.Invitations = invitations;
@@ -49,8 +49,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public List<PrivateInvitationSchema> Invitations { get; set; }
 
         /// <summary>
-        /// Gets or Sets More
+        /// Token for getting the next set of results, from the prior set of results.
         /// </summary>
+        /// <value>Token for getting the next set of results, from the prior set of results.</value>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public string More { get; set; }
 

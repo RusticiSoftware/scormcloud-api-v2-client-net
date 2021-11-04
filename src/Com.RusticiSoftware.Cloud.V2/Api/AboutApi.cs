@@ -25,20 +25,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get back the API version and application name. 
+        /// Get back the API version and Application name 
         /// </summary>
         /// <remarks>
-        /// Get back the API version and application name. 
+        /// Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>AboutSchema</returns>
         AboutSchema GetAbout ();
 
         /// <summary>
-        /// Get back the API version and application name. 
+        /// Get back the API version and Application name 
         /// </summary>
         /// <remarks>
-        /// Get back the API version and application name. 
+        /// Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of AboutSchema</returns>
@@ -46,20 +46,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get back the API version and application name. 
+        /// Get back the API version and Application name 
         /// </summary>
         /// <remarks>
-        /// Get back the API version and application name. 
+        /// Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of AboutSchema</returns>
         System.Threading.Tasks.Task<AboutSchema> GetAboutAsync ();
 
         /// <summary>
-        /// Get back the API version and application name. 
+        /// Get back the API version and Application name 
         /// </summary>
         /// <remarks>
-        /// Get back the API version and application name. 
+        /// Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (AboutSchema)</returns>
@@ -165,7 +165,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get back the API version and application name.  Get back the API version and application name. 
+        /// Get back the API version and Application name  Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>AboutSchema</returns>
@@ -176,7 +176,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get back the API version and application name.  Get back the API version and application name. 
+        /// Get back the API version and Application name  Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of AboutSchema</returns>
@@ -238,7 +238,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get back the API version and application name.  Get back the API version and application name. 
+        /// Get back the API version and Application name  Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of AboutSchema</returns>
@@ -250,7 +250,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get back the API version and application name.  Get back the API version and application name. 
+        /// Get back the API version and Application name  Get back the API version and application name.  The return value for this method will never change. This method largely exists for API parity with our on-premise or Managed Hosting products, which may return different release numbers from this endpoint.  For SCORM Cloud, this is effectively equal to the &#x60;/ping&#x60; resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (AboutSchema)</returns>

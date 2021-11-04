@@ -25,332 +25,332 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get registration launch link. 
+        /// Get a launch link for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns the link to use to launch this registration. 
+        /// Returns the launch link to use to launch the course for the registration.   Launch links are meant as a way to provide access to your content.  When a learner visits the link, the course will be launched and registration progress will start to be tracked. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>LaunchLinkSchema</returns>
         LaunchLinkSchema BuildRegistrationLaunchLink (string registrationId, LaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
-        /// Get registration launch link. 
+        /// Get a launch link for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns the link to use to launch this registration. 
+        /// Returns the launch link to use to launch the course for the registration.   Launch links are meant as a way to provide access to your content.  When a learner visits the link, the course will be launched and registration progress will start to be tracked. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
         ApiResponse<LaunchLinkSchema> BuildRegistrationLaunchLinkWithHttpInfo (string registrationId, LaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
-        /// 
+        /// Create a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Create a new instance for this registration specified by the registration ID. 
+        /// Creates a new instance of the registration.  Registration instances will be automatically created when a learner launches a new version of the course.  This allows for tracking registration progress for each of the versions of the course the learner has taken.  When the created registration instance is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         void CreateNewRegistrationInstance (string registrationId);
 
         /// <summary>
-        /// 
+        /// Create a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Create a new instance for this registration specified by the registration ID. 
+        /// Creates a new instance of the registration.  Registration instances will be automatically created when a learner launches a new version of the course.  This allows for tracking registration progress for each of the versions of the course the learner has taken.  When the created registration instance is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateNewRegistrationInstanceWithHttpInfo (string registrationId);
         /// <summary>
-        /// Create a registration. 
+        /// Create a Registration 
         /// </summary>
         /// <remarks>
-        /// This method is used to create a new registration. A registration will contain a few pieces of information such as a learner name, a learner id, and optionally, information about where activity data should be posted (for client consumption), as well as a way to specify simple authentication schemes for posting said data. A registration must be tied to a specific course at creation time. When the created registration is “launched”, the course specified at creation time will be launched. 
+        /// Creates a new registration.  Registrations are the billable unit in SCORM Cloud, and represent a link between a learner and a course.  A registration will contain a few pieces of information such as learner identifiers, the id of the course being registered for, and several other optional fields. A registration must be tied to a specific course at creation time.  When the created registration is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registration"></param>
-        /// <param name="courseVersion">The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)</param>
+        /// <param name="courseVersion">Unless you have a reason for using this you probably do not need to.  (optional)</param>
         /// <returns></returns>
         void CreateRegistration (CreateRegistrationSchema registration, int? courseVersion = null);
 
         /// <summary>
-        /// Create a registration. 
+        /// Create a Registration 
         /// </summary>
         /// <remarks>
-        /// This method is used to create a new registration. A registration will contain a few pieces of information such as a learner name, a learner id, and optionally, information about where activity data should be posted (for client consumption), as well as a way to specify simple authentication schemes for posting said data. A registration must be tied to a specific course at creation time. When the created registration is “launched”, the course specified at creation time will be launched. 
+        /// Creates a new registration.  Registrations are the billable unit in SCORM Cloud, and represent a link between a learner and a course.  A registration will contain a few pieces of information such as learner identifiers, the id of the course being registered for, and several other optional fields. A registration must be tied to a specific course at creation time.  When the created registration is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registration"></param>
-        /// <param name="courseVersion">The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)</param>
+        /// <param name="courseVersion">Unless you have a reason for using this you probably do not need to.  (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateRegistrationWithHttpInfo (CreateRegistrationSchema registration, int? courseVersion = null);
         /// <summary>
-        /// Delete a registration. 
+        /// Delete a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;registrationId&#x60;.  This includes all instances of this registration. 
+        /// Deletes the specified registration.  &gt;**Caution:** &gt;This will also delete all instances of the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         void DeleteRegistration (string registrationId);
 
         /// <summary>
-        /// Delete a registration. 
+        /// Delete a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;registrationId&#x60;.  This includes all instances of this registration. 
+        /// Deletes the specified registration.  &gt;**Caution:** &gt;This will also delete all instances of the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteRegistrationWithHttpInfo (string registrationId);
         /// <summary>
-        /// Clear a registration configuration. 
+        /// Delete a configuration setting explicitly set for a Registration 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this registration. The effective value will become the value at the next level which has an explicit value set.  Possibilities are course, application, or default. 
+        /// Clears the specified setting from the registration.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="settingId"></param>
         /// <returns></returns>
         void DeleteRegistrationConfigurationSetting (string registrationId, string settingId);
 
         /// <summary>
-        /// Clear a registration configuration. 
+        /// Delete a configuration setting explicitly set for a Registration 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this registration. The effective value will become the value at the next level which has an explicit value set.  Possibilities are course, application, or default. 
+        /// Clears the specified setting from the registration.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="settingId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteRegistrationConfigurationSettingWithHttpInfo (string registrationId, string settingId);
         /// <summary>
-        /// Delete the global data of a registration. 
+        /// Reset global data for a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete global data associated with &#x60;registrationId&#x60;&#39;.  Calling this method will reset all global objectives associated with this registration, if any exist. 
+        /// Deletes the global data associated with the registration, but the registration itself will remain.  This means any progress towards the global objectives will be removed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         void DeleteRegistrationGlobalData (string registrationId);
 
         /// <summary>
-        /// Delete the global data of a registration. 
+        /// Reset global data for a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete global data associated with &#x60;registrationId&#x60;&#39;.  Calling this method will reset all global objectives associated with this registration, if any exist. 
+        /// Deletes the global data associated with the registration, but the registration itself will remain.  This means any progress towards the global objectives will be removed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteRegistrationGlobalDataWithHttpInfo (string registrationId);
         /// <summary>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Delete a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  If this is the only existing instance of this registration, the registration will be deleted in its entirety along with any associated data. 
+        /// Deletes the specified instance of the registration.  If deleting the last remaining instance of the registration, the registration itself will be deleted along with any associated data. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <returns></returns>
         void DeleteRegistrationInstance (string registrationId, int? instanceId);
 
         /// <summary>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Delete a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  If this is the only existing instance of this registration, the registration will be deleted in its entirety along with any associated data. 
+        /// Deletes the specified instance of the registration.  If deleting the last remaining instance of the registration, the registration itself will be deleted along with any associated data. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteRegistrationInstanceWithHttpInfo (string registrationId, int? instanceId);
         /// <summary>
-        /// Clear a configuration for an instance of a registration. 
+        /// Delete a configuration setting explicitly set for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this registration instance. 
+        /// Clears the specified setting from the registration instance.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="settingId"></param>
         /// <returns></returns>
         void DeleteRegistrationInstanceConfigurationSetting (string registrationId, int? instanceId, string settingId);
 
         /// <summary>
-        /// Clear a configuration for an instance of a registration. 
+        /// Delete a configuration setting explicitly set for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this registration instance. 
+        /// Clears the specified setting from the registration instance.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="settingId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteRegistrationInstanceConfigurationSettingWithHttpInfo (string registrationId, int? instanceId, string settingId);
         /// <summary>
-        /// Reset a registration. 
+        /// Reset a Registration 
         /// </summary>
         /// <remarks>
-        /// This method will reset the specified registration. This is essentially the same as deleting and recreating the registration, and as such, will delete all the data associated with the registration (including launch history, etc.). If the course for which the registration is registered has multiple versions, the registration being reset will automatically be registered for the latest version. 
+        /// Deletes the data associated with the registration, but the registration itself will remain.  This means any of the launch history, and progress will be removed.  After the data has been deleted, the registration will automatically register itself for the latest version of the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         void DeleteRegistrationProgress (string registrationId);
 
         /// <summary>
-        /// Reset a registration. 
+        /// Reset a Registration 
         /// </summary>
         /// <remarks>
-        /// This method will reset the specified registration. This is essentially the same as deleting and recreating the registration, and as such, will delete all the data associated with the registration (including launch history, etc.). If the course for which the registration is registered has multiple versions, the registration being reset will automatically be registered for the latest version. 
+        /// Deletes the data associated with the registration, but the registration itself will remain.  This means any of the launch history, and progress will be removed.  After the data has been deleted, the registration will automatically register itself for the latest version of the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteRegistrationProgressWithHttpInfo (string registrationId);
         /// <summary>
-        /// Delete tags from a registration. 
+        /// Delete tags from a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete the provided tags for this registration. 
+        /// Deletes the specified tags from the registration.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns></returns>
         void DeleteRegistrationTags (string registrationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags from a registration. 
+        /// Delete tags from a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete the provided tags for this registration. 
+        /// Deletes the specified tags from the registration.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteRegistrationTagsWithHttpInfo (string registrationId, TagListSchema tags);
         /// <summary>
-        /// See if a registration exists. 
+        /// Check that a Registration exists 
         /// </summary>
         /// <remarks>
-        /// This method is meant to check if a registration with &#x60;registrationId&#x60; exists in the system. 
+        /// Checks that the registration exists within SCORM Cloud.  &gt;**Info:** &gt;No registration data will be returned for this call. A successful &#x60;200&#x60; response indicates that the registration exists. If the registration does not exist, a &#x60;404&#x60; error will be returned instead. If you are looking for information about the registration, try calling &#x60;GetRegistrationProgress&#x60; instead. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         void GetRegistration (string registrationId);
 
         /// <summary>
-        /// See if a registration exists. 
+        /// Check that a Registration exists 
         /// </summary>
         /// <remarks>
-        /// This method is meant to check if a registration with &#x60;registrationId&#x60; exists in the system. 
+        /// Checks that the registration exists within SCORM Cloud.  &gt;**Info:** &gt;No registration data will be returned for this call. A successful &#x60;200&#x60; response indicates that the registration exists. If the registration does not exist, a &#x60;404&#x60; error will be returned instead. If you are looking for information about the registration, try calling &#x60;GetRegistrationProgress&#x60; instead. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> GetRegistrationWithHttpInfo (string registrationId);
         /// <summary>
-        /// Get registration configuration. 
+        /// Get effective configuration settings for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this registration. 
+        /// Returns the effective configuration settings for the registration.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>SettingListSchema</returns>
         SettingListSchema GetRegistrationConfiguration (string registrationId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Get registration configuration. 
+        /// Get effective configuration settings for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this registration. 
+        /// Returns the effective configuration settings for the registration.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>ApiResponse of SettingListSchema</returns>
         ApiResponse<SettingListSchema> GetRegistrationConfigurationWithHttpInfo (string registrationId, bool? includeMetadata = null);
         /// <summary>
-        /// Get configuration for instance of registration. 
+        /// Get effective configuration settings for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this registration instance. 
+        /// Returns the effective configuration settings for the registration instance.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>SettingListSchema</returns>
         SettingListSchema GetRegistrationInstanceConfiguration (string registrationId, int? instanceId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Get configuration for instance of registration. 
+        /// Get effective configuration settings for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this registration instance. 
+        /// Returns the effective configuration settings for the registration instance.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>ApiResponse of SettingListSchema</returns>
         ApiResponse<SettingListSchema> GetRegistrationInstanceConfigurationWithHttpInfo (string registrationId, int? instanceId, bool? includeMetadata = null);
         /// <summary>
-        /// Get launch history for an instance of a registration. 
+        /// Get launch history for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Returns history of the launches of the specified instance of this registration. 
+        /// Returns the launch history of the registration instance.  This includes completion status, time taken, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>LaunchHistoryListSchema</returns>
         LaunchHistoryListSchema GetRegistrationInstanceLaunchHistory (string registrationId, int? instanceId, bool? includeHistoryLog = null);
 
         /// <summary>
-        /// Get launch history for an instance of a registration. 
+        /// Get launch history for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Returns history of the launches of the specified instance of this registration. 
+        /// Returns the launch history of the registration instance.  This includes completion status, time taken, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>ApiResponse of LaunchHistoryListSchema</returns>
         ApiResponse<LaunchHistoryListSchema> GetRegistrationInstanceLaunchHistoryWithHttpInfo (string registrationId, int? instanceId, bool? includeHistoryLog = null);
         /// <summary>
-        /// Get details of an instance of a registration. 
+        /// Get detailed information about a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;&#39; 
+        /// Returns detailed information about the registration instance.  This includes completion status, time taken, score, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -358,59 +358,59 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         RegistrationSchema GetRegistrationInstanceProgress (string registrationId, int? instanceId, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
 
         /// <summary>
-        /// Get details of an instance of a registration. 
+        /// Get detailed information about a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;&#39; 
+        /// Returns detailed information about the registration instance.  This includes completion status, time taken, score, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
         /// <returns>ApiResponse of RegistrationSchema</returns>
         ApiResponse<RegistrationSchema> GetRegistrationInstanceProgressWithHttpInfo (string registrationId, int? instanceId, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
         /// <summary>
-        /// Get xAPI statements for an instance of a registration. 
+        /// Get xAPI statements for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Returns xAPI statements for the registration instance. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiStatementResult</returns>
         XapiStatementResult GetRegistrationInstanceStatements (string registrationId, int? instanceId, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for an instance of a registration. 
+        /// Get xAPI statements for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Returns xAPI statements for the registration instance. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiStatementResult</returns>
         ApiResponse<XapiStatementResult> GetRegistrationInstanceStatementsWithHttpInfo (string registrationId, int? instanceId, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get all instances of a registration. 
+        /// Get a list of a Registration&#39;s Instances 
         /// </summary>
         /// <remarks>
-        /// Get all the instances of this the registration specified by the registration ID 
+        /// Returns information about all instances of the registration.  This can be useful to see information such as registration progress across versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -418,52 +418,52 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         RegistrationListSchema GetRegistrationInstances (string registrationId, DateTime? until = null, DateTime? since = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
 
         /// <summary>
-        /// Get all instances of a registration. 
+        /// Get a list of a Registration&#39;s Instances 
         /// </summary>
         /// <remarks>
-        /// Get all the instances of this the registration specified by the registration ID 
+        /// Returns information about all instances of the registration.  This can be useful to see information such as registration progress across versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
         /// <returns>ApiResponse of RegistrationListSchema</returns>
         ApiResponse<RegistrationListSchema> GetRegistrationInstancesWithHttpInfo (string registrationId, DateTime? until = null, DateTime? since = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
         /// <summary>
-        /// Get launch history for a registration. 
+        /// Get launch history for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns history of this registration&#39;s launches. 
+        /// Returns the launch history of the registration.  This includes completion status, time taken, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>LaunchHistoryListSchema</returns>
         LaunchHistoryListSchema GetRegistrationLaunchHistory (string registrationId, bool? includeHistoryLog = null);
 
         /// <summary>
-        /// Get launch history for a registration. 
+        /// Get launch history for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns history of this registration&#39;s launches. 
+        /// Returns the launch history of the registration.  This includes completion status, time taken, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>ApiResponse of LaunchHistoryListSchema</returns>
         ApiResponse<LaunchHistoryListSchema> GetRegistrationLaunchHistoryWithHttpInfo (string registrationId, bool? includeHistoryLog = null);
         /// <summary>
-        /// Get details of a registration. 
+        /// Get detailed information about a Registration 
         /// </summary>
         /// <remarks>
-        /// Get detailed information about the latest instance of &#x60;registrationId&#x60;. Additional detail may be obtained by using the optional query parameters. 
+        /// Returns detailed information about the registration.  This includes completion status, time taken, score, and pass/fail status.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -471,200 +471,208 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         RegistrationSchema GetRegistrationProgress (string registrationId, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
 
         /// <summary>
-        /// Get details of a registration. 
+        /// Get detailed information about a Registration 
         /// </summary>
         /// <remarks>
-        /// Get detailed information about the latest instance of &#x60;registrationId&#x60;. Additional detail may be obtained by using the optional query parameters. 
+        /// Returns detailed information about the registration.  This includes completion status, time taken, score, and pass/fail status.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
         /// <returns>ApiResponse of RegistrationSchema</returns>
         ApiResponse<RegistrationSchema> GetRegistrationProgressWithHttpInfo (string registrationId, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
         /// <summary>
-        /// Get xAPI statements for a registration. 
+        /// Get xAPI statements for a Registration 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for &#x60;registrationId&#x60;. 
+        /// Returns xAPI statements for the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiStatementResult</returns>
         XapiStatementResult GetRegistrationStatements (string registrationId, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for a registration. 
+        /// Get xAPI statements for a Registration 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for &#x60;registrationId&#x60;. 
+        /// Returns xAPI statements for the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiStatementResult</returns>
         ApiResponse<XapiStatementResult> GetRegistrationStatementsWithHttpInfo (string registrationId, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get tags for a registration. 
+        /// Get tags for a Registration 
         /// </summary>
         /// <remarks>
-        /// Get a list of the tags applied to this registration. 
+        /// Returns the tags for the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>TagListSchema</returns>
         TagListSchema GetRegistrationTags (string registrationId);
 
         /// <summary>
-        /// Get tags for a registration. 
+        /// Get tags for a Registration 
         /// </summary>
         /// <remarks>
-        /// Get a list of the tags applied to this registration. 
+        /// Returns the tags for the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of TagListSchema</returns>
         ApiResponse<TagListSchema> GetRegistrationTagsWithHttpInfo (string registrationId);
         /// <summary>
-        /// Get a list of all registrations. 
+        /// Get a list of Registrations 
         /// </summary>
         /// <remarks>
-        /// Gets a list of registrations including a summary of the status of each registration. 
+        /// Returns a list of registrations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only registrations for the specified course id will be included. (optional)</param>
-        /// <param name="learnerId">Only registrations for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="learnerId">Only retrieve resources having &#x60;learnerId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to created)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
         /// <returns>RegistrationListSchema</returns>
-        RegistrationListSchema GetRegistrations (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null, List<string> tags = null);
+        RegistrationListSchema GetRegistrations (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
 
         /// <summary>
-        /// Get a list of all registrations. 
+        /// Get a list of Registrations 
         /// </summary>
         /// <remarks>
-        /// Gets a list of registrations including a summary of the status of each registration. 
+        /// Returns a list of registrations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only registrations for the specified course id will be included. (optional)</param>
-        /// <param name="learnerId">Only registrations for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="learnerId">Only retrieve resources having &#x60;learnerId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to created)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
         /// <returns>ApiResponse of RegistrationListSchema</returns>
-        ApiResponse<RegistrationListSchema> GetRegistrationsWithHttpInfo (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null, List<string> tags = null);
+        ApiResponse<RegistrationListSchema> GetRegistrationsWithHttpInfo (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
         /// <summary>
-        /// Set tags on a registration. 
+        /// Add tags to a Registration 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this registration. Note: any tags currently on this registration will be overwritten with the new array of tags. 
+        /// Applies the provided tags to the registration.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns></returns>
         void PutRegistrationTags (string registrationId, TagListSchema tags);
 
         /// <summary>
-        /// Set tags on a registration. 
+        /// Add tags to a Registration 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this registration. Note: any tags currently on this registration will be overwritten with the new array of tags. 
+        /// Applies the provided tags to the registration.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutRegistrationTagsWithHttpInfo (string registrationId, TagListSchema tags);
         /// <summary>
-        /// Set tags on registrations. 
+        /// Add a group of tags to a group of Registrations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided registrations. 
+        /// Applies all of the provided tags on all of the provided registrations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         void PutRegistrationTagsBatch (BatchTagsSchema batch);
 
         /// <summary>
-        /// Set tags on registrations. 
+        /// Add a group of tags to a group of Registrations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided registrations. 
+        /// Applies all of the provided tags on all of the provided registrations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutRegistrationTagsBatchWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set registration configuration. 
+        /// Update configuration settings for a Registration 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this registration. 
+        /// Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns></returns>
         void SetRegistrationConfiguration (string registrationId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set registration configuration. 
+        /// Update configuration settings for a Registration 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this registration. 
+        /// Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetRegistrationConfigurationWithHttpInfo (string registrationId, SettingsPostSchema configurationSettings);
         /// <summary>
-        /// Set configuration for instance of registration. 
+        /// Update configuration settings for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this registration instance. 
+        /// Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns></returns>
         void SetRegistrationInstanceConfiguration (string registrationId, int? instanceId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set configuration for instance of registration. 
+        /// Update configuration settings for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this registration instance. 
+        /// Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetRegistrationInstanceConfigurationWithHttpInfo (string registrationId, int? instanceId, SettingsPostSchema configurationSettings);
         /// <summary>
-        /// Send a test postback with a provided configuration. 
+        /// Send a test postback with the provided configuration 
         /// </summary>
         /// <remarks>
-        /// This method will allow testing a postback configuration that you provide by sending dummy data to the url specified, with the format you specify. 
+        /// Sends a postback with dummy data to the url specified.  The postback will use additional information from the configuration provided with the request (e.g. a provided username/password will be sent along with the postback to allow for logging in to a secure page.  The format of the data sent will differ depending on whether &#x60;httpbasic&#x60; or &#x60;form&#x60; is passed for &#x60;authType&#x60;.  - With httpbasic, an authorization header will be sent with the base64 encoded credentials.  The body will be JSON formatted data. - With form, the username and password will be sent in the body of the request along with the data.  The whole body will be url encoded.  &gt;**Note:** &gt;The data that will be sent to the provided url is the same format as the output of the GetRegistrationProgress endpoint. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postBack"></param>
@@ -672,10 +680,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void TestRegistrationPostback (PostBackSchema postBack);
 
         /// <summary>
-        /// Send a test postback with a provided configuration. 
+        /// Send a test postback with the provided configuration 
         /// </summary>
         /// <remarks>
-        /// This method will allow testing a postback configuration that you provide by sending dummy data to the url specified, with the format you specify. 
+        /// Sends a postback with dummy data to the url specified.  The postback will use additional information from the configuration provided with the request (e.g. a provided username/password will be sent along with the postback to allow for logging in to a secure page.  The format of the data sent will differ depending on whether &#x60;httpbasic&#x60; or &#x60;form&#x60; is passed for &#x60;authType&#x60;.  - With httpbasic, an authorization header will be sent with the base64 encoded credentials.  The body will be JSON formatted data. - With form, the username and password will be sent in the body of the request along with the data.  The whole body will be url encoded.  &gt;**Note:** &gt;The data that will be sent to the provided url is the same format as the output of the GetRegistrationProgress endpoint. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postBack"></param>
@@ -684,332 +692,332 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get registration launch link. 
+        /// Get a launch link for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns the link to use to launch this registration. 
+        /// Returns the launch link to use to launch the course for the registration.   Launch links are meant as a way to provide access to your content.  When a learner visits the link, the course will be launched and registration progress will start to be tracked. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of LaunchLinkSchema</returns>
         System.Threading.Tasks.Task<LaunchLinkSchema> BuildRegistrationLaunchLinkAsync (string registrationId, LaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
-        /// Get registration launch link. 
+        /// Get a launch link for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns the link to use to launch this registration. 
+        /// Returns the launch link to use to launch the course for the registration.   Launch links are meant as a way to provide access to your content.  When a learner visits the link, the course will be launched and registration progress will start to be tracked. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildRegistrationLaunchLinkAsyncWithHttpInfo (string registrationId, LaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
-        /// 
+        /// Create a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Create a new instance for this registration specified by the registration ID. 
+        /// Creates a new instance of the registration.  Registration instances will be automatically created when a learner launches a new version of the course.  This allows for tracking registration progress for each of the versions of the course the learner has taken.  When the created registration instance is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task CreateNewRegistrationInstanceAsync (string registrationId);
 
         /// <summary>
-        /// 
+        /// Create a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Create a new instance for this registration specified by the registration ID. 
+        /// Creates a new instance of the registration.  Registration instances will be automatically created when a learner launches a new version of the course.  This allows for tracking registration progress for each of the versions of the course the learner has taken.  When the created registration instance is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateNewRegistrationInstanceAsyncWithHttpInfo (string registrationId);
         /// <summary>
-        /// Create a registration. 
+        /// Create a Registration 
         /// </summary>
         /// <remarks>
-        /// This method is used to create a new registration. A registration will contain a few pieces of information such as a learner name, a learner id, and optionally, information about where activity data should be posted (for client consumption), as well as a way to specify simple authentication schemes for posting said data. A registration must be tied to a specific course at creation time. When the created registration is “launched”, the course specified at creation time will be launched. 
+        /// Creates a new registration.  Registrations are the billable unit in SCORM Cloud, and represent a link between a learner and a course.  A registration will contain a few pieces of information such as learner identifiers, the id of the course being registered for, and several other optional fields. A registration must be tied to a specific course at creation time.  When the created registration is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registration"></param>
-        /// <param name="courseVersion">The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)</param>
+        /// <param name="courseVersion">Unless you have a reason for using this you probably do not need to.  (optional)</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task CreateRegistrationAsync (CreateRegistrationSchema registration, int? courseVersion = null);
 
         /// <summary>
-        /// Create a registration. 
+        /// Create a Registration 
         /// </summary>
         /// <remarks>
-        /// This method is used to create a new registration. A registration will contain a few pieces of information such as a learner name, a learner id, and optionally, information about where activity data should be posted (for client consumption), as well as a way to specify simple authentication schemes for posting said data. A registration must be tied to a specific course at creation time. When the created registration is “launched”, the course specified at creation time will be launched. 
+        /// Creates a new registration.  Registrations are the billable unit in SCORM Cloud, and represent a link between a learner and a course.  A registration will contain a few pieces of information such as learner identifiers, the id of the course being registered for, and several other optional fields. A registration must be tied to a specific course at creation time.  When the created registration is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registration"></param>
-        /// <param name="courseVersion">The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)</param>
+        /// <param name="courseVersion">Unless you have a reason for using this you probably do not need to.  (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateRegistrationAsyncWithHttpInfo (CreateRegistrationSchema registration, int? courseVersion = null);
         /// <summary>
-        /// Delete a registration. 
+        /// Delete a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;registrationId&#x60;.  This includes all instances of this registration. 
+        /// Deletes the specified registration.  &gt;**Caution:** &gt;This will also delete all instances of the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteRegistrationAsync (string registrationId);
 
         /// <summary>
-        /// Delete a registration. 
+        /// Delete a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;registrationId&#x60;.  This includes all instances of this registration. 
+        /// Deletes the specified registration.  &gt;**Caution:** &gt;This will also delete all instances of the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationAsyncWithHttpInfo (string registrationId);
         /// <summary>
-        /// Clear a registration configuration. 
+        /// Delete a configuration setting explicitly set for a Registration 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this registration. The effective value will become the value at the next level which has an explicit value set.  Possibilities are course, application, or default. 
+        /// Clears the specified setting from the registration.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteRegistrationConfigurationSettingAsync (string registrationId, string settingId);
 
         /// <summary>
-        /// Clear a registration configuration. 
+        /// Delete a configuration setting explicitly set for a Registration 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this registration. The effective value will become the value at the next level which has an explicit value set.  Possibilities are course, application, or default. 
+        /// Clears the specified setting from the registration.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationConfigurationSettingAsyncWithHttpInfo (string registrationId, string settingId);
         /// <summary>
-        /// Delete the global data of a registration. 
+        /// Reset global data for a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete global data associated with &#x60;registrationId&#x60;&#39;.  Calling this method will reset all global objectives associated with this registration, if any exist. 
+        /// Deletes the global data associated with the registration, but the registration itself will remain.  This means any progress towards the global objectives will be removed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteRegistrationGlobalDataAsync (string registrationId);
 
         /// <summary>
-        /// Delete the global data of a registration. 
+        /// Reset global data for a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete global data associated with &#x60;registrationId&#x60;&#39;.  Calling this method will reset all global objectives associated with this registration, if any exist. 
+        /// Deletes the global data associated with the registration, but the registration itself will remain.  This means any progress towards the global objectives will be removed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationGlobalDataAsyncWithHttpInfo (string registrationId);
         /// <summary>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Delete a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  If this is the only existing instance of this registration, the registration will be deleted in its entirety along with any associated data. 
+        /// Deletes the specified instance of the registration.  If deleting the last remaining instance of the registration, the registration itself will be deleted along with any associated data. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteRegistrationInstanceAsync (string registrationId, int? instanceId);
 
         /// <summary>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Delete a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  If this is the only existing instance of this registration, the registration will be deleted in its entirety along with any associated data. 
+        /// Deletes the specified instance of the registration.  If deleting the last remaining instance of the registration, the registration itself will be deleted along with any associated data. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationInstanceAsyncWithHttpInfo (string registrationId, int? instanceId);
         /// <summary>
-        /// Clear a configuration for an instance of a registration. 
+        /// Delete a configuration setting explicitly set for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this registration instance. 
+        /// Clears the specified setting from the registration instance.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteRegistrationInstanceConfigurationSettingAsync (string registrationId, int? instanceId, string settingId);
 
         /// <summary>
-        /// Clear a configuration for an instance of a registration. 
+        /// Delete a configuration setting explicitly set for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Clears the &#x60;settingId&#x60; value for this registration instance. 
+        /// Clears the specified setting from the registration instance.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationInstanceConfigurationSettingAsyncWithHttpInfo (string registrationId, int? instanceId, string settingId);
         /// <summary>
-        /// Reset a registration. 
+        /// Reset a Registration 
         /// </summary>
         /// <remarks>
-        /// This method will reset the specified registration. This is essentially the same as deleting and recreating the registration, and as such, will delete all the data associated with the registration (including launch history, etc.). If the course for which the registration is registered has multiple versions, the registration being reset will automatically be registered for the latest version. 
+        /// Deletes the data associated with the registration, but the registration itself will remain.  This means any of the launch history, and progress will be removed.  After the data has been deleted, the registration will automatically register itself for the latest version of the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteRegistrationProgressAsync (string registrationId);
 
         /// <summary>
-        /// Reset a registration. 
+        /// Reset a Registration 
         /// </summary>
         /// <remarks>
-        /// This method will reset the specified registration. This is essentially the same as deleting and recreating the registration, and as such, will delete all the data associated with the registration (including launch history, etc.). If the course for which the registration is registered has multiple versions, the registration being reset will automatically be registered for the latest version. 
+        /// Deletes the data associated with the registration, but the registration itself will remain.  This means any of the launch history, and progress will be removed.  After the data has been deleted, the registration will automatically register itself for the latest version of the course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationProgressAsyncWithHttpInfo (string registrationId);
         /// <summary>
-        /// Delete tags from a registration. 
+        /// Delete tags from a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete the provided tags for this registration. 
+        /// Deletes the specified tags from the registration.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteRegistrationTagsAsync (string registrationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete tags from a registration. 
+        /// Delete tags from a Registration 
         /// </summary>
         /// <remarks>
-        /// Delete the provided tags for this registration. 
+        /// Deletes the specified tags from the registration.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationTagsAsyncWithHttpInfo (string registrationId, TagListSchema tags);
         /// <summary>
-        /// See if a registration exists. 
+        /// Check that a Registration exists 
         /// </summary>
         /// <remarks>
-        /// This method is meant to check if a registration with &#x60;registrationId&#x60; exists in the system. 
+        /// Checks that the registration exists within SCORM Cloud.  &gt;**Info:** &gt;No registration data will be returned for this call. A successful &#x60;200&#x60; response indicates that the registration exists. If the registration does not exist, a &#x60;404&#x60; error will be returned instead. If you are looking for information about the registration, try calling &#x60;GetRegistrationProgress&#x60; instead. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task GetRegistrationAsync (string registrationId);
 
         /// <summary>
-        /// See if a registration exists. 
+        /// Check that a Registration exists 
         /// </summary>
         /// <remarks>
-        /// This method is meant to check if a registration with &#x60;registrationId&#x60; exists in the system. 
+        /// Checks that the registration exists within SCORM Cloud.  &gt;**Info:** &gt;No registration data will be returned for this call. A successful &#x60;200&#x60; response indicates that the registration exists. If the registration does not exist, a &#x60;404&#x60; error will be returned instead. If you are looking for information about the registration, try calling &#x60;GetRegistrationProgress&#x60; instead. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> GetRegistrationAsyncWithHttpInfo (string registrationId);
         /// <summary>
-        /// Get registration configuration. 
+        /// Get effective configuration settings for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this registration. 
+        /// Returns the effective configuration settings for the registration.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of SettingListSchema</returns>
         System.Threading.Tasks.Task<SettingListSchema> GetRegistrationConfigurationAsync (string registrationId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Get registration configuration. 
+        /// Get effective configuration settings for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this registration. 
+        /// Returns the effective configuration settings for the registration.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetRegistrationConfigurationAsyncWithHttpInfo (string registrationId, bool? includeMetadata = null);
         /// <summary>
-        /// Get configuration for instance of registration. 
+        /// Get effective configuration settings for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this registration instance. 
+        /// Returns the effective configuration settings for the registration instance.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of SettingListSchema</returns>
         System.Threading.Tasks.Task<SettingListSchema> GetRegistrationInstanceConfigurationAsync (string registrationId, int? instanceId, bool? includeMetadata = null);
 
         /// <summary>
-        /// Get configuration for instance of registration. 
+        /// Get effective configuration settings for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this registration instance. 
+        /// Returns the effective configuration settings for the registration instance.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetRegistrationInstanceConfigurationAsyncWithHttpInfo (string registrationId, int? instanceId, bool? includeMetadata = null);
         /// <summary>
-        /// Get launch history for an instance of a registration. 
+        /// Get launch history for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Returns history of the launches of the specified instance of this registration. 
+        /// Returns the launch history of the registration instance.  This includes completion status, time taken, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>Task of LaunchHistoryListSchema</returns>
         System.Threading.Tasks.Task<LaunchHistoryListSchema> GetRegistrationInstanceLaunchHistoryAsync (string registrationId, int? instanceId, bool? includeHistoryLog = null);
 
         /// <summary>
-        /// Get launch history for an instance of a registration. 
+        /// Get launch history for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Returns history of the launches of the specified instance of this registration. 
+        /// Returns the launch history of the registration instance.  This includes completion status, time taken, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>Task of ApiResponse (LaunchHistoryListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<LaunchHistoryListSchema>> GetRegistrationInstanceLaunchHistoryAsyncWithHttpInfo (string registrationId, int? instanceId, bool? includeHistoryLog = null);
         /// <summary>
-        /// Get details of an instance of a registration. 
+        /// Get detailed information about a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;&#39; 
+        /// Returns detailed information about the registration instance.  This includes completion status, time taken, score, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -1017,59 +1025,59 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<RegistrationSchema> GetRegistrationInstanceProgressAsync (string registrationId, int? instanceId, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
 
         /// <summary>
-        /// Get details of an instance of a registration. 
+        /// Get detailed information about a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;&#39; 
+        /// Returns detailed information about the registration instance.  This includes completion status, time taken, score, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
         /// <returns>Task of ApiResponse (RegistrationSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<RegistrationSchema>> GetRegistrationInstanceProgressAsyncWithHttpInfo (string registrationId, int? instanceId, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
         /// <summary>
-        /// Get xAPI statements for an instance of a registration. 
+        /// Get xAPI statements for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Returns xAPI statements for the registration instance. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiStatementResult</returns>
         System.Threading.Tasks.Task<XapiStatementResult> GetRegistrationInstanceStatementsAsync (string registrationId, int? instanceId, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for an instance of a registration. 
+        /// Get xAPI statements for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Returns xAPI statements for the registration instance. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetRegistrationInstanceStatementsAsyncWithHttpInfo (string registrationId, int? instanceId, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get all instances of a registration. 
+        /// Get a list of a Registration&#39;s Instances 
         /// </summary>
         /// <remarks>
-        /// Get all the instances of this the registration specified by the registration ID 
+        /// Returns information about all instances of the registration.  This can be useful to see information such as registration progress across versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -1077,52 +1085,52 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<RegistrationListSchema> GetRegistrationInstancesAsync (string registrationId, DateTime? until = null, DateTime? since = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
 
         /// <summary>
-        /// Get all instances of a registration. 
+        /// Get a list of a Registration&#39;s Instances 
         /// </summary>
         /// <remarks>
-        /// Get all the instances of this the registration specified by the registration ID 
+        /// Returns information about all instances of the registration.  This can be useful to see information such as registration progress across versions of a course. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
         /// <returns>Task of ApiResponse (RegistrationListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<RegistrationListSchema>> GetRegistrationInstancesAsyncWithHttpInfo (string registrationId, DateTime? until = null, DateTime? since = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
         /// <summary>
-        /// Get launch history for a registration. 
+        /// Get launch history for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns history of this registration&#39;s launches. 
+        /// Returns the launch history of the registration.  This includes completion status, time taken, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>Task of LaunchHistoryListSchema</returns>
         System.Threading.Tasks.Task<LaunchHistoryListSchema> GetRegistrationLaunchHistoryAsync (string registrationId, bool? includeHistoryLog = null);
 
         /// <summary>
-        /// Get launch history for a registration. 
+        /// Get launch history for a Registration 
         /// </summary>
         /// <remarks>
-        /// Returns history of this registration&#39;s launches. 
+        /// Returns the launch history of the registration.  This includes completion status, time taken, and pass/fail status. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>Task of ApiResponse (LaunchHistoryListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<LaunchHistoryListSchema>> GetRegistrationLaunchHistoryAsyncWithHttpInfo (string registrationId, bool? includeHistoryLog = null);
         /// <summary>
-        /// Get details of a registration. 
+        /// Get detailed information about a Registration 
         /// </summary>
         /// <remarks>
-        /// Get detailed information about the latest instance of &#x60;registrationId&#x60;. Additional detail may be obtained by using the optional query parameters. 
+        /// Returns detailed information about the registration.  This includes completion status, time taken, score, and pass/fail status.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -1130,200 +1138,208 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<RegistrationSchema> GetRegistrationProgressAsync (string registrationId, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
 
         /// <summary>
-        /// Get details of a registration. 
+        /// Get detailed information about a Registration 
         /// </summary>
         /// <remarks>
-        /// Get detailed information about the latest instance of &#x60;registrationId&#x60;. Additional detail may be obtained by using the optional query parameters. 
+        /// Returns detailed information about the registration.  This includes completion status, time taken, score, and pass/fail status.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
         /// <returns>Task of ApiResponse (RegistrationSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<RegistrationSchema>> GetRegistrationProgressAsyncWithHttpInfo (string registrationId, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
         /// <summary>
-        /// Get xAPI statements for a registration. 
+        /// Get xAPI statements for a Registration 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for &#x60;registrationId&#x60;. 
+        /// Returns xAPI statements for the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiStatementResult</returns>
         System.Threading.Tasks.Task<XapiStatementResult> GetRegistrationStatementsAsync (string registrationId, DateTime? since = null, DateTime? until = null, string more = null);
 
         /// <summary>
-        /// Get xAPI statements for a registration. 
+        /// Get xAPI statements for a Registration 
         /// </summary>
         /// <remarks>
-        /// Get xAPI statements for &#x60;registrationId&#x60;. 
+        /// Returns xAPI statements for the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetRegistrationStatementsAsyncWithHttpInfo (string registrationId, DateTime? since = null, DateTime? until = null, string more = null);
         /// <summary>
-        /// Get tags for a registration. 
+        /// Get tags for a Registration 
         /// </summary>
         /// <remarks>
-        /// Get a list of the tags applied to this registration. 
+        /// Returns the tags for the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of TagListSchema</returns>
         System.Threading.Tasks.Task<TagListSchema> GetRegistrationTagsAsync (string registrationId);
 
         /// <summary>
-        /// Get tags for a registration. 
+        /// Get tags for a Registration 
         /// </summary>
         /// <remarks>
-        /// Get a list of the tags applied to this registration. 
+        /// Returns the tags for the registration. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetRegistrationTagsAsyncWithHttpInfo (string registrationId);
         /// <summary>
-        /// Get a list of all registrations. 
+        /// Get a list of Registrations 
         /// </summary>
         /// <remarks>
-        /// Gets a list of registrations including a summary of the status of each registration. 
+        /// Returns a list of registrations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only registrations for the specified course id will be included. (optional)</param>
-        /// <param name="learnerId">Only registrations for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="learnerId">Only retrieve resources having &#x60;learnerId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to created)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
         /// <returns>Task of RegistrationListSchema</returns>
-        System.Threading.Tasks.Task<RegistrationListSchema> GetRegistrationsAsync (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null, List<string> tags = null);
+        System.Threading.Tasks.Task<RegistrationListSchema> GetRegistrationsAsync (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
 
         /// <summary>
-        /// Get a list of all registrations. 
+        /// Get a list of Registrations 
         /// </summary>
         /// <remarks>
-        /// Gets a list of registrations including a summary of the status of each registration. 
+        /// Returns a list of registrations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only registrations for the specified course id will be included. (optional)</param>
-        /// <param name="learnerId">Only registrations for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="learnerId">Only retrieve resources having &#x60;learnerId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to created)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
         /// <returns>Task of ApiResponse (RegistrationListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RegistrationListSchema>> GetRegistrationsAsyncWithHttpInfo (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null, List<string> tags = null);
+        System.Threading.Tasks.Task<ApiResponse<RegistrationListSchema>> GetRegistrationsAsyncWithHttpInfo (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null);
         /// <summary>
-        /// Set tags on a registration. 
+        /// Add tags to a Registration 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this registration. Note: any tags currently on this registration will be overwritten with the new array of tags. 
+        /// Applies the provided tags to the registration.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PutRegistrationTagsAsync (string registrationId, TagListSchema tags);
 
         /// <summary>
-        /// Set tags on a registration. 
+        /// Add tags to a Registration 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this registration. Note: any tags currently on this registration will be overwritten with the new array of tags. 
+        /// Applies the provided tags to the registration.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutRegistrationTagsAsyncWithHttpInfo (string registrationId, TagListSchema tags);
         /// <summary>
-        /// Set tags on registrations. 
+        /// Add a group of tags to a group of Registrations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided registrations. 
+        /// Applies all of the provided tags on all of the provided registrations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PutRegistrationTagsBatchAsync (BatchTagsSchema batch);
 
         /// <summary>
-        /// Set tags on registrations. 
+        /// Add a group of tags to a group of Registrations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided registrations. 
+        /// Applies all of the provided tags on all of the provided registrations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutRegistrationTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Set registration configuration. 
+        /// Update configuration settings for a Registration 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this registration. 
+        /// Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SetRegistrationConfigurationAsync (string registrationId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set registration configuration. 
+        /// Update configuration settings for a Registration 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this registration. 
+        /// Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetRegistrationConfigurationAsyncWithHttpInfo (string registrationId, SettingsPostSchema configurationSettings);
         /// <summary>
-        /// Set configuration for instance of registration. 
+        /// Update configuration settings for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this registration instance. 
+        /// Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SetRegistrationInstanceConfigurationAsync (string registrationId, int? instanceId, SettingsPostSchema configurationSettings);
 
         /// <summary>
-        /// Set configuration for instance of registration. 
+        /// Update configuration settings for a Registration Instance 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for this registration instance. 
+        /// Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetRegistrationInstanceConfigurationAsyncWithHttpInfo (string registrationId, int? instanceId, SettingsPostSchema configurationSettings);
         /// <summary>
-        /// Send a test postback with a provided configuration. 
+        /// Send a test postback with the provided configuration 
         /// </summary>
         /// <remarks>
-        /// This method will allow testing a postback configuration that you provide by sending dummy data to the url specified, with the format you specify. 
+        /// Sends a postback with dummy data to the url specified.  The postback will use additional information from the configuration provided with the request (e.g. a provided username/password will be sent along with the postback to allow for logging in to a secure page.  The format of the data sent will differ depending on whether &#x60;httpbasic&#x60; or &#x60;form&#x60; is passed for &#x60;authType&#x60;.  - With httpbasic, an authorization header will be sent with the base64 encoded credentials.  The body will be JSON formatted data. - With form, the username and password will be sent in the body of the request along with the data.  The whole body will be url encoded.  &gt;**Note:** &gt;The data that will be sent to the provided url is the same format as the output of the GetRegistrationProgress endpoint. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postBack"></param>
@@ -1331,10 +1347,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task TestRegistrationPostbackAsync (PostBackSchema postBack);
 
         /// <summary>
-        /// Send a test postback with a provided configuration. 
+        /// Send a test postback with the provided configuration 
         /// </summary>
         /// <remarks>
-        /// This method will allow testing a postback configuration that you provide by sending dummy data to the url specified, with the format you specify. 
+        /// Sends a postback with dummy data to the url specified.  The postback will use additional information from the configuration provided with the request (e.g. a provided username/password will be sent along with the postback to allow for logging in to a secure page.  The format of the data sent will differ depending on whether &#x60;httpbasic&#x60; or &#x60;form&#x60; is passed for &#x60;authType&#x60;.  - With httpbasic, an authorization header will be sent with the base64 encoded credentials.  The body will be JSON formatted data. - With form, the username and password will be sent in the body of the request along with the data.  The whole body will be url encoded.  &gt;**Note:** &gt;The data that will be sent to the provided url is the same format as the output of the GetRegistrationProgress endpoint. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postBack"></param>
@@ -1441,10 +1457,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get registration launch link.  Returns the link to use to launch this registration. 
+        /// Get a launch link for a Registration  Returns the launch link to use to launch the course for the registration.   Launch links are meant as a way to provide access to your content.  When a learner visits the link, the course will be launched and registration progress will start to be tracked. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>LaunchLinkSchema</returns>
         public LaunchLinkSchema BuildRegistrationLaunchLink (string registrationId, LaunchLinkRequestSchema launchLinkRequest)
@@ -1454,10 +1470,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get registration launch link.  Returns the link to use to launch this registration. 
+        /// Get a launch link for a Registration  Returns the launch link to use to launch the course for the registration.   Launch links are meant as a way to provide access to your content.  When a learner visits the link, the course will be launched and registration progress will start to be tracked. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
         public ApiResponse< LaunchLinkSchema > BuildRegistrationLaunchLinkWithHttpInfo (string registrationId, LaunchLinkRequestSchema launchLinkRequest)
@@ -1533,10 +1549,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get registration launch link.  Returns the link to use to launch this registration. 
+        /// Get a launch link for a Registration  Returns the launch link to use to launch the course for the registration.   Launch links are meant as a way to provide access to your content.  When a learner visits the link, the course will be launched and registration progress will start to be tracked. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of LaunchLinkSchema</returns>
         public async System.Threading.Tasks.Task<LaunchLinkSchema> BuildRegistrationLaunchLinkAsync (string registrationId, LaunchLinkRequestSchema launchLinkRequest)
@@ -1547,10 +1563,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get registration launch link.  Returns the link to use to launch this registration. 
+        /// Get a launch link for a Registration  Returns the launch link to use to launch the course for the registration.   Launch links are meant as a way to provide access to your content.  When a learner visits the link, the course will be launched and registration progress will start to be tracked. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildRegistrationLaunchLinkAsyncWithHttpInfo (string registrationId, LaunchLinkRequestSchema launchLinkRequest)
@@ -1626,10 +1642,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Create a new instance for this registration specified by the registration ID. 
+        /// Create a Registration Instance  Creates a new instance of the registration.  Registration instances will be automatically created when a learner launches a new version of the course.  This allows for tracking registration progress for each of the versions of the course the learner has taken.  When the created registration instance is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         public void CreateNewRegistrationInstance (string registrationId)
         {
@@ -1637,10 +1653,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Create a new instance for this registration specified by the registration ID. 
+        /// Create a Registration Instance  Creates a new instance of the registration.  Registration instances will be automatically created when a learner launches a new version of the course.  This allows for tracking registration progress for each of the versions of the course the learner has taken.  When the created registration instance is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> CreateNewRegistrationInstanceWithHttpInfo (string registrationId)
         {
@@ -1704,10 +1720,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Create a new instance for this registration specified by the registration ID. 
+        /// Create a Registration Instance  Creates a new instance of the registration.  Registration instances will be automatically created when a learner launches a new version of the course.  This allows for tracking registration progress for each of the versions of the course the learner has taken.  When the created registration instance is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task CreateNewRegistrationInstanceAsync (string registrationId)
         {
@@ -1716,10 +1732,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Create a new instance for this registration specified by the registration ID. 
+        /// Create a Registration Instance  Creates a new instance of the registration.  Registration instances will be automatically created when a learner launches a new version of the course.  This allows for tracking registration progress for each of the versions of the course the learner has taken.  When the created registration instance is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateNewRegistrationInstanceAsyncWithHttpInfo (string registrationId)
         {
@@ -1783,11 +1799,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a registration.  This method is used to create a new registration. A registration will contain a few pieces of information such as a learner name, a learner id, and optionally, information about where activity data should be posted (for client consumption), as well as a way to specify simple authentication schemes for posting said data. A registration must be tied to a specific course at creation time. When the created registration is “launched”, the course specified at creation time will be launched. 
+        /// Create a Registration  Creates a new registration.  Registrations are the billable unit in SCORM Cloud, and represent a link between a learner and a course.  A registration will contain a few pieces of information such as learner identifiers, the id of the course being registered for, and several other optional fields. A registration must be tied to a specific course at creation time.  When the created registration is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registration"></param>
-        /// <param name="courseVersion">The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)</param>
+        /// <param name="courseVersion">Unless you have a reason for using this you probably do not need to.  (optional)</param>
         /// <returns></returns>
         public void CreateRegistration (CreateRegistrationSchema registration, int? courseVersion = null)
         {
@@ -1795,11 +1811,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a registration.  This method is used to create a new registration. A registration will contain a few pieces of information such as a learner name, a learner id, and optionally, information about where activity data should be posted (for client consumption), as well as a way to specify simple authentication schemes for posting said data. A registration must be tied to a specific course at creation time. When the created registration is “launched”, the course specified at creation time will be launched. 
+        /// Create a Registration  Creates a new registration.  Registrations are the billable unit in SCORM Cloud, and represent a link between a learner and a course.  A registration will contain a few pieces of information such as learner identifiers, the id of the course being registered for, and several other optional fields. A registration must be tied to a specific course at creation time.  When the created registration is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registration"></param>
-        /// <param name="courseVersion">The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)</param>
+        /// <param name="courseVersion">Unless you have a reason for using this you probably do not need to.  (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> CreateRegistrationWithHttpInfo (CreateRegistrationSchema registration, int? courseVersion = null)
         {
@@ -1871,11 +1887,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a registration.  This method is used to create a new registration. A registration will contain a few pieces of information such as a learner name, a learner id, and optionally, information about where activity data should be posted (for client consumption), as well as a way to specify simple authentication schemes for posting said data. A registration must be tied to a specific course at creation time. When the created registration is “launched”, the course specified at creation time will be launched. 
+        /// Create a Registration  Creates a new registration.  Registrations are the billable unit in SCORM Cloud, and represent a link between a learner and a course.  A registration will contain a few pieces of information such as learner identifiers, the id of the course being registered for, and several other optional fields. A registration must be tied to a specific course at creation time.  When the created registration is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registration"></param>
-        /// <param name="courseVersion">The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)</param>
+        /// <param name="courseVersion">Unless you have a reason for using this you probably do not need to.  (optional)</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task CreateRegistrationAsync (CreateRegistrationSchema registration, int? courseVersion = null)
         {
@@ -1884,11 +1900,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a registration.  This method is used to create a new registration. A registration will contain a few pieces of information such as a learner name, a learner id, and optionally, information about where activity data should be posted (for client consumption), as well as a way to specify simple authentication schemes for posting said data. A registration must be tied to a specific course at creation time. When the created registration is “launched”, the course specified at creation time will be launched. 
+        /// Create a Registration  Creates a new registration.  Registrations are the billable unit in SCORM Cloud, and represent a link between a learner and a course.  A registration will contain a few pieces of information such as learner identifiers, the id of the course being registered for, and several other optional fields. A registration must be tied to a specific course at creation time.  When the created registration is \&quot;launched\&quot;, the course specified at creation time will be launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registration"></param>
-        /// <param name="courseVersion">The version of the course you want to create the registration for. Unless you have a reason for using this you probably do not need to. (optional)</param>
+        /// <param name="courseVersion">Unless you have a reason for using this you probably do not need to.  (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateRegistrationAsyncWithHttpInfo (CreateRegistrationSchema registration, int? courseVersion = null)
         {
@@ -1960,10 +1976,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a registration.  Delete &#x60;registrationId&#x60;.  This includes all instances of this registration. 
+        /// Delete a Registration  Deletes the specified registration.  &gt;**Caution:** &gt;This will also delete all instances of the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         public void DeleteRegistration (string registrationId)
         {
@@ -1971,10 +1987,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a registration.  Delete &#x60;registrationId&#x60;.  This includes all instances of this registration. 
+        /// Delete a Registration  Deletes the specified registration.  &gt;**Caution:** &gt;This will also delete all instances of the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteRegistrationWithHttpInfo (string registrationId)
         {
@@ -2038,10 +2054,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a registration.  Delete &#x60;registrationId&#x60;.  This includes all instances of this registration. 
+        /// Delete a Registration  Deletes the specified registration.  &gt;**Caution:** &gt;This will also delete all instances of the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteRegistrationAsync (string registrationId)
         {
@@ -2050,10 +2066,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete a registration.  Delete &#x60;registrationId&#x60;.  This includes all instances of this registration. 
+        /// Delete a Registration  Deletes the specified registration.  &gt;**Caution:** &gt;This will also delete all instances of the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationAsyncWithHttpInfo (string registrationId)
         {
@@ -2117,10 +2133,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a registration configuration.  Clears the &#x60;settingId&#x60; value for this registration. The effective value will become the value at the next level which has an explicit value set.  Possibilities are course, application, or default. 
+        /// Delete a configuration setting explicitly set for a Registration  Clears the specified setting from the registration.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="settingId"></param>
         /// <returns></returns>
         public void DeleteRegistrationConfigurationSetting (string registrationId, string settingId)
@@ -2129,10 +2145,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a registration configuration.  Clears the &#x60;settingId&#x60; value for this registration. The effective value will become the value at the next level which has an explicit value set.  Possibilities are course, application, or default. 
+        /// Delete a configuration setting explicitly set for a Registration  Clears the specified setting from the registration.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="settingId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteRegistrationConfigurationSettingWithHttpInfo (string registrationId, string settingId)
@@ -2201,10 +2217,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a registration configuration.  Clears the &#x60;settingId&#x60; value for this registration. The effective value will become the value at the next level which has an explicit value set.  Possibilities are course, application, or default. 
+        /// Delete a configuration setting explicitly set for a Registration  Clears the specified setting from the registration.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteRegistrationConfigurationSettingAsync (string registrationId, string settingId)
@@ -2214,10 +2230,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a registration configuration.  Clears the &#x60;settingId&#x60; value for this registration. The effective value will become the value at the next level which has an explicit value set.  Possibilities are course, application, or default. 
+        /// Delete a configuration setting explicitly set for a Registration  Clears the specified setting from the registration.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationConfigurationSettingAsyncWithHttpInfo (string registrationId, string settingId)
@@ -2286,10 +2302,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the global data of a registration.  Delete global data associated with &#x60;registrationId&#x60;&#39;.  Calling this method will reset all global objectives associated with this registration, if any exist. 
+        /// Reset global data for a Registration  Deletes the global data associated with the registration, but the registration itself will remain.  This means any progress towards the global objectives will be removed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         public void DeleteRegistrationGlobalData (string registrationId)
         {
@@ -2297,10 +2313,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the global data of a registration.  Delete global data associated with &#x60;registrationId&#x60;&#39;.  Calling this method will reset all global objectives associated with this registration, if any exist. 
+        /// Reset global data for a Registration  Deletes the global data associated with the registration, but the registration itself will remain.  This means any progress towards the global objectives will be removed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteRegistrationGlobalDataWithHttpInfo (string registrationId)
         {
@@ -2364,10 +2380,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the global data of a registration.  Delete global data associated with &#x60;registrationId&#x60;&#39;.  Calling this method will reset all global objectives associated with this registration, if any exist. 
+        /// Reset global data for a Registration  Deletes the global data associated with the registration, but the registration itself will remain.  This means any progress towards the global objectives will be removed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteRegistrationGlobalDataAsync (string registrationId)
         {
@@ -2376,10 +2392,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the global data of a registration.  Delete global data associated with &#x60;registrationId&#x60;&#39;.  Calling this method will reset all global objectives associated with this registration, if any exist. 
+        /// Reset global data for a Registration  Deletes the global data associated with the registration, but the registration itself will remain.  This means any progress towards the global objectives will be removed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationGlobalDataAsyncWithHttpInfo (string registrationId)
         {
@@ -2443,11 +2459,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  If this is the only existing instance of this registration, the registration will be deleted in its entirety along with any associated data. 
+        /// Delete a Registration Instance  Deletes the specified instance of the registration.  If deleting the last remaining instance of the registration, the registration itself will be deleted along with any associated data. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <returns></returns>
         public void DeleteRegistrationInstance (string registrationId, int? instanceId)
         {
@@ -2455,11 +2471,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  If this is the only existing instance of this registration, the registration will be deleted in its entirety along with any associated data. 
+        /// Delete a Registration Instance  Deletes the specified instance of the registration.  If deleting the last remaining instance of the registration, the registration itself will be deleted along with any associated data. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteRegistrationInstanceWithHttpInfo (string registrationId, int? instanceId)
         {
@@ -2527,11 +2543,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  If this is the only existing instance of this registration, the registration will be deleted in its entirety along with any associated data. 
+        /// Delete a Registration Instance  Deletes the specified instance of the registration.  If deleting the last remaining instance of the registration, the registration itself will be deleted along with any associated data. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteRegistrationInstanceAsync (string registrationId, int? instanceId)
         {
@@ -2540,11 +2556,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  Delete instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;.  If this is the only existing instance of this registration, the registration will be deleted in its entirety along with any associated data. 
+        /// Delete a Registration Instance  Deletes the specified instance of the registration.  If deleting the last remaining instance of the registration, the registration itself will be deleted along with any associated data. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationInstanceAsyncWithHttpInfo (string registrationId, int? instanceId)
         {
@@ -2612,11 +2628,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a configuration for an instance of a registration.  Clears the &#x60;settingId&#x60; value for this registration instance. 
+        /// Delete a configuration setting explicitly set for a Registration Instance  Clears the specified setting from the registration instance.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="settingId"></param>
         /// <returns></returns>
         public void DeleteRegistrationInstanceConfigurationSetting (string registrationId, int? instanceId, string settingId)
@@ -2625,11 +2641,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a configuration for an instance of a registration.  Clears the &#x60;settingId&#x60; value for this registration instance. 
+        /// Delete a configuration setting explicitly set for a Registration Instance  Clears the specified setting from the registration instance.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="settingId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteRegistrationInstanceConfigurationSettingWithHttpInfo (string registrationId, int? instanceId, string settingId)
@@ -2702,11 +2718,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a configuration for an instance of a registration.  Clears the &#x60;settingId&#x60; value for this registration instance. 
+        /// Delete a configuration setting explicitly set for a Registration Instance  Clears the specified setting from the registration instance.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteRegistrationInstanceConfigurationSettingAsync (string registrationId, int? instanceId, string settingId)
@@ -2716,11 +2732,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clear a configuration for an instance of a registration.  Clears the &#x60;settingId&#x60; value for this registration instance. 
+        /// Delete a configuration setting explicitly set for a Registration Instance  Clears the specified setting from the registration instance.  This causes the setting to inherit a value from a higher level (e.g. course).  If the configuration setting was not set at the registration level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="settingId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationInstanceConfigurationSettingAsyncWithHttpInfo (string registrationId, int? instanceId, string settingId)
@@ -2793,10 +2809,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Reset a registration.  This method will reset the specified registration. This is essentially the same as deleting and recreating the registration, and as such, will delete all the data associated with the registration (including launch history, etc.). If the course for which the registration is registered has multiple versions, the registration being reset will automatically be registered for the latest version. 
+        /// Reset a Registration  Deletes the data associated with the registration, but the registration itself will remain.  This means any of the launch history, and progress will be removed.  After the data has been deleted, the registration will automatically register itself for the latest version of the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         public void DeleteRegistrationProgress (string registrationId)
         {
@@ -2804,10 +2820,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Reset a registration.  This method will reset the specified registration. This is essentially the same as deleting and recreating the registration, and as such, will delete all the data associated with the registration (including launch history, etc.). If the course for which the registration is registered has multiple versions, the registration being reset will automatically be registered for the latest version. 
+        /// Reset a Registration  Deletes the data associated with the registration, but the registration itself will remain.  This means any of the launch history, and progress will be removed.  After the data has been deleted, the registration will automatically register itself for the latest version of the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteRegistrationProgressWithHttpInfo (string registrationId)
         {
@@ -2871,10 +2887,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Reset a registration.  This method will reset the specified registration. This is essentially the same as deleting and recreating the registration, and as such, will delete all the data associated with the registration (including launch history, etc.). If the course for which the registration is registered has multiple versions, the registration being reset will automatically be registered for the latest version. 
+        /// Reset a Registration  Deletes the data associated with the registration, but the registration itself will remain.  This means any of the launch history, and progress will be removed.  After the data has been deleted, the registration will automatically register itself for the latest version of the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteRegistrationProgressAsync (string registrationId)
         {
@@ -2883,10 +2899,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Reset a registration.  This method will reset the specified registration. This is essentially the same as deleting and recreating the registration, and as such, will delete all the data associated with the registration (including launch history, etc.). If the course for which the registration is registered has multiple versions, the registration being reset will automatically be registered for the latest version. 
+        /// Reset a Registration  Deletes the data associated with the registration, but the registration itself will remain.  This means any of the launch history, and progress will be removed.  After the data has been deleted, the registration will automatically register itself for the latest version of the course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationProgressAsyncWithHttpInfo (string registrationId)
         {
@@ -2950,10 +2966,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags from a registration.  Delete the provided tags for this registration. 
+        /// Delete tags from a Registration  Deletes the specified tags from the registration.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns></returns>
         public void DeleteRegistrationTags (string registrationId, TagListSchema tags)
@@ -2962,10 +2978,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags from a registration.  Delete the provided tags for this registration. 
+        /// Delete tags from a Registration  Deletes the specified tags from the registration.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteRegistrationTagsWithHttpInfo (string registrationId, TagListSchema tags)
@@ -3041,10 +3057,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags from a registration.  Delete the provided tags for this registration. 
+        /// Delete tags from a Registration  Deletes the specified tags from the registration.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteRegistrationTagsAsync (string registrationId, TagListSchema tags)
@@ -3054,10 +3070,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete tags from a registration.  Delete the provided tags for this registration. 
+        /// Delete tags from a Registration  Deletes the specified tags from the registration.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRegistrationTagsAsyncWithHttpInfo (string registrationId, TagListSchema tags)
@@ -3133,10 +3149,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// See if a registration exists.  This method is meant to check if a registration with &#x60;registrationId&#x60; exists in the system. 
+        /// Check that a Registration exists  Checks that the registration exists within SCORM Cloud.  &gt;**Info:** &gt;No registration data will be returned for this call. A successful &#x60;200&#x60; response indicates that the registration exists. If the registration does not exist, a &#x60;404&#x60; error will be returned instead. If you are looking for information about the registration, try calling &#x60;GetRegistrationProgress&#x60; instead. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns></returns>
         public void GetRegistration (string registrationId)
         {
@@ -3144,10 +3160,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// See if a registration exists.  This method is meant to check if a registration with &#x60;registrationId&#x60; exists in the system. 
+        /// Check that a Registration exists  Checks that the registration exists within SCORM Cloud.  &gt;**Info:** &gt;No registration data will be returned for this call. A successful &#x60;200&#x60; response indicates that the registration exists. If the registration does not exist, a &#x60;404&#x60; error will be returned instead. If you are looking for information about the registration, try calling &#x60;GetRegistrationProgress&#x60; instead. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> GetRegistrationWithHttpInfo (string registrationId)
         {
@@ -3211,10 +3227,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// See if a registration exists.  This method is meant to check if a registration with &#x60;registrationId&#x60; exists in the system. 
+        /// Check that a Registration exists  Checks that the registration exists within SCORM Cloud.  &gt;**Info:** &gt;No registration data will be returned for this call. A successful &#x60;200&#x60; response indicates that the registration exists. If the registration does not exist, a &#x60;404&#x60; error will be returned instead. If you are looking for information about the registration, try calling &#x60;GetRegistrationProgress&#x60; instead. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task GetRegistrationAsync (string registrationId)
         {
@@ -3223,10 +3239,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// See if a registration exists.  This method is meant to check if a registration with &#x60;registrationId&#x60; exists in the system. 
+        /// Check that a Registration exists  Checks that the registration exists within SCORM Cloud.  &gt;**Info:** &gt;No registration data will be returned for this call. A successful &#x60;200&#x60; response indicates that the registration exists. If the registration does not exist, a &#x60;404&#x60; error will be returned instead. If you are looking for information about the registration, try calling &#x60;GetRegistrationProgress&#x60; instead. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> GetRegistrationAsyncWithHttpInfo (string registrationId)
         {
@@ -3290,10 +3306,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get registration configuration.  Returns all configuration settings for this registration. 
+        /// Get effective configuration settings for a Registration  Returns the effective configuration settings for the registration.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>SettingListSchema</returns>
         public SettingListSchema GetRegistrationConfiguration (string registrationId, bool? includeMetadata = null)
@@ -3303,10 +3319,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get registration configuration.  Returns all configuration settings for this registration. 
+        /// Get effective configuration settings for a Registration  Returns the effective configuration settings for the registration.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>ApiResponse of SettingListSchema</returns>
         public ApiResponse< SettingListSchema > GetRegistrationConfigurationWithHttpInfo (string registrationId, bool? includeMetadata = null)
@@ -3372,10 +3388,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get registration configuration.  Returns all configuration settings for this registration. 
+        /// Get effective configuration settings for a Registration  Returns the effective configuration settings for the registration.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of SettingListSchema</returns>
         public async System.Threading.Tasks.Task<SettingListSchema> GetRegistrationConfigurationAsync (string registrationId, bool? includeMetadata = null)
@@ -3386,10 +3402,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get registration configuration.  Returns all configuration settings for this registration. 
+        /// Get effective configuration settings for a Registration  Returns the effective configuration settings for the registration.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetRegistrationConfigurationAsyncWithHttpInfo (string registrationId, bool? includeMetadata = null)
@@ -3455,11 +3471,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get configuration for instance of registration.  Returns all configuration settings for this registration instance. 
+        /// Get effective configuration settings for a Registration Instance  Returns the effective configuration settings for the registration instance.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>SettingListSchema</returns>
         public SettingListSchema GetRegistrationInstanceConfiguration (string registrationId, int? instanceId, bool? includeMetadata = null)
@@ -3469,11 +3485,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get configuration for instance of registration.  Returns all configuration settings for this registration instance. 
+        /// Get effective configuration settings for a Registration Instance  Returns the effective configuration settings for the registration instance.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>ApiResponse of SettingListSchema</returns>
         public ApiResponse< SettingListSchema > GetRegistrationInstanceConfigurationWithHttpInfo (string registrationId, int? instanceId, bool? includeMetadata = null)
@@ -3543,11 +3559,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get configuration for instance of registration.  Returns all configuration settings for this registration instance. 
+        /// Get effective configuration settings for a Registration Instance  Returns the effective configuration settings for the registration instance.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of SettingListSchema</returns>
         public async System.Threading.Tasks.Task<SettingListSchema> GetRegistrationInstanceConfigurationAsync (string registrationId, int? instanceId, bool? includeMetadata = null)
@@ -3558,11 +3574,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get configuration for instance of registration.  Returns all configuration settings for this registration instance. 
+        /// Get effective configuration settings for a Registration Instance  Returns the effective configuration settings for the registration instance.  If not set at the registration level, the setting will inherit a value from a higher level (e.g. course).  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetRegistrationInstanceConfigurationAsyncWithHttpInfo (string registrationId, int? instanceId, bool? includeMetadata = null)
@@ -3632,11 +3648,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get launch history for an instance of a registration.  Returns history of the launches of the specified instance of this registration. 
+        /// Get launch history for a Registration Instance  Returns the launch history of the registration instance.  This includes completion status, time taken, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>LaunchHistoryListSchema</returns>
         public LaunchHistoryListSchema GetRegistrationInstanceLaunchHistory (string registrationId, int? instanceId, bool? includeHistoryLog = null)
@@ -3646,11 +3662,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get launch history for an instance of a registration.  Returns history of the launches of the specified instance of this registration. 
+        /// Get launch history for a Registration Instance  Returns the launch history of the registration instance.  This includes completion status, time taken, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>ApiResponse of LaunchHistoryListSchema</returns>
         public ApiResponse< LaunchHistoryListSchema > GetRegistrationInstanceLaunchHistoryWithHttpInfo (string registrationId, int? instanceId, bool? includeHistoryLog = null)
@@ -3720,11 +3736,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get launch history for an instance of a registration.  Returns history of the launches of the specified instance of this registration. 
+        /// Get launch history for a Registration Instance  Returns the launch history of the registration instance.  This includes completion status, time taken, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>Task of LaunchHistoryListSchema</returns>
         public async System.Threading.Tasks.Task<LaunchHistoryListSchema> GetRegistrationInstanceLaunchHistoryAsync (string registrationId, int? instanceId, bool? includeHistoryLog = null)
@@ -3735,11 +3751,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get launch history for an instance of a registration.  Returns history of the launches of the specified instance of this registration. 
+        /// Get launch history for a Registration Instance  Returns the launch history of the registration instance.  This includes completion status, time taken, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>Task of ApiResponse (LaunchHistoryListSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<LaunchHistoryListSchema>> GetRegistrationInstanceLaunchHistoryAsyncWithHttpInfo (string registrationId, int? instanceId, bool? includeHistoryLog = null)
@@ -3809,11 +3825,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details of an instance of a registration.  Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;&#39; 
+        /// Get detailed information about a Registration Instance  Returns detailed information about the registration instance.  This includes completion status, time taken, score, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -3825,11 +3841,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details of an instance of a registration.  Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;&#39; 
+        /// Get detailed information about a Registration Instance  Returns detailed information about the registration instance.  This includes completion status, time taken, score, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -3903,11 +3919,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details of an instance of a registration.  Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;&#39; 
+        /// Get detailed information about a Registration Instance  Returns detailed information about the registration instance.  This includes completion status, time taken, score, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -3920,11 +3936,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details of an instance of a registration.  Get registration progress for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;&#39; 
+        /// Get detailed information about a Registration Instance  Returns detailed information about the registration instance.  This includes completion status, time taken, score, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -3998,14 +4014,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for an instance of a registration.  Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Get xAPI statements for a Registration Instance  Returns xAPI statements for the registration instance. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiStatementResult</returns>
         public XapiStatementResult GetRegistrationInstanceStatements (string registrationId, int? instanceId, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4014,14 +4030,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for an instance of a registration.  Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Get xAPI statements for a Registration Instance  Returns xAPI statements for the registration instance. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiStatementResult</returns>
         public ApiResponse< XapiStatementResult > GetRegistrationInstanceStatementsWithHttpInfo (string registrationId, int? instanceId, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4092,14 +4108,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for an instance of a registration.  Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Get xAPI statements for a Registration Instance  Returns xAPI statements for the registration instance. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiStatementResult</returns>
         public async System.Threading.Tasks.Task<XapiStatementResult> GetRegistrationInstanceStatementsAsync (string registrationId, int? instanceId, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4109,14 +4125,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for an instance of a registration.  Get xAPI statements for instance &#x60;instanceId&#x60; of &#x60;registrationId&#x60;. 
+        /// Get xAPI statements for a Registration Instance  Returns xAPI statements for the registration instance. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetRegistrationInstanceStatementsAsyncWithHttpInfo (string registrationId, int? instanceId, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4187,13 +4203,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all instances of a registration.  Get all the instances of this the registration specified by the registration ID 
+        /// Get a list of a Registration&#39;s Instances  Returns information about all instances of the registration.  This can be useful to see information such as registration progress across versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -4205,13 +4221,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all instances of a registration.  Get all the instances of this the registration specified by the registration ID 
+        /// Get a list of a Registration&#39;s Instances  Returns information about all instances of the registration.  This can be useful to see information such as registration progress across versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -4284,13 +4300,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all instances of a registration.  Get all the instances of this the registration specified by the registration ID 
+        /// Get a list of a Registration&#39;s Instances  Returns information about all instances of the registration.  This can be useful to see information such as registration progress across versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -4303,13 +4319,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all instances of a registration.  Get all the instances of this the registration specified by the registration ID 
+        /// Get a list of a Registration&#39;s Instances  Returns information about all instances of the registration.  This can be useful to see information such as registration progress across versions of a course. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -4382,10 +4398,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get launch history for a registration.  Returns history of this registration&#39;s launches. 
+        /// Get launch history for a Registration  Returns the launch history of the registration.  This includes completion status, time taken, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>LaunchHistoryListSchema</returns>
         public LaunchHistoryListSchema GetRegistrationLaunchHistory (string registrationId, bool? includeHistoryLog = null)
@@ -4395,10 +4411,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get launch history for a registration.  Returns history of this registration&#39;s launches. 
+        /// Get launch history for a Registration  Returns the launch history of the registration.  This includes completion status, time taken, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>ApiResponse of LaunchHistoryListSchema</returns>
         public ApiResponse< LaunchHistoryListSchema > GetRegistrationLaunchHistoryWithHttpInfo (string registrationId, bool? includeHistoryLog = null)
@@ -4464,10 +4480,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get launch history for a registration.  Returns history of this registration&#39;s launches. 
+        /// Get launch history for a Registration  Returns the launch history of the registration.  This includes completion status, time taken, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>Task of LaunchHistoryListSchema</returns>
         public async System.Threading.Tasks.Task<LaunchHistoryListSchema> GetRegistrationLaunchHistoryAsync (string registrationId, bool? includeHistoryLog = null)
@@ -4478,10 +4494,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get launch history for a registration.  Returns history of this registration&#39;s launches. 
+        /// Get launch history for a Registration  Returns the launch history of the registration.  This includes completion status, time taken, and pass/fail status. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeHistoryLog">Whether to include the history log in the launch history (optional, default to false)</param>
         /// <returns>Task of ApiResponse (LaunchHistoryListSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<LaunchHistoryListSchema>> GetRegistrationLaunchHistoryAsyncWithHttpInfo (string registrationId, bool? includeHistoryLog = null)
@@ -4547,10 +4563,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details of a registration.  Get detailed information about the latest instance of &#x60;registrationId&#x60;. Additional detail may be obtained by using the optional query parameters. 
+        /// Get detailed information about a Registration  Returns detailed information about the registration.  This includes completion status, time taken, score, and pass/fail status.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -4562,10 +4578,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details of a registration.  Get detailed information about the latest instance of &#x60;registrationId&#x60;. Additional detail may be obtained by using the optional query parameters. 
+        /// Get detailed information about a Registration  Returns detailed information about the registration.  This includes completion status, time taken, score, and pass/fail status.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -4635,10 +4651,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details of a registration.  Get detailed information about the latest instance of &#x60;registrationId&#x60;. Additional detail may be obtained by using the optional query parameters. 
+        /// Get detailed information about a Registration  Returns detailed information about the registration.  This includes completion status, time taken, score, and pass/fail status.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -4651,10 +4667,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get details of a registration.  Get detailed information about the latest instance of &#x60;registrationId&#x60;. Additional detail may be obtained by using the optional query parameters. 
+        /// Get detailed information about a Registration  Returns detailed information about the registration.  This includes completion status, time taken, score, and pass/fail status.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
@@ -4724,13 +4740,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for a registration.  Get xAPI statements for &#x60;registrationId&#x60;. 
+        /// Get xAPI statements for a Registration  Returns xAPI statements for the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiStatementResult</returns>
         public XapiStatementResult GetRegistrationStatements (string registrationId, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4739,13 +4755,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for a registration.  Get xAPI statements for &#x60;registrationId&#x60;. 
+        /// Get xAPI statements for a Registration  Returns xAPI statements for the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiStatementResult</returns>
         public ApiResponse< XapiStatementResult > GetRegistrationStatementsWithHttpInfo (string registrationId, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4812,13 +4828,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for a registration.  Get xAPI statements for &#x60;registrationId&#x60;. 
+        /// Get xAPI statements for a Registration  Returns xAPI statements for the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiStatementResult</returns>
         public async System.Threading.Tasks.Task<XapiStatementResult> GetRegistrationStatementsAsync (string registrationId, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4828,13 +4844,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get xAPI statements for a registration.  Get xAPI statements for &#x60;registrationId&#x60;. 
+        /// Get xAPI statements for a Registration  Returns xAPI statements for the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="registrationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiStatementResult)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<XapiStatementResult>> GetRegistrationStatementsAsyncWithHttpInfo (string registrationId, DateTime? since = null, DateTime? until = null, string more = null)
         {
@@ -4901,10 +4917,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get tags for a registration.  Get a list of the tags applied to this registration. 
+        /// Get tags for a Registration  Returns the tags for the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>TagListSchema</returns>
         public TagListSchema GetRegistrationTags (string registrationId)
         {
@@ -4913,10 +4929,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get tags for a registration.  Get a list of the tags applied to this registration. 
+        /// Get tags for a Registration  Returns the tags for the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>ApiResponse of TagListSchema</returns>
         public ApiResponse< TagListSchema > GetRegistrationTagsWithHttpInfo (string registrationId)
         {
@@ -4980,10 +4996,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get tags for a registration.  Get a list of the tags applied to this registration. 
+        /// Get tags for a Registration  Returns the tags for the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of TagListSchema</returns>
         public async System.Threading.Tasks.Task<TagListSchema> GetRegistrationTagsAsync (string registrationId)
         {
@@ -4993,10 +5009,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get tags for a registration.  Get a list of the tags applied to this registration. 
+        /// Get tags for a Registration  Returns the tags for the registration. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetRegistrationTagsAsyncWithHttpInfo (string registrationId)
         {
@@ -5060,40 +5076,48 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all registrations.  Gets a list of registrations including a summary of the status of each registration. 
+        /// Get a list of Registrations  Returns a list of registrations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only registrations for the specified course id will be included. (optional)</param>
-        /// <param name="learnerId">Only registrations for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="learnerId">Only retrieve resources having &#x60;learnerId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to created)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
         /// <returns>RegistrationListSchema</returns>
-        public RegistrationListSchema GetRegistrations (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null, List<string> tags = null)
+        public RegistrationListSchema GetRegistrations (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null)
         {
-             ApiResponse<RegistrationListSchema> localVarResponse = GetRegistrationsWithHttpInfo(courseId, learnerId, since, until, more, includeChildResults, includeInteractionsAndObjectives, includeRuntime, tags);
+             ApiResponse<RegistrationListSchema> localVarResponse = GetRegistrationsWithHttpInfo(courseId, learnerId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeChildResults, includeInteractionsAndObjectives, includeRuntime);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of all registrations.  Gets a list of registrations including a summary of the status of each registration. 
+        /// Get a list of Registrations  Returns a list of registrations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only registrations for the specified course id will be included. (optional)</param>
-        /// <param name="learnerId">Only registrations for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="learnerId">Only retrieve resources having &#x60;learnerId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to created)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
         /// <returns>ApiResponse of RegistrationListSchema</returns>
-        public ApiResponse< RegistrationListSchema > GetRegistrationsWithHttpInfo (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null, List<string> tags = null)
+        public ApiResponse< RegistrationListSchema > GetRegistrationsWithHttpInfo (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null)
         {
 
             var localVarPath = "/registrations";
@@ -5122,11 +5146,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (learnerId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learnerId", learnerId)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (includeChildResults != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeChildResults", includeChildResults)); // query parameter
             if (includeInteractionsAndObjectives != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeInteractionsAndObjectives", includeInteractionsAndObjectives)); // query parameter
             if (includeRuntime != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRuntime", includeRuntime)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -5160,41 +5188,49 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all registrations.  Gets a list of registrations including a summary of the status of each registration. 
+        /// Get a list of Registrations  Returns a list of registrations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only registrations for the specified course id will be included. (optional)</param>
-        /// <param name="learnerId">Only registrations for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="learnerId">Only retrieve resources having &#x60;learnerId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to created)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
         /// <returns>Task of RegistrationListSchema</returns>
-        public async System.Threading.Tasks.Task<RegistrationListSchema> GetRegistrationsAsync (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null, List<string> tags = null)
+        public async System.Threading.Tasks.Task<RegistrationListSchema> GetRegistrationsAsync (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null)
         {
-             ApiResponse<RegistrationListSchema> localVarResponse = await GetRegistrationsAsyncWithHttpInfo(courseId, learnerId, since, until, more, includeChildResults, includeInteractionsAndObjectives, includeRuntime, tags);
+             ApiResponse<RegistrationListSchema> localVarResponse = await GetRegistrationsAsyncWithHttpInfo(courseId, learnerId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeChildResults, includeInteractionsAndObjectives, includeRuntime);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of all registrations.  Gets a list of registrations including a summary of the status of each registration. 
+        /// Get a list of Registrations  Returns a list of registrations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;If you find yourself making multiple calls to this endpoint, it may be worthwhile to utilize our [postback mechanism](https://cloud.scorm.com/docs/v2/guides/postback/) instead.  The main premise is that you would set up an endpoint on your end, and when we detect a change to the registration progress: completion status, time taken, score, or pass/fail status, we would send a message to your system with the registration progress. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Only registrations for the specified course id will be included. (optional)</param>
-        /// <param name="learnerId">Only registrations for the specified learner id will be included. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="learnerId">Only retrieve resources having &#x60;learnerId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to created)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to created_desc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeChildResults">Include information about each learning object, not just the top level in the results (optional, default to false)</param>
         /// <param name="includeInteractionsAndObjectives">Include interactions and objectives in the results (optional, default to false)</param>
         /// <param name="includeRuntime">Include runtime details in the results (optional, default to false)</param>
-        /// <param name="tags"> (optional)</param>
         /// <returns>Task of ApiResponse (RegistrationListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RegistrationListSchema>> GetRegistrationsAsyncWithHttpInfo (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null, List<string> tags = null)
+        public async System.Threading.Tasks.Task<ApiResponse<RegistrationListSchema>> GetRegistrationsAsyncWithHttpInfo (string courseId = null, string learnerId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeChildResults = null, bool? includeInteractionsAndObjectives = null, bool? includeRuntime = null)
         {
 
             var localVarPath = "/registrations";
@@ -5223,11 +5259,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (learnerId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "learnerId", learnerId)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (includeChildResults != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeChildResults", includeChildResults)); // query parameter
             if (includeInteractionsAndObjectives != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeInteractionsAndObjectives", includeInteractionsAndObjectives)); // query parameter
             if (includeRuntime != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRuntime", includeRuntime)); // query parameter
-            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -5261,10 +5301,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on a registration.  Set the tags for this registration. Note: any tags currently on this registration will be overwritten with the new array of tags. 
+        /// Add tags to a Registration  Applies the provided tags to the registration.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns></returns>
         public void PutRegistrationTags (string registrationId, TagListSchema tags)
@@ -5273,10 +5313,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on a registration.  Set the tags for this registration. Note: any tags currently on this registration will be overwritten with the new array of tags. 
+        /// Add tags to a Registration  Applies the provided tags to the registration.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PutRegistrationTagsWithHttpInfo (string registrationId, TagListSchema tags)
@@ -5352,10 +5392,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on a registration.  Set the tags for this registration. Note: any tags currently on this registration will be overwritten with the new array of tags. 
+        /// Add tags to a Registration  Applies the provided tags to the registration.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PutRegistrationTagsAsync (string registrationId, TagListSchema tags)
@@ -5365,10 +5405,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on a registration.  Set the tags for this registration. Note: any tags currently on this registration will be overwritten with the new array of tags. 
+        /// Add tags to a Registration  Applies the provided tags to the registration.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> PutRegistrationTagsAsyncWithHttpInfo (string registrationId, TagListSchema tags)
@@ -5444,10 +5484,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on registrations.  Sets all of the provided tags on all of the provided registrations. 
+        /// Add a group of tags to a group of Registrations  Applies all of the provided tags on all of the provided registrations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         public void PutRegistrationTagsBatch (BatchTagsSchema batch)
         {
@@ -5455,10 +5495,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on registrations.  Sets all of the provided tags on all of the provided registrations. 
+        /// Add a group of tags to a group of Registrations  Applies all of the provided tags on all of the provided registrations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PutRegistrationTagsBatchWithHttpInfo (BatchTagsSchema batch)
         {
@@ -5529,10 +5569,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on registrations.  Sets all of the provided tags on all of the provided registrations. 
+        /// Add a group of tags to a group of Registrations  Applies all of the provided tags on all of the provided registrations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PutRegistrationTagsBatchAsync (BatchTagsSchema batch)
         {
@@ -5541,10 +5581,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set tags on registrations.  Sets all of the provided tags on all of the provided registrations. 
+        /// Add a group of tags to a group of Registrations  Applies all of the provided tags on all of the provided registrations.  Tags are used to easily identify resources. Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetRegistrations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> PutRegistrationTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch)
         {
@@ -5615,10 +5655,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set registration configuration.  Set configuration settings for this registration. 
+        /// Update configuration settings for a Registration  Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns></returns>
         public void SetRegistrationConfiguration (string registrationId, SettingsPostSchema configurationSettings)
@@ -5627,10 +5667,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set registration configuration.  Set configuration settings for this registration. 
+        /// Update configuration settings for a Registration  Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SetRegistrationConfigurationWithHttpInfo (string registrationId, SettingsPostSchema configurationSettings)
@@ -5706,10 +5746,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set registration configuration.  Set configuration settings for this registration. 
+        /// Update configuration settings for a Registration  Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task SetRegistrationConfigurationAsync (string registrationId, SettingsPostSchema configurationSettings)
@@ -5719,10 +5759,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set registration configuration.  Set configuration settings for this registration. 
+        /// Update configuration settings for a Registration  Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
+        /// <param name="registrationId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> SetRegistrationConfigurationAsyncWithHttpInfo (string registrationId, SettingsPostSchema configurationSettings)
@@ -5798,11 +5838,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration for instance of registration.  Set configuration settings for this registration instance. 
+        /// Update configuration settings for a Registration Instance  Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns></returns>
         public void SetRegistrationInstanceConfiguration (string registrationId, int? instanceId, SettingsPostSchema configurationSettings)
@@ -5811,11 +5851,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration for instance of registration.  Set configuration settings for this registration instance. 
+        /// Update configuration settings for a Registration Instance  Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SetRegistrationInstanceConfigurationWithHttpInfo (string registrationId, int? instanceId, SettingsPostSchema configurationSettings)
@@ -5895,11 +5935,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration for instance of registration.  Set configuration settings for this registration instance. 
+        /// Update configuration settings for a Registration Instance  Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task SetRegistrationInstanceConfigurationAsync (string registrationId, int? instanceId, SettingsPostSchema configurationSettings)
@@ -5909,11 +5949,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set configuration for instance of registration.  Set configuration settings for this registration instance. 
+        /// Update configuration settings for a Registration Instance  Updates configuration settings at the registration level.  This will explicitly set a value at the registration level and override any settings from a higher level.  Registrations are the bottom most level in the configuration hierarchy, so the values present at the registration level will be what are used when a course is launched. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="registrationId">id for this registration</param>
-        /// <param name="instanceId">The instance of this registration</param>
+        /// <param name="registrationId"></param>
+        /// <param name="instanceId"></param>
         /// <param name="configurationSettings"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> SetRegistrationInstanceConfigurationAsyncWithHttpInfo (string registrationId, int? instanceId, SettingsPostSchema configurationSettings)
@@ -5993,7 +6033,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Send a test postback with a provided configuration.  This method will allow testing a postback configuration that you provide by sending dummy data to the url specified, with the format you specify. 
+        /// Send a test postback with the provided configuration  Sends a postback with dummy data to the url specified.  The postback will use additional information from the configuration provided with the request (e.g. a provided username/password will be sent along with the postback to allow for logging in to a secure page.  The format of the data sent will differ depending on whether &#x60;httpbasic&#x60; or &#x60;form&#x60; is passed for &#x60;authType&#x60;.  - With httpbasic, an authorization header will be sent with the base64 encoded credentials.  The body will be JSON formatted data. - With form, the username and password will be sent in the body of the request along with the data.  The whole body will be url encoded.  &gt;**Note:** &gt;The data that will be sent to the provided url is the same format as the output of the GetRegistrationProgress endpoint. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postBack"></param>
@@ -6004,7 +6044,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Send a test postback with a provided configuration.  This method will allow testing a postback configuration that you provide by sending dummy data to the url specified, with the format you specify. 
+        /// Send a test postback with the provided configuration  Sends a postback with dummy data to the url specified.  The postback will use additional information from the configuration provided with the request (e.g. a provided username/password will be sent along with the postback to allow for logging in to a secure page.  The format of the data sent will differ depending on whether &#x60;httpbasic&#x60; or &#x60;form&#x60; is passed for &#x60;authType&#x60;.  - With httpbasic, an authorization header will be sent with the base64 encoded credentials.  The body will be JSON formatted data. - With form, the username and password will be sent in the body of the request along with the data.  The whole body will be url encoded.  &gt;**Note:** &gt;The data that will be sent to the provided url is the same format as the output of the GetRegistrationProgress endpoint. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postBack"></param>
@@ -6078,7 +6118,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Send a test postback with a provided configuration.  This method will allow testing a postback configuration that you provide by sending dummy data to the url specified, with the format you specify. 
+        /// Send a test postback with the provided configuration  Sends a postback with dummy data to the url specified.  The postback will use additional information from the configuration provided with the request (e.g. a provided username/password will be sent along with the postback to allow for logging in to a secure page.  The format of the data sent will differ depending on whether &#x60;httpbasic&#x60; or &#x60;form&#x60; is passed for &#x60;authType&#x60;.  - With httpbasic, an authorization header will be sent with the base64 encoded credentials.  The body will be JSON formatted data. - With form, the username and password will be sent in the body of the request along with the data.  The whole body will be url encoded.  &gt;**Note:** &gt;The data that will be sent to the provided url is the same format as the output of the GetRegistrationProgress endpoint. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postBack"></param>
@@ -6090,7 +6130,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Send a test postback with a provided configuration.  This method will allow testing a postback configuration that you provide by sending dummy data to the url specified, with the format you specify. 
+        /// Send a test postback with the provided configuration  Sends a postback with dummy data to the url specified.  The postback will use additional information from the configuration provided with the request (e.g. a provided username/password will be sent along with the postback to allow for logging in to a secure page.  The format of the data sent will differ depending on whether &#x60;httpbasic&#x60; or &#x60;form&#x60; is passed for &#x60;authType&#x60;.  - With httpbasic, an authorization header will be sent with the base64 encoded credentials.  The body will be JSON formatted data. - With form, the username and password will be sent in the body of the request along with the data.  The whole body will be url encoded.  &gt;**Note:** &gt;The data that will be sent to the provided url is the same format as the output of the GetRegistrationProgress endpoint. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postBack"></param>

@@ -25,10 +25,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create a private invitation to a course.
+        /// Create a Private Invitation to a Course 
         /// </summary>
         /// <remarks>
-        /// Create a private invitation to a course.  The provided information will be used to create new registrations for all of the provided e-mail addresses, and send asynchronously send e-mails to those addresses inviting them to the course.  To check the status of this process, a subsequent call to &#x60;/invitations/private/{invitationId}/status&#x60; must be made.
+        /// Creates a private invitation job which sends emails with a link to the course.  Invitations are meant as a way to provide access to your content.  Registrations will be created from the provided email addresses.  The email job will asynchronously send emails to those addresses inviting them to the course.  When the learners visit the link in the email, the course will be launched with the already created registration.  The private invitation ID can be used with GetPrivateInvitationJobStatus to view the status of the email job.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="privateInvitationRequest"></param>
@@ -36,20 +36,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         InvitationSummarySchema CreatePrivateInvitation (CreatePrivateInvitationSchema privateInvitationRequest);
 
         /// <summary>
-        /// Create a private invitation to a course.
+        /// Create a Private Invitation to a Course 
         /// </summary>
         /// <remarks>
-        /// Create a private invitation to a course.  The provided information will be used to create new registrations for all of the provided e-mail addresses, and send asynchronously send e-mails to those addresses inviting them to the course.  To check the status of this process, a subsequent call to &#x60;/invitations/private/{invitationId}/status&#x60; must be made.
+        /// Creates a private invitation job which sends emails with a link to the course.  Invitations are meant as a way to provide access to your content.  Registrations will be created from the provided email addresses.  The email job will asynchronously send emails to those addresses inviting them to the course.  When the learners visit the link in the email, the course will be launched with the already created registration.  The private invitation ID can be used with GetPrivateInvitationJobStatus to view the status of the email job.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="privateInvitationRequest"></param>
         /// <returns>ApiResponse of InvitationSummarySchema</returns>
         ApiResponse<InvitationSummarySchema> CreatePrivateInvitationWithHttpInfo (CreatePrivateInvitationSchema privateInvitationRequest);
         /// <summary>
-        /// Create a publicly accessible invitation to a course.
+        /// Create a Public Invitation to a Course 
         /// </summary>
         /// <remarks>
-        /// Create a publicly accessible invitation to a course.
+        /// Creates an invitation link to the course which can then be publicly distributed.  Invitations are meant as a way to provide access to your content.  When a learner visits the link, they will be prompted for name and email, a registration will be created from the information provided, and they will be redirected to the course.  Since anyone visiting the link will create a registration, it is highly advised that you set the &#x60;registrationCap&#x60; parameter when calling this method.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicInvitationRequest">A description of the public invitation to be created.</param>
@@ -57,374 +57,408 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         PublicInvitationSchema CreatePublicInvitation (CreatePublicInvitationSchema publicInvitationRequest);
 
         /// <summary>
-        /// Create a publicly accessible invitation to a course.
+        /// Create a Public Invitation to a Course 
         /// </summary>
         /// <remarks>
-        /// Create a publicly accessible invitation to a course.
+        /// Creates an invitation link to the course which can then be publicly distributed.  Invitations are meant as a way to provide access to your content.  When a learner visits the link, they will be prompted for name and email, a registration will be created from the information provided, and they will be redirected to the course.  Since anyone visiting the link will create a registration, it is highly advised that you set the &#x60;registrationCap&#x60; parameter when calling this method.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicInvitationRequest">A description of the public invitation to be created.</param>
         /// <returns>ApiResponse of PublicInvitationSchema</returns>
         ApiResponse<PublicInvitationSchema> CreatePublicInvitationWithHttpInfo (CreatePublicInvitationSchema publicInvitationRequest);
         /// <summary>
-        /// Delete the tags for this invitation 
+        /// Delete tags from an Invitation 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this invitation 
+        /// Deletes the specified tags from the invitation.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns></returns>
         void DeleteInvitationTags (string invitationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete the tags for this invitation 
+        /// Delete tags from an Invitation 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this invitation 
+        /// Deletes the specified tags from the invitation.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteInvitationTagsWithHttpInfo (string invitationId, TagListSchema tags);
         /// <summary>
-        /// Get a list of invitation summaries.
+        /// Get a list of Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a summary of all the invitations for an appId, both public and private.
+        /// Returns a list of invitations (both public and private).  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>InvitationSummaryList</returns>
-        InvitationSummaryList GetAllInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        InvitationSummaryList GetAllInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get a list of invitation summaries.
+        /// Get a list of Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a summary of all the invitations for an appId, both public and private.
+        /// Returns a list of invitations (both public and private).  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of InvitationSummaryList</returns>
-        ApiResponse<InvitationSummaryList> GetAllInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        ApiResponse<InvitationSummaryList> GetAllInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Get the tags for this invitation 
+        /// Get tags for an Invitation 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this invitation 
+        /// Returns the tags for the invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>TagListSchema</returns>
         TagListSchema GetInvitationTags (string invitationId);
 
         /// <summary>
-        /// Get the tags for this invitation 
+        /// Get tags for an Invitation 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this invitation 
+        /// Returns the tags for the invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>ApiResponse of TagListSchema</returns>
         ApiResponse<TagListSchema> GetInvitationTagsWithHttpInfo (string invitationId);
         /// <summary>
-        /// Get a information about a private invitation.
+        /// Get detailed information about a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Get a information about a private invitation.
+        /// Returns detailed information about the private invitation.  This includes the email sent, course ID, and whether new the invitation can still be launched or not. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>PrivateInvitationSchema</returns>
         PrivateInvitationSchema GetPrivateInvitation (string invitationId, bool? includeRegistrationCount = null);
 
         /// <summary>
-        /// Get a information about a private invitation.
+        /// Get detailed information about a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Get a information about a private invitation.
+        /// Returns detailed information about the private invitation.  This includes the email sent, course ID, and whether new the invitation can still be launched or not. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>ApiResponse of PrivateInvitationSchema</returns>
         ApiResponse<PrivateInvitationSchema> GetPrivateInvitationWithHttpInfo (string invitationId, bool? includeRegistrationCount = null);
         /// <summary>
-        /// Get the status of an invitation job.
+        /// Get email job status for a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Get the status of a job to send out private invitations.
+        /// Check the status of a private invitation email job.  This can be called incrementally to check the progress of the emails. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>InvitationJobStatusSchema</returns>
         InvitationJobStatusSchema GetPrivateInvitationJobStatus (string invitationId);
 
         /// <summary>
-        /// Get the status of an invitation job.
+        /// Get email job status for a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Get the status of a job to send out private invitations.
+        /// Check the status of a private invitation email job.  This can be called incrementally to check the progress of the emails. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>ApiResponse of InvitationJobStatusSchema</returns>
         ApiResponse<InvitationJobStatusSchema> GetPrivateInvitationJobStatusWithHttpInfo (string invitationId);
         /// <summary>
-        /// Get a list of all private invitations.
+        /// Get a list of Private Invitations 
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all private invitations, optionally filtered by the given parameters.
+        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>PrivateInvitationList</returns>
-        PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get a list of all private invitations.
+        /// Get a list of Private Invitations 
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all private invitations, optionally filtered by the given parameters.
+        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of PrivateInvitationList</returns>
-        ApiResponse<PrivateInvitationList> GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        ApiResponse<PrivateInvitationList> GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Get a list of user invitations.
+        /// Get a list of Private User Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a list of objects which contain the specific information about each user to whom this invitation was sent.
+        /// Get a list of user who were invited to view the course.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>UserInvitationList</returns>
-        UserInvitationList GetPrivateUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
+        UserInvitationList GetPrivateUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
 
         /// <summary>
-        /// Get a list of user invitations.
+        /// Get a list of Private User Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a list of objects which contain the specific information about each user to whom this invitation was sent.
+        /// Get a list of user who were invited to view the course.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>ApiResponse of UserInvitationList</returns>
-        ApiResponse<UserInvitationList> GetPrivateUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
+        ApiResponse<UserInvitationList> GetPrivateUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
         /// <summary>
-        /// Get a information about a public invitation.
+        /// Get detailed information about a Public Invitation 
         /// </summary>
         /// <remarks>
-        /// Get a information about a public invitation.
+        /// Returns detailed information about the public invitation.  This includes url, registration cap, and whether new learners can accept the invitation or not. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>PublicInvitationSchema</returns>
         PublicInvitationSchema GetPublicInvitation (string invitationId, bool? includeRegistrationCount = null);
 
         /// <summary>
-        /// Get a information about a public invitation.
+        /// Get detailed information about a Public Invitation 
         /// </summary>
         /// <remarks>
-        /// Get a information about a public invitation.
+        /// Returns detailed information about the public invitation.  This includes url, registration cap, and whether new learners can accept the invitation or not. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>ApiResponse of PublicInvitationSchema</returns>
         ApiResponse<PublicInvitationSchema> GetPublicInvitationWithHttpInfo (string invitationId, bool? includeRegistrationCount = null);
         /// <summary>
-        /// Get a list of all public invitations.
+        /// Get a list of Public Invitations 
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all public invitations, optionally filtered by the given parameters.
+        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>PublicInvitationList</returns>
-        PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get a list of all public invitations.
+        /// Get a list of Public Invitations 
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all public invitations, optionally filtered by the given parameters.
+        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of PublicInvitationList</returns>
-        ApiResponse<PublicInvitationList> GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        ApiResponse<PublicInvitationList> GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Get a list of user invitations.
+        /// Get a list of Public User Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a list of objects which contain the specific information about each user who visited the invitation link.
+        /// Returns a list of users who have visited the public invitation link.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>UserInvitationList</returns>
-        UserInvitationList GetPublicUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
+        UserInvitationList GetPublicUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
 
         /// <summary>
-        /// Get a list of user invitations.
+        /// Get a list of Public User Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a list of objects which contain the specific information about each user who visited the invitation link.
+        /// Returns a list of users who have visited the public invitation link.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>ApiResponse of UserInvitationList</returns>
-        ApiResponse<UserInvitationList> GetPublicUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
+        ApiResponse<UserInvitationList> GetPublicUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
         /// <summary>
-        /// Set the tags for this invitation 
+        /// Add tags to an Invitation 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this invitation 
+        /// Applies the provided tags to the invitation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns></returns>
         void PutInvitationTags (string invitationId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this invitation 
+        /// Add tags to an Invitation 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this invitation 
+        /// Applies the provided tags to the invitation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutInvitationTagsWithHttpInfo (string invitationId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Add a group of tags to a group of Invitations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Applies all of the provided tags on all of the provided invitations.  Both public and private invitations may be tagged via this operation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         void PutInvitationTagsBatch (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Add a group of tags to a group of Invitations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Applies all of the provided tags on all of the provided invitations.  Both public and private invitations may be tagged via this operation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PutInvitationTagsBatchWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Update attributes of this invitation.
+        /// Update information about a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - invitationEmail - postBack - expirationDate NOTE: Any attributes not in the above list will not be considered for update.
+        /// Updates information about the private invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PrivateInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>PrivateInvitationSchema</returns>
-        PrivateInvitationSchema UpdatePrivateInvitation (string invitationId, PrivateInvitationSchema invitationUpdateSchema);
+        PrivateInvitationSchema UpdatePrivateInvitation (string invitationId, PrivateInvitationUpdateSchema invitationUpdateSchema);
 
         /// <summary>
-        /// Update attributes of this invitation.
+        /// Update information about a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - invitationEmail - postBack - expirationDate NOTE: Any attributes not in the above list will not be considered for update.
+        /// Updates information about the private invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PrivateInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>ApiResponse of PrivateInvitationSchema</returns>
-        ApiResponse<PrivateInvitationSchema> UpdatePrivateInvitationWithHttpInfo (string invitationId, PrivateInvitationSchema invitationUpdateSchema);
+        ApiResponse<PrivateInvitationSchema> UpdatePrivateInvitationWithHttpInfo (string invitationId, PrivateInvitationUpdateSchema invitationUpdateSchema);
         /// <summary>
-        /// Update attributes of this invitation.
+        /// Update information about a Public Invitation 
         /// </summary>
         /// <remarks>
-        /// Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - allowNewRegistrations - postBack - expirationDate - registrationCap NOTE: Any attributes not in the above list will not be considered for update.
+        /// Updates information about the public invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PublicInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>PublicInvitationSchema</returns>
-        PublicInvitationSchema UpdatePublicInvitation (string invitationId, PublicInvitationSchema invitationUpdateSchema);
+        PublicInvitationSchema UpdatePublicInvitation (string invitationId, PublicInvitationUpdateSchema invitationUpdateSchema);
 
         /// <summary>
-        /// Update attributes of this invitation.
+        /// Update information about a Public Invitation 
         /// </summary>
         /// <remarks>
-        /// Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - allowNewRegistrations - postBack - expirationDate - registrationCap NOTE: Any attributes not in the above list will not be considered for update.
+        /// Updates information about the public invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PublicInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>ApiResponse of PublicInvitationSchema</returns>
-        ApiResponse<PublicInvitationSchema> UpdatePublicInvitationWithHttpInfo (string invitationId, PublicInvitationSchema invitationUpdateSchema);
+        ApiResponse<PublicInvitationSchema> UpdatePublicInvitationWithHttpInfo (string invitationId, PublicInvitationUpdateSchema invitationUpdateSchema);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create a private invitation to a course.
+        /// Create a Private Invitation to a Course 
         /// </summary>
         /// <remarks>
-        /// Create a private invitation to a course.  The provided information will be used to create new registrations for all of the provided e-mail addresses, and send asynchronously send e-mails to those addresses inviting them to the course.  To check the status of this process, a subsequent call to &#x60;/invitations/private/{invitationId}/status&#x60; must be made.
+        /// Creates a private invitation job which sends emails with a link to the course.  Invitations are meant as a way to provide access to your content.  Registrations will be created from the provided email addresses.  The email job will asynchronously send emails to those addresses inviting them to the course.  When the learners visit the link in the email, the course will be launched with the already created registration.  The private invitation ID can be used with GetPrivateInvitationJobStatus to view the status of the email job.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="privateInvitationRequest"></param>
@@ -432,20 +466,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<InvitationSummarySchema> CreatePrivateInvitationAsync (CreatePrivateInvitationSchema privateInvitationRequest);
 
         /// <summary>
-        /// Create a private invitation to a course.
+        /// Create a Private Invitation to a Course 
         /// </summary>
         /// <remarks>
-        /// Create a private invitation to a course.  The provided information will be used to create new registrations for all of the provided e-mail addresses, and send asynchronously send e-mails to those addresses inviting them to the course.  To check the status of this process, a subsequent call to &#x60;/invitations/private/{invitationId}/status&#x60; must be made.
+        /// Creates a private invitation job which sends emails with a link to the course.  Invitations are meant as a way to provide access to your content.  Registrations will be created from the provided email addresses.  The email job will asynchronously send emails to those addresses inviting them to the course.  When the learners visit the link in the email, the course will be launched with the already created registration.  The private invitation ID can be used with GetPrivateInvitationJobStatus to view the status of the email job.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="privateInvitationRequest"></param>
         /// <returns>Task of ApiResponse (InvitationSummarySchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<InvitationSummarySchema>> CreatePrivateInvitationAsyncWithHttpInfo (CreatePrivateInvitationSchema privateInvitationRequest);
         /// <summary>
-        /// Create a publicly accessible invitation to a course.
+        /// Create a Public Invitation to a Course 
         /// </summary>
         /// <remarks>
-        /// Create a publicly accessible invitation to a course.
+        /// Creates an invitation link to the course which can then be publicly distributed.  Invitations are meant as a way to provide access to your content.  When a learner visits the link, they will be prompted for name and email, a registration will be created from the information provided, and they will be redirected to the course.  Since anyone visiting the link will create a registration, it is highly advised that you set the &#x60;registrationCap&#x60; parameter when calling this method.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicInvitationRequest">A description of the public invitation to be created.</param>
@@ -453,367 +487,401 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<PublicInvitationSchema> CreatePublicInvitationAsync (CreatePublicInvitationSchema publicInvitationRequest);
 
         /// <summary>
-        /// Create a publicly accessible invitation to a course.
+        /// Create a Public Invitation to a Course 
         /// </summary>
         /// <remarks>
-        /// Create a publicly accessible invitation to a course.
+        /// Creates an invitation link to the course which can then be publicly distributed.  Invitations are meant as a way to provide access to your content.  When a learner visits the link, they will be prompted for name and email, a registration will be created from the information provided, and they will be redirected to the course.  Since anyone visiting the link will create a registration, it is highly advised that you set the &#x60;registrationCap&#x60; parameter when calling this method.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicInvitationRequest">A description of the public invitation to be created.</param>
         /// <returns>Task of ApiResponse (PublicInvitationSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<PublicInvitationSchema>> CreatePublicInvitationAsyncWithHttpInfo (CreatePublicInvitationSchema publicInvitationRequest);
         /// <summary>
-        /// Delete the tags for this invitation 
+        /// Delete tags from an Invitation 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this invitation 
+        /// Deletes the specified tags from the invitation.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteInvitationTagsAsync (string invitationId, TagListSchema tags);
 
         /// <summary>
-        /// Delete the tags for this invitation 
+        /// Delete tags from an Invitation 
         /// </summary>
         /// <remarks>
-        /// Delete the tags for this invitation 
+        /// Deletes the specified tags from the invitation.  Deleting tags that do not exist will still result in a success. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInvitationTagsAsyncWithHttpInfo (string invitationId, TagListSchema tags);
         /// <summary>
-        /// Get a list of invitation summaries.
+        /// Get a list of Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a summary of all the invitations for an appId, both public and private.
+        /// Returns a list of invitations (both public and private).  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of InvitationSummaryList</returns>
-        System.Threading.Tasks.Task<InvitationSummaryList> GetAllInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        System.Threading.Tasks.Task<InvitationSummaryList> GetAllInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get a list of invitation summaries.
+        /// Get a list of Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a summary of all the invitations for an appId, both public and private.
+        /// Returns a list of invitations (both public and private).  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (InvitationSummaryList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InvitationSummaryList>> GetAllInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<InvitationSummaryList>> GetAllInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Get the tags for this invitation 
+        /// Get tags for an Invitation 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this invitation 
+        /// Returns the tags for the invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>Task of TagListSchema</returns>
         System.Threading.Tasks.Task<TagListSchema> GetInvitationTagsAsync (string invitationId);
 
         /// <summary>
-        /// Get the tags for this invitation 
+        /// Get tags for an Invitation 
         /// </summary>
         /// <remarks>
-        /// Get the tags for this invitation 
+        /// Returns the tags for the invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetInvitationTagsAsyncWithHttpInfo (string invitationId);
         /// <summary>
-        /// Get a information about a private invitation.
+        /// Get detailed information about a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Get a information about a private invitation.
+        /// Returns detailed information about the private invitation.  This includes the email sent, course ID, and whether new the invitation can still be launched or not. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of PrivateInvitationSchema</returns>
         System.Threading.Tasks.Task<PrivateInvitationSchema> GetPrivateInvitationAsync (string invitationId, bool? includeRegistrationCount = null);
 
         /// <summary>
-        /// Get a information about a private invitation.
+        /// Get detailed information about a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Get a information about a private invitation.
+        /// Returns detailed information about the private invitation.  This includes the email sent, course ID, and whether new the invitation can still be launched or not. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PrivateInvitationSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<PrivateInvitationSchema>> GetPrivateInvitationAsyncWithHttpInfo (string invitationId, bool? includeRegistrationCount = null);
         /// <summary>
-        /// Get the status of an invitation job.
+        /// Get email job status for a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Get the status of a job to send out private invitations.
+        /// Check the status of a private invitation email job.  This can be called incrementally to check the progress of the emails. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>Task of InvitationJobStatusSchema</returns>
         System.Threading.Tasks.Task<InvitationJobStatusSchema> GetPrivateInvitationJobStatusAsync (string invitationId);
 
         /// <summary>
-        /// Get the status of an invitation job.
+        /// Get email job status for a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Get the status of a job to send out private invitations.
+        /// Check the status of a private invitation email job.  This can be called incrementally to check the progress of the emails. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>Task of ApiResponse (InvitationJobStatusSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<InvitationJobStatusSchema>> GetPrivateInvitationJobStatusAsyncWithHttpInfo (string invitationId);
         /// <summary>
-        /// Get a list of all private invitations.
+        /// Get a list of Private Invitations 
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all private invitations, optionally filtered by the given parameters.
+        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of PrivateInvitationList</returns>
-        System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get a list of all private invitations.
+        /// Get a list of Private Invitations 
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all private invitations, optionally filtered by the given parameters.
+        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (PrivateInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Get a list of user invitations.
+        /// Get a list of Private User Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a list of objects which contain the specific information about each user to whom this invitation was sent.
+        /// Get a list of user who were invited to view the course.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>Task of UserInvitationList</returns>
-        System.Threading.Tasks.Task<UserInvitationList> GetPrivateUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
+        System.Threading.Tasks.Task<UserInvitationList> GetPrivateUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
 
         /// <summary>
-        /// Get a list of user invitations.
+        /// Get a list of Private User Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a list of objects which contain the specific information about each user to whom this invitation was sent.
+        /// Get a list of user who were invited to view the course.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>Task of ApiResponse (UserInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPrivateUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPrivateUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
         /// <summary>
-        /// Get a information about a public invitation.
+        /// Get detailed information about a Public Invitation 
         /// </summary>
         /// <remarks>
-        /// Get a information about a public invitation.
+        /// Returns detailed information about the public invitation.  This includes url, registration cap, and whether new learners can accept the invitation or not. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of PublicInvitationSchema</returns>
         System.Threading.Tasks.Task<PublicInvitationSchema> GetPublicInvitationAsync (string invitationId, bool? includeRegistrationCount = null);
 
         /// <summary>
-        /// Get a information about a public invitation.
+        /// Get detailed information about a Public Invitation 
         /// </summary>
         /// <remarks>
-        /// Get a information about a public invitation.
+        /// Returns detailed information about the public invitation.  This includes url, registration cap, and whether new learners can accept the invitation or not. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PublicInvitationSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<PublicInvitationSchema>> GetPublicInvitationAsyncWithHttpInfo (string invitationId, bool? includeRegistrationCount = null);
         /// <summary>
-        /// Get a list of all public invitations.
+        /// Get a list of Public Invitations 
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all public invitations, optionally filtered by the given parameters.
+        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of PublicInvitationList</returns>
-        System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get a list of all public invitations.
+        /// Get a list of Public Invitations 
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all public invitations, optionally filtered by the given parameters.
+        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (PublicInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Get a list of user invitations.
+        /// Get a list of Public User Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a list of objects which contain the specific information about each user who visited the invitation link.
+        /// Returns a list of users who have visited the public invitation link.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>Task of UserInvitationList</returns>
-        System.Threading.Tasks.Task<UserInvitationList> GetPublicUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
+        System.Threading.Tasks.Task<UserInvitationList> GetPublicUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
 
         /// <summary>
-        /// Get a list of user invitations.
+        /// Get a list of Public User Invitations 
         /// </summary>
         /// <remarks>
-        /// Get a list of objects which contain the specific information about each user who visited the invitation link.
+        /// Returns a list of users who have visited the public invitation link.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>Task of ApiResponse (UserInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPublicUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPublicUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
         /// <summary>
-        /// Set the tags for this invitation 
+        /// Add tags to an Invitation 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this invitation 
+        /// Applies the provided tags to the invitation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PutInvitationTagsAsync (string invitationId, TagListSchema tags);
 
         /// <summary>
-        /// Set the tags for this invitation 
+        /// Add tags to an Invitation 
         /// </summary>
         /// <remarks>
-        /// Set the tags for this invitation 
+        /// Applies the provided tags to the invitation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutInvitationTagsAsyncWithHttpInfo (string invitationId, TagListSchema tags);
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Add a group of tags to a group of Invitations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Applies all of the provided tags on all of the provided invitations.  Both public and private invitations may be tagged via this operation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task PutInvitationTagsBatchAsync (BatchTagsSchema batch);
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Add a group of tags to a group of Invitations 
         /// </summary>
         /// <remarks>
-        /// Sets all of the provided tags on all of the provided invitations 
+        /// Applies all of the provided tags on all of the provided invitations.  Both public and private invitations may be tagged via this operation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PutInvitationTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch);
         /// <summary>
-        /// Update attributes of this invitation.
+        /// Update information about a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - invitationEmail - postBack - expirationDate NOTE: Any attributes not in the above list will not be considered for update.
+        /// Updates information about the private invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PrivateInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>Task of PrivateInvitationSchema</returns>
-        System.Threading.Tasks.Task<PrivateInvitationSchema> UpdatePrivateInvitationAsync (string invitationId, PrivateInvitationSchema invitationUpdateSchema);
+        System.Threading.Tasks.Task<PrivateInvitationSchema> UpdatePrivateInvitationAsync (string invitationId, PrivateInvitationUpdateSchema invitationUpdateSchema);
 
         /// <summary>
-        /// Update attributes of this invitation.
+        /// Update information about a Private Invitation 
         /// </summary>
         /// <remarks>
-        /// Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - invitationEmail - postBack - expirationDate NOTE: Any attributes not in the above list will not be considered for update.
+        /// Updates information about the private invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PrivateInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>Task of ApiResponse (PrivateInvitationSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PrivateInvitationSchema>> UpdatePrivateInvitationAsyncWithHttpInfo (string invitationId, PrivateInvitationSchema invitationUpdateSchema);
+        System.Threading.Tasks.Task<ApiResponse<PrivateInvitationSchema>> UpdatePrivateInvitationAsyncWithHttpInfo (string invitationId, PrivateInvitationUpdateSchema invitationUpdateSchema);
         /// <summary>
-        /// Update attributes of this invitation.
+        /// Update information about a Public Invitation 
         /// </summary>
         /// <remarks>
-        /// Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - allowNewRegistrations - postBack - expirationDate - registrationCap NOTE: Any attributes not in the above list will not be considered for update.
+        /// Updates information about the public invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PublicInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>Task of PublicInvitationSchema</returns>
-        System.Threading.Tasks.Task<PublicInvitationSchema> UpdatePublicInvitationAsync (string invitationId, PublicInvitationSchema invitationUpdateSchema);
+        System.Threading.Tasks.Task<PublicInvitationSchema> UpdatePublicInvitationAsync (string invitationId, PublicInvitationUpdateSchema invitationUpdateSchema);
 
         /// <summary>
-        /// Update attributes of this invitation.
+        /// Update information about a Public Invitation 
         /// </summary>
         /// <remarks>
-        /// Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - allowNewRegistrations - postBack - expirationDate - registrationCap NOTE: Any attributes not in the above list will not be considered for update.
+        /// Updates information about the public invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PublicInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>Task of ApiResponse (PublicInvitationSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PublicInvitationSchema>> UpdatePublicInvitationAsyncWithHttpInfo (string invitationId, PublicInvitationSchema invitationUpdateSchema);
+        System.Threading.Tasks.Task<ApiResponse<PublicInvitationSchema>> UpdatePublicInvitationAsyncWithHttpInfo (string invitationId, PublicInvitationUpdateSchema invitationUpdateSchema);
         #endregion Asynchronous Operations
     }
 
@@ -915,7 +983,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a private invitation to a course. Create a private invitation to a course.  The provided information will be used to create new registrations for all of the provided e-mail addresses, and send asynchronously send e-mails to those addresses inviting them to the course.  To check the status of this process, a subsequent call to &#x60;/invitations/private/{invitationId}/status&#x60; must be made.
+        /// Create a Private Invitation to a Course  Creates a private invitation job which sends emails with a link to the course.  Invitations are meant as a way to provide access to your content.  Registrations will be created from the provided email addresses.  The email job will asynchronously send emails to those addresses inviting them to the course.  When the learners visit the link in the email, the course will be launched with the already created registration.  The private invitation ID can be used with GetPrivateInvitationJobStatus to view the status of the email job.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="privateInvitationRequest"></param>
@@ -927,7 +995,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a private invitation to a course. Create a private invitation to a course.  The provided information will be used to create new registrations for all of the provided e-mail addresses, and send asynchronously send e-mails to those addresses inviting them to the course.  To check the status of this process, a subsequent call to &#x60;/invitations/private/{invitationId}/status&#x60; must be made.
+        /// Create a Private Invitation to a Course  Creates a private invitation job which sends emails with a link to the course.  Invitations are meant as a way to provide access to your content.  Registrations will be created from the provided email addresses.  The email job will asynchronously send emails to those addresses inviting them to the course.  When the learners visit the link in the email, the course will be launched with the already created registration.  The private invitation ID can be used with GetPrivateInvitationJobStatus to view the status of the email job.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="privateInvitationRequest"></param>
@@ -1001,7 +1069,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a private invitation to a course. Create a private invitation to a course.  The provided information will be used to create new registrations for all of the provided e-mail addresses, and send asynchronously send e-mails to those addresses inviting them to the course.  To check the status of this process, a subsequent call to &#x60;/invitations/private/{invitationId}/status&#x60; must be made.
+        /// Create a Private Invitation to a Course  Creates a private invitation job which sends emails with a link to the course.  Invitations are meant as a way to provide access to your content.  Registrations will be created from the provided email addresses.  The email job will asynchronously send emails to those addresses inviting them to the course.  When the learners visit the link in the email, the course will be launched with the already created registration.  The private invitation ID can be used with GetPrivateInvitationJobStatus to view the status of the email job.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="privateInvitationRequest"></param>
@@ -1014,7 +1082,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a private invitation to a course. Create a private invitation to a course.  The provided information will be used to create new registrations for all of the provided e-mail addresses, and send asynchronously send e-mails to those addresses inviting them to the course.  To check the status of this process, a subsequent call to &#x60;/invitations/private/{invitationId}/status&#x60; must be made.
+        /// Create a Private Invitation to a Course  Creates a private invitation job which sends emails with a link to the course.  Invitations are meant as a way to provide access to your content.  Registrations will be created from the provided email addresses.  The email job will asynchronously send emails to those addresses inviting them to the course.  When the learners visit the link in the email, the course will be launched with the already created registration.  The private invitation ID can be used with GetPrivateInvitationJobStatus to view the status of the email job.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="privateInvitationRequest"></param>
@@ -1088,7 +1156,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a publicly accessible invitation to a course. Create a publicly accessible invitation to a course.
+        /// Create a Public Invitation to a Course  Creates an invitation link to the course which can then be publicly distributed.  Invitations are meant as a way to provide access to your content.  When a learner visits the link, they will be prompted for name and email, a registration will be created from the information provided, and they will be redirected to the course.  Since anyone visiting the link will create a registration, it is highly advised that you set the &#x60;registrationCap&#x60; parameter when calling this method.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicInvitationRequest">A description of the public invitation to be created.</param>
@@ -1100,7 +1168,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a publicly accessible invitation to a course. Create a publicly accessible invitation to a course.
+        /// Create a Public Invitation to a Course  Creates an invitation link to the course which can then be publicly distributed.  Invitations are meant as a way to provide access to your content.  When a learner visits the link, they will be prompted for name and email, a registration will be created from the information provided, and they will be redirected to the course.  Since anyone visiting the link will create a registration, it is highly advised that you set the &#x60;registrationCap&#x60; parameter when calling this method.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicInvitationRequest">A description of the public invitation to be created.</param>
@@ -1174,7 +1242,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a publicly accessible invitation to a course. Create a publicly accessible invitation to a course.
+        /// Create a Public Invitation to a Course  Creates an invitation link to the course which can then be publicly distributed.  Invitations are meant as a way to provide access to your content.  When a learner visits the link, they will be prompted for name and email, a registration will be created from the information provided, and they will be redirected to the course.  Since anyone visiting the link will create a registration, it is highly advised that you set the &#x60;registrationCap&#x60; parameter when calling this method.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicInvitationRequest">A description of the public invitation to be created.</param>
@@ -1187,7 +1255,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a publicly accessible invitation to a course. Create a publicly accessible invitation to a course.
+        /// Create a Public Invitation to a Course  Creates an invitation link to the course which can then be publicly distributed.  Invitations are meant as a way to provide access to your content.  When a learner visits the link, they will be prompted for name and email, a registration will be created from the information provided, and they will be redirected to the course.  Since anyone visiting the link will create a registration, it is highly advised that you set the &#x60;registrationCap&#x60; parameter when calling this method.  &gt;**Info:** &gt;While invitations are a way to provide access to your content, the majority of use cases would be better suited by creating a registration and building a launch link with the registration endpoints instead.  Invitations build upon registrations by grouping a set of registrations together and adding access control measures to said group. Invitations could be used to pass yearly compliance training to an entire company.  Invitations also have an associated expiration date which determines when the course will no longer be launchable. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="publicInvitationRequest">A description of the public invitation to be created.</param>
@@ -1261,10 +1329,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this invitation  Delete the tags for this invitation 
+        /// Delete tags from an Invitation  Deletes the specified tags from the invitation.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns></returns>
         public void DeleteInvitationTags (string invitationId, TagListSchema tags)
@@ -1273,10 +1341,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this invitation  Delete the tags for this invitation 
+        /// Delete tags from an Invitation  Deletes the specified tags from the invitation.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteInvitationTagsWithHttpInfo (string invitationId, TagListSchema tags)
@@ -1352,10 +1420,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this invitation  Delete the tags for this invitation 
+        /// Delete tags from an Invitation  Deletes the specified tags from the invitation.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteInvitationTagsAsync (string invitationId, TagListSchema tags)
@@ -1365,10 +1433,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Delete the tags for this invitation  Delete the tags for this invitation 
+        /// Delete tags from an Invitation  Deletes the specified tags from the invitation.  Deleting tags that do not exist will still result in a success. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInvitationTagsAsyncWithHttpInfo (string invitationId, TagListSchema tags)
@@ -1444,34 +1512,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of invitation summaries. Get a summary of all the invitations for an appId, both public and private.
+        /// Get a list of Invitations  Returns a list of invitations (both public and private).  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>InvitationSummaryList</returns>
-        public InvitationSummaryList GetAllInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public InvitationSummaryList GetAllInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<InvitationSummaryList> localVarResponse = GetAllInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, more);
+             ApiResponse<InvitationSummaryList> localVarResponse = GetAllInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of invitation summaries. Get a summary of all the invitations for an appId, both public and private.
+        /// Get a list of Invitations  Returns a list of invitations (both public and private).  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of InvitationSummaryList</returns>
-        public ApiResponse< InvitationSummaryList > GetAllInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public ApiResponse< InvitationSummaryList > GetAllInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/invitations";
@@ -1501,6 +1575,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
             if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -1535,35 +1612,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of invitation summaries. Get a summary of all the invitations for an appId, both public and private.
+        /// Get a list of Invitations  Returns a list of invitations (both public and private).  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of InvitationSummaryList</returns>
-        public async System.Threading.Tasks.Task<InvitationSummaryList> GetAllInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public async System.Threading.Tasks.Task<InvitationSummaryList> GetAllInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<InvitationSummaryList> localVarResponse = await GetAllInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, more);
+             ApiResponse<InvitationSummaryList> localVarResponse = await GetAllInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of invitation summaries. Get a summary of all the invitations for an appId, both public and private.
+        /// Get a list of Invitations  Returns a list of invitations (both public and private).  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (InvitationSummaryList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InvitationSummaryList>> GetAllInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InvitationSummaryList>> GetAllInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/invitations";
@@ -1593,6 +1676,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
             if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -1627,10 +1713,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this invitation  Get the tags for this invitation 
+        /// Get tags for an Invitation  Returns the tags for the invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>TagListSchema</returns>
         public TagListSchema GetInvitationTags (string invitationId)
         {
@@ -1639,10 +1725,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this invitation  Get the tags for this invitation 
+        /// Get tags for an Invitation  Returns the tags for the invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>ApiResponse of TagListSchema</returns>
         public ApiResponse< TagListSchema > GetInvitationTagsWithHttpInfo (string invitationId)
         {
@@ -1706,10 +1792,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this invitation  Get the tags for this invitation 
+        /// Get tags for an Invitation  Returns the tags for the invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>Task of TagListSchema</returns>
         public async System.Threading.Tasks.Task<TagListSchema> GetInvitationTagsAsync (string invitationId)
         {
@@ -1719,10 +1805,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the tags for this invitation  Get the tags for this invitation 
+        /// Get tags for an Invitation  Returns the tags for the invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>Task of ApiResponse (TagListSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TagListSchema>> GetInvitationTagsAsyncWithHttpInfo (string invitationId)
         {
@@ -1786,10 +1872,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a information about a private invitation. Get a information about a private invitation.
+        /// Get detailed information about a Private Invitation  Returns detailed information about the private invitation.  This includes the email sent, course ID, and whether new the invitation can still be launched or not. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>PrivateInvitationSchema</returns>
         public PrivateInvitationSchema GetPrivateInvitation (string invitationId, bool? includeRegistrationCount = null)
@@ -1799,10 +1885,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a information about a private invitation. Get a information about a private invitation.
+        /// Get detailed information about a Private Invitation  Returns detailed information about the private invitation.  This includes the email sent, course ID, and whether new the invitation can still be launched or not. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>ApiResponse of PrivateInvitationSchema</returns>
         public ApiResponse< PrivateInvitationSchema > GetPrivateInvitationWithHttpInfo (string invitationId, bool? includeRegistrationCount = null)
@@ -1868,10 +1954,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a information about a private invitation. Get a information about a private invitation.
+        /// Get detailed information about a Private Invitation  Returns detailed information about the private invitation.  This includes the email sent, course ID, and whether new the invitation can still be launched or not. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of PrivateInvitationSchema</returns>
         public async System.Threading.Tasks.Task<PrivateInvitationSchema> GetPrivateInvitationAsync (string invitationId, bool? includeRegistrationCount = null)
@@ -1882,10 +1968,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a information about a private invitation. Get a information about a private invitation.
+        /// Get detailed information about a Private Invitation  Returns detailed information about the private invitation.  This includes the email sent, course ID, and whether new the invitation can still be launched or not. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PrivateInvitationSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PrivateInvitationSchema>> GetPrivateInvitationAsyncWithHttpInfo (string invitationId, bool? includeRegistrationCount = null)
@@ -1951,10 +2037,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the status of an invitation job. Get the status of a job to send out private invitations.
+        /// Get email job status for a Private Invitation  Check the status of a private invitation email job.  This can be called incrementally to check the progress of the emails. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>InvitationJobStatusSchema</returns>
         public InvitationJobStatusSchema GetPrivateInvitationJobStatus (string invitationId)
         {
@@ -1963,10 +2049,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the status of an invitation job. Get the status of a job to send out private invitations.
+        /// Get email job status for a Private Invitation  Check the status of a private invitation email job.  This can be called incrementally to check the progress of the emails. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>ApiResponse of InvitationJobStatusSchema</returns>
         public ApiResponse< InvitationJobStatusSchema > GetPrivateInvitationJobStatusWithHttpInfo (string invitationId)
         {
@@ -2030,10 +2116,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the status of an invitation job. Get the status of a job to send out private invitations.
+        /// Get email job status for a Private Invitation  Check the status of a private invitation email job.  This can be called incrementally to check the progress of the emails. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>Task of InvitationJobStatusSchema</returns>
         public async System.Threading.Tasks.Task<InvitationJobStatusSchema> GetPrivateInvitationJobStatusAsync (string invitationId)
         {
@@ -2043,10 +2129,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the status of an invitation job. Get the status of a job to send out private invitations.
+        /// Get email job status for a Private Invitation  Check the status of a private invitation email job.  This can be called incrementally to check the progress of the emails. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <returns>Task of ApiResponse (InvitationJobStatusSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvitationJobStatusSchema>> GetPrivateInvitationJobStatusAsyncWithHttpInfo (string invitationId)
         {
@@ -2110,34 +2196,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all private invitations. Retrieves a list of all private invitations, optionally filtered by the given parameters.
+        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>PrivateInvitationList</returns>
-        public PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<PrivateInvitationList> localVarResponse = GetPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, more);
+             ApiResponse<PrivateInvitationList> localVarResponse = GetPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of all private invitations. Retrieves a list of all private invitations, optionally filtered by the given parameters.
+        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of PrivateInvitationList</returns>
-        public ApiResponse< PrivateInvitationList > GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public ApiResponse< PrivateInvitationList > GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/invitations/private";
@@ -2167,6 +2259,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
             if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -2201,35 +2296,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all private invitations. Retrieves a list of all private invitations, optionally filtered by the given parameters.
+        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of PrivateInvitationList</returns>
-        public async System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public async System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<PrivateInvitationList> localVarResponse = await GetPrivateInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, more);
+             ApiResponse<PrivateInvitationList> localVarResponse = await GetPrivateInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of all private invitations. Retrieves a list of all private invitations, optionally filtered by the given parameters.
+        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (PrivateInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/invitations/private";
@@ -2259,6 +2360,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
             if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -2293,32 +2397,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of user invitations. Get a list of objects which contain the specific information about each user to whom this invitation was sent.
+        /// Get a list of Private User Invitations  Get a list of user who were invited to view the course.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>UserInvitationList</returns>
-        public UserInvitationList GetPrivateUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null)
+        public UserInvitationList GetPrivateUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
         {
-             ApiResponse<UserInvitationList> localVarResponse = GetPrivateUserInvitationsWithHttpInfo(invitationId, since, until, includeRegistrationReport, more);
+             ApiResponse<UserInvitationList> localVarResponse = GetPrivateUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of user invitations. Get a list of objects which contain the specific information about each user to whom this invitation was sent.
+        /// Get a list of Private User Invitations  Get a list of user who were invited to view the course.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>ApiResponse of UserInvitationList</returns>
-        public ApiResponse< UserInvitationList > GetPrivateUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null)
+        public ApiResponse< UserInvitationList > GetPrivateUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -2349,8 +2461,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (invitationId != null) localVarPathParams.Add("invitationId", this.Configuration.ApiClient.ParameterToString(invitationId)); // path parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -2384,33 +2500,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of user invitations. Get a list of objects which contain the specific information about each user to whom this invitation was sent.
+        /// Get a list of Private User Invitations  Get a list of user who were invited to view the course.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>Task of UserInvitationList</returns>
-        public async System.Threading.Tasks.Task<UserInvitationList> GetPrivateUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null)
+        public async System.Threading.Tasks.Task<UserInvitationList> GetPrivateUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
         {
-             ApiResponse<UserInvitationList> localVarResponse = await GetPrivateUserInvitationsAsyncWithHttpInfo(invitationId, since, until, includeRegistrationReport, more);
+             ApiResponse<UserInvitationList> localVarResponse = await GetPrivateUserInvitationsAsyncWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of user invitations. Get a list of objects which contain the specific information about each user to whom this invitation was sent.
+        /// Get a list of Private User Invitations  Get a list of user who were invited to view the course.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>Task of ApiResponse (UserInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPrivateUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPrivateUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -2441,8 +2565,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (invitationId != null) localVarPathParams.Add("invitationId", this.Configuration.ApiClient.ParameterToString(invitationId)); // path parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -2476,10 +2604,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a information about a public invitation. Get a information about a public invitation.
+        /// Get detailed information about a Public Invitation  Returns detailed information about the public invitation.  This includes url, registration cap, and whether new learners can accept the invitation or not. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>PublicInvitationSchema</returns>
         public PublicInvitationSchema GetPublicInvitation (string invitationId, bool? includeRegistrationCount = null)
@@ -2489,10 +2617,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a information about a public invitation. Get a information about a public invitation.
+        /// Get detailed information about a Public Invitation  Returns detailed information about the public invitation.  This includes url, registration cap, and whether new learners can accept the invitation or not. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>ApiResponse of PublicInvitationSchema</returns>
         public ApiResponse< PublicInvitationSchema > GetPublicInvitationWithHttpInfo (string invitationId, bool? includeRegistrationCount = null)
@@ -2558,10 +2686,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a information about a public invitation. Get a information about a public invitation.
+        /// Get detailed information about a Public Invitation  Returns detailed information about the public invitation.  This includes url, registration cap, and whether new learners can accept the invitation or not. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of PublicInvitationSchema</returns>
         public async System.Threading.Tasks.Task<PublicInvitationSchema> GetPublicInvitationAsync (string invitationId, bool? includeRegistrationCount = null)
@@ -2572,10 +2700,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a information about a public invitation. Get a information about a public invitation.
+        /// Get detailed information about a Public Invitation  Returns detailed information about the public invitation.  This includes url, registration cap, and whether new learners can accept the invitation or not. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PublicInvitationSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<PublicInvitationSchema>> GetPublicInvitationAsyncWithHttpInfo (string invitationId, bool? includeRegistrationCount = null)
@@ -2641,34 +2769,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all public invitations. Retrieves a list of all public invitations, optionally filtered by the given parameters.
+        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>PublicInvitationList</returns>
-        public PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<PublicInvitationList> localVarResponse = GetPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, more);
+             ApiResponse<PublicInvitationList> localVarResponse = GetPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of all public invitations. Retrieves a list of all public invitations, optionally filtered by the given parameters.
+        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of PublicInvitationList</returns>
-        public ApiResponse< PublicInvitationList > GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public ApiResponse< PublicInvitationList > GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/invitations/public";
@@ -2698,6 +2832,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
             if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -2732,35 +2869,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all public invitations. Retrieves a list of all public invitations, optionally filtered by the given parameters.
+        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of PublicInvitationList</returns>
-        public async System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public async System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<PublicInvitationList> localVarResponse = await GetPublicInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, more);
+             ApiResponse<PublicInvitationList> localVarResponse = await GetPublicInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of all public invitations. Retrieves a list of all public invitations, optionally filtered by the given parameters.
+        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="courseId">Limit the results to invitations with courseIds that match the filter. (optional)</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="datetimeFilter">A string describing what the since/until parameters will be applied to. Options are: &#39;created&#39; or &#39;updated&#39;.  If not provided, it will default to &#x60;updated&#x60;. (optional, default to updated)</param>
-        /// <param name="tags"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="tags">Filter items matching any tag provided (not all) (optional)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (PublicInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/invitations/public";
@@ -2790,6 +2933,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
             if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -2824,32 +2970,40 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of user invitations. Get a list of objects which contain the specific information about each user who visited the invitation link.
+        /// Get a list of Public User Invitations  Returns a list of users who have visited the public invitation link.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>UserInvitationList</returns>
-        public UserInvitationList GetPublicUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null)
+        public UserInvitationList GetPublicUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
         {
-             ApiResponse<UserInvitationList> localVarResponse = GetPublicUserInvitationsWithHttpInfo(invitationId, since, until, includeRegistrationReport, more);
+             ApiResponse<UserInvitationList> localVarResponse = GetPublicUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of user invitations. Get a list of objects which contain the specific information about each user who visited the invitation link.
+        /// Get a list of Public User Invitations  Returns a list of users who have visited the public invitation link.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>ApiResponse of UserInvitationList</returns>
-        public ApiResponse< UserInvitationList > GetPublicUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null)
+        public ApiResponse< UserInvitationList > GetPublicUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -2880,8 +3034,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (invitationId != null) localVarPathParams.Add("invitationId", this.Configuration.ApiClient.ParameterToString(invitationId)); // path parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -2915,33 +3073,41 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of user invitations. Get a list of objects which contain the specific information about each user who visited the invitation link.
+        /// Get a list of Public User Invitations  Returns a list of users who have visited the public invitation link.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>Task of UserInvitationList</returns>
-        public async System.Threading.Tasks.Task<UserInvitationList> GetPublicUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null)
+        public async System.Threading.Tasks.Task<UserInvitationList> GetPublicUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
         {
-             ApiResponse<UserInvitationList> localVarResponse = await GetPublicUserInvitationsAsyncWithHttpInfo(invitationId, since, until, includeRegistrationReport, more);
+             ApiResponse<UserInvitationList> localVarResponse = await GetPublicUserInvitationsAsyncWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of user invitations. Get a list of objects which contain the specific information about each user who visited the invitation link.
+        /// Get a list of Public User Invitations  Returns a list of users who have visited the public invitation link.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="since">Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="until">Only items updated before the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="includeRegistrationReport"> (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of registration lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="invitationId"></param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to registration_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
         /// <returns>Task of ApiResponse (UserInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPublicUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationReport = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPublicUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -2972,8 +3138,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (invitationId != null) localVarPathParams.Add("invitationId", this.Configuration.ApiClient.ParameterToString(invitationId)); // path parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
-            if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -3007,10 +3177,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this invitation  Set the tags for this invitation 
+        /// Add tags to an Invitation  Applies the provided tags to the invitation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns></returns>
         public void PutInvitationTags (string invitationId, TagListSchema tags)
@@ -3019,10 +3189,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this invitation  Set the tags for this invitation 
+        /// Add tags to an Invitation  Applies the provided tags to the invitation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PutInvitationTagsWithHttpInfo (string invitationId, TagListSchema tags)
@@ -3098,10 +3268,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this invitation  Set the tags for this invitation 
+        /// Add tags to an Invitation  Applies the provided tags to the invitation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PutInvitationTagsAsync (string invitationId, TagListSchema tags)
@@ -3111,10 +3281,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Set the tags for this invitation  Set the tags for this invitation 
+        /// Add tags to an Invitation  Applies the provided tags to the invitation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
+        /// <param name="invitationId"></param>
         /// <param name="tags"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> PutInvitationTagsAsyncWithHttpInfo (string invitationId, TagListSchema tags)
@@ -3190,10 +3360,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations  Sets all of the provided tags on all of the provided invitations 
+        /// Add a group of tags to a group of Invitations  Applies all of the provided tags on all of the provided invitations.  Both public and private invitations may be tagged via this operation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns></returns>
         public void PutInvitationTagsBatch (BatchTagsSchema batch)
         {
@@ -3201,10 +3371,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations  Sets all of the provided tags on all of the provided invitations 
+        /// Add a group of tags to a group of Invitations  Applies all of the provided tags on all of the provided invitations.  Both public and private invitations may be tagged via this operation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> PutInvitationTagsBatchWithHttpInfo (BatchTagsSchema batch)
         {
@@ -3275,10 +3445,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations  Sets all of the provided tags on all of the provided invitations 
+        /// Add a group of tags to a group of Invitations  Applies all of the provided tags on all of the provided invitations.  Both public and private invitations may be tagged via this operation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task PutInvitationTagsBatchAsync (BatchTagsSchema batch)
         {
@@ -3287,10 +3457,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Sets all of the provided tags on all of the provided invitations  Sets all of the provided tags on all of the provided invitations 
+        /// Add a group of tags to a group of Invitations  Applies all of the provided tags on all of the provided invitations.  Both public and private invitations may be tagged via this operation.  Tags are used to easily identify resources.  Adding tags can enable more refined searches when making calls to certain endpoints (e.g. GetInvitations). 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batch">Object representing an array of ids to apply an array of tags to.</param>
+        /// <param name="batch">Array of ids, and array of tags for bulk tag operations</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> PutInvitationTagsBatchAsyncWithHttpInfo (BatchTagsSchema batch)
         {
@@ -3361,26 +3531,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update attributes of this invitation. Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - invitationEmail - postBack - expirationDate NOTE: Any attributes not in the above list will not be considered for update.
+        /// Update information about a Private Invitation  Updates information about the private invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PrivateInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>PrivateInvitationSchema</returns>
-        public PrivateInvitationSchema UpdatePrivateInvitation (string invitationId, PrivateInvitationSchema invitationUpdateSchema)
+        public PrivateInvitationSchema UpdatePrivateInvitation (string invitationId, PrivateInvitationUpdateSchema invitationUpdateSchema)
         {
              ApiResponse<PrivateInvitationSchema> localVarResponse = UpdatePrivateInvitationWithHttpInfo(invitationId, invitationUpdateSchema);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update attributes of this invitation. Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - invitationEmail - postBack - expirationDate NOTE: Any attributes not in the above list will not be considered for update.
+        /// Update information about a Private Invitation  Updates information about the private invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PrivateInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>ApiResponse of PrivateInvitationSchema</returns>
-        public ApiResponse< PrivateInvitationSchema > UpdatePrivateInvitationWithHttpInfo (string invitationId, PrivateInvitationSchema invitationUpdateSchema)
+        public ApiResponse< PrivateInvitationSchema > UpdatePrivateInvitationWithHttpInfo (string invitationId, PrivateInvitationUpdateSchema invitationUpdateSchema)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -3453,13 +3623,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update attributes of this invitation. Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - invitationEmail - postBack - expirationDate NOTE: Any attributes not in the above list will not be considered for update.
+        /// Update information about a Private Invitation  Updates information about the private invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PrivateInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>Task of PrivateInvitationSchema</returns>
-        public async System.Threading.Tasks.Task<PrivateInvitationSchema> UpdatePrivateInvitationAsync (string invitationId, PrivateInvitationSchema invitationUpdateSchema)
+        public async System.Threading.Tasks.Task<PrivateInvitationSchema> UpdatePrivateInvitationAsync (string invitationId, PrivateInvitationUpdateSchema invitationUpdateSchema)
         {
              ApiResponse<PrivateInvitationSchema> localVarResponse = await UpdatePrivateInvitationAsyncWithHttpInfo(invitationId, invitationUpdateSchema);
              return localVarResponse.Data;
@@ -3467,13 +3637,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update attributes of this invitation. Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - invitationEmail - postBack - expirationDate NOTE: Any attributes not in the above list will not be considered for update.
+        /// Update information about a Private Invitation  Updates information about the private invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PrivateInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>Task of ApiResponse (PrivateInvitationSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PrivateInvitationSchema>> UpdatePrivateInvitationAsyncWithHttpInfo (string invitationId, PrivateInvitationSchema invitationUpdateSchema)
+        public async System.Threading.Tasks.Task<ApiResponse<PrivateInvitationSchema>> UpdatePrivateInvitationAsyncWithHttpInfo (string invitationId, PrivateInvitationUpdateSchema invitationUpdateSchema)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -3546,26 +3716,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update attributes of this invitation. Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - allowNewRegistrations - postBack - expirationDate - registrationCap NOTE: Any attributes not in the above list will not be considered for update.
+        /// Update information about a Public Invitation  Updates information about the public invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PublicInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>PublicInvitationSchema</returns>
-        public PublicInvitationSchema UpdatePublicInvitation (string invitationId, PublicInvitationSchema invitationUpdateSchema)
+        public PublicInvitationSchema UpdatePublicInvitation (string invitationId, PublicInvitationUpdateSchema invitationUpdateSchema)
         {
              ApiResponse<PublicInvitationSchema> localVarResponse = UpdatePublicInvitationWithHttpInfo(invitationId, invitationUpdateSchema);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update attributes of this invitation. Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - allowNewRegistrations - postBack - expirationDate - registrationCap NOTE: Any attributes not in the above list will not be considered for update.
+        /// Update information about a Public Invitation  Updates information about the public invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PublicInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>ApiResponse of PublicInvitationSchema</returns>
-        public ApiResponse< PublicInvitationSchema > UpdatePublicInvitationWithHttpInfo (string invitationId, PublicInvitationSchema invitationUpdateSchema)
+        public ApiResponse< PublicInvitationSchema > UpdatePublicInvitationWithHttpInfo (string invitationId, PublicInvitationUpdateSchema invitationUpdateSchema)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -3638,13 +3808,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update attributes of this invitation. Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - allowNewRegistrations - postBack - expirationDate - registrationCap NOTE: Any attributes not in the above list will not be considered for update.
+        /// Update information about a Public Invitation  Updates information about the public invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PublicInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>Task of PublicInvitationSchema</returns>
-        public async System.Threading.Tasks.Task<PublicInvitationSchema> UpdatePublicInvitationAsync (string invitationId, PublicInvitationSchema invitationUpdateSchema)
+        public async System.Threading.Tasks.Task<PublicInvitationSchema> UpdatePublicInvitationAsync (string invitationId, PublicInvitationUpdateSchema invitationUpdateSchema)
         {
              ApiResponse<PublicInvitationSchema> localVarResponse = await UpdatePublicInvitationAsyncWithHttpInfo(invitationId, invitationUpdateSchema);
              return localVarResponse.Data;
@@ -3652,13 +3822,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Update attributes of this invitation. Updates certain attributes of this invitation, and returns the invitation its new state.  The following attributes can be updated: - allowLaunch - allowNewRegistrations - postBack - expirationDate - registrationCap NOTE: Any attributes not in the above list will not be considered for update.
+        /// Update information about a Public Invitation  Updates information about the public invitation, such as the expiration date and registration cap.  Only non-null values that are provided will be updated. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationId">invitation id</param>
-        /// <param name="invitationUpdateSchema">A PublicInvitationSchema with values to update.  This can be a sparse schema only containing the values to be updated.  Any value not allowed for update will be ignored.</param>
+        /// <param name="invitationId"></param>
+        /// <param name="invitationUpdateSchema">Object with values to be updated.  Any value not specified above will be ignored. </param>
         /// <returns>Task of ApiResponse (PublicInvitationSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PublicInvitationSchema>> UpdatePublicInvitationAsyncWithHttpInfo (string invitationId, PublicInvitationSchema invitationUpdateSchema)
+        public async System.Threading.Tasks.Task<ApiResponse<PublicInvitationSchema>> UpdatePublicInvitationAsyncWithHttpInfo (string invitationId, PublicInvitationUpdateSchema invitationUpdateSchema)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)

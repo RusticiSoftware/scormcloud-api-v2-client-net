@@ -39,7 +39,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Initializes a new instance of the <see cref="XapiCredentialsListSchema" /> class.
         /// </summary>
         /// <param name="xapiCredentials">xapiCredentials (required).</param>
-        /// <param name="more">more.</param>
+        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
         public XapiCredentialsListSchema(List<XapiCredentialSchema> xapiCredentials = default(List<XapiCredentialSchema>), string more = default(string))
         {
             // to ensure "xapiCredentials" is required (not null)
@@ -61,8 +61,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public List<XapiCredentialSchema> XapiCredentials { get; set; }
 
         /// <summary>
-        /// Gets or Sets More
+        /// Token for getting the next set of results, from the prior set of results.
         /// </summary>
+        /// <value>Token for getting the next set of results, from the prior set of results.</value>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public string More { get; set; }
 

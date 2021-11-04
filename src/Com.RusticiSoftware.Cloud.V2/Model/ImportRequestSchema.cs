@@ -25,47 +25,33 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// RegistrationListSchema
+    /// Request to import a new course. Exactly one of fetchRequest or mediaFileReferenceRequest must be supplied, depending on the desired import behavior. 
     /// </summary>
     [DataContract]
-    public partial class RegistrationListSchema :  IEquatable<RegistrationListSchema>, IValidatableObject
+    public partial class ImportRequestSchema :  IEquatable<ImportRequestSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegistrationListSchema" /> class.
+        /// Initializes a new instance of the <see cref="ImportRequestSchema" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected RegistrationListSchema() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RegistrationListSchema" /> class.
-        /// </summary>
-        /// <param name="registrations">registrations (required).</param>
-        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
-        public RegistrationListSchema(List<RegistrationSchema> registrations = default(List<RegistrationSchema>), string more = default(string))
+        /// <param name="fetchRequest">fetchRequest.</param>
+        /// <param name="mediaFileReferenceRequest">mediaFileReferenceRequest.</param>
+        public ImportRequestSchema(ImportFetchRequestSchema fetchRequest = default(ImportFetchRequestSchema), ImportMediaFileReferenceRequestSchema mediaFileReferenceRequest = default(ImportMediaFileReferenceRequestSchema))
         {
-            // to ensure "registrations" is required (not null)
-            if (registrations == null)
-            {
-                throw new InvalidDataException("registrations is a required property for RegistrationListSchema and cannot be null");
-            }
-            else
-            {
-                this.Registrations = registrations;
-            }
-            this.More = more;
+            this.FetchRequest = fetchRequest;
+            this.MediaFileReferenceRequest = mediaFileReferenceRequest;
         }
         
         /// <summary>
-        /// Gets or Sets Registrations
+        /// Gets or Sets FetchRequest
         /// </summary>
-        [DataMember(Name="registrations", EmitDefaultValue=false)]
-        public List<RegistrationSchema> Registrations { get; set; }
+        [DataMember(Name="fetchRequest", EmitDefaultValue=false)]
+        public ImportFetchRequestSchema FetchRequest { get; set; }
 
         /// <summary>
-        /// Token for getting the next set of results, from the prior set of results.
+        /// Gets or Sets MediaFileReferenceRequest
         /// </summary>
-        /// <value>Token for getting the next set of results, from the prior set of results.</value>
-        [DataMember(Name="more", EmitDefaultValue=false)]
-        public string More { get; set; }
+        [DataMember(Name="mediaFileReferenceRequest", EmitDefaultValue=false)]
+        public ImportMediaFileReferenceRequestSchema MediaFileReferenceRequest { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +60,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RegistrationListSchema {\n");
-            sb.Append("  Registrations: ").Append(Registrations).Append("\n");
-            sb.Append("  More: ").Append(More).Append("\n");
+            sb.Append("class ImportRequestSchema {\n");
+            sb.Append("  FetchRequest: ").Append(FetchRequest).Append("\n");
+            sb.Append("  MediaFileReferenceRequest: ").Append(MediaFileReferenceRequest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,29 +83,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RegistrationListSchema);
+            return this.Equals(input as ImportRequestSchema);
         }
 
         /// <summary>
-        /// Returns true if RegistrationListSchema instances are equal
+        /// Returns true if ImportRequestSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of RegistrationListSchema to be compared</param>
+        /// <param name="input">Instance of ImportRequestSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RegistrationListSchema input)
+        public bool Equals(ImportRequestSchema input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Registrations == input.Registrations ||
-                    this.Registrations != null &&
-                    this.Registrations.SequenceEqual(input.Registrations)
+                    this.FetchRequest == input.FetchRequest ||
+                    (this.FetchRequest != null &&
+                    this.FetchRequest.Equals(input.FetchRequest))
                 ) && 
                 (
-                    this.More == input.More ||
-                    (this.More != null &&
-                    this.More.Equals(input.More))
+                    this.MediaFileReferenceRequest == input.MediaFileReferenceRequest ||
+                    (this.MediaFileReferenceRequest != null &&
+                    this.MediaFileReferenceRequest.Equals(input.MediaFileReferenceRequest))
                 );
         }
 
@@ -132,10 +118,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Registrations != null)
-                    hashCode = hashCode * 59 + this.Registrations.GetHashCode();
-                if (this.More != null)
-                    hashCode = hashCode * 59 + this.More.GetHashCode();
+                if (this.FetchRequest != null)
+                    hashCode = hashCode * 59 + this.FetchRequest.GetHashCode();
+                if (this.MediaFileReferenceRequest != null)
+                    hashCode = hashCode * 59 + this.MediaFileReferenceRequest.GetHashCode();
                 return hashCode;
             }
         }

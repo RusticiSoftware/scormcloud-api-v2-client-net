@@ -36,16 +36,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="allowNewRegistrations">If true, then new registrations can be created for this dispatch. .</param>
         /// <param name="instanced">If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. .</param>
         /// <param name="registrationCap">The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. .</param>
-        /// <param name="expirationDate">The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. .</param>
+        /// <param name="registrationCount">The current number of registrations that have been created for this dispatch. .</param>
+        /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. .</param>
         /// <param name="enabled">If true, then this dispatch can be launched. .</param>
         /// <param name="email">SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. .</param>
         /// <param name="notes">Any provided notes about this dispatch..</param>
         /// <param name="postBack">The postback information for this Dispatch..</param>
-        public UpdateDispatchSchema(bool? allowNewRegistrations = default(bool?), bool? instanced = default(bool?), int? registrationCap = default(int?), DateTime? expirationDate = default(DateTime?), bool? enabled = default(bool?), string email = default(string), string notes = default(string), PostBackSchema postBack = default(PostBackSchema))
+        public UpdateDispatchSchema(bool? allowNewRegistrations = default(bool?), bool? instanced = default(bool?), int? registrationCap = default(int?), int? registrationCount = default(int?), DateTime? expirationDate = default(DateTime?), bool? enabled = default(bool?), string email = default(string), string notes = default(string), PostBackSchema postBack = default(PostBackSchema))
         {
             this.AllowNewRegistrations = allowNewRegistrations;
             this.Instanced = instanced;
             this.RegistrationCap = registrationCap;
+            this.RegistrationCount = registrationCount;
             this.ExpirationDate = expirationDate;
             this.Enabled = enabled;
             this.Email = email;
@@ -75,9 +77,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public int? RegistrationCap { get; set; }
 
         /// <summary>
-        /// The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. 
+        /// The current number of registrations that have been created for this dispatch. 
         /// </summary>
-        /// <value>The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. </value>
+        /// <value>The current number of registrations that have been created for this dispatch. </value>
+        [DataMember(Name="registrationCount", EmitDefaultValue=false)]
+        public int? RegistrationCount { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. 
+        /// </summary>
+        /// <value>The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. </value>
         [DataMember(Name="expirationDate", EmitDefaultValue=false)]
         public DateTime? ExpirationDate { get; set; }
 
@@ -120,6 +129,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  AllowNewRegistrations: ").Append(AllowNewRegistrations).Append("\n");
             sb.Append("  Instanced: ").Append(Instanced).Append("\n");
             sb.Append("  RegistrationCap: ").Append(RegistrationCap).Append("\n");
+            sb.Append("  RegistrationCount: ").Append(RegistrationCount).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
@@ -175,6 +185,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.RegistrationCap.Equals(input.RegistrationCap))
                 ) && 
                 (
+                    this.RegistrationCount == input.RegistrationCount ||
+                    (this.RegistrationCount != null &&
+                    this.RegistrationCount.Equals(input.RegistrationCount))
+                ) && 
+                (
                     this.ExpirationDate == input.ExpirationDate ||
                     (this.ExpirationDate != null &&
                     this.ExpirationDate.Equals(input.ExpirationDate))
@@ -216,6 +231,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.Instanced.GetHashCode();
                 if (this.RegistrationCap != null)
                     hashCode = hashCode * 59 + this.RegistrationCap.GetHashCode();
+                if (this.RegistrationCount != null)
+                    hashCode = hashCode * 59 + this.RegistrationCount.GetHashCode();
                 if (this.ExpirationDate != null)
                     hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
                 if (this.Enabled != null)

@@ -25,64 +25,73 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// Request to import a course by downloading it from a url
+    /// DispatchLtiInfoSchema
     /// </summary>
     [DataContract]
-    public partial class ImportFetchRequestSchema :  IEquatable<ImportFetchRequestSchema>, IValidatableObject
+    public partial class DispatchLtiInfoSchema :  IEquatable<DispatchLtiInfoSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImportFetchRequestSchema" /> class.
+        /// Initializes a new instance of the <see cref="DispatchLtiInfoSchema" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ImportFetchRequestSchema() { }
+        protected DispatchLtiInfoSchema() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImportFetchRequestSchema" /> class.
+        /// Initializes a new instance of the <see cref="DispatchLtiInfoSchema" /> class.
         /// </summary>
-        /// <param name="url">URL path to the .zip package or media file to download to import this course (required).</param>
-        /// <param name="contentType">MIME type of the content to be fetched (default to &quot;application/zip&quot;).</param>
-        /// <param name="mediaFileMetadata">mediaFileMetadata.</param>
-        public ImportFetchRequestSchema(string url = default(string), string contentType = "application/zip", MediaFileMetadataSchema mediaFileMetadata = default(MediaFileMetadataSchema))
+        /// <param name="url">The LTI launch URL for this dispatch (required).</param>
+        /// <param name="consumerKey">The OAuth consumer key that identifies the tool consumer for this dispatch. (required).</param>
+        /// <param name="sharedSecret">The OAuth secret to be used for LTI authentication for this dispatch. (required).</param>
+        public DispatchLtiInfoSchema(string url = default(string), string consumerKey = default(string), string sharedSecret = default(string))
         {
             // to ensure "url" is required (not null)
             if (url == null)
             {
-                throw new InvalidDataException("url is a required property for ImportFetchRequestSchema and cannot be null");
+                throw new InvalidDataException("url is a required property for DispatchLtiInfoSchema and cannot be null");
             }
             else
             {
                 this.Url = url;
             }
-            // use default value if no "contentType" provided
-            if (contentType == null)
+            // to ensure "consumerKey" is required (not null)
+            if (consumerKey == null)
             {
-                this.ContentType = "application/zip";
+                throw new InvalidDataException("consumerKey is a required property for DispatchLtiInfoSchema and cannot be null");
             }
             else
             {
-                this.ContentType = contentType;
+                this.ConsumerKey = consumerKey;
             }
-            this.MediaFileMetadata = mediaFileMetadata;
+            // to ensure "sharedSecret" is required (not null)
+            if (sharedSecret == null)
+            {
+                throw new InvalidDataException("sharedSecret is a required property for DispatchLtiInfoSchema and cannot be null");
+            }
+            else
+            {
+                this.SharedSecret = sharedSecret;
+            }
         }
         
         /// <summary>
-        /// URL path to the .zip package or media file to download to import this course
+        /// The LTI launch URL for this dispatch
         /// </summary>
-        /// <value>URL path to the .zip package or media file to download to import this course</value>
+        /// <value>The LTI launch URL for this dispatch</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
 
         /// <summary>
-        /// MIME type of the content to be fetched
+        /// The OAuth consumer key that identifies the tool consumer for this dispatch.
         /// </summary>
-        /// <value>MIME type of the content to be fetched</value>
-        [DataMember(Name="contentType", EmitDefaultValue=false)]
-        public string ContentType { get; set; }
+        /// <value>The OAuth consumer key that identifies the tool consumer for this dispatch.</value>
+        [DataMember(Name="consumerKey", EmitDefaultValue=false)]
+        public string ConsumerKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets MediaFileMetadata
+        /// The OAuth secret to be used for LTI authentication for this dispatch.
         /// </summary>
-        [DataMember(Name="mediaFileMetadata", EmitDefaultValue=false)]
-        public MediaFileMetadataSchema MediaFileMetadata { get; set; }
+        /// <value>The OAuth secret to be used for LTI authentication for this dispatch.</value>
+        [DataMember(Name="sharedSecret", EmitDefaultValue=false)]
+        public string SharedSecret { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,10 +100,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ImportFetchRequestSchema {\n");
+            sb.Append("class DispatchLtiInfoSchema {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
-            sb.Append("  ContentType: ").Append(ContentType).Append("\n");
-            sb.Append("  MediaFileMetadata: ").Append(MediaFileMetadata).Append("\n");
+            sb.Append("  ConsumerKey: ").Append(ConsumerKey).Append("\n");
+            sb.Append("  SharedSecret: ").Append(SharedSecret).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,15 +124,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImportFetchRequestSchema);
+            return this.Equals(input as DispatchLtiInfoSchema);
         }
 
         /// <summary>
-        /// Returns true if ImportFetchRequestSchema instances are equal
+        /// Returns true if DispatchLtiInfoSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImportFetchRequestSchema to be compared</param>
+        /// <param name="input">Instance of DispatchLtiInfoSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImportFetchRequestSchema input)
+        public bool Equals(DispatchLtiInfoSchema input)
         {
             if (input == null)
                 return false;
@@ -135,14 +144,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Url.Equals(input.Url))
                 ) && 
                 (
-                    this.ContentType == input.ContentType ||
-                    (this.ContentType != null &&
-                    this.ContentType.Equals(input.ContentType))
+                    this.ConsumerKey == input.ConsumerKey ||
+                    (this.ConsumerKey != null &&
+                    this.ConsumerKey.Equals(input.ConsumerKey))
                 ) && 
                 (
-                    this.MediaFileMetadata == input.MediaFileMetadata ||
-                    (this.MediaFileMetadata != null &&
-                    this.MediaFileMetadata.Equals(input.MediaFileMetadata))
+                    this.SharedSecret == input.SharedSecret ||
+                    (this.SharedSecret != null &&
+                    this.SharedSecret.Equals(input.SharedSecret))
                 );
         }
 
@@ -157,10 +166,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                 int hashCode = 41;
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
-                if (this.ContentType != null)
-                    hashCode = hashCode * 59 + this.ContentType.GetHashCode();
-                if (this.MediaFileMetadata != null)
-                    hashCode = hashCode * 59 + this.MediaFileMetadata.GetHashCode();
+                if (this.ConsumerKey != null)
+                    hashCode = hashCode * 59 + this.ConsumerKey.GetHashCode();
+                if (this.SharedSecret != null)
+                    hashCode = hashCode * 59 + this.SharedSecret.GetHashCode();
                 return hashCode;
             }
         }

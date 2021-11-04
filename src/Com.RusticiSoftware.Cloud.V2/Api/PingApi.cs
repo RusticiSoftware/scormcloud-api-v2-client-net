@@ -25,7 +25,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Ping the API 
         /// </summary>
         /// <remarks>
         /// Get back a message indicating that the API is working. 
@@ -35,7 +35,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         PingSchema PingAppId ();
 
         /// <summary>
-        /// 
+        /// Ping the API 
         /// </summary>
         /// <remarks>
         /// Get back a message indicating that the API is working. 
@@ -46,7 +46,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Ping the API 
         /// </summary>
         /// <remarks>
         /// Get back a message indicating that the API is working. 
@@ -56,7 +56,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<PingSchema> PingAppIdAsync ();
 
         /// <summary>
-        /// 
+        /// Ping the API 
         /// </summary>
         /// <remarks>
         /// Get back a message indicating that the API is working. 
@@ -165,7 +165,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Get back a message indicating that the API is working. 
+        /// Ping the API  Get back a message indicating that the API is working. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>PingSchema</returns>
@@ -176,7 +176,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Get back a message indicating that the API is working. 
+        /// Ping the API  Get back a message indicating that the API is working. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of PingSchema</returns>
@@ -238,7 +238,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Get back a message indicating that the API is working. 
+        /// Ping the API  Get back a message indicating that the API is working. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of PingSchema</returns>
@@ -250,7 +250,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Get back a message indicating that the API is working. 
+        /// Ping the API  Get back a message indicating that the API is working. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (PingSchema)</returns>

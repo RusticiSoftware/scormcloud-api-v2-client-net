@@ -25,10 +25,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create an xAPI statement pipe.
+        /// Create an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Create an xAPI statement pipe.
+        /// Creates an xAPI statement pipe.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -36,20 +36,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         StringResultSchema CreateStatementPipe (XapiStatementPipePostSchema xapiStatementPipe);
 
         /// <summary>
-        /// Create an xAPI statement pipe.
+        /// Create an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Create an xAPI statement pipe.
+        /// Creates an xAPI statement pipe.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> CreateStatementPipeWithHttpInfo (XapiStatementPipePostSchema xapiStatementPipe);
         /// <summary>
-        /// Create a xAPI credential.
+        /// Create xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Create a xAPI credential.
+        /// Creates an xAPI credential combination from the provided secret and a generated ID. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -57,194 +57,204 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         StringResultSchema CreateXapiCredential (XapiCredentialPostSchema xapiCredential);
 
         /// <summary>
-        /// Create a xAPI credential.
+        /// Create xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Create a xAPI credential.
+        /// Creates an xAPI credential combination from the provided secret and a generated ID. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> CreateXapiCredentialWithHttpInfo (XapiCredentialPostSchema xapiCredential);
         /// <summary>
-        /// Deletes this xAPI pipe.
+        /// Delete an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
+        /// Deletes the specified xAPI statement pipe  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion takes place.  Recreating a statement pipe with the same ID too quickly could cause the statement pipe to end up in a faulty state. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns></returns>
         void DeleteStatementPipe (string statementPipeId);
 
         /// <summary>
-        /// Deletes this xAPI pipe.
+        /// Delete an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
+        /// Deletes the specified xAPI statement pipe  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion takes place.  Recreating a statement pipe with the same ID too quickly could cause the statement pipe to end up in a faulty state. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteStatementPipeWithHttpInfo (string statementPipeId);
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Delete xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Deletes the specified xAPI credentials. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns></returns>
         void DeleteXapiCredential (string xapiCredentialId);
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Delete xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Deletes the specified xAPI credentials. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteXapiCredentialWithHttpInfo (string xapiCredentialId);
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Get detailed information about an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Returns detailed information about the xAPI pipe.  This includes source and target urls, the last time a statement was successfully forwarded, and how many attempts have been made to send data to the target url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>XapiStatementPipeSchema</returns>
         XapiStatementPipeSchema GetStatementPipe (string statementPipeId);
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Get detailed information about an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Returns detailed information about the xAPI pipe.  This includes source and target urls, the last time a statement was successfully forwarded, and how many attempts have been made to send data to the target url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>ApiResponse of XapiStatementPipeSchema</returns>
         ApiResponse<XapiStatementPipeSchema> GetStatementPipeWithHttpInfo (string statementPipeId);
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Get a list of xAPI Statement Pipes 
         /// </summary>
         /// <remarks>
-        /// Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Returns a list of all xAPI statement pipes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>XapiStatementPipeListSchema</returns>
         XapiStatementPipeListSchema GetStatementPipes ();
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Get a list of xAPI Statement Pipes 
         /// </summary>
         /// <remarks>
-        /// Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Returns a list of all xAPI statement pipes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of XapiStatementPipeListSchema</returns>
         ApiResponse<XapiStatementPipeListSchema> GetStatementPipesWithHttpInfo ();
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Get detailed information about the xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Returns detailed information about the xAPI credentials.  This includes the id (username), secret (password), permissions, and whether or not the credentials are enabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>XapiCredentialSchema</returns>
         XapiCredentialSchema GetXapiCredential (string xapiCredentialId);
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Get detailed information about the xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Returns detailed information about the xAPI credentials.  This includes the id (username), secret (password), permissions, and whether or not the credentials are enabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>ApiResponse of XapiCredentialSchema</returns>
         ApiResponse<XapiCredentialSchema> GetXapiCredentialWithHttpInfo (string xapiCredentialId);
         /// <summary>
-        /// Get the list of xapiCredentials
+        /// Get a list of xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Get the list of xapiCredentials
+        /// Returns a list of xAPI credentials.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of &lt;&lt;resourcePathName&gt;&gt; lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiCredentialsListSchema</returns>
-        XapiCredentialsListSchema GetXapiCredentials (DateTime? since = null, string more = null);
+        XapiCredentialsListSchema GetXapiCredentials (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get the list of xapiCredentials
+        /// Get a list of xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Get the list of xapiCredentials
+        /// Returns a list of xAPI credentials.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of &lt;&lt;resourcePathName&gt;&gt; lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiCredentialsListSchema</returns>
-        ApiResponse<XapiCredentialsListSchema> GetXapiCredentialsWithHttpInfo (DateTime? since = null, string more = null);
+        ApiResponse<XapiCredentialsListSchema> GetXapiCredentialsWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one.
+        /// Create or update an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
+        /// Creates or updates information about the xAPI statement pipe.  - If the xAPI statement pipe is instead being updated, the pipe will start over and forward any statements it finds, even if it had already forwarded those statements.  If the pipe being edited is currently being processed, then this request will fail with a status code of 409.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>StringResultSchema</returns>
         StringResultSchema SetStatementPipe (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe);
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one.
+        /// Create or update an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
+        /// Creates or updates information about the xAPI statement pipe.  - If the xAPI statement pipe is instead being updated, the pipe will start over and forward any statements it finds, even if it had already forwarded those statements.  If the pipe being edited is currently being processed, then this request will fail with a status code of 409.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> SetStatementPipeWithHttpInfo (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe);
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Create or update xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Creates or updates information about the xAPI credentials. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <param name="xapiCredential"></param>
         /// <returns></returns>
         void SetXapiCredential (string xapiCredentialId, XapiCredentialPostSchema xapiCredential);
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Create or update xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Creates or updates information about the xAPI credentials. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <param name="xapiCredential"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetXapiCredentialWithHttpInfo (string xapiCredentialId, XapiCredentialPostSchema xapiCredential);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create an xAPI statement pipe.
+        /// Create an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Create an xAPI statement pipe.
+        /// Creates an xAPI statement pipe.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -252,20 +262,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<StringResultSchema> CreateStatementPipeAsync (XapiStatementPipePostSchema xapiStatementPipe);
 
         /// <summary>
-        /// Create an xAPI statement pipe.
+        /// Create an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Create an xAPI statement pipe.
+        /// Creates an xAPI statement pipe.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateStatementPipeAsyncWithHttpInfo (XapiStatementPipePostSchema xapiStatementPipe);
         /// <summary>
-        /// Create a xAPI credential.
+        /// Create xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Create a xAPI credential.
+        /// Creates an xAPI credential combination from the provided secret and a generated ID. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -273,184 +283,194 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<StringResultSchema> CreateXapiCredentialAsync (XapiCredentialPostSchema xapiCredential);
 
         /// <summary>
-        /// Create a xAPI credential.
+        /// Create xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Create a xAPI credential.
+        /// Creates an xAPI credential combination from the provided secret and a generated ID. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateXapiCredentialAsyncWithHttpInfo (XapiCredentialPostSchema xapiCredential);
         /// <summary>
-        /// Deletes this xAPI pipe.
+        /// Delete an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
+        /// Deletes the specified xAPI statement pipe  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion takes place.  Recreating a statement pipe with the same ID too quickly could cause the statement pipe to end up in a faulty state. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteStatementPipeAsync (string statementPipeId);
 
         /// <summary>
-        /// Deletes this xAPI pipe.
+        /// Delete an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
+        /// Deletes the specified xAPI statement pipe  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion takes place.  Recreating a statement pipe with the same ID too quickly could cause the statement pipe to end up in a faulty state. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteStatementPipeAsyncWithHttpInfo (string statementPipeId);
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Delete xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Deletes the specified xAPI credentials. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteXapiCredentialAsync (string xapiCredentialId);
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Delete xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Deletes the specified xAPI credentials. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteXapiCredentialAsyncWithHttpInfo (string xapiCredentialId);
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Get detailed information about an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Returns detailed information about the xAPI pipe.  This includes source and target urls, the last time a statement was successfully forwarded, and how many attempts have been made to send data to the target url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>Task of XapiStatementPipeSchema</returns>
         System.Threading.Tasks.Task<XapiStatementPipeSchema> GetStatementPipeAsync (string statementPipeId);
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Get detailed information about an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Returns detailed information about the xAPI pipe.  This includes source and target urls, the last time a statement was successfully forwarded, and how many attempts have been made to send data to the target url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>Task of ApiResponse (XapiStatementPipeSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<XapiStatementPipeSchema>> GetStatementPipeAsyncWithHttpInfo (string statementPipeId);
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Get a list of xAPI Statement Pipes 
         /// </summary>
         /// <remarks>
-        /// Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Returns a list of all xAPI statement pipes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of XapiStatementPipeListSchema</returns>
         System.Threading.Tasks.Task<XapiStatementPipeListSchema> GetStatementPipesAsync ();
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Get a list of xAPI Statement Pipes 
         /// </summary>
         /// <remarks>
-        /// Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Returns a list of all xAPI statement pipes. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (XapiStatementPipeListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<XapiStatementPipeListSchema>> GetStatementPipesAsyncWithHttpInfo ();
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Get detailed information about the xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Returns detailed information about the xAPI credentials.  This includes the id (username), secret (password), permissions, and whether or not the credentials are enabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>Task of XapiCredentialSchema</returns>
         System.Threading.Tasks.Task<XapiCredentialSchema> GetXapiCredentialAsync (string xapiCredentialId);
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Get detailed information about the xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Returns detailed information about the xAPI credentials.  This includes the id (username), secret (password), permissions, and whether or not the credentials are enabled. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>Task of ApiResponse (XapiCredentialSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<XapiCredentialSchema>> GetXapiCredentialAsyncWithHttpInfo (string xapiCredentialId);
         /// <summary>
-        /// Get the list of xapiCredentials
+        /// Get a list of xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Get the list of xapiCredentials
+        /// Returns a list of xAPI credentials.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of &lt;&lt;resourcePathName&gt;&gt; lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiCredentialsListSchema</returns>
-        System.Threading.Tasks.Task<XapiCredentialsListSchema> GetXapiCredentialsAsync (DateTime? since = null, string more = null);
+        System.Threading.Tasks.Task<XapiCredentialsListSchema> GetXapiCredentialsAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
 
         /// <summary>
-        /// Get the list of xapiCredentials
+        /// Get a list of xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Get the list of xapiCredentials
+        /// Returns a list of xAPI credentials.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of &lt;&lt;resourcePathName&gt;&gt; lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiCredentialsListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<XapiCredentialsListSchema>> GetXapiCredentialsAsyncWithHttpInfo (DateTime? since = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<XapiCredentialsListSchema>> GetXapiCredentialsAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one.
+        /// Create or update an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
+        /// Creates or updates information about the xAPI statement pipe.  - If the xAPI statement pipe is instead being updated, the pipe will start over and forward any statements it finds, even if it had already forwarded those statements.  If the pipe being edited is currently being processed, then this request will fail with a status code of 409.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>Task of StringResultSchema</returns>
         System.Threading.Tasks.Task<StringResultSchema> SetStatementPipeAsync (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe);
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one.
+        /// Create or update an xAPI Statement Pipe 
         /// </summary>
         /// <remarks>
-        /// Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
+        /// Creates or updates information about the xAPI statement pipe.  - If the xAPI statement pipe is instead being updated, the pipe will start over and forward any statements it finds, even if it had already forwarded those statements.  If the pipe being edited is currently being processed, then this request will fail with a status code of 409.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> SetStatementPipeAsyncWithHttpInfo (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe);
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Create or update xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Creates or updates information about the xAPI credentials. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <param name="xapiCredential"></param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SetXapiCredentialAsync (string xapiCredentialId, XapiCredentialPostSchema xapiCredential);
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Create or update xAPI Credentials 
         /// </summary>
         /// <remarks>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Creates or updates information about the xAPI credentials. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <param name="xapiCredential"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetXapiCredentialAsyncWithHttpInfo (string xapiCredentialId, XapiCredentialPostSchema xapiCredential);
@@ -555,7 +575,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create an xAPI statement pipe. Create an xAPI statement pipe.
+        /// Create an xAPI Statement Pipe  Creates an xAPI statement pipe.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -567,7 +587,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create an xAPI statement pipe. Create an xAPI statement pipe.
+        /// Create an xAPI Statement Pipe  Creates an xAPI statement pipe.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -641,7 +661,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create an xAPI statement pipe. Create an xAPI statement pipe.
+        /// Create an xAPI Statement Pipe  Creates an xAPI statement pipe.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -654,7 +674,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create an xAPI statement pipe. Create an xAPI statement pipe.
+        /// Create an xAPI Statement Pipe  Creates an xAPI statement pipe.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiStatementPipe"></param>
@@ -728,7 +748,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a xAPI credential. Create a xAPI credential.
+        /// Create xAPI Credentials  Creates an xAPI credential combination from the provided secret and a generated ID. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -740,7 +760,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a xAPI credential. Create a xAPI credential.
+        /// Create xAPI Credentials  Creates an xAPI credential combination from the provided secret and a generated ID. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -814,7 +834,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a xAPI credential. Create a xAPI credential.
+        /// Create xAPI Credentials  Creates an xAPI credential combination from the provided secret and a generated ID. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -827,7 +847,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a xAPI credential. Create a xAPI credential.
+        /// Create xAPI Credentials  Creates an xAPI credential combination from the provided secret and a generated ID. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xapiCredential"></param>
@@ -901,10 +921,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
+        /// Delete an xAPI Statement Pipe  Deletes the specified xAPI statement pipe  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion takes place.  Recreating a statement pipe with the same ID too quickly could cause the statement pipe to end up in a faulty state. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns></returns>
         public void DeleteStatementPipe (string statementPipeId)
         {
@@ -912,10 +932,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
+        /// Delete an xAPI Statement Pipe  Deletes the specified xAPI statement pipe  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion takes place.  Recreating a statement pipe with the same ID too quickly could cause the statement pipe to end up in a faulty state. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteStatementPipeWithHttpInfo (string statementPipeId)
         {
@@ -979,10 +999,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
+        /// Delete an xAPI Statement Pipe  Deletes the specified xAPI statement pipe  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion takes place.  Recreating a statement pipe with the same ID too quickly could cause the statement pipe to end up in a faulty state. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteStatementPipeAsync (string statementPipeId)
         {
@@ -991,10 +1011,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes this xAPI pipe. Caution: avoid re-creating a pipe with the same ID quickly after a delete. The old version could still be processing, in which case the new pipe could be updated improperly by the processor. 
+        /// Delete an xAPI Statement Pipe  Deletes the specified xAPI statement pipe  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the deletion takes place.  Recreating a statement pipe with the same ID too quickly could cause the statement pipe to end up in a faulty state. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteStatementPipeAsyncWithHttpInfo (string statementPipeId)
         {
@@ -1058,10 +1078,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Delete xAPI Credentials  Deletes the specified xAPI credentials. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns></returns>
         public void DeleteXapiCredential (string xapiCredentialId)
         {
@@ -1069,10 +1089,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Delete xAPI Credentials  Deletes the specified xAPI credentials. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteXapiCredentialWithHttpInfo (string xapiCredentialId)
         {
@@ -1136,10 +1156,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Delete xAPI Credentials  Deletes the specified xAPI credentials. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteXapiCredentialAsync (string xapiCredentialId)
         {
@@ -1148,10 +1168,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Deletes the xAPI credentials specified by the xAPI credentials id Deletes the xAPI credentials specified by the xAPI credentials id
+        /// Delete xAPI Credentials  Deletes the specified xAPI credentials. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteXapiCredentialAsyncWithHttpInfo (string xapiCredentialId)
         {
@@ -1215,10 +1235,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Get detailed information about an xAPI Statement Pipe  Returns detailed information about the xAPI pipe.  This includes source and target urls, the last time a statement was successfully forwarded, and how many attempts have been made to send data to the target url. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>XapiStatementPipeSchema</returns>
         public XapiStatementPipeSchema GetStatementPipe (string statementPipeId)
         {
@@ -1227,10 +1247,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Get detailed information about an xAPI Statement Pipe  Returns detailed information about the xAPI pipe.  This includes source and target urls, the last time a statement was successfully forwarded, and how many attempts have been made to send data to the target url. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>ApiResponse of XapiStatementPipeSchema</returns>
         public ApiResponse< XapiStatementPipeSchema > GetStatementPipeWithHttpInfo (string statementPipeId)
         {
@@ -1294,10 +1314,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Get detailed information about an xAPI Statement Pipe  Returns detailed information about the xAPI pipe.  This includes source and target urls, the last time a statement was successfully forwarded, and how many attempts have been made to send data to the target url. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>Task of XapiStatementPipeSchema</returns>
         public async System.Threading.Tasks.Task<XapiStatementPipeSchema> GetStatementPipeAsync (string statementPipeId)
         {
@@ -1307,10 +1327,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves xAPI pipe for &#x60;xapiPipeId&#x60; Retrieves xAPI pipe for &#x60;xapiPipeId&#x60;
+        /// Get detailed information about an xAPI Statement Pipe  Returns detailed information about the xAPI pipe.  This includes source and target urls, the last time a statement was successfully forwarded, and how many attempts have been made to send data to the target url. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <returns>Task of ApiResponse (XapiStatementPipeSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<XapiStatementPipeSchema>> GetStatementPipeAsyncWithHttpInfo (string statementPipeId)
         {
@@ -1374,7 +1394,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60; Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Get a list of xAPI Statement Pipes  Returns a list of all xAPI statement pipes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>XapiStatementPipeListSchema</returns>
@@ -1385,7 +1405,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60; Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Get a list of xAPI Statement Pipes  Returns a list of all xAPI statement pipes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of XapiStatementPipeListSchema</returns>
@@ -1447,7 +1467,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60; Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Get a list of xAPI Statement Pipes  Returns a list of all xAPI statement pipes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of XapiStatementPipeListSchema</returns>
@@ -1459,7 +1479,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the xapiPipes for &#x60;appId&#x60; Get all of the xapiPipes for &#x60;appId&#x60;
+        /// Get a list of xAPI Statement Pipes  Returns a list of all xAPI statement pipes. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (XapiStatementPipeListSchema)</returns>
@@ -1521,10 +1541,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id. Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Get detailed information about the xAPI Credentials  Returns detailed information about the xAPI credentials.  This includes the id (username), secret (password), permissions, and whether or not the credentials are enabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>XapiCredentialSchema</returns>
         public XapiCredentialSchema GetXapiCredential (string xapiCredentialId)
         {
@@ -1533,10 +1553,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id. Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Get detailed information about the xAPI Credentials  Returns detailed information about the xAPI credentials.  This includes the id (username), secret (password), permissions, and whether or not the credentials are enabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>ApiResponse of XapiCredentialSchema</returns>
         public ApiResponse< XapiCredentialSchema > GetXapiCredentialWithHttpInfo (string xapiCredentialId)
         {
@@ -1600,10 +1620,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id. Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Get detailed information about the xAPI Credentials  Returns detailed information about the xAPI credentials.  This includes the id (username), secret (password), permissions, and whether or not the credentials are enabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>Task of XapiCredentialSchema</returns>
         public async System.Threading.Tasks.Task<XapiCredentialSchema> GetXapiCredentialAsync (string xapiCredentialId)
         {
@@ -1613,10 +1633,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Retrieves the xAPI credentials specified by the xAPI credentials id. Retrieves the xAPI credentials specified by the xAPI credentials id.
+        /// Get detailed information about the xAPI Credentials  Returns detailed information about the xAPI credentials.  This includes the id (username), secret (password), permissions, and whether or not the credentials are enabled. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <returns>Task of ApiResponse (XapiCredentialSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<XapiCredentialSchema>> GetXapiCredentialAsyncWithHttpInfo (string xapiCredentialId)
         {
@@ -1680,26 +1700,36 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the list of xapiCredentials Get the list of xapiCredentials
+        /// Get a list of xAPI Credentials  Returns a list of xAPI credentials.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of &lt;&lt;resourcePathName&gt;&gt; lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>XapiCredentialsListSchema</returns>
-        public XapiCredentialsListSchema GetXapiCredentials (DateTime? since = null, string more = null)
+        public XapiCredentialsListSchema GetXapiCredentials (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<XapiCredentialsListSchema> localVarResponse = GetXapiCredentialsWithHttpInfo(since, more);
+             ApiResponse<XapiCredentialsListSchema> localVarResponse = GetXapiCredentialsWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the list of xapiCredentials Get the list of xapiCredentials
+        /// Get a list of xAPI Credentials  Returns a list of xAPI credentials.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of &lt;&lt;resourcePathName&gt;&gt; lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>ApiResponse of XapiCredentialsListSchema</returns>
-        public ApiResponse< XapiCredentialsListSchema > GetXapiCredentialsWithHttpInfo (DateTime? since = null, string more = null)
+        public ApiResponse< XapiCredentialsListSchema > GetXapiCredentialsWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/xapi/credentials";
@@ -1725,6 +1755,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -1759,27 +1794,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the list of xapiCredentials Get the list of xapiCredentials
+        /// Get a list of xAPI Credentials  Returns a list of xAPI credentials.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of &lt;&lt;resourcePathName&gt;&gt; lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of XapiCredentialsListSchema</returns>
-        public async System.Threading.Tasks.Task<XapiCredentialsListSchema> GetXapiCredentialsAsync (DateTime? since = null, string more = null)
+        public async System.Threading.Tasks.Task<XapiCredentialsListSchema> GetXapiCredentialsAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
-             ApiResponse<XapiCredentialsListSchema> localVarResponse = await GetXapiCredentialsAsyncWithHttpInfo(since, more);
+             ApiResponse<XapiCredentialsListSchema> localVarResponse = await GetXapiCredentialsAsyncWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get the list of xapiCredentials Get the list of xapiCredentials
+        /// Get a list of xAPI Credentials  Returns a list of xAPI credentials.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="since">Only &lt;&lt;resourcePathName&gt;&gt; updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. (optional)</param>
-        /// <param name="more">Value for this parameter will be provided in the &#39;more&#39; property of &lt;&lt;resourcePathName&gt;&gt; lists, where needed. An opaque value, construction and parsing may change without notice. (optional)</param>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <returns>Task of ApiResponse (XapiCredentialsListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<XapiCredentialsListSchema>> GetXapiCredentialsAsyncWithHttpInfo (DateTime? since = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<XapiCredentialsListSchema>> GetXapiCredentialsAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
         {
 
             var localVarPath = "/xapi/credentials";
@@ -1805,6 +1850,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -1839,10 +1889,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
+        /// Create or update an xAPI Statement Pipe  Creates or updates information about the xAPI statement pipe.  - If the xAPI statement pipe is instead being updated, the pipe will start over and forward any statements it finds, even if it had already forwarded those statements.  If the pipe being edited is currently being processed, then this request will fail with a status code of 409.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>StringResultSchema</returns>
         public StringResultSchema SetStatementPipe (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe)
@@ -1852,10 +1902,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
+        /// Create or update an xAPI Statement Pipe  Creates or updates information about the xAPI statement pipe.  - If the xAPI statement pipe is instead being updated, the pipe will start over and forward any statements it finds, even if it had already forwarded those statements.  If the pipe being edited is currently being processed, then this request will fail with a status code of 409.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
         public ApiResponse< StringResultSchema > SetStatementPipeWithHttpInfo (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe)
@@ -1931,10 +1981,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
+        /// Create or update an xAPI Statement Pipe  Creates or updates information about the xAPI statement pipe.  - If the xAPI statement pipe is instead being updated, the pipe will start over and forward any statements it finds, even if it had already forwarded those statements.  If the pipe being edited is currently being processed, then this request will fail with a status code of 409.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>Task of StringResultSchema</returns>
         public async System.Threading.Tasks.Task<StringResultSchema> SetStatementPipeAsync (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe)
@@ -1945,10 +1995,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI pipe or create a new one. Editing a pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the pipe being edited is currently being processed, the this request will fail with a status code of 409. 
+        /// Create or update an xAPI Statement Pipe  Creates or updates information about the xAPI statement pipe.  - If the xAPI statement pipe is instead being updated, the pipe will start over and forward any statements it finds, even if it had already forwarded those statements.  If the pipe being edited is currently being processed, then this request will fail with a status code of 409.  &gt;**Note:** &gt;This method is asynchronous.  A returned success status indicates a background process has been started, but there will still be a delay before the creation of the xAPI statement pipe takes place. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statementPipeId">id for this xAPI statement pipe</param>
+        /// <param name="statementPipeId"></param>
         /// <param name="xapiStatementPipe"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> SetStatementPipeAsyncWithHttpInfo (string statementPipeId, XapiStatementPipePutSchema xapiStatementPipe)
@@ -2024,10 +2074,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Create or update xAPI Credentials  Creates or updates information about the xAPI credentials. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <param name="xapiCredential"></param>
         /// <returns></returns>
         public void SetXapiCredential (string xapiCredentialId, XapiCredentialPostSchema xapiCredential)
@@ -2036,10 +2086,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Create or update xAPI Credentials  Creates or updates information about the xAPI credentials. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <param name="xapiCredential"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SetXapiCredentialWithHttpInfo (string xapiCredentialId, XapiCredentialPostSchema xapiCredential)
@@ -2115,10 +2165,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Create or update xAPI Credentials  Creates or updates information about the xAPI credentials. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <param name="xapiCredential"></param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task SetXapiCredentialAsync (string xapiCredentialId, XapiCredentialPostSchema xapiCredential)
@@ -2128,10 +2178,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id Edit an existing xAPI credential or create a new one, specified by the xAPI credentials id
+        /// Create or update xAPI Credentials  Creates or updates information about the xAPI credentials. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xapiCredentialId">id for this xAPI credential</param>
+        /// <param name="xapiCredentialId"></param>
         /// <param name="xapiCredential"></param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> SetXapiCredentialAsyncWithHttpInfo (string xapiCredentialId, XapiCredentialPostSchema xapiCredential)

@@ -25,34 +25,23 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// PublicInvitationSchema
+    /// PublicInvitationUpdateSchema
     /// </summary>
     [DataContract]
-    public partial class PublicInvitationSchema :  IEquatable<PublicInvitationSchema>, IValidatableObject
+    public partial class PublicInvitationUpdateSchema :  IEquatable<PublicInvitationUpdateSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PublicInvitationSchema" /> class.
+        /// Initializes a new instance of the <see cref="PublicInvitationUpdateSchema" /> class.
         /// </summary>
-        /// <param name="id">The invitationId for this invitation..</param>
-        /// <param name="courseId">Course Id for this Invitation..</param>
         /// <param name="allowLaunch">If true, then new registrations can be created for this invitation..</param>
         /// <param name="allowNewRegistrations">If true, then new registrations can be created for this invitation..</param>
-        /// <param name="url">The launch URL for the invitation.</param>
-        /// <param name="createDate">The create date for the invitation.</param>
-        /// <param name="updated">updated.</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
         /// <param name="registrationCap">Integer value that limits the amount of registrations a public invitation can generate. (default to 0).</param>
-        /// <param name="registrationCount">The count of registrations for this invitation.</param>
-        public PublicInvitationSchema(string id = default(string), string courseId = default(string), bool? allowLaunch = default(bool?), bool? allowNewRegistrations = default(bool?), string url = default(string), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCap = 0, int? registrationCount = default(int?))
+        public PublicInvitationUpdateSchema(bool? allowLaunch = default(bool?), bool? allowNewRegistrations = default(bool?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCap = 0)
         {
-            this.Id = id;
-            this.CourseId = courseId;
             this.AllowLaunch = allowLaunch;
             this.AllowNewRegistrations = allowNewRegistrations;
-            this.Url = url;
-            this.CreateDate = createDate;
-            this.Updated = updated;
             this.PostBack = postBack;
             this.ExpirationDate = expirationDate;
             // use default value if no "registrationCap" provided
@@ -64,23 +53,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             {
                 this.RegistrationCap = registrationCap;
             }
-            this.RegistrationCount = registrationCount;
         }
         
-        /// <summary>
-        /// The invitationId for this invitation.
-        /// </summary>
-        /// <value>The invitationId for this invitation.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Course Id for this Invitation.
-        /// </summary>
-        /// <value>Course Id for this Invitation.</value>
-        [DataMember(Name="courseId", EmitDefaultValue=false)]
-        public string CourseId { get; set; }
-
         /// <summary>
         /// If true, then new registrations can be created for this invitation.
         /// </summary>
@@ -94,26 +68,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>If true, then new registrations can be created for this invitation.</value>
         [DataMember(Name="allowNewRegistrations", EmitDefaultValue=false)]
         public bool? AllowNewRegistrations { get; set; }
-
-        /// <summary>
-        /// The launch URL for the invitation
-        /// </summary>
-        /// <value>The launch URL for the invitation</value>
-        [DataMember(Name="url", EmitDefaultValue=false)]
-        public string Url { get; set; }
-
-        /// <summary>
-        /// The create date for the invitation
-        /// </summary>
-        /// <value>The create date for the invitation</value>
-        [DataMember(Name="createDate", EmitDefaultValue=false)]
-        public DateTime? CreateDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Updated
-        /// </summary>
-        [DataMember(Name="updated", EmitDefaultValue=false)]
-        public DateTime? Updated { get; set; }
 
         /// <summary>
         /// Specifies a URL for which to post activity and status data in real time as the course is completed
@@ -137,31 +91,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public int? RegistrationCap { get; set; }
 
         /// <summary>
-        /// The count of registrations for this invitation
-        /// </summary>
-        /// <value>The count of registrations for this invitation</value>
-        [DataMember(Name="registrationCount", EmitDefaultValue=false)]
-        public int? RegistrationCount { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PublicInvitationSchema {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  CourseId: ").Append(CourseId).Append("\n");
+            sb.Append("class PublicInvitationUpdateSchema {\n");
             sb.Append("  AllowLaunch: ").Append(AllowLaunch).Append("\n");
             sb.Append("  AllowNewRegistrations: ").Append(AllowNewRegistrations).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
-            sb.Append("  CreateDate: ").Append(CreateDate).Append("\n");
-            sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  PostBack: ").Append(PostBack).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  RegistrationCap: ").Append(RegistrationCap).Append("\n");
-            sb.Append("  RegistrationCount: ").Append(RegistrationCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,30 +123,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PublicInvitationSchema);
+            return this.Equals(input as PublicInvitationUpdateSchema);
         }
 
         /// <summary>
-        /// Returns true if PublicInvitationSchema instances are equal
+        /// Returns true if PublicInvitationUpdateSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of PublicInvitationSchema to be compared</param>
+        /// <param name="input">Instance of PublicInvitationUpdateSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PublicInvitationSchema input)
+        public bool Equals(PublicInvitationUpdateSchema input)
         {
             if (input == null)
                 return false;
 
             return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.CourseId == input.CourseId ||
-                    (this.CourseId != null &&
-                    this.CourseId.Equals(input.CourseId))
-                ) && 
                 (
                     this.AllowLaunch == input.AllowLaunch ||
                     (this.AllowLaunch != null &&
@@ -215,21 +146,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.AllowNewRegistrations == input.AllowNewRegistrations ||
                     (this.AllowNewRegistrations != null &&
                     this.AllowNewRegistrations.Equals(input.AllowNewRegistrations))
-                ) && 
-                (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
-                ) && 
-                (
-                    this.CreateDate == input.CreateDate ||
-                    (this.CreateDate != null &&
-                    this.CreateDate.Equals(input.CreateDate))
-                ) && 
-                (
-                    this.Updated == input.Updated ||
-                    (this.Updated != null &&
-                    this.Updated.Equals(input.Updated))
                 ) && 
                 (
                     this.PostBack == input.PostBack ||
@@ -245,11 +161,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.RegistrationCap == input.RegistrationCap ||
                     (this.RegistrationCap != null &&
                     this.RegistrationCap.Equals(input.RegistrationCap))
-                ) && 
-                (
-                    this.RegistrationCount == input.RegistrationCount ||
-                    (this.RegistrationCount != null &&
-                    this.RegistrationCount.Equals(input.RegistrationCount))
                 );
         }
 
@@ -262,28 +173,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.CourseId != null)
-                    hashCode = hashCode * 59 + this.CourseId.GetHashCode();
                 if (this.AllowLaunch != null)
                     hashCode = hashCode * 59 + this.AllowLaunch.GetHashCode();
                 if (this.AllowNewRegistrations != null)
                     hashCode = hashCode * 59 + this.AllowNewRegistrations.GetHashCode();
-                if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
-                if (this.CreateDate != null)
-                    hashCode = hashCode * 59 + this.CreateDate.GetHashCode();
-                if (this.Updated != null)
-                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 if (this.PostBack != null)
                     hashCode = hashCode * 59 + this.PostBack.GetHashCode();
                 if (this.ExpirationDate != null)
                     hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
                 if (this.RegistrationCap != null)
                     hashCode = hashCode * 59 + this.RegistrationCap.GetHashCode();
-                if (this.RegistrationCount != null)
-                    hashCode = hashCode * 59 + this.RegistrationCount.GetHashCode();
                 return hashCode;
             }
         }

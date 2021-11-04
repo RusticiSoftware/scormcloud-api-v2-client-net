@@ -34,20 +34,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Initializes a new instance of the <see cref="DispatchSchema" /> class.
         /// </summary>
         /// <param name="destinationId">Destination ID..</param>
+        /// <param name="destinationName">Name of the destination housing this dispatch.</param>
         /// <param name="courseId">Serialized external package ID..</param>
+        /// <param name="courseTitle">Title of this dispatched course.</param>
+        /// <param name="updated">updated.</param>
+        /// <param name="created">created.</param>
         /// <param name="allowNewRegistrations">If true, then new registrations can be created for this dispatch. .</param>
         /// <param name="enabled">If false, the dispatch can not be launched..</param>
         /// <param name="instanced">If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. .</param>
         /// <param name="registrationCap">The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. .</param>
         /// <param name="registrationCount">The current number of registrations that have been created for this dispatch. .</param>
-        /// <param name="expirationDate">The date after which this dispatch will be disabled as an ISO 8601 string, or &#39;none&#39; for no expiration date. .</param>
+        /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. .</param>
         /// <param name="tags">The tags to associate with this Dispatch..</param>
         /// <param name="email">SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. .</param>
         /// <param name="notes">Any provided notes about this dispatch..</param>
-        public DispatchSchema(string destinationId = default(string), string courseId = default(string), bool? allowNewRegistrations = default(bool?), bool? enabled = default(bool?), bool? instanced = default(bool?), int? registrationCap = default(int?), int? registrationCount = default(int?), DateTime? expirationDate = default(DateTime?), List<string> tags = default(List<string>), string email = default(string), string notes = default(string))
+        public DispatchSchema(string destinationId = default(string), string destinationName = default(string), string courseId = default(string), string courseTitle = default(string), DateTime? updated = default(DateTime?), DateTime? created = default(DateTime?), bool? allowNewRegistrations = default(bool?), bool? enabled = default(bool?), bool? instanced = default(bool?), int? registrationCap = default(int?), int? registrationCount = default(int?), DateTime? expirationDate = default(DateTime?), List<string> tags = default(List<string>), string email = default(string), string notes = default(string))
         {
             this.DestinationId = destinationId;
+            this.DestinationName = destinationName;
             this.CourseId = courseId;
+            this.CourseTitle = courseTitle;
+            this.Updated = updated;
+            this.Created = created;
             this.AllowNewRegistrations = allowNewRegistrations;
             this.Enabled = enabled;
             this.Instanced = instanced;
@@ -67,11 +75,37 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public string DestinationId { get; set; }
 
         /// <summary>
+        /// Name of the destination housing this dispatch
+        /// </summary>
+        /// <value>Name of the destination housing this dispatch</value>
+        [DataMember(Name="destinationName", EmitDefaultValue=false)]
+        public string DestinationName { get; set; }
+
+        /// <summary>
         /// Serialized external package ID.
         /// </summary>
         /// <value>Serialized external package ID.</value>
         [DataMember(Name="courseId", EmitDefaultValue=false)]
         public string CourseId { get; set; }
+
+        /// <summary>
+        /// Title of this dispatched course
+        /// </summary>
+        /// <value>Title of this dispatched course</value>
+        [DataMember(Name="courseTitle", EmitDefaultValue=false)]
+        public string CourseTitle { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Updated
+        /// </summary>
+        [DataMember(Name="updated", EmitDefaultValue=false)]
+        public DateTime? Updated { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Created
+        /// </summary>
+        [DataMember(Name="created", EmitDefaultValue=false)]
+        public DateTime? Created { get; set; }
 
         /// <summary>
         /// If true, then new registrations can be created for this dispatch. 
@@ -109,9 +143,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public int? RegistrationCount { get; set; }
 
         /// <summary>
-        /// The date after which this dispatch will be disabled as an ISO 8601 string, or &#39;none&#39; for no expiration date. 
+        /// The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. 
         /// </summary>
-        /// <value>The date after which this dispatch will be disabled as an ISO 8601 string, or &#39;none&#39; for no expiration date. </value>
+        /// <value>The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. </value>
         [DataMember(Name="expirationDate", EmitDefaultValue=false)]
         public DateTime? ExpirationDate { get; set; }
 
@@ -145,7 +179,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             var sb = new StringBuilder();
             sb.Append("class DispatchSchema {\n");
             sb.Append("  DestinationId: ").Append(DestinationId).Append("\n");
+            sb.Append("  DestinationName: ").Append(DestinationName).Append("\n");
             sb.Append("  CourseId: ").Append(CourseId).Append("\n");
+            sb.Append("  CourseTitle: ").Append(CourseTitle).Append("\n");
+            sb.Append("  Updated: ").Append(Updated).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  AllowNewRegistrations: ").Append(AllowNewRegistrations).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Instanced: ").Append(Instanced).Append("\n");
@@ -195,9 +233,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.DestinationId.Equals(input.DestinationId))
                 ) && 
                 (
+                    this.DestinationName == input.DestinationName ||
+                    (this.DestinationName != null &&
+                    this.DestinationName.Equals(input.DestinationName))
+                ) && 
+                (
                     this.CourseId == input.CourseId ||
                     (this.CourseId != null &&
                     this.CourseId.Equals(input.CourseId))
+                ) && 
+                (
+                    this.CourseTitle == input.CourseTitle ||
+                    (this.CourseTitle != null &&
+                    this.CourseTitle.Equals(input.CourseTitle))
+                ) && 
+                (
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
                 ) && 
                 (
                     this.AllowNewRegistrations == input.AllowNewRegistrations ||
@@ -257,8 +315,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                 int hashCode = 41;
                 if (this.DestinationId != null)
                     hashCode = hashCode * 59 + this.DestinationId.GetHashCode();
+                if (this.DestinationName != null)
+                    hashCode = hashCode * 59 + this.DestinationName.GetHashCode();
                 if (this.CourseId != null)
                     hashCode = hashCode * 59 + this.CourseId.GetHashCode();
+                if (this.CourseTitle != null)
+                    hashCode = hashCode * 59 + this.CourseTitle.GetHashCode();
+                if (this.Updated != null)
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
                 if (this.AllowNewRegistrations != null)
                     hashCode = hashCode * 59 + this.AllowNewRegistrations.GetHashCode();
                 if (this.Enabled != null)

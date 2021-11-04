@@ -25,47 +25,35 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// RegistrationListSchema
+    /// UpdateApplicationSchema
     /// </summary>
     [DataContract]
-    public partial class RegistrationListSchema :  IEquatable<RegistrationListSchema>, IValidatableObject
+    public partial class UpdateApplicationSchema :  IEquatable<UpdateApplicationSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegistrationListSchema" /> class.
+        /// Initializes a new instance of the <see cref="UpdateApplicationSchema" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected RegistrationListSchema() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RegistrationListSchema" /> class.
-        /// </summary>
-        /// <param name="registrations">registrations (required).</param>
-        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
-        public RegistrationListSchema(List<RegistrationSchema> registrations = default(List<RegistrationSchema>), string more = default(string))
+        /// <param name="name">The new name of the application..</param>
+        /// <param name="allowDelete">Whether or not the application is allowed to perform deletion operations..</param>
+        public UpdateApplicationSchema(string name = default(string), bool? allowDelete = default(bool?))
         {
-            // to ensure "registrations" is required (not null)
-            if (registrations == null)
-            {
-                throw new InvalidDataException("registrations is a required property for RegistrationListSchema and cannot be null");
-            }
-            else
-            {
-                this.Registrations = registrations;
-            }
-            this.More = more;
+            this.Name = name;
+            this.AllowDelete = allowDelete;
         }
         
         /// <summary>
-        /// Gets or Sets Registrations
+        /// The new name of the application.
         /// </summary>
-        [DataMember(Name="registrations", EmitDefaultValue=false)]
-        public List<RegistrationSchema> Registrations { get; set; }
+        /// <value>The new name of the application.</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Token for getting the next set of results, from the prior set of results.
+        /// Whether or not the application is allowed to perform deletion operations.
         /// </summary>
-        /// <value>Token for getting the next set of results, from the prior set of results.</value>
-        [DataMember(Name="more", EmitDefaultValue=false)]
-        public string More { get; set; }
+        /// <value>Whether or not the application is allowed to perform deletion operations.</value>
+        [DataMember(Name="allowDelete", EmitDefaultValue=false)]
+        public bool? AllowDelete { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +62,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RegistrationListSchema {\n");
-            sb.Append("  Registrations: ").Append(Registrations).Append("\n");
-            sb.Append("  More: ").Append(More).Append("\n");
+            sb.Append("class UpdateApplicationSchema {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  AllowDelete: ").Append(AllowDelete).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,29 +85,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RegistrationListSchema);
+            return this.Equals(input as UpdateApplicationSchema);
         }
 
         /// <summary>
-        /// Returns true if RegistrationListSchema instances are equal
+        /// Returns true if UpdateApplicationSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of RegistrationListSchema to be compared</param>
+        /// <param name="input">Instance of UpdateApplicationSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RegistrationListSchema input)
+        public bool Equals(UpdateApplicationSchema input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Registrations == input.Registrations ||
-                    this.Registrations != null &&
-                    this.Registrations.SequenceEqual(input.Registrations)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.More == input.More ||
-                    (this.More != null &&
-                    this.More.Equals(input.More))
+                    this.AllowDelete == input.AllowDelete ||
+                    (this.AllowDelete != null &&
+                    this.AllowDelete.Equals(input.AllowDelete))
                 );
         }
 
@@ -132,10 +120,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Registrations != null)
-                    hashCode = hashCode * 59 + this.Registrations.GetHashCode();
-                if (this.More != null)
-                    hashCode = hashCode * 59 + this.More.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.AllowDelete != null)
+                    hashCode = hashCode * 59 + this.AllowDelete.GetHashCode();
                 return hashCode;
             }
         }

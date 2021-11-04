@@ -6,7 +6,7 @@
         <title>SCORM Cloud v2 API C# Client Library</title>
 
         <!-- The package version number that is used when resolving dependencies -->
-        <version>1.1.0</version>
+        <version>2.0.0</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
         <authors>rustici-software-systems</authors>
@@ -15,7 +15,7 @@
              users to earily find other packages by the same owners.  -->
         <owners>rustici-software-systems</owners>
 
-        <license type="extention">Apache-2.0</license>
+        <license type="expression">Apache-2.0</license>
 
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <developmentDependency>false</developmentDependency>
@@ -23,7 +23,7 @@
         <!-- The description can be used in package manager UI. Note that the
              nuget.org gallery uses information you add in the portal. -->
         <description>Swagger Generated C# Client for SCORM Cloud API v2</description>
-            <copyright>https://cloud.scorm.com/sc/scorm_cloud_terms_of_service.html</copyright>
+        <copyright>https://cloud.scorm.com/sc/scorm_cloud_terms_of_service.html</copyright>
 
         <tags>SCORM rustici elearning AICC xAPI</tags>
         <!-- Dependencies are automatically installed when the package is installed -->
@@ -31,7 +31,7 @@
 
             <dependency id="NewtonSoft.Json" version="10.0.3" />
             <dependency id="JsonSubTypes" version="1.2.0" />
-            <dependency id="RestSharp" version="105.1.0" />
+            <dependency id="RestSharp" version="106.0.1" />
 
         </dependencies>
     </metadata>

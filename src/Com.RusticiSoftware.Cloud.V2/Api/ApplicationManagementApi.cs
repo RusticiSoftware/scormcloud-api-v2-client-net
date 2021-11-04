@@ -25,31 +25,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Use the Application Management App to create a new Application 
         /// </summary>
         /// <remarks>
-        /// A call to this method will create a new application and return a basic object describing it.
+        /// Creates an application.  Applications are how resources are grouped together in SCORM Cloud.  Any courses, registrations, etc. will only be accessible via the credentials for the application they belong to.  &gt;**Note:** &gt;Application IDs are unique in that we do not allow the user to supply a custom value for this field.  The ID of the newly created application will be specified in the response from this method.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationName"></param>
+        /// <param name="applicationRequest"></param>
         /// <returns>ApplicationSchema</returns>
-        ApplicationSchema CreateApplication (ApplicationSchema applicationName);
+        ApplicationSchema CreateApplication (ApplicationRequestSchema applicationRequest);
 
         /// <summary>
-        /// 
+        /// Use the Application Management App to create a new Application 
         /// </summary>
         /// <remarks>
-        /// A call to this method will create a new application and return a basic object describing it.
+        /// Creates an application.  Applications are how resources are grouped together in SCORM Cloud.  Any courses, registrations, etc. will only be accessible via the credentials for the application they belong to.  &gt;**Note:** &gt;Application IDs are unique in that we do not allow the user to supply a custom value for this field.  The ID of the newly created application will be specified in the response from this method.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationName"></param>
+        /// <param name="applicationRequest"></param>
         /// <returns>ApiResponse of ApplicationSchema</returns>
-        ApiResponse<ApplicationSchema> CreateApplicationWithHttpInfo (ApplicationSchema applicationName);
+        ApiResponse<ApplicationSchema> CreateApplicationWithHttpInfo (ApplicationRequestSchema applicationRequest);
         /// <summary>
-        /// 
+        /// Use the Application Manager App to create a new secret key for an Application 
         /// </summary>
         /// <remarks>
-        /// Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
+        /// Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -58,10 +58,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         CredentialCreatedSchema CreateCredential (string childAppId, CredentialRequestSchema credentialRequest);
 
         /// <summary>
-        /// 
+        /// Use the Application Manager App to create a new secret key for an Application 
         /// </summary>
         /// <remarks>
-        /// Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
+        /// Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -69,10 +69,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of CredentialCreatedSchema</returns>
         ApiResponse<CredentialCreatedSchema> CreateCredentialWithHttpInfo (string childAppId, CredentialRequestSchema credentialRequest);
         /// <summary>
-        /// 
+        /// Obtain an OAuth token for scoped access to an Application 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -80,20 +80,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         StringResultSchema CreateToken (TokenRequestSchema tokenRequest);
 
         /// <summary>
-        /// 
+        /// Obtain an OAuth token for scoped access to an Application 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
         /// <returns>ApiResponse of StringResultSchema</returns>
         ApiResponse<StringResultSchema> CreateTokenWithHttpInfo (TokenRequestSchema tokenRequest);
         /// <summary>
-        /// 
+        /// Use the Application Management App to delete an Application 
         /// </summary>
         /// <remarks>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// Deletes the specified application.  All content within an application must be removed in order to allow deletion.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -101,45 +101,45 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteApplication (string childAppId);
 
         /// <summary>
-        /// 
+        /// Use the Application Management App to delete an Application 
         /// </summary>
         /// <remarks>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// Deletes the specified application.  All content within an application must be removed in order to allow deletion.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteApplicationWithHttpInfo (string childAppId);
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this level 
+        /// Delete a configuration setting explicitly set for an Application 
         /// </summary>
         /// <remarks>
-        /// Clears the setting value at this level.  This is effectively reverting the setting to the system level default. 
+        /// Clears the specified setting from the application.  This causes the setting to inherit a value from a higher level (e.g. system default if deleting from application, application level if deleting from learning standard). If the configuration setting was not set at the application level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingId"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns></returns>
         void DeleteApplicationConfigurationSetting (string settingId, string learningStandard = null, bool? singleSco = null);
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this level 
+        /// Delete a configuration setting explicitly set for an Application 
         /// </summary>
         /// <remarks>
-        /// Clears the setting value at this level.  This is effectively reverting the setting to the system level default. 
+        /// Clears the specified setting from the application.  This causes the setting to inherit a value from a higher level (e.g. system default if deleting from application, application level if deleting from learning standard). If the configuration setting was not set at the application level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingId"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteApplicationConfigurationSettingWithHttpInfo (string settingId, string learningStandard = null, bool? singleSco = null);
         /// <summary>
-        /// 
+        /// Use the Application Management App to delete a secret key from an Application 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
+        /// Deletes a credential belonging to the child application.  &gt;**Caution:** &gt;If the last secret key for an application is deleted it will not be able to use the SCORM Cloud API until another key is granted to it via &#x60;CreateCredential&#x60;.  It may also disable some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -148,10 +148,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void DeleteCredential (string childAppId, string credentialId);
 
         /// <summary>
-        /// 
+        /// Use the Application Management App to delete a secret key from an Application 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
+        /// Deletes a credential belonging to the child application.  &gt;**Caution:** &gt;If the last secret key for an application is deleted it will not be able to use the SCORM Cloud API until another key is granted to it via &#x60;CreateCredential&#x60;.  It may also disable some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -159,54 +159,79 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCredentialWithHttpInfo (string childAppId, string credentialId);
         /// <summary>
-        /// 
+        /// Get effective configuration settings for an Application 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
+        /// Returns the effective configuration settings for the application.  Configuration settings at the application level will apply to all items within that application (courses, registrations, etc.).  If there is a configuration setting present at a more specific level (course, registration, etc.), that setting will override the one set at the application level.  &gt;**Note:** &gt;This resource lists configuration for two groupings of content: &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and   &#x60;singleSco&#x60; as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. &gt;- Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.   _Note: both &#x60;learningStandard&#x60; and &#x60;singleSco&#x60; must be provided, as this level is considered to be   identified by those items joined._ 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>SettingListSchema</returns>
         SettingListSchema GetApplicationConfiguration (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
 
         /// <summary>
-        /// 
+        /// Get effective configuration settings for an Application 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
+        /// Returns the effective configuration settings for the application.  Configuration settings at the application level will apply to all items within that application (courses, registrations, etc.).  If there is a configuration setting present at a more specific level (course, registration, etc.), that setting will override the one set at the application level.  &gt;**Note:** &gt;This resource lists configuration for two groupings of content: &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and   &#x60;singleSco&#x60; as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. &gt;- Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.   _Note: both &#x60;learningStandard&#x60; and &#x60;singleSco&#x60; must be provided, as this level is considered to be   identified by those items joined._ 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>ApiResponse of SettingListSchema</returns>
         ApiResponse<SettingListSchema> GetApplicationConfigurationWithHttpInfo (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
         /// <summary>
-        /// Get a list of all applications for the realm.
+        /// Use the Application Management App to get detailed information about an Application 
         /// </summary>
         /// <remarks>
-        /// Get list of all applications in this realm.
+        /// Returns detailed information about the application.  This includes name, create date, and delete permissions.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <returns>ApplicationInfoSchema</returns>
+        ApplicationInfoSchema GetApplicationInfo (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null);
+
+        /// <summary>
+        /// Use the Application Management App to get detailed information about an Application 
+        /// </summary>
+        /// <remarks>
+        /// Returns detailed information about the application.  This includes name, create date, and delete permissions.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <returns>ApiResponse of ApplicationInfoSchema</returns>
+        ApiResponse<ApplicationInfoSchema> GetApplicationInfoWithHttpInfo (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null);
+        /// <summary>
+        /// Use the Application Management App to get a list of Applications 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApplicationListSchema</returns>
         ApplicationListSchema GetApplicationList ();
 
         /// <summary>
-        /// Get a list of all applications for the realm.
+        /// Use the Application Management App to get a list of Applications 
         /// </summary>
         /// <remarks>
-        /// Get list of all applications in this realm.
+        /// Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApplicationListSchema</returns>
         ApiResponse<ApplicationListSchema> GetApplicationListWithHttpInfo ();
         /// <summary>
-        /// 
+        /// Use the Application Manager App to get a list of secret keys for an Application 
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
+        /// Returns a list of all the credentials (aka secret keys) belonging to the child application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -214,45 +239,68 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         CredentialListSchema GetCredentials (string childAppId);
 
         /// <summary>
-        /// 
+        /// Use the Application Manager App to get a list of secret keys for an Application 
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
+        /// Returns a list of all the credentials (aka secret keys) belonging to the child application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
         /// <returns>ApiResponse of CredentialListSchema</returns>
         ApiResponse<CredentialListSchema> GetCredentialsWithHttpInfo (string childAppId);
         /// <summary>
-        /// 
+        /// Update configuration settings for an Application 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
+        /// Updates configuration settings at the application level.  This will explicitly set a value at the applicaiton level.  These settings will affect all items within the application which do not have their own explicit configuration set.  This can effectively be used to set application level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns></returns>
         void SetApplicationConfiguration (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null);
 
         /// <summary>
-        /// 
+        /// Update configuration settings for an Application 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
+        /// Updates configuration settings at the application level.  This will explicitly set a value at the applicaiton level.  These settings will affect all items within the application which do not have their own explicit configuration set.  This can effectively be used to set application level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetApplicationConfigurationWithHttpInfo (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null);
         /// <summary>
-        /// 
+        /// Use the Application Management App to update information about an Application 
         /// </summary>
         /// <remarks>
-        /// Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
+        /// Updates information about the application, such as the name and enabling/ disabling deletion operations for the application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="applicationProperties"></param>
+        /// <returns></returns>
+        void UpdateApplication (string childAppId, UpdateApplicationSchema applicationProperties);
+
+        /// <summary>
+        /// Use the Application Management App to update information about an Application 
+        /// </summary>
+        /// <remarks>
+        /// Updates information about the application, such as the name and enabling/ disabling deletion operations for the application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="applicationProperties"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateApplicationWithHttpInfo (string childAppId, UpdateApplicationSchema applicationProperties);
+        /// <summary>
+        /// Use the Application Manager App to update an existing secret key for an Application 
+        /// </summary>
+        /// <remarks>
+        /// Updates the name or status associated with the credential.  Disabling a credential will cause it to no longer be valid for authorization through the API.  &gt;**Caution:** &gt;If the last (or only) key for an application is disabled it may affect some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -262,10 +310,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         void UpdateCredential (string childAppId, string credentialId, CredentialRequestSchema credentialUpdate);
 
         /// <summary>
-        /// 
+        /// Use the Application Manager App to update an existing secret key for an Application 
         /// </summary>
         /// <remarks>
-        /// Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
+        /// Updates the name or status associated with the credential.  Disabling a credential will cause it to no longer be valid for authorization through the API.  &gt;**Caution:** &gt;If the last (or only) key for an application is disabled it may affect some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -276,31 +324,31 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Use the Application Management App to create a new Application 
         /// </summary>
         /// <remarks>
-        /// A call to this method will create a new application and return a basic object describing it.
+        /// Creates an application.  Applications are how resources are grouped together in SCORM Cloud.  Any courses, registrations, etc. will only be accessible via the credentials for the application they belong to.  &gt;**Note:** &gt;Application IDs are unique in that we do not allow the user to supply a custom value for this field.  The ID of the newly created application will be specified in the response from this method.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationName"></param>
+        /// <param name="applicationRequest"></param>
         /// <returns>Task of ApplicationSchema</returns>
-        System.Threading.Tasks.Task<ApplicationSchema> CreateApplicationAsync (ApplicationSchema applicationName);
+        System.Threading.Tasks.Task<ApplicationSchema> CreateApplicationAsync (ApplicationRequestSchema applicationRequest);
 
         /// <summary>
-        /// 
+        /// Use the Application Management App to create a new Application 
         /// </summary>
         /// <remarks>
-        /// A call to this method will create a new application and return a basic object describing it.
+        /// Creates an application.  Applications are how resources are grouped together in SCORM Cloud.  Any courses, registrations, etc. will only be accessible via the credentials for the application they belong to.  &gt;**Note:** &gt;Application IDs are unique in that we do not allow the user to supply a custom value for this field.  The ID of the newly created application will be specified in the response from this method.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationName"></param>
+        /// <param name="applicationRequest"></param>
         /// <returns>Task of ApiResponse (ApplicationSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationSchema>> CreateApplicationAsyncWithHttpInfo (ApplicationSchema applicationName);
+        System.Threading.Tasks.Task<ApiResponse<ApplicationSchema>> CreateApplicationAsyncWithHttpInfo (ApplicationRequestSchema applicationRequest);
         /// <summary>
-        /// 
+        /// Use the Application Manager App to create a new secret key for an Application 
         /// </summary>
         /// <remarks>
-        /// Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
+        /// Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -309,10 +357,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<CredentialCreatedSchema> CreateCredentialAsync (string childAppId, CredentialRequestSchema credentialRequest);
 
         /// <summary>
-        /// 
+        /// Use the Application Manager App to create a new secret key for an Application 
         /// </summary>
         /// <remarks>
-        /// Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
+        /// Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -320,10 +368,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (CredentialCreatedSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CredentialCreatedSchema>> CreateCredentialAsyncWithHttpInfo (string childAppId, CredentialRequestSchema credentialRequest);
         /// <summary>
-        /// 
+        /// Obtain an OAuth token for scoped access to an Application 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -331,20 +379,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<StringResultSchema> CreateTokenAsync (TokenRequestSchema tokenRequest);
 
         /// <summary>
-        /// 
+        /// Obtain an OAuth token for scoped access to an Application 
         /// </summary>
         /// <remarks>
-        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateTokenAsyncWithHttpInfo (TokenRequestSchema tokenRequest);
         /// <summary>
-        /// 
+        /// Use the Application Management App to delete an Application 
         /// </summary>
         /// <remarks>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// Deletes the specified application.  All content within an application must be removed in order to allow deletion.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -352,45 +400,45 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteApplicationAsync (string childAppId);
 
         /// <summary>
-        /// 
+        /// Use the Application Management App to delete an Application 
         /// </summary>
         /// <remarks>
-        /// Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// Deletes the specified application.  All content within an application must be removed in order to allow deletion.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteApplicationAsyncWithHttpInfo (string childAppId);
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this level 
+        /// Delete a configuration setting explicitly set for an Application 
         /// </summary>
         /// <remarks>
-        /// Clears the setting value at this level.  This is effectively reverting the setting to the system level default. 
+        /// Clears the specified setting from the application.  This causes the setting to inherit a value from a higher level (e.g. system default if deleting from application, application level if deleting from learning standard). If the configuration setting was not set at the application level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingId"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteApplicationConfigurationSettingAsync (string settingId, string learningStandard = null, bool? singleSco = null);
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this level 
+        /// Delete a configuration setting explicitly set for an Application 
         /// </summary>
         /// <remarks>
-        /// Clears the setting value at this level.  This is effectively reverting the setting to the system level default. 
+        /// Clears the specified setting from the application.  This causes the setting to inherit a value from a higher level (e.g. system default if deleting from application, application level if deleting from learning standard). If the configuration setting was not set at the application level it will continue to persist and will require deletion from the level it was set. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingId"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteApplicationConfigurationSettingAsyncWithHttpInfo (string settingId, string learningStandard = null, bool? singleSco = null);
         /// <summary>
-        /// 
+        /// Use the Application Management App to delete a secret key from an Application 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
+        /// Deletes a credential belonging to the child application.  &gt;**Caution:** &gt;If the last secret key for an application is deleted it will not be able to use the SCORM Cloud API until another key is granted to it via &#x60;CreateCredential&#x60;.  It may also disable some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -399,10 +447,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task DeleteCredentialAsync (string childAppId, string credentialId);
 
         /// <summary>
-        /// 
+        /// Use the Application Management App to delete a secret key from an Application 
         /// </summary>
         /// <remarks>
-        /// Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
+        /// Deletes a credential belonging to the child application.  &gt;**Caution:** &gt;If the last secret key for an application is deleted it will not be able to use the SCORM Cloud API until another key is granted to it via &#x60;CreateCredential&#x60;.  It may also disable some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -410,54 +458,79 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCredentialAsyncWithHttpInfo (string childAppId, string credentialId);
         /// <summary>
-        /// 
+        /// Get effective configuration settings for an Application 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
+        /// Returns the effective configuration settings for the application.  Configuration settings at the application level will apply to all items within that application (courses, registrations, etc.).  If there is a configuration setting present at a more specific level (course, registration, etc.), that setting will override the one set at the application level.  &gt;**Note:** &gt;This resource lists configuration for two groupings of content: &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and   &#x60;singleSco&#x60; as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. &gt;- Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.   _Note: both &#x60;learningStandard&#x60; and &#x60;singleSco&#x60; must be provided, as this level is considered to be   identified by those items joined._ 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of SettingListSchema</returns>
         System.Threading.Tasks.Task<SettingListSchema> GetApplicationConfigurationAsync (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
 
         /// <summary>
-        /// 
+        /// Get effective configuration settings for an Application 
         /// </summary>
         /// <remarks>
-        /// Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
+        /// Returns the effective configuration settings for the application.  Configuration settings at the application level will apply to all items within that application (courses, registrations, etc.).  If there is a configuration setting present at a more specific level (course, registration, etc.), that setting will override the one set at the application level.  &gt;**Note:** &gt;This resource lists configuration for two groupings of content: &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and   &#x60;singleSco&#x60; as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. &gt;- Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.   _Note: both &#x60;learningStandard&#x60; and &#x60;singleSco&#x60; must be provided, as this level is considered to be   identified by those items joined._ 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetApplicationConfigurationAsyncWithHttpInfo (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null);
         /// <summary>
-        /// Get a list of all applications for the realm.
+        /// Use the Application Management App to get detailed information about an Application 
         /// </summary>
         /// <remarks>
-        /// Get list of all applications in this realm.
+        /// Returns detailed information about the application.  This includes name, create date, and delete permissions.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <returns>Task of ApplicationInfoSchema</returns>
+        System.Threading.Tasks.Task<ApplicationInfoSchema> GetApplicationInfoAsync (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null);
+
+        /// <summary>
+        /// Use the Application Management App to get detailed information about an Application 
+        /// </summary>
+        /// <remarks>
+        /// Returns detailed information about the application.  This includes name, create date, and delete permissions.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <returns>Task of ApiResponse (ApplicationInfoSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApplicationInfoSchema>> GetApplicationInfoAsyncWithHttpInfo (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null);
+        /// <summary>
+        /// Use the Application Management App to get a list of Applications 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApplicationListSchema</returns>
         System.Threading.Tasks.Task<ApplicationListSchema> GetApplicationListAsync ();
 
         /// <summary>
-        /// Get a list of all applications for the realm.
+        /// Use the Application Management App to get a list of Applications 
         /// </summary>
         /// <remarks>
-        /// Get list of all applications in this realm.
+        /// Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApplicationListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationListSchema>> GetApplicationListAsyncWithHttpInfo ();
         /// <summary>
-        /// 
+        /// Use the Application Manager App to get a list of secret keys for an Application 
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
+        /// Returns a list of all the credentials (aka secret keys) belonging to the child application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -465,45 +538,68 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<CredentialListSchema> GetCredentialsAsync (string childAppId);
 
         /// <summary>
-        /// 
+        /// Use the Application Manager App to get a list of secret keys for an Application 
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
+        /// Returns a list of all the credentials (aka secret keys) belonging to the child application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
         /// <returns>Task of ApiResponse (CredentialListSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CredentialListSchema>> GetCredentialsAsyncWithHttpInfo (string childAppId);
         /// <summary>
-        /// 
+        /// Update configuration settings for an Application 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
+        /// Updates configuration settings at the application level.  This will explicitly set a value at the applicaiton level.  These settings will affect all items within the application which do not have their own explicit configuration set.  This can effectively be used to set application level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SetApplicationConfigurationAsync (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null);
 
         /// <summary>
-        /// 
+        /// Update configuration settings for an Application 
         /// </summary>
         /// <remarks>
-        /// Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
+        /// Updates configuration settings at the application level.  This will explicitly set a value at the applicaiton level.  These settings will affect all items within the application which do not have their own explicit configuration set.  This can effectively be used to set application level defaults. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SetApplicationConfigurationAsyncWithHttpInfo (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null);
         /// <summary>
-        /// 
+        /// Use the Application Management App to update information about an Application 
         /// </summary>
         /// <remarks>
-        /// Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
+        /// Updates information about the application, such as the name and enabling/ disabling deletion operations for the application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="applicationProperties"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateApplicationAsync (string childAppId, UpdateApplicationSchema applicationProperties);
+
+        /// <summary>
+        /// Use the Application Management App to update information about an Application 
+        /// </summary>
+        /// <remarks>
+        /// Updates information about the application, such as the name and enabling/ disabling deletion operations for the application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="applicationProperties"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateApplicationAsyncWithHttpInfo (string childAppId, UpdateApplicationSchema applicationProperties);
+        /// <summary>
+        /// Use the Application Manager App to update an existing secret key for an Application 
+        /// </summary>
+        /// <remarks>
+        /// Updates the name or status associated with the credential.  Disabling a credential will cause it to no longer be valid for authorization through the API.  &gt;**Caution:** &gt;If the last (or only) key for an application is disabled it may affect some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -513,10 +609,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task UpdateCredentialAsync (string childAppId, string credentialId, CredentialRequestSchema credentialUpdate);
 
         /// <summary>
-        /// 
+        /// Use the Application Manager App to update an existing secret key for an Application 
         /// </summary>
         /// <remarks>
-        /// Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
+        /// Updates the name or status associated with the credential.  Disabling a credential will cause it to no longer be valid for authorization through the API.  &gt;**Caution:** &gt;If the last (or only) key for an application is disabled it may affect some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -625,28 +721,28 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  A call to this method will create a new application and return a basic object describing it.
+        /// Use the Application Management App to create a new Application  Creates an application.  Applications are how resources are grouped together in SCORM Cloud.  Any courses, registrations, etc. will only be accessible via the credentials for the application they belong to.  &gt;**Note:** &gt;Application IDs are unique in that we do not allow the user to supply a custom value for this field.  The ID of the newly created application will be specified in the response from this method.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationName"></param>
+        /// <param name="applicationRequest"></param>
         /// <returns>ApplicationSchema</returns>
-        public ApplicationSchema CreateApplication (ApplicationSchema applicationName)
+        public ApplicationSchema CreateApplication (ApplicationRequestSchema applicationRequest)
         {
-             ApiResponse<ApplicationSchema> localVarResponse = CreateApplicationWithHttpInfo(applicationName);
+             ApiResponse<ApplicationSchema> localVarResponse = CreateApplicationWithHttpInfo(applicationRequest);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  A call to this method will create a new application and return a basic object describing it.
+        /// Use the Application Management App to create a new Application  Creates an application.  Applications are how resources are grouped together in SCORM Cloud.  Any courses, registrations, etc. will only be accessible via the credentials for the application they belong to.  &gt;**Note:** &gt;Application IDs are unique in that we do not allow the user to supply a custom value for this field.  The ID of the newly created application will be specified in the response from this method.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationName"></param>
+        /// <param name="applicationRequest"></param>
         /// <returns>ApiResponse of ApplicationSchema</returns>
-        public ApiResponse< ApplicationSchema > CreateApplicationWithHttpInfo (ApplicationSchema applicationName)
+        public ApiResponse< ApplicationSchema > CreateApplicationWithHttpInfo (ApplicationRequestSchema applicationRequest)
         {
-            // verify the required parameter 'applicationName' is set
-            if (applicationName == null)
-                throw new ApiException(400, "Missing required parameter 'applicationName' when calling ApplicationManagementApi->CreateApplication");
+            // verify the required parameter 'applicationRequest' is set
+            if (applicationRequest == null)
+                throw new ApiException(400, "Missing required parameter 'applicationRequest' when calling ApplicationManagementApi->CreateApplication");
 
             var localVarPath = "/appManagement/applications";
             var localVarPathParams = new Dictionary<String, String>();
@@ -670,13 +766,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (applicationName != null && applicationName.GetType() != typeof(byte[]))
+            if (applicationRequest != null && applicationRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(applicationName); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(applicationRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = applicationName; // byte array
+                localVarPostBody = applicationRequest; // byte array
             }
 
             // authentication (APP_MANAGEMENT) required
@@ -711,29 +807,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  A call to this method will create a new application and return a basic object describing it.
+        /// Use the Application Management App to create a new Application  Creates an application.  Applications are how resources are grouped together in SCORM Cloud.  Any courses, registrations, etc. will only be accessible via the credentials for the application they belong to.  &gt;**Note:** &gt;Application IDs are unique in that we do not allow the user to supply a custom value for this field.  The ID of the newly created application will be specified in the response from this method.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationName"></param>
+        /// <param name="applicationRequest"></param>
         /// <returns>Task of ApplicationSchema</returns>
-        public async System.Threading.Tasks.Task<ApplicationSchema> CreateApplicationAsync (ApplicationSchema applicationName)
+        public async System.Threading.Tasks.Task<ApplicationSchema> CreateApplicationAsync (ApplicationRequestSchema applicationRequest)
         {
-             ApiResponse<ApplicationSchema> localVarResponse = await CreateApplicationAsyncWithHttpInfo(applicationName);
+             ApiResponse<ApplicationSchema> localVarResponse = await CreateApplicationAsyncWithHttpInfo(applicationRequest);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  A call to this method will create a new application and return a basic object describing it.
+        /// Use the Application Management App to create a new Application  Creates an application.  Applications are how resources are grouped together in SCORM Cloud.  Any courses, registrations, etc. will only be accessible via the credentials for the application they belong to.  &gt;**Note:** &gt;Application IDs are unique in that we do not allow the user to supply a custom value for this field.  The ID of the newly created application will be specified in the response from this method.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationName"></param>
+        /// <param name="applicationRequest"></param>
         /// <returns>Task of ApiResponse (ApplicationSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApplicationSchema>> CreateApplicationAsyncWithHttpInfo (ApplicationSchema applicationName)
+        public async System.Threading.Tasks.Task<ApiResponse<ApplicationSchema>> CreateApplicationAsyncWithHttpInfo (ApplicationRequestSchema applicationRequest)
         {
-            // verify the required parameter 'applicationName' is set
-            if (applicationName == null)
-                throw new ApiException(400, "Missing required parameter 'applicationName' when calling ApplicationManagementApi->CreateApplication");
+            // verify the required parameter 'applicationRequest' is set
+            if (applicationRequest == null)
+                throw new ApiException(400, "Missing required parameter 'applicationRequest' when calling ApplicationManagementApi->CreateApplication");
 
             var localVarPath = "/appManagement/applications";
             var localVarPathParams = new Dictionary<String, String>();
@@ -757,13 +853,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (applicationName != null && applicationName.GetType() != typeof(byte[]))
+            if (applicationRequest != null && applicationRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(applicationName); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(applicationRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = applicationName; // byte array
+                localVarPostBody = applicationRequest; // byte array
             }
 
             // authentication (APP_MANAGEMENT) required
@@ -798,7 +894,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
+        /// Use the Application Manager App to create a new secret key for an Application  Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -811,7 +907,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
+        /// Use the Application Manager App to create a new secret key for an Application  Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -890,7 +986,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
+        /// Use the Application Manager App to create a new secret key for an Application  Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -904,7 +1000,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Create a new credential (aka secret key) for use with the &#x60;childAppId&#x60;. 
+        /// Use the Application Manager App to create a new secret key for an Application  Creates a new credential (aka secret key) for use with the child application.  The credential will be used alongside the &#x60;childAppId&#x60; for basic auth requests.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -983,7 +1079,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Obtain an OAuth token for scoped access to an Application  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -995,7 +1091,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Obtain an OAuth token for scoped access to an Application  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -1063,7 +1159,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Obtain an OAuth token for scoped access to an Application  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -1076,7 +1172,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested. Note: the token is not stored and therefore can not be modified or deleted. The requested permissions are encoded in the token which is then signed. As long as the secret used to create it is not changed the token will be valid until it expires.
+        /// Obtain an OAuth token for scoped access to an Application  Creates, signs and returns an OAuth2 token based on the provided permissions, if the credentials used to request the token have the permissions being requested.  &gt;**Note:** &gt;The token is not stored and therefore can not be modified or deleted.  The requested permissions are encoded in the token which is then signed. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest"></param>
@@ -1144,7 +1240,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// Use the Application Management App to delete an Application  Deletes the specified application.  All content within an application must be removed in order to allow deletion.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1155,7 +1251,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// Use the Application Management App to delete an Application  Deletes the specified application.  All content within an application must be removed in order to allow deletion.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1222,7 +1318,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// Use the Application Management App to delete an Application  Deletes the specified application.  All content within an application must be removed in order to allow deletion.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1234,7 +1330,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Delete an application.  If the application contains content, it must first be manually removed before calling this method, else an error will be thrown.
+        /// Use the Application Management App to delete an Application  Deletes the specified application.  All content within an application must be removed in order to allow deletion.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1301,12 +1397,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this level  Clears the setting value at this level.  This is effectively reverting the setting to the system level default. 
+        /// Delete a configuration setting explicitly set for an Application  Clears the specified setting from the application.  This causes the setting to inherit a value from a higher level (e.g. system default if deleting from application, application level if deleting from learning standard). If the configuration setting was not set at the application level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingId"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns></returns>
         public void DeleteApplicationConfigurationSetting (string settingId, string learningStandard = null, bool? singleSco = null)
         {
@@ -1314,12 +1410,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this level  Clears the setting value at this level.  This is effectively reverting the setting to the system level default. 
+        /// Delete a configuration setting explicitly set for an Application  Clears the specified setting from the application.  This causes the setting to inherit a value from a higher level (e.g. system default if deleting from application, application level if deleting from learning standard). If the configuration setting was not set at the application level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingId"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteApplicationConfigurationSettingWithHttpInfo (string settingId, string learningStandard = null, bool? singleSco = null)
         {
@@ -1385,12 +1481,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this level  Clears the setting value at this level.  This is effectively reverting the setting to the system level default. 
+        /// Delete a configuration setting explicitly set for an Application  Clears the specified setting from the application.  This causes the setting to inherit a value from a higher level (e.g. system default if deleting from application, application level if deleting from learning standard). If the configuration setting was not set at the application level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingId"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteApplicationConfigurationSettingAsync (string settingId, string learningStandard = null, bool? singleSco = null)
         {
@@ -1399,12 +1495,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Clears the &#x60;settingId&#x60; value for this level  Clears the setting value at this level.  This is effectively reverting the setting to the system level default. 
+        /// Delete a configuration setting explicitly set for an Application  Clears the specified setting from the application.  This causes the setting to inherit a value from a higher level (e.g. system default if deleting from application, application level if deleting from learning standard). If the configuration setting was not set at the application level it will continue to persist and will require deletion from the level it was set. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingId"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteApplicationConfigurationSettingAsyncWithHttpInfo (string settingId, string learningStandard = null, bool? singleSco = null)
         {
@@ -1470,7 +1566,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
+        /// Use the Application Management App to delete a secret key from an Application  Deletes a credential belonging to the child application.  &gt;**Caution:** &gt;If the last secret key for an application is deleted it will not be able to use the SCORM Cloud API until another key is granted to it via &#x60;CreateCredential&#x60;.  It may also disable some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1482,7 +1578,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
+        /// Use the Application Management App to delete a secret key from an Application  Deletes a credential belonging to the child application.  &gt;**Caution:** &gt;If the last secret key for an application is deleted it will not be able to use the SCORM Cloud API until another key is granted to it via &#x60;CreateCredential&#x60;.  It may also disable some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1554,7 +1650,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
+        /// Use the Application Management App to delete a secret key from an Application  Deletes a credential belonging to the child application.  &gt;**Caution:** &gt;If the last secret key for an application is deleted it will not be able to use the SCORM Cloud API until another key is granted to it via &#x60;CreateCredential&#x60;.  It may also disable some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1567,7 +1663,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Delete &#x60;credentialId&#x60; from the system.  Note: if an application&#39;s last secret key is deleted it will not be able to use the SCORM Cloud api until another key is granted to it via &#x60;CreateCredential&#x60;.  Removing the last secret key may also disable some priviledges in the website. 
+        /// Use the Application Management App to delete a secret key from an Application  Deletes a credential belonging to the child application.  &gt;**Caution:** &gt;If the last secret key for an application is deleted it will not be able to use the SCORM Cloud API until another key is granted to it via &#x60;CreateCredential&#x60;.  It may also disable some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1639,11 +1735,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
+        /// Get effective configuration settings for an Application  Returns the effective configuration settings for the application.  Configuration settings at the application level will apply to all items within that application (courses, registrations, etc.).  If there is a configuration setting present at a more specific level (course, registration, etc.), that setting will override the one set at the application level.  &gt;**Note:** &gt;This resource lists configuration for two groupings of content: &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and   &#x60;singleSco&#x60; as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. &gt;- Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.   _Note: both &#x60;learningStandard&#x60; and &#x60;singleSco&#x60; must be provided, as this level is considered to be   identified by those items joined._ 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>SettingListSchema</returns>
         public SettingListSchema GetApplicationConfiguration (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null)
@@ -1653,11 +1749,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
+        /// Get effective configuration settings for an Application  Returns the effective configuration settings for the application.  Configuration settings at the application level will apply to all items within that application (courses, registrations, etc.).  If there is a configuration setting present at a more specific level (course, registration, etc.), that setting will override the one set at the application level.  &gt;**Note:** &gt;This resource lists configuration for two groupings of content: &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and   &#x60;singleSco&#x60; as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. &gt;- Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.   _Note: both &#x60;learningStandard&#x60; and &#x60;singleSco&#x60; must be provided, as this level is considered to be   identified by those items joined._ 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>ApiResponse of SettingListSchema</returns>
         public ApiResponse< SettingListSchema > GetApplicationConfigurationWithHttpInfo (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null)
@@ -1721,11 +1817,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
+        /// Get effective configuration settings for an Application  Returns the effective configuration settings for the application.  Configuration settings at the application level will apply to all items within that application (courses, registrations, etc.).  If there is a configuration setting present at a more specific level (course, registration, etc.), that setting will override the one set at the application level.  &gt;**Note:** &gt;This resource lists configuration for two groupings of content: &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and   &#x60;singleSco&#x60; as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. &gt;- Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.   _Note: both &#x60;learningStandard&#x60; and &#x60;singleSco&#x60; must be provided, as this level is considered to be   identified by those items joined._ 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of SettingListSchema</returns>
         public async System.Threading.Tasks.Task<SettingListSchema> GetApplicationConfigurationAsync (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null)
@@ -1736,11 +1832,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Returns all configuration settings for this level. These settings will only affect items within this application which do not have that setting themselves.  &gt;Note - -- --  &gt;This resource actually represents 2 distinct levels which are:  &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and &#x60;singleSco&#x60;   as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. - Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.  Note: both &#x60;learningStandard&#x60;   and &#x60;singleSco&#x60; must be provided, as this level is considered to be identified by those items   joined. 
+        /// Get effective configuration settings for an Application  Returns the effective configuration settings for the application.  Configuration settings at the application level will apply to all items within that application (courses, registrations, etc.).  If there is a configuration setting present at a more specific level (course, registration, etc.), that setting will override the one set at the application level.  &gt;**Note:** &gt;This resource lists configuration for two groupings of content: &gt;- ALL content in an application.  This is achieved by leaving &#x60;learningStandard&#x60; and   &#x60;singleSco&#x60; as &#x60;null&#x60;.  Anything set at the learningStandard/singleSco level will take precedence over these   settings. &gt;- Content falling into a learningStandard/singleSco category.  This allows setting more specific   defaults for a particular learningStandard/singleSco combination.   _Note: both &#x60;learningStandard&#x60; and &#x60;singleSco&#x60; must be provided, as this level is considered to be   identified by those items joined._ 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <param name="includeMetadata"> (optional, default to false)</param>
         /// <returns>Task of ApiResponse (SettingListSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<SettingListSchema>> GetApplicationConfigurationAsyncWithHttpInfo (string learningStandard = null, bool? singleSco = null, bool? includeMetadata = null)
@@ -1804,7 +1900,178 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all applications for the realm. Get list of all applications in this realm.
+        /// Use the Application Management App to get detailed information about an Application  Returns detailed information about the application.  This includes name, create date, and delete permissions.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <returns>ApplicationInfoSchema</returns>
+        public ApplicationInfoSchema GetApplicationInfo (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null)
+        {
+             ApiResponse<ApplicationInfoSchema> localVarResponse = GetApplicationInfoWithHttpInfo(childAppId, includeCourseCount, includeRegistrationCount);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Use the Application Management App to get detailed information about an Application  Returns detailed information about the application.  This includes name, create date, and delete permissions.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <returns>ApiResponse of ApplicationInfoSchema</returns>
+        public ApiResponse< ApplicationInfoSchema > GetApplicationInfoWithHttpInfo (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null)
+        {
+            // verify the required parameter 'childAppId' is set
+            if (childAppId == null)
+                throw new ApiException(400, "Missing required parameter 'childAppId' when calling ApplicationManagementApi->GetApplicationInfo");
+
+            var localVarPath = "/appManagement/applications/{childAppId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            if (includeCourseCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseCount", includeCourseCount)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
+
+            // authentication (APP_MANAGEMENT) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetApplicationInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApplicationInfoSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApplicationInfoSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationInfoSchema)));
+        }
+
+        /// <summary>
+        /// Use the Application Management App to get detailed information about an Application  Returns detailed information about the application.  This includes name, create date, and delete permissions.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <returns>Task of ApplicationInfoSchema</returns>
+        public async System.Threading.Tasks.Task<ApplicationInfoSchema> GetApplicationInfoAsync (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null)
+        {
+             ApiResponse<ApplicationInfoSchema> localVarResponse = await GetApplicationInfoAsyncWithHttpInfo(childAppId, includeCourseCount, includeRegistrationCount);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Use the Application Management App to get detailed information about an Application  Returns detailed information about the application.  This includes name, create date, and delete permissions.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <returns>Task of ApiResponse (ApplicationInfoSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApplicationInfoSchema>> GetApplicationInfoAsyncWithHttpInfo (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null)
+        {
+            // verify the required parameter 'childAppId' is set
+            if (childAppId == null)
+                throw new ApiException(400, "Missing required parameter 'childAppId' when calling ApplicationManagementApi->GetApplicationInfo");
+
+            var localVarPath = "/appManagement/applications/{childAppId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            if (includeCourseCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseCount", includeCourseCount)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
+
+            // authentication (APP_MANAGEMENT) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetApplicationInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApplicationInfoSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApplicationInfoSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationInfoSchema)));
+        }
+
+        /// <summary>
+        /// Use the Application Management App to get a list of Applications  Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApplicationListSchema</returns>
@@ -1815,7 +2082,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all applications for the realm. Get list of all applications in this realm.
+        /// Use the Application Management App to get a list of Applications  Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApplicationListSchema</returns>
@@ -1877,7 +2144,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all applications for the realm. Get list of all applications in this realm.
+        /// Use the Application Management App to get a list of Applications  Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApplicationListSchema</returns>
@@ -1889,7 +2156,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of all applications for the realm. Get list of all applications in this realm.
+        /// Use the Application Management App to get a list of Applications  Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApplicationListSchema)</returns>
@@ -1951,7 +2218,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
+        /// Use the Application Manager App to get a list of secret keys for an Application  Returns a list of all the credentials (aka secret keys) belonging to the child application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -1963,7 +2230,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
+        /// Use the Application Manager App to get a list of secret keys for an Application  Returns a list of all the credentials (aka secret keys) belonging to the child application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2030,7 +2297,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
+        /// Use the Application Manager App to get a list of secret keys for an Application  Returns a list of all the credentials (aka secret keys) belonging to the child application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2043,7 +2310,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Retrieve a list of all credentials (aka secret keys) belonging to &#x60;childAppId&#x60; and their statuses. 
+        /// Use the Application Manager App to get a list of secret keys for an Application  Returns a list of all the credentials (aka secret keys) belonging to the child application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2110,12 +2377,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
+        /// Update configuration settings for an Application  Updates configuration settings at the application level.  This will explicitly set a value at the applicaiton level.  These settings will affect all items within the application which do not have their own explicit configuration set.  This can effectively be used to set application level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns></returns>
         public void SetApplicationConfiguration (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null)
         {
@@ -2123,12 +2390,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
+        /// Update configuration settings for an Application  Updates configuration settings at the application level.  This will explicitly set a value at the applicaiton level.  These settings will affect all items within the application which do not have their own explicit configuration set.  This can effectively be used to set application level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SetApplicationConfigurationWithHttpInfo (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null)
         {
@@ -2201,12 +2468,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
+        /// Update configuration settings for an Application  Updates configuration settings at the application level.  This will explicitly set a value at the applicaiton level.  These settings will affect all items within the application which do not have their own explicit configuration set.  This can effectively be used to set application level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task SetApplicationConfigurationAsync (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null)
         {
@@ -2215,12 +2482,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Set configuration settings for the application level.  These settings will only affect items within the application which do not have their own configuration set.  This can be used to effectively set application level defaults. 
+        /// Update configuration settings for an Application  Updates configuration settings at the application level.  This will explicitly set a value at the applicaiton level.  These settings will affect all items within the application which do not have their own explicit configuration set.  This can effectively be used to set application level defaults. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configurationSettings"></param>
         /// <param name="learningStandard">If specified, the request will be scoped to the provided learning standard. (optional)</param>
-        /// <param name="singleSco">Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. (optional)</param>
+        /// <param name="singleSco">Required if &#x60;learningStandard&#x60; is specified. Scopes settings to either single or multi-SCO content.  (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> SetApplicationConfigurationAsyncWithHttpInfo (SettingsPostSchema configurationSettings, string learningStandard = null, bool? singleSco = null)
         {
@@ -2293,7 +2560,190 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
+        /// Use the Application Management App to update information about an Application  Updates information about the application, such as the name and enabling/ disabling deletion operations for the application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="applicationProperties"></param>
+        /// <returns></returns>
+        public void UpdateApplication (string childAppId, UpdateApplicationSchema applicationProperties)
+        {
+             UpdateApplicationWithHttpInfo(childAppId, applicationProperties);
+        }
+
+        /// <summary>
+        /// Use the Application Management App to update information about an Application  Updates information about the application, such as the name and enabling/ disabling deletion operations for the application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="applicationProperties"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateApplicationWithHttpInfo (string childAppId, UpdateApplicationSchema applicationProperties)
+        {
+            // verify the required parameter 'childAppId' is set
+            if (childAppId == null)
+                throw new ApiException(400, "Missing required parameter 'childAppId' when calling ApplicationManagementApi->UpdateApplication");
+            // verify the required parameter 'applicationProperties' is set
+            if (applicationProperties == null)
+                throw new ApiException(400, "Missing required parameter 'applicationProperties' when calling ApplicationManagementApi->UpdateApplication");
+
+            var localVarPath = "/appManagement/applications/{childAppId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            if (applicationProperties != null && applicationProperties.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(applicationProperties); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = applicationProperties; // byte array
+            }
+
+            // authentication (APP_MANAGEMENT) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateApplication", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Use the Application Management App to update information about an Application  Updates information about the application, such as the name and enabling/ disabling deletion operations for the application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="applicationProperties"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateApplicationAsync (string childAppId, UpdateApplicationSchema applicationProperties)
+        {
+             await UpdateApplicationAsyncWithHttpInfo(childAppId, applicationProperties);
+
+        }
+
+        /// <summary>
+        /// Use the Application Management App to update information about an Application  Updates information about the application, such as the name and enabling/ disabling deletion operations for the application.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="childAppId"></param>
+        /// <param name="applicationProperties"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateApplicationAsyncWithHttpInfo (string childAppId, UpdateApplicationSchema applicationProperties)
+        {
+            // verify the required parameter 'childAppId' is set
+            if (childAppId == null)
+                throw new ApiException(400, "Missing required parameter 'childAppId' when calling ApplicationManagementApi->UpdateApplication");
+            // verify the required parameter 'applicationProperties' is set
+            if (applicationProperties == null)
+                throw new ApiException(400, "Missing required parameter 'applicationProperties' when calling ApplicationManagementApi->UpdateApplication");
+
+            var localVarPath = "/appManagement/applications/{childAppId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (childAppId != null) localVarPathParams.Add("childAppId", this.Configuration.ApiClient.ParameterToString(childAppId)); // path parameter
+            if (applicationProperties != null && applicationProperties.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(applicationProperties); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = applicationProperties; // byte array
+            }
+
+            // authentication (APP_MANAGEMENT) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateApplication", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Use the Application Manager App to update an existing secret key for an Application  Updates the name or status associated with the credential.  Disabling a credential will cause it to no longer be valid for authorization through the API.  &gt;**Caution:** &gt;If the last (or only) key for an application is disabled it may affect some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2306,7 +2756,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
+        /// Use the Application Manager App to update an existing secret key for an Application  Updates the name or status associated with the credential.  Disabling a credential will cause it to no longer be valid for authorization through the API.  &gt;**Caution:** &gt;If the last (or only) key for an application is disabled it may affect some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2390,7 +2840,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
+        /// Use the Application Manager App to update an existing secret key for an Application  Updates the name or status associated with the credential.  Disabling a credential will cause it to no longer be valid for authorization through the API.  &gt;**Caution:** &gt;If the last (or only) key for an application is disabled it may affect some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>
@@ -2404,7 +2854,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        ///  Update the name or status associated with &#x60;credentialId&#x60;.  If the status is updated to disabled, the credential will no longer be valid for authorization through the API.  If the last (or only) key for an application is disabled it may affect some website priviledges 
+        /// Use the Application Manager App to update an existing secret key for an Application  Updates the name or status associated with the credential.  Disabling a credential will cause it to no longer be valid for authorization through the API.  &gt;**Caution:** &gt;If the last (or only) key for an application is disabled it may affect some website privileges.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="childAppId"></param>

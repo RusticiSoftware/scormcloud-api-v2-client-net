@@ -25,34 +25,26 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// DispatchListSchema
+    /// ApplicationRequestSchema
     /// </summary>
     [DataContract]
-    public partial class DispatchListSchema :  IEquatable<DispatchListSchema>, IValidatableObject
+    public partial class ApplicationRequestSchema :  IEquatable<ApplicationRequestSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DispatchListSchema" /> class.
+        /// Initializes a new instance of the <see cref="ApplicationRequestSchema" /> class.
         /// </summary>
-        /// <param name="dispatches">dispatches.</param>
-        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
-        public DispatchListSchema(List<DispatchIdSchema> dispatches = default(List<DispatchIdSchema>), string more = default(string))
+        /// <param name="name">The name of this application..</param>
+        public ApplicationRequestSchema(string name = default(string))
         {
-            this.Dispatches = dispatches;
-            this.More = more;
+            this.Name = name;
         }
         
         /// <summary>
-        /// Gets or Sets Dispatches
+        /// The name of this application.
         /// </summary>
-        [DataMember(Name="dispatches", EmitDefaultValue=false)]
-        public List<DispatchIdSchema> Dispatches { get; set; }
-
-        /// <summary>
-        /// Token for getting the next set of results, from the prior set of results.
-        /// </summary>
-        /// <value>Token for getting the next set of results, from the prior set of results.</value>
-        [DataMember(Name="more", EmitDefaultValue=false)]
-        public string More { get; set; }
+        /// <value>The name of this application.</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,9 +53,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DispatchListSchema {\n");
-            sb.Append("  Dispatches: ").Append(Dispatches).Append("\n");
-            sb.Append("  More: ").Append(More).Append("\n");
+            sb.Append("class ApplicationRequestSchema {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,29 +75,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DispatchListSchema);
+            return this.Equals(input as ApplicationRequestSchema);
         }
 
         /// <summary>
-        /// Returns true if DispatchListSchema instances are equal
+        /// Returns true if ApplicationRequestSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of DispatchListSchema to be compared</param>
+        /// <param name="input">Instance of ApplicationRequestSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DispatchListSchema input)
+        public bool Equals(ApplicationRequestSchema input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Dispatches == input.Dispatches ||
-                    this.Dispatches != null &&
-                    this.Dispatches.SequenceEqual(input.Dispatches)
-                ) && 
-                (
-                    this.More == input.More ||
-                    (this.More != null &&
-                    this.More.Equals(input.More))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -119,10 +105,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Dispatches != null)
-                    hashCode = hashCode * 59 + this.Dispatches.GetHashCode();
-                if (this.More != null)
-                    hashCode = hashCode * 59 + this.More.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

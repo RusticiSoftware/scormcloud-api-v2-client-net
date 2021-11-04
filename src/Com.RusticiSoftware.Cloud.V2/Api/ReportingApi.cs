@@ -25,29 +25,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get all of the account information specified by the given app ID
+        /// Get account information 
         /// </summary>
         /// <remarks>
-        /// Get all of the account information specified by the given app ID
+        /// Returns all of the account information for the specified application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ReportageAccountInfoSchema</returns>
         ReportageAccountInfoSchema GetAccountInfo ();
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID
+        /// Get account information 
         /// </summary>
         /// <remarks>
-        /// Get all of the account information specified by the given app ID
+        /// Returns all of the account information for the specified application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ReportageAccountInfoSchema</returns>
         ApiResponse<ReportageAccountInfoSchema> GetAccountInfoWithHttpInfo ();
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage
+        /// Get a Reportage session authentication token 
         /// </summary>
         /// <remarks>
-        /// Get a session authentication token to use when launching Reportage
+        /// Returns a session authentication token to use when launching Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -56,10 +56,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         ReportageAuthTokenSchema GetReportageAuthToken (string navPermission, bool? admin = null);
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage
+        /// Get a Reportage session authentication token 
         /// </summary>
         /// <remarks>
-        /// Get a session authentication token to use when launching Reportage
+        /// Returns a session authentication token to use when launching Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -67,54 +67,54 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of ReportageAuthTokenSchema</returns>
         ApiResponse<ReportageAuthTokenSchema> GetReportageAuthTokenWithHttpInfo (string navPermission, bool? admin = null);
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions
+        /// Get a link to a page in Reportage with the given permissions 
         /// </summary>
         /// <remarks>
-        /// Get the link to a page in Reportage with the given authentication and permissions
+        /// Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
-        /// <param name="reportUrl">The Reportage URL to try and access</param>
+        /// <param name="auth">The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
+        /// <param name="reportUrl">The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on. </param>
         /// <returns>ReportageLinkSchema</returns>
         ReportageLinkSchema GetReportageLink (string auth, string reportUrl);
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions
+        /// Get a link to a page in Reportage with the given permissions 
         /// </summary>
         /// <remarks>
-        /// Get the link to a page in Reportage with the given authentication and permissions
+        /// Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
-        /// <param name="reportUrl">The Reportage URL to try and access</param>
+        /// <param name="auth">The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
+        /// <param name="reportUrl">The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on. </param>
         /// <returns>ApiResponse of ReportageLinkSchema</returns>
         ApiResponse<ReportageLinkSchema> GetReportageLinkWithHttpInfo (string auth, string reportUrl);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get all of the account information specified by the given app ID
+        /// Get account information 
         /// </summary>
         /// <remarks>
-        /// Get all of the account information specified by the given app ID
+        /// Returns all of the account information for the specified application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ReportageAccountInfoSchema</returns>
         System.Threading.Tasks.Task<ReportageAccountInfoSchema> GetAccountInfoAsync ();
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID
+        /// Get account information 
         /// </summary>
         /// <remarks>
-        /// Get all of the account information specified by the given app ID
+        /// Returns all of the account information for the specified application. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ReportageAccountInfoSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportageAccountInfoSchema>> GetAccountInfoAsyncWithHttpInfo ();
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage
+        /// Get a Reportage session authentication token 
         /// </summary>
         /// <remarks>
-        /// Get a session authentication token to use when launching Reportage
+        /// Returns a session authentication token to use when launching Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -123,10 +123,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         System.Threading.Tasks.Task<ReportageAuthTokenSchema> GetReportageAuthTokenAsync (string navPermission, bool? admin = null);
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage
+        /// Get a Reportage session authentication token 
         /// </summary>
         /// <remarks>
-        /// Get a session authentication token to use when launching Reportage
+        /// Returns a session authentication token to use when launching Reportage. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -134,26 +134,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (ReportageAuthTokenSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportageAuthTokenSchema>> GetReportageAuthTokenAsyncWithHttpInfo (string navPermission, bool? admin = null);
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions
+        /// Get a link to a page in Reportage with the given permissions 
         /// </summary>
         /// <remarks>
-        /// Get the link to a page in Reportage with the given authentication and permissions
+        /// Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
-        /// <param name="reportUrl">The Reportage URL to try and access</param>
+        /// <param name="auth">The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
+        /// <param name="reportUrl">The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on. </param>
         /// <returns>Task of ReportageLinkSchema</returns>
         System.Threading.Tasks.Task<ReportageLinkSchema> GetReportageLinkAsync (string auth, string reportUrl);
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions
+        /// Get a link to a page in Reportage with the given permissions 
         /// </summary>
         /// <remarks>
-        /// Get the link to a page in Reportage with the given authentication and permissions
+        /// Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
-        /// <param name="reportUrl">The Reportage URL to try and access</param>
+        /// <param name="auth">The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
+        /// <param name="reportUrl">The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on. </param>
         /// <returns>Task of ApiResponse (ReportageLinkSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReportageLinkSchema>> GetReportageLinkAsyncWithHttpInfo (string auth, string reportUrl);
         #endregion Asynchronous Operations
@@ -257,7 +257,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID Get all of the account information specified by the given app ID
+        /// Get account information  Returns all of the account information for the specified application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ReportageAccountInfoSchema</returns>
@@ -268,7 +268,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID Get all of the account information specified by the given app ID
+        /// Get account information  Returns all of the account information for the specified application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ReportageAccountInfoSchema</returns>
@@ -330,7 +330,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID Get all of the account information specified by the given app ID
+        /// Get account information  Returns all of the account information for the specified application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ReportageAccountInfoSchema</returns>
@@ -342,7 +342,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get all of the account information specified by the given app ID Get all of the account information specified by the given app ID
+        /// Get account information  Returns all of the account information for the specified application. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ReportageAccountInfoSchema)</returns>
@@ -404,7 +404,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage Get a session authentication token to use when launching Reportage
+        /// Get a Reportage session authentication token  Returns a session authentication token to use when launching Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -417,7 +417,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage Get a session authentication token to use when launching Reportage
+        /// Get a Reportage session authentication token  Returns a session authentication token to use when launching Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -486,7 +486,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage Get a session authentication token to use when launching Reportage
+        /// Get a Reportage session authentication token  Returns a session authentication token to use when launching Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -500,7 +500,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a session authentication token to use when launching Reportage Get a session authentication token to use when launching Reportage
+        /// Get a Reportage session authentication token  Returns a session authentication token to use when launching Reportage. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="navPermission">The navigation permissions for this Reportage session</param>
@@ -569,11 +569,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions Get the link to a page in Reportage with the given authentication and permissions
+        /// Get a link to a page in Reportage with the given permissions  Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
-        /// <param name="reportUrl">The Reportage URL to try and access</param>
+        /// <param name="auth">The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
+        /// <param name="reportUrl">The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on. </param>
         /// <returns>ReportageLinkSchema</returns>
         public ReportageLinkSchema GetReportageLink (string auth, string reportUrl)
         {
@@ -582,11 +582,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions Get the link to a page in Reportage with the given authentication and permissions
+        /// Get a link to a page in Reportage with the given permissions  Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
-        /// <param name="reportUrl">The Reportage URL to try and access</param>
+        /// <param name="auth">The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
+        /// <param name="reportUrl">The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on. </param>
         /// <returns>ApiResponse of ReportageLinkSchema</returns>
         public ApiResponse< ReportageLinkSchema > GetReportageLinkWithHttpInfo (string auth, string reportUrl)
         {
@@ -654,11 +654,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions Get the link to a page in Reportage with the given authentication and permissions
+        /// Get a link to a page in Reportage with the given permissions  Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
-        /// <param name="reportUrl">The Reportage URL to try and access</param>
+        /// <param name="auth">The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
+        /// <param name="reportUrl">The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on. </param>
         /// <returns>Task of ReportageLinkSchema</returns>
         public async System.Threading.Tasks.Task<ReportageLinkSchema> GetReportageLinkAsync (string auth, string reportUrl)
         {
@@ -668,11 +668,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the link to a page in Reportage with the given authentication and permissions Get the link to a page in Reportage with the given authentication and permissions
+        /// Get a link to a page in Reportage with the given permissions  Returns the link to use for viewing Reportage.  In order to generate a link, GetReportageAuthToken will need to be called to generate an auth token with the necessary permissions. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="auth">The reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
-        /// <param name="reportUrl">The Reportage URL to try and access</param>
+        /// <param name="auth">The Reportage authentication token retrieved from a previous call to &#x60;GET reportageAuth&#x60;</param>
+        /// <param name="reportUrl">The Reportage URL to try and access.  Common values are the Reportage homepage &#x60;https://cloud.scorm.com/Reportage/reportage.php?appId&#x3D;{{your appId}}&#x60; or a URL pointing to a specific report within Reportage.  The latter type of URL includes lots of parameters of the report, such as the date range, demographic (via tags), specific course or learner, and so on. </param>
         /// <returns>Task of ApiResponse (ReportageLinkSchema)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ReportageLinkSchema>> GetReportageLinkAsyncWithHttpInfo (string auth, string reportUrl)
         {

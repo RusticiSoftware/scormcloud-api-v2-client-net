@@ -43,7 +43,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="allowNewRegistrations">If true, then new registrations can be created for this dispatch. (default to true).</param>
         /// <param name="instanced">If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id.  (default to true).</param>
         /// <param name="registrationCap">The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;.  (default to 0).</param>
-        /// <param name="expirationDate">The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. .</param>
+        /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. .</param>
         /// <param name="enabled">If true, then this dispatch can be launched. (default to true).</param>
         /// <param name="tags">The tags to associate with this Dispatch..</param>
         /// <param name="email">SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. .</param>
@@ -148,9 +148,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public int? RegistrationCap { get; set; }
 
         /// <summary>
-        /// The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. 
+        /// The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. 
         /// </summary>
-        /// <value>The date after which this dispatch will be disabled as an ISO 8601 string, or not present for no expiration date. </value>
+        /// <value>The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. </value>
         [DataMember(Name="expirationDate", EmitDefaultValue=false)]
         public DateTime? ExpirationDate { get; set; }
 

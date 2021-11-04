@@ -25,47 +25,33 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// RegistrationListSchema
+    /// AssetFileSchema
     /// </summary>
     [DataContract]
-    public partial class RegistrationListSchema :  IEquatable<RegistrationListSchema>, IValidatableObject
+    public partial class AssetFileSchema :  IEquatable<AssetFileSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegistrationListSchema" /> class.
+        /// Initializes a new instance of the <see cref="AssetFileSchema" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected RegistrationListSchema() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RegistrationListSchema" /> class.
-        /// </summary>
-        /// <param name="registrations">registrations (required).</param>
-        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
-        public RegistrationListSchema(List<RegistrationSchema> registrations = default(List<RegistrationSchema>), string more = default(string))
+        /// <param name="filename">filename.</param>
+        /// <param name="destination">destination.</param>
+        public AssetFileSchema(string filename = default(string), string destination = default(string))
         {
-            // to ensure "registrations" is required (not null)
-            if (registrations == null)
-            {
-                throw new InvalidDataException("registrations is a required property for RegistrationListSchema and cannot be null");
-            }
-            else
-            {
-                this.Registrations = registrations;
-            }
-            this.More = more;
+            this.Filename = filename;
+            this.Destination = destination;
         }
         
         /// <summary>
-        /// Gets or Sets Registrations
+        /// Gets or Sets Filename
         /// </summary>
-        [DataMember(Name="registrations", EmitDefaultValue=false)]
-        public List<RegistrationSchema> Registrations { get; set; }
+        [DataMember(Name="filename", EmitDefaultValue=false)]
+        public string Filename { get; set; }
 
         /// <summary>
-        /// Token for getting the next set of results, from the prior set of results.
+        /// Gets or Sets Destination
         /// </summary>
-        /// <value>Token for getting the next set of results, from the prior set of results.</value>
-        [DataMember(Name="more", EmitDefaultValue=false)]
-        public string More { get; set; }
+        [DataMember(Name="destination", EmitDefaultValue=false)]
+        public string Destination { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +60,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RegistrationListSchema {\n");
-            sb.Append("  Registrations: ").Append(Registrations).Append("\n");
-            sb.Append("  More: ").Append(More).Append("\n");
+            sb.Append("class AssetFileSchema {\n");
+            sb.Append("  Filename: ").Append(Filename).Append("\n");
+            sb.Append("  Destination: ").Append(Destination).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,29 +83,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RegistrationListSchema);
+            return this.Equals(input as AssetFileSchema);
         }
 
         /// <summary>
-        /// Returns true if RegistrationListSchema instances are equal
+        /// Returns true if AssetFileSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of RegistrationListSchema to be compared</param>
+        /// <param name="input">Instance of AssetFileSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RegistrationListSchema input)
+        public bool Equals(AssetFileSchema input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Registrations == input.Registrations ||
-                    this.Registrations != null &&
-                    this.Registrations.SequenceEqual(input.Registrations)
+                    this.Filename == input.Filename ||
+                    (this.Filename != null &&
+                    this.Filename.Equals(input.Filename))
                 ) && 
                 (
-                    this.More == input.More ||
-                    (this.More != null &&
-                    this.More.Equals(input.More))
+                    this.Destination == input.Destination ||
+                    (this.Destination != null &&
+                    this.Destination.Equals(input.Destination))
                 );
         }
 
@@ -132,10 +118,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Registrations != null)
-                    hashCode = hashCode * 59 + this.Registrations.GetHashCode();
-                if (this.More != null)
-                    hashCode = hashCode * 59 + this.More.GetHashCode();
+                if (this.Filename != null)
+                    hashCode = hashCode * 59 + this.Filename.GetHashCode();
+                if (this.Destination != null)
+                    hashCode = hashCode * 59 + this.Destination.GetHashCode();
                 return hashCode;
             }
         }

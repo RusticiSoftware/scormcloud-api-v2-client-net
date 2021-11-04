@@ -34,7 +34,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Initializes a new instance of the <see cref="InvitationSummaryList" /> class.
         /// </summary>
         /// <param name="invitations">A list of invitation overview objects..</param>
-        /// <param name="more">more.</param>
+        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
         public InvitationSummaryList(List<InvitationSummarySchema> invitations = default(List<InvitationSummarySchema>), string more = default(string))
         {
             this.Invitations = invitations;
@@ -49,8 +49,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public List<InvitationSummarySchema> Invitations { get; set; }
 
         /// <summary>
-        /// Gets or Sets More
+        /// Token for getting the next set of results, from the prior set of results.
         /// </summary>
+        /// <value>Token for getting the next set of results, from the prior set of results.</value>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public string More { get; set; }
 

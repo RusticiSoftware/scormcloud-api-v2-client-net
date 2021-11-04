@@ -38,16 +38,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="description">description.</param>
         /// <param name="descriptionLanguage">descriptionLanguage.</param>
         /// <param name="duration">duration.</param>
-        /// <param name="typicaltime">typicaltime.</param>
+        /// <param name="typicalTime">typicalTime.</param>
         /// <param name="keywords">keywords.</param>
-        public MetadataSchema(string title = default(string), string titleLanguage = default(string), string description = default(string), string descriptionLanguage = default(string), string duration = default(string), string typicaltime = default(string), List<string> keywords = default(List<string>))
+        public MetadataSchema(string title = default(string), string titleLanguage = default(string), string description = default(string), string descriptionLanguage = default(string), string duration = default(string), string typicalTime = default(string), List<string> keywords = default(List<string>))
         {
             this.Title = title;
             this.TitleLanguage = titleLanguage;
             this.Description = description;
             this.DescriptionLanguage = descriptionLanguage;
             this.Duration = duration;
-            this.Typicaltime = typicaltime;
+            this.TypicalTime = typicalTime;
             this.Keywords = keywords;
         }
         
@@ -82,10 +82,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public string Duration { get; set; }
 
         /// <summary>
-        /// Gets or Sets Typicaltime
+        /// Gets or Sets TypicalTime
         /// </summary>
-        [DataMember(Name="typicaltime", EmitDefaultValue=false)]
-        public string Typicaltime { get; set; }
+        [DataMember(Name="typicalTime", EmitDefaultValue=false)]
+        public string TypicalTime { get; set; }
 
         /// <summary>
         /// Gets or Sets Keywords
@@ -106,7 +106,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DescriptionLanguage: ").Append(DescriptionLanguage).Append("\n");
             sb.Append("  Duration: ").Append(Duration).Append("\n");
-            sb.Append("  Typicaltime: ").Append(Typicaltime).Append("\n");
+            sb.Append("  TypicalTime: ").Append(TypicalTime).Append("\n");
             sb.Append("  Keywords: ").Append(Keywords).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -168,9 +168,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Duration.Equals(input.Duration))
                 ) && 
                 (
-                    this.Typicaltime == input.Typicaltime ||
-                    (this.Typicaltime != null &&
-                    this.Typicaltime.Equals(input.Typicaltime))
+                    this.TypicalTime == input.TypicalTime ||
+                    (this.TypicalTime != null &&
+                    this.TypicalTime.Equals(input.TypicalTime))
                 ) && 
                 (
                     this.Keywords == input.Keywords ||
@@ -198,8 +198,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.DescriptionLanguage.GetHashCode();
                 if (this.Duration != null)
                     hashCode = hashCode * 59 + this.Duration.GetHashCode();
-                if (this.Typicaltime != null)
-                    hashCode = hashCode * 59 + this.Typicaltime.GetHashCode();
+                if (this.TypicalTime != null)
+                    hashCode = hashCode * 59 + this.TypicalTime.GetHashCode();
                 if (this.Keywords != null)
                     hashCode = hashCode * 59 + this.Keywords.GetHashCode();
                 return hashCode;

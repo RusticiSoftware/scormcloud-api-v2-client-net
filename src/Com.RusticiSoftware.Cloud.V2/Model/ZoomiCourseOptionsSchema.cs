@@ -33,12 +33,33 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ZoomiCourseOptionsSchema" /> class.
         /// </summary>
-        /// <param name="nti">nti.</param>
-        /// <param name="cta">cta.</param>
+        [JsonConstructorAttribute]
+        protected ZoomiCourseOptionsSchema() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ZoomiCourseOptionsSchema" /> class.
+        /// </summary>
+        /// <param name="nti">nti (required).</param>
+        /// <param name="cta">cta (required).</param>
         public ZoomiCourseOptionsSchema(string nti = default(string), string cta = default(string))
         {
-            this.Nti = nti;
-            this.Cta = cta;
+            // to ensure "nti" is required (not null)
+            if (nti == null)
+            {
+                throw new InvalidDataException("nti is a required property for ZoomiCourseOptionsSchema and cannot be null");
+            }
+            else
+            {
+                this.Nti = nti;
+            }
+            // to ensure "cta" is required (not null)
+            if (cta == null)
+            {
+                throw new InvalidDataException("cta is a required property for ZoomiCourseOptionsSchema and cannot be null");
+            }
+            else
+            {
+                this.Cta = cta;
+            }
         }
         
         /// <summary>

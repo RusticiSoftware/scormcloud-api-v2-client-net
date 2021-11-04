@@ -134,7 +134,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
             // add file parameter, if any
             foreach(var param in fileParams)
             {
-                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
+                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
             }
 
             if (postBody != null) // http body (model or byte[]) parameter
@@ -169,8 +169,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
                 pathParams, contentType);
 
             // set timeout
-            
             RestClient.Timeout = Configuration.Timeout;
+
             // set user agent
             RestClient.UserAgent = Configuration.UserAgent;
 
@@ -180,6 +180,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
 
             return (Object) response;
         }
+
         /// <summary>
         /// Makes the asynchronous HTTP request.
         /// </summary>
@@ -202,9 +203,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
             var request = PrepareRequest(
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
+
             InterceptRequest(request);
             var response = await RestClient.ExecuteTaskAsync(request);
             InterceptResponse(request, response);
+
             return (Object)response;
         }
 
@@ -494,7 +497,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         }
 
         /// <summary>
-        /// Convert params to key/value pairs. 
+        /// Convert params to key/value pairs.
         /// Use collectionFormat to properly format lists and collections.
         /// </summary>
         /// <param name="name">Key name.</param>

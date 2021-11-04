@@ -25,37 +25,37 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// Request to import a course by downloading it from a url
+    /// Used to create a course that references a media file. Upon import, the actual file is not downloaded and stored on SCORM Cloud&#39;s servers. Instead, the media file wrapper will load the content from the provided URL. 
     /// </summary>
     [DataContract]
-    public partial class ImportFetchRequestSchema :  IEquatable<ImportFetchRequestSchema>, IValidatableObject
+    public partial class ImportMediaFileReferenceRequestSchema :  IEquatable<ImportMediaFileReferenceRequestSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImportFetchRequestSchema" /> class.
+        /// Initializes a new instance of the <see cref="ImportMediaFileReferenceRequestSchema" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ImportFetchRequestSchema() { }
+        protected ImportMediaFileReferenceRequestSchema() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImportFetchRequestSchema" /> class.
+        /// Initializes a new instance of the <see cref="ImportMediaFileReferenceRequestSchema" /> class.
         /// </summary>
-        /// <param name="url">URL path to the .zip package or media file to download to import this course (required).</param>
-        /// <param name="contentType">MIME type of the content to be fetched (default to &quot;application/zip&quot;).</param>
+        /// <param name="url">URL path to the media file to use when launching this course (required).</param>
+        /// <param name="contentType">MIME type of the media file (required).</param>
         /// <param name="mediaFileMetadata">mediaFileMetadata.</param>
-        public ImportFetchRequestSchema(string url = default(string), string contentType = "application/zip", MediaFileMetadataSchema mediaFileMetadata = default(MediaFileMetadataSchema))
+        public ImportMediaFileReferenceRequestSchema(string url = default(string), string contentType = default(string), MediaFileMetadataSchema mediaFileMetadata = default(MediaFileMetadataSchema))
         {
             // to ensure "url" is required (not null)
             if (url == null)
             {
-                throw new InvalidDataException("url is a required property for ImportFetchRequestSchema and cannot be null");
+                throw new InvalidDataException("url is a required property for ImportMediaFileReferenceRequestSchema and cannot be null");
             }
             else
             {
                 this.Url = url;
             }
-            // use default value if no "contentType" provided
+            // to ensure "contentType" is required (not null)
             if (contentType == null)
             {
-                this.ContentType = "application/zip";
+                throw new InvalidDataException("contentType is a required property for ImportMediaFileReferenceRequestSchema and cannot be null");
             }
             else
             {
@@ -65,16 +65,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         }
         
         /// <summary>
-        /// URL path to the .zip package or media file to download to import this course
+        /// URL path to the media file to use when launching this course
         /// </summary>
-        /// <value>URL path to the .zip package or media file to download to import this course</value>
+        /// <value>URL path to the media file to use when launching this course</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
 
         /// <summary>
-        /// MIME type of the content to be fetched
+        /// MIME type of the media file
         /// </summary>
-        /// <value>MIME type of the content to be fetched</value>
+        /// <value>MIME type of the media file</value>
         [DataMember(Name="contentType", EmitDefaultValue=false)]
         public string ContentType { get; set; }
 
@@ -91,7 +91,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ImportFetchRequestSchema {\n");
+            sb.Append("class ImportMediaFileReferenceRequestSchema {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  ContentType: ").Append(ContentType).Append("\n");
             sb.Append("  MediaFileMetadata: ").Append(MediaFileMetadata).Append("\n");
@@ -115,15 +115,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImportFetchRequestSchema);
+            return this.Equals(input as ImportMediaFileReferenceRequestSchema);
         }
 
         /// <summary>
-        /// Returns true if ImportFetchRequestSchema instances are equal
+        /// Returns true if ImportMediaFileReferenceRequestSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImportFetchRequestSchema to be compared</param>
+        /// <param name="input">Instance of ImportMediaFileReferenceRequestSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImportFetchRequestSchema input)
+        public bool Equals(ImportMediaFileReferenceRequestSchema input)
         {
             if (input == null)
                 return false;
