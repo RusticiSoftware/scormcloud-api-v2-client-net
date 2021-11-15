@@ -20,7 +20,7 @@ Supports the following frameworks:
 ### Local
 #### Dependencies
 - [RestSharp](https://www.nuget.org/packages/RestSharp) - 106.12.0 or later
-- [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) - 7.0.0 or later
+- [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) - 10.0.3 or later
 - [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.2.0 or later
 
 The DLLs included in the package may not be the latest version. We recommend using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
@@ -31,9 +31,12 @@ Install-Package JsonSubTypes
 ```
 
 #### Library
-Run the following command to generate the DLL
-- [Mac/Linux] `/bin/sh build.sh`
-- [Windows] `build.bat`
+Download the [.NET SDK](https://dotnet.microsoft.com/download) and run the following commands to generate the DLL:
+```shell
+cd src/Com.RusticiSoftware.Cloud.V2
+dotnet restore
+dotnet build
+```
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
@@ -42,12 +45,9 @@ using Com.RusticiSoftware.Cloud.V2.Client;
 using Com.RusticiSoftware.Cloud.V2.Model;
 ```
 
-A `.nuspec` is included with the project. You can follow the Nuget quickstart to [create](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#create-the-package) and [publish](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#publish-the-package) packages.
-
-This `.nuspec` uses placeholders from the `.csproj`, so build the `.csproj` directly:
-
-```
-nuget pack -Build -OutputDirectory out Com.RusticiSoftware.Cloud.V2.csproj
+To build a NuGet package, run the following commands (will need to be in the same src/Com.RusticiSoftware.Cloud.V2 directory as before):
+```shell
+dotnet pack
 ```
 
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
