@@ -34,17 +34,23 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Initializes a new instance of the <see cref="DestinationSchema" /> class.
         /// </summary>
         /// <param name="name">The destination&#39;s name..</param>
+        /// <param name="updated">updated.</param>
+        /// <param name="created">created.</param>
         /// <param name="tags">Optional array of tags..</param>
         /// <param name="email">SCORM Cloud user e-mail associated with this destination. If this is not provided, it will default to the owner of the Realm. .</param>
         /// <param name="notes">Any provided notes about this Destination.</param>
         /// <param name="launchAuth">launchAuth.</param>
-        public DestinationSchema(string name = default(string), List<string> tags = default(List<string>), string email = default(string), string notes = default(string), LaunchAuthSchema launchAuth = default(LaunchAuthSchema))
+        /// <param name="lti13Data">lti13Data.</param>
+        public DestinationSchema(string name = default(string), DateTime? updated = default(DateTime?), DateTime? created = default(DateTime?), List<string> tags = default(List<string>), string email = default(string), string notes = default(string), LaunchAuthSchema launchAuth = default(LaunchAuthSchema), Lti13PlatformConfigurationSchema lti13Data = default(Lti13PlatformConfigurationSchema))
         {
             this.Name = name;
+            this.Updated = updated;
+            this.Created = created;
             this.Tags = tags;
             this.Email = email;
             this.Notes = notes;
             this.LaunchAuth = launchAuth;
+            this.Lti13Data = lti13Data;
         }
         
         /// <summary>
@@ -53,6 +59,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>The destination&#39;s name.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Updated
+        /// </summary>
+        [DataMember(Name="updated", EmitDefaultValue=false)]
+        public DateTime? Updated { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Created
+        /// </summary>
+        [DataMember(Name="created", EmitDefaultValue=false)]
+        public DateTime? Created { get; set; }
 
         /// <summary>
         /// Optional array of tags.
@@ -82,6 +100,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public LaunchAuthSchema LaunchAuth { get; set; }
 
         /// <summary>
+        /// Gets or Sets Lti13Data
+        /// </summary>
+        [DataMember(Name="lti13Data", EmitDefaultValue=false)]
+        public Lti13PlatformConfigurationSchema Lti13Data { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,10 +114,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             var sb = new StringBuilder();
             sb.Append("class DestinationSchema {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Updated: ").Append(Updated).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  LaunchAuth: ").Append(LaunchAuth).Append("\n");
+            sb.Append("  Lti13Data: ").Append(Lti13Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +161,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     this.Tags.SequenceEqual(input.Tags)
@@ -152,6 +189,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.LaunchAuth == input.LaunchAuth ||
                     (this.LaunchAuth != null &&
                     this.LaunchAuth.Equals(input.LaunchAuth))
+                ) && 
+                (
+                    this.Lti13Data == input.Lti13Data ||
+                    (this.Lti13Data != null &&
+                    this.Lti13Data.Equals(input.Lti13Data))
                 );
         }
 
@@ -166,6 +208,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Updated != null)
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Email != null)
@@ -174,6 +220,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.Notes.GetHashCode();
                 if (this.LaunchAuth != null)
                     hashCode = hashCode * 59 + this.LaunchAuth.GetHashCode();
+                if (this.Lti13Data != null)
+                    hashCode = hashCode * 59 + this.Lti13Data.GetHashCode();
                 return hashCode;
             }
         }

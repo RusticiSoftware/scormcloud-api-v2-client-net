@@ -103,7 +103,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create a Course from a fetched or referenced external media file 
         /// </summary>
         /// <remarks>
-        /// Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -117,7 +117,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create a Course from a fetched or referenced external media file 
         /// </summary>
         /// <remarks>
-        /// Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -623,6 +623,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of CourseListNonPagedSchema</returns>
         ApiResponse<CourseListNonPagedSchema> GetCourseVersionsWithHttpInfo (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
+        /// Download a zip package for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream GetCourseZip (string courseId);
+
+        /// <summary>
+        /// Download a zip package for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> GetCourseZipWithHttpInfo (string courseId);
+        /// <summary>
         /// Get a list of Courses 
         /// </summary>
         /// <remarks>
@@ -682,6 +703,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
         /// <returns>ApiResponse of ImportJobResultSchema</returns>
         ApiResponse<ImportJobResultSchema> GetImportJobStatusWithHttpInfo (string importJobId);
+        /// <summary>
+        /// Download a zip package for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream GetVersionedCourseZip (string courseId, int? versionId);
+
+        /// <summary>
+        /// Download a zip package for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> GetVersionedCourseZipWithHttpInfo (string courseId, int? versionId);
         /// <summary>
         /// Import an asset file for a Course 
         /// </summary>
@@ -986,7 +1030,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create a Course from a fetched or referenced external media file 
         /// </summary>
         /// <remarks>
-        /// Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1000,7 +1044,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create a Course from a fetched or referenced external media file 
         /// </summary>
         /// <remarks>
-        /// Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -1506,6 +1550,27 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (CourseListNonPagedSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<CourseListNonPagedSchema>> GetCourseVersionsAsyncWithHttpInfo (string courseId, DateTime? since = null, DateTime? until = null, bool? includeRegistrationCount = null, bool? includeCourseMetadata = null);
         /// <summary>
+        /// Download a zip package for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> GetCourseZipAsync (string courseId);
+
+        /// <summary>
+        /// Download a zip package for a Course 
+        /// </summary>
+        /// <remarks>
+        /// Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCourseZipAsyncWithHttpInfo (string courseId);
+        /// <summary>
         /// Get a list of Courses 
         /// </summary>
         /// <remarks>
@@ -1565,6 +1630,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importJobId">Id received when the import job was submitted to the importJobs resource.</param>
         /// <returns>Task of ApiResponse (ImportJobResultSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<ImportJobResultSchema>> GetImportJobStatusAsyncWithHttpInfo (string importJobId);
+        /// <summary>
+        /// Download a zip package for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> GetVersionedCourseZipAsync (string courseId, int? versionId);
+
+        /// <summary>
+        /// Download a zip package for a Course Version 
+        /// </summary>
+        /// <remarks>
+        /// Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetVersionedCourseZipAsyncWithHttpInfo (string courseId, int? versionId);
         /// <summary>
         /// Import an asset file for a Course 
         /// </summary>
@@ -2468,7 +2556,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a Course from a fetched or referenced external media file  Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// Create a Course from a fetched or referenced external media file  Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -2483,7 +2571,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a Course from a fetched or referenced external media file  Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// Create a Course from a fetched or referenced external media file  Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -2566,7 +2654,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a Course from a fetched or referenced external media file  Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// Create a Course from a fetched or referenced external media file  Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -2582,7 +2670,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create a Course from a fetched or referenced external media file  Creates a course from one of two methods, fetchRequest or mediaFileReferenceRequest.  In either case, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
+        /// Create a Course from a fetched or referenced external media file  Creates a course from one of the following methods: fetchRequest, mediaFileReferenceRequest, or connectorReferenceRequest. In all cases, an import job ID will be returned, which can be used with GetImportJobStatus to view the status of the import.  Courses represent the learning material a learner will progress through.  - A fetchRequest performs the same actions as CreateFetchAndImportCourseJob.  A course will be created from a package fetched from the provided url.  The package will be downloaded from the url and stored in SCORM Cloud. - A mediaFileReferenceRequest will not store the file in SCORM Cloud.  Instead it will reference the media file at the time the learner needs to view the file from the provided url. - A connectorReferenceRequest is used to import content from an external content connector, for example an LTI 1.3 tool.  &gt;**Note:** &gt;The import job ID used for calls to GetImportJobStatus are only valid for one week after the course import finishes.  &gt;**Info:** &gt;Unless working with media files, it is typical to use one of the other two import methods. &gt;- CreateUploadAndImportCourseJob would be used if the course is in your local file system. &gt;- CreateFetchAndImportCourseJob would be better suited for situations where the course is uploaded remotely but is accessible via a public url. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
@@ -6163,6 +6251,165 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
+        /// Download a zip package for a Course  Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream GetCourseZip (string courseId)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = GetCourseZipWithHttpInfo(courseId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Download a zip package for a Course  Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public ApiResponse< System.IO.Stream > GetCourseZipWithHttpInfo (string courseId)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseZip");
+
+            var localVarPath = "/courses/{courseId}/zip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseZip", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
+        /// Download a zip package for a Course  Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetCourseZipAsync (string courseId)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = await GetCourseZipAsyncWithHttpInfo(courseId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Download a zip package for a Course  Downloads a zip package for the course.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course, use &#x60;GetCourseAsset&#x60; instead. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCourseZipAsyncWithHttpInfo (string courseId)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetCourseZip");
+
+            var localVarPath = "/courses/{courseId}/zip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCourseZip", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
         /// Get a list of Courses  Returns a list of courses.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6526,6 +6773,177 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             return new ApiResponse<ImportJobResultSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ImportJobResultSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImportJobResultSchema)));
+        }
+
+        /// <summary>
+        /// Download a zip package for a Course Version  Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream GetVersionedCourseZip (string courseId, int? versionId)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = GetVersionedCourseZipWithHttpInfo(courseId, versionId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Download a zip package for a Course Version  Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public ApiResponse< System.IO.Stream > GetVersionedCourseZipWithHttpInfo (string courseId, int? versionId)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetVersionedCourseZip");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->GetVersionedCourseZip");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/zip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetVersionedCourseZip", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
+        /// Download a zip package for a Course Version  Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetVersionedCourseZipAsync (string courseId, int? versionId)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = await GetVersionedCourseZipAsyncWithHttpInfo(courseId, versionId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Download a zip package for a Course Version  Downloads a zip package for the course version.  The course zip package contains all of the files (assets) needed for a learner to take the course.  The returned zip will contain all of the files orginally uploaded with the course, as well as any modifications made through updating/ adding new assets.  &gt;**Info:** &gt;If looking to retrieve a specific file from a course version, use &#x60;GetCourseVersionAsset&#x60; instead. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="courseId"></param>
+        /// <param name="versionId"></param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetVersionedCourseZipAsyncWithHttpInfo (string courseId, int? versionId)
+        {
+            // verify the required parameter 'courseId' is set
+            if (courseId == null)
+                throw new ApiException(400, "Missing required parameter 'courseId' when calling CourseApi->GetVersionedCourseZip");
+            // verify the required parameter 'versionId' is set
+            if (versionId == null)
+                throw new ApiException(400, "Missing required parameter 'versionId' when calling CourseApi->GetVersionedCourseZip");
+
+            var localVarPath = "/courses/{courseId}/versions/{versionId}/zip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (courseId != null) localVarPathParams.Add("courseId", this.Configuration.ApiClient.ParameterToString(courseId)); // path parameter
+            if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetVersionedCourseZip", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
         /// <summary>
