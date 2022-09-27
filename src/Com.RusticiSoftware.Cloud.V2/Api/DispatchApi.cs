@@ -610,7 +610,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -621,12 +621,79 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>ApiResponse of DispatchLtiInfoSchema</returns>
         ApiResponse<DispatchLtiInfoSchema> GetLTIDispatchWithHttpInfo (string dispatchId);
+        /// <summary>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. 
+        /// </summary>
+        /// <remarks>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>DispatchLti13InfoSchema</returns>
+        DispatchLti13InfoSchema GetLti13Dispatch (string dispatchId);
+
+        /// <summary>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. 
+        /// </summary>
+        /// <remarks>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>ApiResponse of DispatchLti13InfoSchema</returns>
+        ApiResponse<DispatchLti13InfoSchema> GetLti13DispatchWithHttpInfo (string dispatchId);
+        /// <summary>
+        /// Launch this dispatch using the IMS LTI 1.3 specification. 
+        /// </summary>
+        /// <remarks>
+        /// Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <param name="externalConfig">External configuration object</param>
+        /// <param name="jwt"></param>
+        /// <returns></returns>
+        void GetLti13DispatchLaunch (string dispatchId, string externalConfig, string jwt);
+
+        /// <summary>
+        /// Launch this dispatch using the IMS LTI 1.3 specification. 
+        /// </summary>
+        /// <remarks>
+        /// Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <param name="externalConfig">External configuration object</param>
+        /// <param name="jwt"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetLti13DispatchLaunchWithHttpInfo (string dispatchId, string externalConfig, string jwt);
+        /// <summary>
+        /// Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60; 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="destinationId">Identifier for the destination</param>
+        /// <returns>Lti13ToolConfigurationSchema</returns>
+        Lti13ToolConfigurationSchema GetLti13ToolConfigurationSchema (string destinationId);
+
+        /// <summary>
+        /// Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60; 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="destinationId">Identifier for the destination</param>
+        /// <returns>ApiResponse of Lti13ToolConfigurationSchema</returns>
+        ApiResponse<Lti13ToolConfigurationSchema> GetLti13ToolConfigurationSchemaWithHttpInfo (string destinationId);
         /// <summary>
         /// Add tags to a Destination 
         /// </summary>
@@ -761,7 +828,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create or update a Destination 
         /// </summary>
         /// <remarks>
-        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -773,7 +840,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create or update a Destination 
         /// </summary>
         /// <remarks>
-        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1518,7 +1585,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -1529,12 +1596,79 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
         /// <returns>Task of ApiResponse (DispatchLtiInfoSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<DispatchLtiInfoSchema>> GetLTIDispatchAsyncWithHttpInfo (string dispatchId);
+        /// <summary>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. 
+        /// </summary>
+        /// <remarks>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>Task of DispatchLti13InfoSchema</returns>
+        System.Threading.Tasks.Task<DispatchLti13InfoSchema> GetLti13DispatchAsync (string dispatchId);
+
+        /// <summary>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. 
+        /// </summary>
+        /// <remarks>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>Task of ApiResponse (DispatchLti13InfoSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DispatchLti13InfoSchema>> GetLti13DispatchAsyncWithHttpInfo (string dispatchId);
+        /// <summary>
+        /// Launch this dispatch using the IMS LTI 1.3 specification. 
+        /// </summary>
+        /// <remarks>
+        /// Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <param name="externalConfig">External configuration object</param>
+        /// <param name="jwt"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetLti13DispatchLaunchAsync (string dispatchId, string externalConfig, string jwt);
+
+        /// <summary>
+        /// Launch this dispatch using the IMS LTI 1.3 specification. 
+        /// </summary>
+        /// <remarks>
+        /// Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <param name="externalConfig">External configuration object</param>
+        /// <param name="jwt"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetLti13DispatchLaunchAsyncWithHttpInfo (string dispatchId, string externalConfig, string jwt);
+        /// <summary>
+        /// Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60; 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="destinationId">Identifier for the destination</param>
+        /// <returns>Task of Lti13ToolConfigurationSchema</returns>
+        System.Threading.Tasks.Task<Lti13ToolConfigurationSchema> GetLti13ToolConfigurationSchemaAsync (string destinationId);
+
+        /// <summary>
+        /// Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60; 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="destinationId">Identifier for the destination</param>
+        /// <returns>Task of ApiResponse (Lti13ToolConfigurationSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Lti13ToolConfigurationSchema>> GetLti13ToolConfigurationSchemaAsyncWithHttpInfo (string destinationId);
         /// <summary>
         /// Add tags to a Destination 
         /// </summary>
@@ -1669,7 +1803,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create or update a Destination 
         /// </summary>
         /// <remarks>
-        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -1681,7 +1815,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Create or update a Destination 
         /// </summary>
         /// <remarks>
-        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+        /// Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -6039,7 +6173,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6051,7 +6185,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6118,7 +6252,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6131,7 +6265,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  
+        /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification.  Retrieve the information needed to launch this dispatch using the IMS LTI 1.1 specification. This information is then provided to the platform so it can launch this dispatch. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dispatchId">Identifier for the dispatch</param>
@@ -6195,6 +6329,493 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             return new ApiResponse<DispatchLtiInfoSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (DispatchLtiInfoSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DispatchLtiInfoSchema)));
+        }
+
+        /// <summary>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification.  Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>DispatchLti13InfoSchema</returns>
+        public DispatchLti13InfoSchema GetLti13Dispatch (string dispatchId)
+        {
+             ApiResponse<DispatchLti13InfoSchema> localVarResponse = GetLti13DispatchWithHttpInfo(dispatchId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification.  Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>ApiResponse of DispatchLti13InfoSchema</returns>
+        public ApiResponse< DispatchLti13InfoSchema > GetLti13DispatchWithHttpInfo (string dispatchId)
+        {
+            // verify the required parameter 'dispatchId' is set
+            if (dispatchId == null)
+                throw new ApiException(400, "Missing required parameter 'dispatchId' when calling DispatchApi->GetLti13Dispatch");
+
+            var localVarPath = "/dispatch/dispatches/{dispatchId}/lti13";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dispatchId != null) localVarPathParams.Add("dispatchId", this.Configuration.ApiClient.ParameterToString(dispatchId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLti13Dispatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DispatchLti13InfoSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DispatchLti13InfoSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DispatchLti13InfoSchema)));
+        }
+
+        /// <summary>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification.  Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>Task of DispatchLti13InfoSchema</returns>
+        public async System.Threading.Tasks.Task<DispatchLti13InfoSchema> GetLti13DispatchAsync (string dispatchId)
+        {
+             ApiResponse<DispatchLti13InfoSchema> localVarResponse = await GetLti13DispatchAsyncWithHttpInfo(dispatchId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification.  Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification. The information from this call will be provided to the platform during the configuration step. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <returns>Task of ApiResponse (DispatchLti13InfoSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DispatchLti13InfoSchema>> GetLti13DispatchAsyncWithHttpInfo (string dispatchId)
+        {
+            // verify the required parameter 'dispatchId' is set
+            if (dispatchId == null)
+                throw new ApiException(400, "Missing required parameter 'dispatchId' when calling DispatchApi->GetLti13Dispatch");
+
+            var localVarPath = "/dispatch/dispatches/{dispatchId}/lti13";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dispatchId != null) localVarPathParams.Add("dispatchId", this.Configuration.ApiClient.ParameterToString(dispatchId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLti13Dispatch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DispatchLti13InfoSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DispatchLti13InfoSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DispatchLti13InfoSchema)));
+        }
+
+        /// <summary>
+        /// Launch this dispatch using the IMS LTI 1.3 specification.  Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <param name="externalConfig">External configuration object</param>
+        /// <param name="jwt"></param>
+        /// <returns></returns>
+        public void GetLti13DispatchLaunch (string dispatchId, string externalConfig, string jwt)
+        {
+             GetLti13DispatchLaunchWithHttpInfo(dispatchId, externalConfig, jwt);
+        }
+
+        /// <summary>
+        /// Launch this dispatch using the IMS LTI 1.3 specification.  Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <param name="externalConfig">External configuration object</param>
+        /// <param name="jwt"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> GetLti13DispatchLaunchWithHttpInfo (string dispatchId, string externalConfig, string jwt)
+        {
+            // verify the required parameter 'dispatchId' is set
+            if (dispatchId == null)
+                throw new ApiException(400, "Missing required parameter 'dispatchId' when calling DispatchApi->GetLti13DispatchLaunch");
+            // verify the required parameter 'externalConfig' is set
+            if (externalConfig == null)
+                throw new ApiException(400, "Missing required parameter 'externalConfig' when calling DispatchApi->GetLti13DispatchLaunch");
+            // verify the required parameter 'jwt' is set
+            if (jwt == null)
+                throw new ApiException(400, "Missing required parameter 'jwt' when calling DispatchApi->GetLti13DispatchLaunch");
+
+            var localVarPath = "/dispatch/dispatches/{dispatchId}/launches";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dispatchId != null) localVarPathParams.Add("dispatchId", this.Configuration.ApiClient.ParameterToString(dispatchId)); // path parameter
+            if (externalConfig != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "externalConfig", externalConfig)); // query parameter
+            if (jwt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "jwt", jwt)); // query parameter
+
+            // authentication (UNSECURED) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLti13DispatchLaunch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Launch this dispatch using the IMS LTI 1.3 specification.  Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <param name="externalConfig">External configuration object</param>
+        /// <param name="jwt"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetLti13DispatchLaunchAsync (string dispatchId, string externalConfig, string jwt)
+        {
+             await GetLti13DispatchLaunchAsyncWithHttpInfo(dispatchId, externalConfig, jwt);
+
+        }
+
+        /// <summary>
+        /// Launch this dispatch using the IMS LTI 1.3 specification.  Launch this dispatch using the IMS LTI 1.3 specification. This is the final step in the LTI 1.3 launch process, and is the request that redirects to the resource link (i.e. course). 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dispatchId">Identifier for the dispatch</param>
+        /// <param name="externalConfig">External configuration object</param>
+        /// <param name="jwt"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetLti13DispatchLaunchAsyncWithHttpInfo (string dispatchId, string externalConfig, string jwt)
+        {
+            // verify the required parameter 'dispatchId' is set
+            if (dispatchId == null)
+                throw new ApiException(400, "Missing required parameter 'dispatchId' when calling DispatchApi->GetLti13DispatchLaunch");
+            // verify the required parameter 'externalConfig' is set
+            if (externalConfig == null)
+                throw new ApiException(400, "Missing required parameter 'externalConfig' when calling DispatchApi->GetLti13DispatchLaunch");
+            // verify the required parameter 'jwt' is set
+            if (jwt == null)
+                throw new ApiException(400, "Missing required parameter 'jwt' when calling DispatchApi->GetLti13DispatchLaunch");
+
+            var localVarPath = "/dispatch/dispatches/{dispatchId}/launches";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dispatchId != null) localVarPathParams.Add("dispatchId", this.Configuration.ApiClient.ParameterToString(dispatchId)); // path parameter
+            if (externalConfig != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "externalConfig", externalConfig)); // query parameter
+            if (jwt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "jwt", jwt)); // query parameter
+
+            // authentication (UNSECURED) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLti13DispatchLaunch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60;  
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="destinationId">Identifier for the destination</param>
+        /// <returns>Lti13ToolConfigurationSchema</returns>
+        public Lti13ToolConfigurationSchema GetLti13ToolConfigurationSchema (string destinationId)
+        {
+             ApiResponse<Lti13ToolConfigurationSchema> localVarResponse = GetLti13ToolConfigurationSchemaWithHttpInfo(destinationId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60;  
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="destinationId">Identifier for the destination</param>
+        /// <returns>ApiResponse of Lti13ToolConfigurationSchema</returns>
+        public ApiResponse< Lti13ToolConfigurationSchema > GetLti13ToolConfigurationSchemaWithHttpInfo (string destinationId)
+        {
+            // verify the required parameter 'destinationId' is set
+            if (destinationId == null)
+                throw new ApiException(400, "Missing required parameter 'destinationId' when calling DispatchApi->GetLti13ToolConfigurationSchema");
+
+            var localVarPath = "/dispatch/destinations/{destinationId}/lti13";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (destinationId != null) localVarPathParams.Add("destinationId", this.Configuration.ApiClient.ParameterToString(destinationId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLti13ToolConfigurationSchema", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Lti13ToolConfigurationSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Lti13ToolConfigurationSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Lti13ToolConfigurationSchema)));
+        }
+
+        /// <summary>
+        /// Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60;  
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="destinationId">Identifier for the destination</param>
+        /// <returns>Task of Lti13ToolConfigurationSchema</returns>
+        public async System.Threading.Tasks.Task<Lti13ToolConfigurationSchema> GetLti13ToolConfigurationSchemaAsync (string destinationId)
+        {
+             ApiResponse<Lti13ToolConfigurationSchema> localVarResponse = await GetLti13ToolConfigurationSchemaAsyncWithHttpInfo(destinationId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60;  
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="destinationId">Identifier for the destination</param>
+        /// <returns>Task of ApiResponse (Lti13ToolConfigurationSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Lti13ToolConfigurationSchema>> GetLti13ToolConfigurationSchemaAsyncWithHttpInfo (string destinationId)
+        {
+            // verify the required parameter 'destinationId' is set
+            if (destinationId == null)
+                throw new ApiException(400, "Missing required parameter 'destinationId' when calling DispatchApi->GetLti13ToolConfigurationSchema");
+
+            var localVarPath = "/dispatch/destinations/{destinationId}/lti13";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (destinationId != null) localVarPathParams.Add("destinationId", this.Configuration.ApiClient.ParameterToString(destinationId)); // path parameter
+
+            // authentication (APP_NORMAL) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLti13ToolConfigurationSchema", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Lti13ToolConfigurationSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Lti13ToolConfigurationSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Lti13ToolConfigurationSchema)));
         }
 
         /// <summary>
@@ -7220,7 +7841,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7232,7 +7853,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7311,7 +7932,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
@@ -7324,7 +7945,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account. 
+        /// Create or update a Destination  Creates or updates information about the destination.  -If the destination is being created, a name should be provided in the DestinationSchema.  If one is not present in the request an error will be thrown. -If the destination is instead being updated, only non-null values that are provided will be updated.  You may also optionally supply the e-mail address of the user to be associated with this destination.  This e-mail address should correspond to a SCORM Cloud user account.  &gt;**Note:** &gt;While the \&quot;updated\&quot; and \&quot;created\&quot; values are present in the destination schema, any attempts to manually change those values with SetDestination will be ignored. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>

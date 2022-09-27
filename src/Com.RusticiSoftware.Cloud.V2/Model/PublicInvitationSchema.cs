@@ -36,6 +36,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="id">The invitationId for this invitation..</param>
         /// <param name="courseId">Course Id for this Invitation..</param>
         /// <param name="allowLaunch">If true, then new registrations can be created for this invitation..</param>
+        /// <param name="invitationEmail">invitationEmail.</param>
         /// <param name="allowNewRegistrations">If true, then new registrations can be created for this invitation..</param>
         /// <param name="url">The launch URL for the invitation.</param>
         /// <param name="createDate">The create date for the invitation.</param>
@@ -44,11 +45,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
         /// <param name="registrationCap">Integer value that limits the amount of registrations a public invitation can generate. (default to 0).</param>
         /// <param name="registrationCount">The count of registrations for this invitation.</param>
-        public PublicInvitationSchema(string id = default(string), string courseId = default(string), bool? allowLaunch = default(bool?), bool? allowNewRegistrations = default(bool?), string url = default(string), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCap = 0, int? registrationCount = default(int?))
+        public PublicInvitationSchema(string id = default(string), string courseId = default(string), bool? allowLaunch = default(bool?), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), bool? allowNewRegistrations = default(bool?), string url = default(string), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCap = 0, int? registrationCount = default(int?))
         {
             this.Id = id;
             this.CourseId = courseId;
             this.AllowLaunch = allowLaunch;
+            this.InvitationEmail = invitationEmail;
             this.AllowNewRegistrations = allowNewRegistrations;
             this.Url = url;
             this.CreateDate = createDate;
@@ -87,6 +89,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>If true, then new registrations can be created for this invitation.</value>
         [DataMember(Name="allowLaunch", EmitDefaultValue=false)]
         public bool? AllowLaunch { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InvitationEmail
+        /// </summary>
+        [DataMember(Name="invitationEmail", EmitDefaultValue=false)]
+        public InvitationEmailSchema InvitationEmail { get; set; }
 
         /// <summary>
         /// If true, then new registrations can be created for this invitation.
@@ -154,6 +162,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CourseId: ").Append(CourseId).Append("\n");
             sb.Append("  AllowLaunch: ").Append(AllowLaunch).Append("\n");
+            sb.Append("  InvitationEmail: ").Append(InvitationEmail).Append("\n");
             sb.Append("  AllowNewRegistrations: ").Append(AllowNewRegistrations).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  CreateDate: ").Append(CreateDate).Append("\n");
@@ -212,6 +221,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.AllowLaunch.Equals(input.AllowLaunch))
                 ) && 
                 (
+                    this.InvitationEmail == input.InvitationEmail ||
+                    (this.InvitationEmail != null &&
+                    this.InvitationEmail.Equals(input.InvitationEmail))
+                ) && 
+                (
                     this.AllowNewRegistrations == input.AllowNewRegistrations ||
                     (this.AllowNewRegistrations != null &&
                     this.AllowNewRegistrations.Equals(input.AllowNewRegistrations))
@@ -268,6 +282,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.CourseId.GetHashCode();
                 if (this.AllowLaunch != null)
                     hashCode = hashCode * 59 + this.AllowLaunch.GetHashCode();
+                if (this.InvitationEmail != null)
+                    hashCode = hashCode * 59 + this.InvitationEmail.GetHashCode();
                 if (this.AllowNewRegistrations != null)
                     hashCode = hashCode * 59 + this.AllowNewRegistrations.GetHashCode();
                 if (this.Url != null)

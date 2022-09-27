@@ -78,7 +78,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CourseActivitySchema" /> class.
         /// </summary>
-        /// <param name="externalIdentifier">An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses .</param>
+        /// <param name="externalIdentifier">An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it is reused across courses .</param>
         /// <param name="itemIdentifier">The string which identifies this activity in the context of its course.</param>
         /// <param name="resourceIdentifier">The string which identifies this activity&#39;s resource in a course&#39;s manifest.</param>
         /// <param name="activityType">The type of activity this is.</param>
@@ -99,9 +99,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         }
         
         /// <summary>
-        /// An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses 
+        /// An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it is reused across courses 
         /// </summary>
-        /// <value>An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it isreused across courses </value>
+        /// <value>An arbitrary identifier that the external LMS system can associate with this LearningObject to track it as it is reused across courses </value>
         [DataMember(Name="externalIdentifier", EmitDefaultValue=false)]
         public string ExternalIdentifier { get; set; }
 

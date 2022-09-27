@@ -25,7 +25,7 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// Request to import a new course. Exactly one of fetchRequest or mediaFileReferenceRequest must be supplied, depending on the desired import behavior. 
+    /// Request to import a new course. Exactly one of the schemas must be supplied, depending on the desired import behavior. 
     /// </summary>
     [DataContract]
     public partial class ImportRequestSchema :  IEquatable<ImportRequestSchema>, IValidatableObject
@@ -35,10 +35,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         /// <param name="fetchRequest">fetchRequest.</param>
         /// <param name="mediaFileReferenceRequest">mediaFileReferenceRequest.</param>
-        public ImportRequestSchema(ImportFetchRequestSchema fetchRequest = default(ImportFetchRequestSchema), ImportMediaFileReferenceRequestSchema mediaFileReferenceRequest = default(ImportMediaFileReferenceRequestSchema))
+        /// <param name="connectorReferenceRequest">connectorReferenceRequest.</param>
+        public ImportRequestSchema(ImportFetchRequestSchema fetchRequest = default(ImportFetchRequestSchema), ImportMediaFileReferenceRequestSchema mediaFileReferenceRequest = default(ImportMediaFileReferenceRequestSchema), ImportConnectorRequestSchema connectorReferenceRequest = default(ImportConnectorRequestSchema))
         {
             this.FetchRequest = fetchRequest;
             this.MediaFileReferenceRequest = mediaFileReferenceRequest;
+            this.ConnectorReferenceRequest = connectorReferenceRequest;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public ImportMediaFileReferenceRequestSchema MediaFileReferenceRequest { get; set; }
 
         /// <summary>
+        /// Gets or Sets ConnectorReferenceRequest
+        /// </summary>
+        [DataMember(Name="connectorReferenceRequest", EmitDefaultValue=false)]
+        public ImportConnectorRequestSchema ConnectorReferenceRequest { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("class ImportRequestSchema {\n");
             sb.Append("  FetchRequest: ").Append(FetchRequest).Append("\n");
             sb.Append("  MediaFileReferenceRequest: ").Append(MediaFileReferenceRequest).Append("\n");
+            sb.Append("  ConnectorReferenceRequest: ").Append(ConnectorReferenceRequest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +115,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.MediaFileReferenceRequest == input.MediaFileReferenceRequest ||
                     (this.MediaFileReferenceRequest != null &&
                     this.MediaFileReferenceRequest.Equals(input.MediaFileReferenceRequest))
+                ) && 
+                (
+                    this.ConnectorReferenceRequest == input.ConnectorReferenceRequest ||
+                    (this.ConnectorReferenceRequest != null &&
+                    this.ConnectorReferenceRequest.Equals(input.ConnectorReferenceRequest))
                 );
         }
 
@@ -122,6 +136,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.FetchRequest.GetHashCode();
                 if (this.MediaFileReferenceRequest != null)
                     hashCode = hashCode * 59 + this.MediaFileReferenceRequest.GetHashCode();
+                if (this.ConnectorReferenceRequest != null)
+                    hashCode = hashCode * 59 + this.ConnectorReferenceRequest.GetHashCode();
                 return hashCode;
             }
         }

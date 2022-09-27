@@ -89,7 +89,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             /// Enum CMI5 for value: CMI5
             /// </summary>
             [EnumMember(Value = "CMI5")]
-            CMI5 = 9
+            CMI5 = 9,
+            
+            /// <summary>
+            /// Enum LTI13 for value: LTI13
+            /// </summary>
+            [EnumMember(Value = "LTI13")]
+            LTI13 = 10
         }
 
         /// <summary>
