@@ -34,60 +34,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         };
 
         /// <summary>
-        /// Allows for extending request processing for <see cref="ApiClient"/> generated code.
-        /// </summary>
-        /// <param name="request">The RestSharp request object</param>
-        partial void InterceptRequest(IRestRequest request);
-
-        /// <summary>
-        /// Allows for extending response processing for <see cref="ApiClient"/> generated code.
-        /// </summary>
-        /// <param name="request">The RestSharp request object</param>
-        /// <param name="response">The RestSharp response object</param>
-        partial void InterceptResponse(IRestRequest request, IRestResponse response);
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default configuration.
-        /// </summary>
-        public ApiClient()
-        {
-            Configuration = Com.RusticiSoftware.Cloud.V2.Client.Configuration.Default;
-            RestClient = new RestClient("https://cloud.scorm.com/api/v2/");
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://cloud.scorm.com/api/v2/).
-        /// </summary>
-        /// <param name="config">An instance of Configuration.</param>
-        public ApiClient(Configuration config)
-        {
-            Configuration = config ?? Com.RusticiSoftware.Cloud.V2.Client.Configuration.Default;
-
-            RestClient = new RestClient(Configuration.BasePath);
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default configuration.
+        /// Initializes a new instance of the <see cref="ApiClient" /> class.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://cloud.scorm.com/api/v2/")
+        /// <param name="userAgent">Identifier for the client library.</param>
+        /// <param name="timeout">Maximum request duration in milliseconds.</param>
+        internal ApiClient(IReadableConfiguration Configuration)
         {
-           if (String.IsNullOrEmpty(basePath))
-                throw new ArgumentException("basePath cannot be empty");
-
-            RestClient = new RestClient(basePath);
-            Configuration = Client.Configuration.Default;
+            this.Configuration = Configuration;
+            Update();
         }
-
-        /// <summary>
-        /// Gets or sets the default API client for making HTTP calls.
-        /// </summary>
-        /// <value>The default API client.</value>
-        [Obsolete("ApiClient.Default is deprecated, please use 'Configuration.Default.ApiClient' instead.")]
-        public static ApiClient Default;
 
         /// <summary>
         /// Gets or sets an instance of the IReadableConfiguration.
@@ -98,13 +54,26 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         /// configuration values from within a given client. It does not guarantee thread-safety
         /// of the <see cref="Configuration"/> instance in any way.
         /// </remarks>
-        public IReadableConfiguration Configuration { get; set; }
+        private IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Gets or sets the RestClient.
         /// </summary>
         /// <value>An instance of the RestClient</value>
-        public RestClient RestClient { get; set; }
+        private RestClient RestClient { get; set; }
+
+        /// <summary>
+        /// Updates the wrapped RestClient for this <see cref="ApiClient" /> instance.
+        /// </summary>
+        internal void Update()
+        {
+            var options = new RestClientOptions(Configuration.BasePath)
+            {
+                UserAgent = Configuration.UserAgent,
+                Timeout = Configuration.Timeout
+            };
+            RestClient = new RestClient(options);
+        }
 
         // Creates and sets up a RestRequest prior to a call.
         private RestRequest PrepareRequest(
@@ -134,12 +103,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
             // add file parameter, if any
             foreach(var param in fileParams)
             {
-                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
+                request.AddFile(param.Value.Name, param.Value.GetFile, param.Value.FileName, param.Value.ContentType);
             }
 
             if (postBody != null) // http body (model or byte[]) parameter
             {
-                request.AddParameter(contentType, postBody, ParameterType.RequestBody);
+                request.AddBody(postBody, "application/json");
             }
 
             return request;
@@ -168,15 +137,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
 
-            // set timeout
-            RestClient.Timeout = Configuration.Timeout;
-
-            // set user agent
-            RestClient.UserAgent = Configuration.UserAgent;
-
-            InterceptRequest(request);
-            var response = RestClient.Execute(request);
-            InterceptResponse(request, response);
+            var response = RestClient.ExecuteAsync(request).GetAwaiter().GetResult();
 
             return (Object) response;
         }
@@ -204,9 +165,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
 
-            InterceptRequest(request);
-            var response = await RestClient.ExecuteTaskAsync(request);
-            InterceptResponse(request, response);
+            var response = await RestClient.ExecuteAsync(request);
 
             return (Object)response;
         }
@@ -277,9 +236,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public object Deserialize(IRestResponse response, Type type)
+        public object Deserialize(RestResponse response, Type type)
         {
-            IList<Parameter> headers = response.Headers;
+            IEnumerable<HeaderParameter> headers = response.Headers;
             if (type == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;

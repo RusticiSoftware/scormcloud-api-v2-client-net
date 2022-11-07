@@ -25,26 +25,34 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// UserInvitationList
+    /// ApplicationInfoListSchema
     /// </summary>
     [DataContract]
-    public partial class UserInvitationList : PaginatedList,  IEquatable<UserInvitationList>, IValidatableObject
+    public partial class ApplicationInfoListSchema :  IEquatable<ApplicationInfoListSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserInvitationList" /> class.
+        /// Initializes a new instance of the <see cref="ApplicationInfoListSchema" /> class.
         /// </summary>
-        /// <param name="userInvitations">A list of user invitation objects..</param>
-        public UserInvitationList(List<UserInvitationSchema> userInvitations = default(List<UserInvitationSchema>), string more = default(string)) : base(more)
+        /// <param name="applications">applications.</param>
+        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
+        public ApplicationInfoListSchema(List<ApplicationInfoSchema> applications = default(List<ApplicationInfoSchema>), string more = default(string))
         {
-            this.UserInvitations = userInvitations;
+            this.Applications = applications;
+            this.More = more;
         }
         
         /// <summary>
-        /// A list of user invitation objects.
+        /// Gets or Sets Applications
         /// </summary>
-        /// <value>A list of user invitation objects.</value>
-        [DataMember(Name="userInvitations", EmitDefaultValue=false)]
-        public List<UserInvitationSchema> UserInvitations { get; set; }
+        [DataMember(Name="applications", EmitDefaultValue=false)]
+        public List<ApplicationInfoSchema> Applications { get; set; }
+
+        /// <summary>
+        /// Token for getting the next set of results, from the prior set of results.
+        /// </summary>
+        /// <value>Token for getting the next set of results, from the prior set of results.</value>
+        [DataMember(Name="more", EmitDefaultValue=false)]
+        public string More { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,9 +61,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UserInvitationList {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  UserInvitations: ").Append(UserInvitations).Append("\n");
+            sb.Append("class ApplicationInfoListSchema {\n");
+            sb.Append("  Applications: ").Append(Applications).Append("\n");
+            sb.Append("  More: ").Append(More).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -64,7 +72,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -76,24 +84,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UserInvitationList);
+            return this.Equals(input as ApplicationInfoListSchema);
         }
 
         /// <summary>
-        /// Returns true if UserInvitationList instances are equal
+        /// Returns true if ApplicationInfoListSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of UserInvitationList to be compared</param>
+        /// <param name="input">Instance of ApplicationInfoListSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserInvitationList input)
+        public bool Equals(ApplicationInfoListSchema input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
-                    this.UserInvitations == input.UserInvitations ||
-                    this.UserInvitations != null &&
-                    this.UserInvitations.SequenceEqual(input.UserInvitations)
+                    this.Applications == input.Applications ||
+                    this.Applications != null &&
+                    this.Applications.SequenceEqual(input.Applications)
+                ) && 
+                (
+                    this.More == input.More ||
+                    (this.More != null &&
+                    this.More.Equals(input.More))
                 );
         }
 
@@ -105,9 +118,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
-                if (this.UserInvitations != null)
-                    hashCode = hashCode * 59 + this.UserInvitations.GetHashCode();
+                int hashCode = 41;
+                if (this.Applications != null)
+                    hashCode = hashCode * 59 + this.Applications.GetHashCode();
+                if (this.More != null)
+                    hashCode = hashCode * 59 + this.More.GetHashCode();
                 return hashCode;
             }
         }

@@ -29,7 +29,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.1.0";
+        public const string Version = "3.0.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,95 +114,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/2.1.0/csharp";
-            BasePath = "https://cloud.scorm.com/api/v2/";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
 
-            // Setting Timeout has side effects (forces ApiClient creation).
-            Timeout = 100000;
-        }
+            _basePath = "https://cloud.scorm.com/api/v2/";
+            _userAgent = "Swagger-Codegen/3.0.0 csharp";
+            _timeout = 100000;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class
-        /// </summary>
-        public Configuration(
-            IDictionary<string, string> defaultHeader,
-            IDictionary<string, string> apiKey,
-            IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://cloud.scorm.com/api/v2/") : this()
-        {
-            if (string.IsNullOrWhiteSpace(basePath))
-                throw new ArgumentException("The provided basePath is invalid.", "basePath");
-            if (defaultHeader == null)
-                throw new ArgumentNullException("defaultHeader");
-            if (apiKey == null)
-                throw new ArgumentNullException("apiKey");
-            if (apiKeyPrefix == null)
-                throw new ArgumentNullException("apiKeyPrefix");
-
-            BasePath = basePath;
-
-            foreach (var keyValuePair in defaultHeader)
-            {
-                DefaultHeader.Add(keyValuePair);
-            }
-
-            foreach (var keyValuePair in apiKey)
-            {
-                ApiKey.Add(keyValuePair);
-            }
-
-            foreach (var keyValuePair in apiKeyPrefix)
-            {
-                ApiKeyPrefix.Add(keyValuePair);
-            }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class with different settings
-        /// </summary>
-        /// <param name="apiClient">Api client</param>
-        /// <param name="defaultHeader">Dictionary of default HTTP header</param>
-        /// <param name="username">Username</param>
-        /// <param name="password">Password</param>
-        /// <param name="accessToken">accessToken</param>
-        /// <param name="apiKey">Dictionary of API key</param>
-        /// <param name="apiKeyPrefix">Dictionary of API key prefix</param>
-        /// <param name="tempFolderPath">Temp folder path</param>
-        /// <param name="dateTimeFormat">DateTime format string</param>
-        /// <param name="timeout">HTTP connection timeout (in milliseconds)</param>
-        /// <param name="userAgent">HTTP user agent</param>
-        [Obsolete("Use explicit object construction and setting of properties.", true)]
-        public Configuration(
-            // ReSharper disable UnusedParameter.Local
-            ApiClient apiClient = null,
-            IDictionary<string, string> defaultHeader = null,
-            string username = null,
-            string password = null,
-            string accessToken = null,
-            IDictionary<string, string> apiKey = null,
-            IDictionary<string, string> apiKeyPrefix = null,
-            string tempFolderPath = null,
-            string dateTimeFormat = null,
-            int timeout = 100000,
-            string userAgent = "Swagger-Codegen/2.1.0/csharp"
-            // ReSharper restore UnusedParameter.Local
-            )
-        {
-
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the Configuration class.
-        /// </summary>
-        /// <param name="apiClient">Api client.</param>
-        [Obsolete("This constructor caused unexpected sharing of static data. It is no longer supported.", true)]
-        // ReSharper disable once UnusedParameter.Local
-        public Configuration(ApiClient apiClient)
-        {
-
+            // Create an ApiClient with default values
+            ApiClient = new ApiClient(this);
         }
 
         #endregion Constructors
@@ -210,31 +131,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
 
         #region Properties
 
-        private ApiClient _apiClient = null;
         /// <summary>
         /// Gets an instance of an ApiClient for this configuration
         /// </summary>
-        public virtual ApiClient ApiClient
-        {
-            get
-            {
-                if (_apiClient == null) _apiClient = CreateApiClient();
-                return _apiClient;
-            }
-        }
+        public virtual ApiClient ApiClient { get; private set; }
 
-        private String _basePath = null;
+        private string _basePath;
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
         public virtual string BasePath {
-            get { return _basePath; }
-            set {
+            get => _basePath;
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                    throw new ArgumentException("BasePath cannot be empty");
+
                 _basePath = value;
-                // pass-through to ApiClient if it's set.
-                if(_apiClient != null) {
-                    _apiClient.RestClient.BaseUrl = new Uri(_basePath);
-                }
+                ApiClient.Update();
             }
         }
 
@@ -243,20 +157,34 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         /// </summary>
         public virtual IDictionary<string, string> DefaultHeader { get; set; }
 
+        private int _timeout;
         /// <summary>
         /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
         /// </summary>
         public virtual int Timeout
         {
-            get { return ApiClient.RestClient.Timeout; }
-            set { ApiClient.RestClient.Timeout = value; }
+            get => _timeout;
+            set
+            {
+                _timeout = value;
+                ApiClient.Update();
+            }
         }
 
+        private string _userAgent;
         /// <summary>
         /// Gets or sets the HTTP user agent.
         /// </summary>
         /// <value>Http user agent.</value>
-        public virtual string UserAgent { get; set; }
+        public virtual string UserAgent
+        {
+            get => _userAgent;
+            set
+            {
+                _userAgent = value;
+                ApiClient.Update();
+            }
+        }
 
         /// <summary>
         /// Gets or sets the username (HTTP basic authentication).
@@ -403,16 +331,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         }
 
         /// <summary>
-        /// Creates a new <see cref="ApiClient" /> based on this <see cref="Configuration" /> instance.
-        /// </summary>
-        /// <returns></returns>
-        public ApiClient CreateApiClient()
-        {
-            return new ApiClient(BasePath) { Configuration = this };
-        }
-
-
-        /// <summary>
         /// Returns a string with essential information for debugging.
         /// </summary>
         public static String ToDebugReport()
@@ -421,7 +339,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.0\n";
-            report += "    SDK Package Version: 2.1.0\n";
+            report += "    SDK Package Version: 3.0.0\n";
 
             return report;
         }
