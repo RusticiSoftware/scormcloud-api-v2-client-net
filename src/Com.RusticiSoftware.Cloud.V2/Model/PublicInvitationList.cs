@@ -28,17 +28,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     /// PublicInvitationList
     /// </summary>
     [DataContract]
-    public partial class PublicInvitationList :  IEquatable<PublicInvitationList>, IValidatableObject
+    public partial class PublicInvitationList : PaginatedList,  IEquatable<PublicInvitationList>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PublicInvitationList" /> class.
         /// </summary>
         /// <param name="invitations">A list of public invitation objects..</param>
-        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
-        public PublicInvitationList(List<PublicInvitationSchema> invitations = default(List<PublicInvitationSchema>), string more = default(string))
+        public PublicInvitationList(List<PublicInvitationSchema> invitations = default(List<PublicInvitationSchema>), string more = default(string)) : base(more)
         {
             this.Invitations = invitations;
-            this.More = more;
         }
         
         /// <summary>
@@ -49,13 +47,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public List<PublicInvitationSchema> Invitations { get; set; }
 
         /// <summary>
-        /// Token for getting the next set of results, from the prior set of results.
-        /// </summary>
-        /// <value>Token for getting the next set of results, from the prior set of results.</value>
-        [DataMember(Name="more", EmitDefaultValue=false)]
-        public string More { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,8 +54,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PublicInvitationList {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Invitations: ").Append(Invitations).Append("\n");
-            sb.Append("  More: ").Append(More).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -73,7 +64,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -98,16 +89,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             if (input == null)
                 return false;
 
-            return 
+            return base.Equals(input) && 
                 (
                     this.Invitations == input.Invitations ||
                     this.Invitations != null &&
                     this.Invitations.SequenceEqual(input.Invitations)
-                ) && 
-                (
-                    this.More == input.More ||
-                    (this.More != null &&
-                    this.More.Equals(input.More))
                 );
         }
 
@@ -119,11 +105,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 if (this.Invitations != null)
                     hashCode = hashCode * 59 + this.Invitations.GetHashCode();
-                if (this.More != null)
-                    hashCode = hashCode * 59 + this.More.GetHashCode();
                 return hashCode;
             }
         }

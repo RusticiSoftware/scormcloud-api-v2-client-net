@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net452;netstandard2.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <RootNamespace>Com.RusticiSoftware.Cloud.V2</RootNamespace>
     <PackageId>Com.RusticiSoftware.Cloud.V2</PackageId>
-    <PackageVersion>2.1.0</PackageVersion>
+    <PackageVersion>3.0.0</PackageVersion>
     <Authors>rustici-software-systems</Authors>
     <Copyright>https://cloud.scorm.com/sc/scorm_cloud_terms_of_service.html</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -19,20 +19,10 @@
     <Folder Include="Client\" />
     <Folder Include="Model\" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="RestSharp" Version="106.12.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="108.0.2" />
     <PackageReference Include="JsonSubTypes" Version="1.2.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
   </ItemGroup>

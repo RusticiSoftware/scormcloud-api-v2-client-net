@@ -209,24 +209,65 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>ApiResponse of ApplicationInfoSchema</returns>
         ApiResponse<ApplicationInfoSchema> GetApplicationInfoWithHttpInfo (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null);
         /// <summary>
-        /// Use the Application Management App to get a list of Applications 
+        /// (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm 
         /// </summary>
         /// <remarks>
-        /// Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApplicationListSchema</returns>
+        [Obsolete("GetApplicationList is deprecated. Use GetApplications instead.")]
         ApplicationListSchema GetApplicationList ();
 
         /// <summary>
-        /// Use the Application Management App to get a list of Applications 
+        /// (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm 
         /// </summary>
         /// <remarks>
-        /// Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApplicationListSchema</returns>
+        [Obsolete("GetApplicationListWithHttpInfo is deprecated. Use GetApplicationsWithHttpInfo instead.")]
         ApiResponse<ApplicationListSchema> GetApplicationListWithHttpInfo ();
+        /// <summary>
+        /// Use the Application Management App to get a detailed list of Applications 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
+        /// <returns>ApplicationInfoListSchema</returns>
+        ApplicationInfoListSchema GetApplications (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseCount = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
+
+        /// <summary>
+        /// Use the Application Management App to get a detailed list of Applications 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
+        /// <returns>ApiResponse of ApplicationInfoListSchema</returns>
+        ApiResponse<ApplicationInfoListSchema> GetApplicationsWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseCount = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
         /// <summary>
         /// Use the Application Manager App to get a list of secret keys for an Application 
         /// </summary>
@@ -508,24 +549,65 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <returns>Task of ApiResponse (ApplicationInfoSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationInfoSchema>> GetApplicationInfoAsyncWithHttpInfo (string childAppId, bool? includeCourseCount = null, bool? includeRegistrationCount = null);
         /// <summary>
-        /// Use the Application Management App to get a list of Applications 
+        /// (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm 
         /// </summary>
         /// <remarks>
-        /// Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApplicationListSchema</returns>
+        [Obsolete("GetApplicationListAsync is deprecated. Use GetApplicationsAsync instead.")]
         System.Threading.Tasks.Task<ApplicationListSchema> GetApplicationListAsync ();
 
         /// <summary>
-        /// Use the Application Management App to get a list of Applications 
+        /// (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm 
         /// </summary>
         /// <remarks>
-        /// Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApplicationListSchema)</returns>
+        [Obsolete("GetApplicationListAsyncWithHttpInfo is deprecated. Use GetApplicationsAsyncWithHttpInfo instead.")]
         System.Threading.Tasks.Task<ApiResponse<ApplicationListSchema>> GetApplicationListAsyncWithHttpInfo ();
+        /// <summary>
+        /// Use the Application Management App to get a detailed list of Applications 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
+        /// <returns>Task of ApplicationInfoListSchema</returns>
+        System.Threading.Tasks.Task<ApplicationInfoListSchema> GetApplicationsAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseCount = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
+
+        /// <summary>
+        /// Use the Application Management App to get a detailed list of Applications 
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+        /// </remarks>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
+        /// <returns>Task of ApiResponse (ApplicationInfoListSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApplicationInfoListSchema>> GetApplicationsAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseCount = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
         /// <summary>
         /// Use the Application Manager App to get a list of secret keys for an Application 
         /// </summary>
@@ -663,17 +745,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <value>The base path</value>
         public String GetBasePath()
         {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
-        }
-
-        /// <summary>
-        /// Sets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(String basePath)
-        {
-            // do nothing
+            return this.Configuration.BasePath;
         }
 
         /// <summary>
@@ -789,8 +861,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -876,8 +948,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -968,8 +1040,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1061,8 +1133,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1141,8 +1213,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1222,8 +1294,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1300,8 +1372,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1379,8 +1451,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1463,8 +1535,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1548,8 +1620,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1632,8 +1704,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1717,8 +1789,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1799,8 +1871,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1882,8 +1954,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1967,8 +2039,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2053,8 +2125,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2071,10 +2143,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Use the Application Management App to get a list of Applications  Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm  Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApplicationListSchema</returns>
+        [Obsolete("GetApplicationList is deprecated. Use GetApplications instead.")]
         public ApplicationListSchema GetApplicationList ()
         {
              ApiResponse<ApplicationListSchema> localVarResponse = GetApplicationListWithHttpInfo();
@@ -2082,10 +2155,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Use the Application Management App to get a list of Applications  Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm  Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApplicationListSchema</returns>
+        [Obsolete("GetApplicationListWithHttpInfo is deprecated. Use GetApplicationsWithHttpInfo instead.")]
         public ApiResponse< ApplicationListSchema > GetApplicationListWithHttpInfo ()
         {
 
@@ -2126,8 +2200,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2144,10 +2218,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Use the Application Management App to get a list of Applications  Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm  Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApplicationListSchema</returns>
+        [Obsolete("GetApplicationListAsync is deprecated. Use GetApplicationsAsync instead.")]
         public async System.Threading.Tasks.Task<ApplicationListSchema> GetApplicationListAsync ()
         {
              ApiResponse<ApplicationListSchema> localVarResponse = await GetApplicationListAsyncWithHttpInfo();
@@ -2156,10 +2231,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Use the Application Management App to get a list of Applications  Returns a list of all applications which are in this Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
+        /// (Deprecated) Use the Application Management App to get basic data about all Applications in a Realm  Returns a list of all applications which are in this Realm.  &gt;**Deprecated:** &gt;It is advised to use GetApplications instead of this endpoint, as this one now exists for backwards  compatibility.  This endpoint returns very limited data about **all** applications in a Realm and is not  paginated.  Because of this, this endpoint can run into issues and have very slow performance when attempting to  pull data for accounts with many applications.  The GetApplications endpoint alleviates this problem by using pagination to return a limited amount of applications at once, while also providing much more detail about every  application present in a Realm.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApplicationListSchema)</returns>
+        [Obsolete("GetApplicationListAsyncWithHttpInfo is deprecated. Use GetApplicationsAsyncWithHttpInfo instead.")]
         public async System.Threading.Tasks.Task<ApiResponse<ApplicationListSchema>> GetApplicationListAsyncWithHttpInfo ()
         {
 
@@ -2200,8 +2276,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2215,6 +2291,213 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             return new ApiResponse<ApplicationListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApplicationListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationListSchema)));
+        }
+
+        /// <summary>
+        /// Use the Application Management App to get a detailed list of Applications  Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
+        /// <returns>ApplicationInfoListSchema</returns>
+        public ApplicationInfoListSchema GetApplications (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseCount = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
+        {
+             ApiResponse<ApplicationInfoListSchema> localVarResponse = GetApplicationsWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more, includeCourseCount, includeRegistrationCount, includeTotalCount);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Use the Application Management App to get a detailed list of Applications  Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
+        /// <returns>ApiResponse of ApplicationInfoListSchema</returns>
+        public ApiResponse< ApplicationInfoListSchema > GetApplicationsWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseCount = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
+        {
+
+            var localVarPath = "/appManagement/applicationList";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeCourseCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseCount", includeCourseCount)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
+
+            // authentication (APP_MANAGEMENT) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetApplications", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApplicationInfoListSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApplicationInfoListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationInfoListSchema)));
+        }
+
+        /// <summary>
+        /// Use the Application Management App to get a detailed list of Applications  Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
+        /// <returns>Task of ApplicationInfoListSchema</returns>
+        public async System.Threading.Tasks.Task<ApplicationInfoListSchema> GetApplicationsAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseCount = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
+        {
+             ApiResponse<ApplicationInfoListSchema> localVarResponse = await GetApplicationsAsyncWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more, includeCourseCount, includeRegistrationCount, includeTotalCount);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Use the Application Management App to get a detailed list of Applications  Returns a list of applications. Can be filtered using the request parameters to provide a subset of results.  This endpoint caches the course and registration counts of an application for 24 hours if either  &#x60;includeCourseCount&#x60; or &#x60;includeRegistrationCount&#x60; parameters, respectively, are set to &#x60;true&#x60;. Since these values are cached for an extended period, any changes made to the number of courses or  registrations in an application will not be reflected in the results of this endpoint until the caching period has passed.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time. If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results. When passing this token, no other filter parameters can be sent as part of the request. The resources will continue to respect the filters passed in by the original request.  &gt;**Note:** &gt;Each Realm has a special application called the **Application Management Application**.  When using this special application&#39;s credentials to authenticate with the API, you are able to perform actions on all the other applications within that Realm (and only those actions, this isn&#39;t a general purpose credential).  You can list, add, update, and delete both applications and credentials with this API resource.  &gt;**Info:** &gt;If you want to get an up-to-date value of the course or registration count for a single application within the caching period, use the GetApplicationInfo endpoint with &#x60;includeCourseCount&#x60; and/or &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;.  GetApplicationInfo *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that application. 
+        /// </summary>
+        /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
+        /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
+        /// <param name="filter">Optional string which filters results by a specified field (described by filterBy). (optional)</param>
+        /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to app_id)</param>
+        /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
+        /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeCourseCount">Include a count of courses for the application. (optional, default to false)</param>
+        /// <param name="includeRegistrationCount">Include a count of registrations created for the application during the current billing period. (optional, default to false)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
+        /// <returns>Task of ApiResponse (ApplicationInfoListSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApplicationInfoListSchema>> GetApplicationsAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeCourseCount = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
+        {
+
+            var localVarPath = "/appManagement/applicationList";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
+            if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
+            if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
+            if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
+            if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeCourseCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeCourseCount", includeCourseCount)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
+
+            // authentication (APP_MANAGEMENT) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (OAUTH) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetApplications", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApplicationInfoListSchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApplicationInfoListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApplicationInfoListSchema)));
         }
 
         /// <summary>
@@ -2279,8 +2562,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2359,8 +2642,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2450,8 +2733,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2542,8 +2825,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2633,8 +2916,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2725,8 +3008,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2822,8 +3105,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2920,8 +3203,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;

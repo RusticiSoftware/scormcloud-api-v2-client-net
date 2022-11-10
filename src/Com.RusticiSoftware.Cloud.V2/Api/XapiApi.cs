@@ -183,8 +183,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>XapiCredentialsListSchema</returns>
-        XapiCredentialsListSchema GetXapiCredentials (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        XapiCredentialsListSchema GetXapiCredentials (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of xAPI Credentials 
@@ -200,8 +201,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of XapiCredentialsListSchema</returns>
-        ApiResponse<XapiCredentialsListSchema> GetXapiCredentialsWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        ApiResponse<XapiCredentialsListSchema> GetXapiCredentialsWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Create or update an xAPI Statement Pipe 
         /// </summary>
@@ -409,8 +411,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of XapiCredentialsListSchema</returns>
-        System.Threading.Tasks.Task<XapiCredentialsListSchema> GetXapiCredentialsAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<XapiCredentialsListSchema> GetXapiCredentialsAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of xAPI Credentials 
@@ -426,8 +429,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (XapiCredentialsListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<XapiCredentialsListSchema>> GetXapiCredentialsAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<XapiCredentialsListSchema>> GetXapiCredentialsAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Create or update an xAPI Statement Pipe 
         /// </summary>
@@ -517,17 +521,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <value>The base path</value>
         public String GetBasePath()
         {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
-        }
-
-        /// <summary>
-        /// Sets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(String basePath)
-        {
-            // do nothing
+            return this.Configuration.BasePath;
         }
 
         /// <summary>
@@ -643,8 +637,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -730,8 +724,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -816,8 +810,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -903,8 +897,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -981,8 +975,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1060,8 +1054,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1138,8 +1132,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1217,8 +1211,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1296,8 +1290,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1376,8 +1370,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1449,8 +1443,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1523,8 +1517,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1602,8 +1596,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1682,8 +1676,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1710,10 +1704,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>XapiCredentialsListSchema</returns>
-        public XapiCredentialsListSchema GetXapiCredentials (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public XapiCredentialsListSchema GetXapiCredentials (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<XapiCredentialsListSchema> localVarResponse = GetXapiCredentialsWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more);
+             ApiResponse<XapiCredentialsListSchema> localVarResponse = GetXapiCredentialsWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -1728,8 +1723,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of XapiCredentialsListSchema</returns>
-        public ApiResponse< XapiCredentialsListSchema > GetXapiCredentialsWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public ApiResponse< XapiCredentialsListSchema > GetXapiCredentialsWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/xapi/credentials";
@@ -1761,6 +1757,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -1776,8 +1773,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1804,10 +1801,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of XapiCredentialsListSchema</returns>
-        public async System.Threading.Tasks.Task<XapiCredentialsListSchema> GetXapiCredentialsAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<XapiCredentialsListSchema> GetXapiCredentialsAsync (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<XapiCredentialsListSchema> localVarResponse = await GetXapiCredentialsAsyncWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more);
+             ApiResponse<XapiCredentialsListSchema> localVarResponse = await GetXapiCredentialsAsyncWithHttpInfo(since, until, datetimeFilter, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -1823,8 +1821,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to credential_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (XapiCredentialsListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<XapiCredentialsListSchema>> GetXapiCredentialsAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<XapiCredentialsListSchema>> GetXapiCredentialsAsyncWithHttpInfo (DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/xapi/credentials";
@@ -1856,6 +1855,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -1871,8 +1871,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1963,8 +1963,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2056,8 +2056,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2147,8 +2147,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2239,8 +2239,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;

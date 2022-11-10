@@ -36,14 +36,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="id">The application id for this application..</param>
         /// <param name="name">The name of this application..</param>
         /// <param name="createDate">The time the application was created in UTC.</param>
+        /// <param name="updateDate">The time the application was last updated in UTC.</param>
         /// <param name="allowDelete">Whether the application is allowed to perform delete operations.</param>
         /// <param name="courseCount">courseCount.</param>
         /// <param name="registrationCount">registrationCount.</param>
-        public ApplicationInfoSchema(string id = default(string), string name = default(string), DateTime? createDate = default(DateTime?), bool? allowDelete = default(bool?), int? courseCount = default(int?), int? registrationCount = default(int?))
+        public ApplicationInfoSchema(string id = default(string), string name = default(string), DateTime? createDate = default(DateTime?), DateTime? updateDate = default(DateTime?), bool? allowDelete = default(bool?), int? courseCount = default(int?), int? registrationCount = default(int?))
         {
             this.Id = id;
             this.Name = name;
             this.CreateDate = createDate;
+            this.UpdateDate = updateDate;
             this.AllowDelete = allowDelete;
             this.CourseCount = courseCount;
             this.RegistrationCount = registrationCount;
@@ -69,6 +71,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>The time the application was created in UTC</value>
         [DataMember(Name="createDate", EmitDefaultValue=false)]
         public DateTime? CreateDate { get; set; }
+
+        /// <summary>
+        /// The time the application was last updated in UTC
+        /// </summary>
+        /// <value>The time the application was last updated in UTC</value>
+        [DataMember(Name="updateDate", EmitDefaultValue=false)]
+        public DateTime? UpdateDate { get; set; }
 
         /// <summary>
         /// Whether the application is allowed to perform delete operations
@@ -100,6 +109,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  CreateDate: ").Append(CreateDate).Append("\n");
+            sb.Append("  UpdateDate: ").Append(UpdateDate).Append("\n");
             sb.Append("  AllowDelete: ").Append(AllowDelete).Append("\n");
             sb.Append("  CourseCount: ").Append(CourseCount).Append("\n");
             sb.Append("  RegistrationCount: ").Append(RegistrationCount).Append("\n");
@@ -153,6 +163,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.CreateDate.Equals(input.CreateDate))
                 ) && 
                 (
+                    this.UpdateDate == input.UpdateDate ||
+                    (this.UpdateDate != null &&
+                    this.UpdateDate.Equals(input.UpdateDate))
+                ) && 
+                (
                     this.AllowDelete == input.AllowDelete ||
                     (this.AllowDelete != null &&
                     this.AllowDelete.Equals(input.AllowDelete))
@@ -184,6 +199,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.CreateDate != null)
                     hashCode = hashCode * 59 + this.CreateDate.GetHashCode();
+                if (this.UpdateDate != null)
+                    hashCode = hashCode * 59 + this.UpdateDate.GetHashCode();
                 if (this.AllowDelete != null)
                     hashCode = hashCode * 59 + this.AllowDelete.GetHashCode();
                 if (this.CourseCount != null)

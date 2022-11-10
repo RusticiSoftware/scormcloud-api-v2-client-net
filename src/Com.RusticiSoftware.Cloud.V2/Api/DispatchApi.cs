@@ -338,8 +338,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DispatchListSchema</returns>
-        DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of a Destination&#39;s Dispatches 
@@ -358,8 +359,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        ApiResponse<DispatchListSchema> GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        ApiResponse<DispatchListSchema> GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get user PII hashing status for a Destination 
         /// </summary>
@@ -418,8 +420,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DestinationListSchema</returns>
-        DestinationListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        DestinationListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Destinations 
@@ -437,8 +440,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DestinationListSchema</returns>
-        ApiResponse<DestinationListSchema> GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        ApiResponse<DestinationListSchema> GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get detailed information about a Dispatch 
         /// </summary>
@@ -585,8 +589,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DispatchListSchema</returns>
-        DispatchListSchema GetDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        DispatchListSchema GetDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Dispatches 
@@ -604,8 +609,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        ApiResponse<DispatchListSchema> GetDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        ApiResponse<DispatchListSchema> GetDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
@@ -1313,8 +1319,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of a Destination&#39;s Dispatches 
@@ -1333,8 +1340,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get user PII hashing status for a Destination 
         /// </summary>
@@ -1393,8 +1401,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DestinationListSchema</returns>
-        System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Destinations 
@@ -1412,8 +1421,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DestinationListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get detailed information about a Dispatch 
         /// </summary>
@@ -1560,8 +1570,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Dispatches 
@@ -1579,8 +1590,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
@@ -2015,17 +2027,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <value>The base path</value>
         public String GetBasePath()
         {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
-        }
-
-        /// <summary>
-        /// Sets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(String basePath)
-        {
-            // do nothing
+            return this.Configuration.BasePath;
         }
 
         /// <summary>
@@ -2140,8 +2142,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2226,8 +2228,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2311,8 +2313,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2397,8 +2399,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2475,8 +2477,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2554,8 +2556,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2632,8 +2634,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2711,8 +2713,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2802,8 +2804,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2894,8 +2896,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2972,8 +2974,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3051,8 +3053,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3129,8 +3131,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3208,8 +3210,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3299,8 +3301,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3391,8 +3393,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3484,8 +3486,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3578,8 +3580,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3669,8 +3671,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3761,8 +3763,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3840,8 +3842,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3920,8 +3922,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3999,8 +4001,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4079,8 +4081,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4167,8 +4169,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4256,8 +4258,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4287,10 +4289,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DispatchListSchema</returns>
-        public DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = GetDestinationDispatchesWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<DispatchListSchema> localVarResponse = GetDestinationDispatchesWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -4308,8 +4311,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        public ApiResponse< DispatchListSchema > GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public ApiResponse< DispatchListSchema > GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
             // verify the required parameter 'destinationId' is set
             if (destinationId == null)
@@ -4347,6 +4351,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -4362,8 +4367,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4393,10 +4398,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        public async System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = await GetDestinationDispatchesAsyncWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<DispatchListSchema> localVarResponse = await GetDestinationDispatchesAsyncWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -4415,8 +4421,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
             // verify the required parameter 'destinationId' is set
             if (destinationId == null)
@@ -4454,6 +4461,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -4469,8 +4477,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4548,8 +4556,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4628,8 +4636,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4707,8 +4715,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4787,8 +4795,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4817,10 +4825,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DestinationListSchema</returns>
-        public DestinationListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public DestinationListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DestinationListSchema> localVarResponse = GetDestinationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<DestinationListSchema> localVarResponse = GetDestinationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -4837,8 +4846,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DestinationListSchema</returns>
-        public ApiResponse< DestinationListSchema > GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public ApiResponse< DestinationListSchema > GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/dispatch/destinations";
@@ -4872,6 +4882,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -4887,8 +4898,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4917,10 +4928,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DestinationListSchema</returns>
-        public async System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DestinationListSchema> localVarResponse = await GetDestinationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<DestinationListSchema> localVarResponse = await GetDestinationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -4938,8 +4950,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DestinationListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/dispatch/destinations";
@@ -4973,6 +4986,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -4988,8 +5002,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5067,8 +5081,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5147,8 +5161,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5226,8 +5240,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5306,8 +5320,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5385,8 +5399,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5465,8 +5479,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5544,8 +5558,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5624,8 +5638,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5703,8 +5717,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5783,8 +5797,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5868,8 +5882,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5954,8 +5968,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5984,10 +5998,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DispatchListSchema</returns>
-        public DispatchListSchema GetDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public DispatchListSchema GetDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = GetDispatchesWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<DispatchListSchema> localVarResponse = GetDispatchesWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -6004,8 +6019,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        public ApiResponse< DispatchListSchema > GetDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public ApiResponse< DispatchListSchema > GetDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/dispatch/dispatches";
@@ -6039,6 +6055,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -6054,8 +6071,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6084,10 +6101,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        public async System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = await GetDispatchesAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<DispatchListSchema> localVarResponse = await GetDispatchesAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -6105,8 +6123,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to dispatch_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/dispatch/dispatches";
@@ -6140,6 +6159,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -6155,8 +6175,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6234,8 +6254,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6314,8 +6334,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6393,8 +6413,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6473,8 +6493,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6549,16 +6569,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (externalConfig != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "externalConfig", externalConfig)); // query parameter
             if (jwt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "jwt", jwt)); // query parameter
 
-            // authentication (UNSECURED) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6634,16 +6648,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (externalConfig != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "externalConfig", externalConfig)); // query parameter
             if (jwt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "jwt", jwt)); // query parameter
 
-            // authentication (UNSECURED) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
-            }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6721,8 +6729,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6801,8 +6809,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6892,8 +6900,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6984,8 +6992,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7069,8 +7077,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7155,8 +7163,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7246,8 +7254,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7338,8 +7346,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7423,8 +7431,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7509,8 +7517,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7587,8 +7595,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7666,8 +7674,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7744,8 +7752,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7823,8 +7831,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7914,8 +7922,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8006,8 +8014,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8097,8 +8105,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8189,8 +8197,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8280,8 +8288,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8372,8 +8380,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8463,8 +8471,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8555,8 +8563,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8646,8 +8654,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8738,8 +8746,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8829,8 +8837,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -8921,8 +8929,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -9027,8 +9035,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -9134,8 +9142,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;

@@ -105,8 +105,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>InvitationSummaryList</returns>
-        InvitationSummaryList GetAllInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        InvitationSummaryList GetAllInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Invitations 
@@ -124,8 +125,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of InvitationSummaryList</returns>
-        ApiResponse<InvitationSummaryList> GetAllInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        ApiResponse<InvitationSummaryList> GetAllInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get tags for an Invitation 
         /// </summary>
@@ -207,8 +209,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>PrivateInvitationList</returns>
-        PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Private Invitations 
@@ -226,8 +229,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of PrivateInvitationList</returns>
-        ApiResponse<PrivateInvitationList> GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        ApiResponse<PrivateInvitationList> GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get a list of Private User Invitations 
         /// </summary>
@@ -244,8 +248,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>UserInvitationList</returns>
-        UserInvitationList GetPrivateUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
+        UserInvitationList GetPrivateUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Private User Invitations 
@@ -263,8 +268,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of UserInvitationList</returns>
-        ApiResponse<UserInvitationList> GetPrivateUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
+        ApiResponse<UserInvitationList> GetPrivateUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get detailed information about a Public Invitation 
         /// </summary>
@@ -304,8 +310,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>PublicInvitationList</returns>
-        PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Public Invitations 
@@ -323,8 +330,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of PublicInvitationList</returns>
-        ApiResponse<PublicInvitationList> GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        ApiResponse<PublicInvitationList> GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get a list of Public User Invitations 
         /// </summary>
@@ -341,8 +349,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>UserInvitationList</returns>
-        UserInvitationList GetPublicUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
+        UserInvitationList GetPublicUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Public User Invitations 
@@ -360,8 +369,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of UserInvitationList</returns>
-        ApiResponse<UserInvitationList> GetPublicUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
+        ApiResponse<UserInvitationList> GetPublicUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null);
         /// <summary>
         /// Add tags to an Invitation 
         /// </summary>
@@ -535,8 +545,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of InvitationSummaryList</returns>
-        System.Threading.Tasks.Task<InvitationSummaryList> GetAllInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<InvitationSummaryList> GetAllInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Invitations 
@@ -554,8 +565,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InvitationSummaryList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InvitationSummaryList>> GetAllInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<InvitationSummaryList>> GetAllInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get tags for an Invitation 
         /// </summary>
@@ -637,8 +649,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of PrivateInvitationList</returns>
-        System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Private Invitations 
@@ -656,8 +669,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PrivateInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get a list of Private User Invitations 
         /// </summary>
@@ -674,8 +688,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of UserInvitationList</returns>
-        System.Threading.Tasks.Task<UserInvitationList> GetPrivateUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
+        System.Threading.Tasks.Task<UserInvitationList> GetPrivateUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Private User Invitations 
@@ -693,8 +708,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (UserInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPrivateUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
+        System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPrivateUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get detailed information about a Public Invitation 
         /// </summary>
@@ -734,8 +750,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of PublicInvitationList</returns>
-        System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Public Invitations 
@@ -753,8 +770,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PublicInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null);
+        System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get a list of Public User Invitations 
         /// </summary>
@@ -771,8 +789,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of UserInvitationList</returns>
-        System.Threading.Tasks.Task<UserInvitationList> GetPublicUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
+        System.Threading.Tasks.Task<UserInvitationList> GetPublicUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Public User Invitations 
@@ -790,8 +809,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (UserInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPublicUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null);
+        System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPublicUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null);
         /// <summary>
         /// Add tags to an Invitation 
         /// </summary>
@@ -925,17 +945,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <value>The base path</value>
         public String GetBasePath()
         {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
-        }
-
-        /// <summary>
-        /// Sets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(String basePath)
-        {
-            // do nothing
+            return this.Configuration.BasePath;
         }
 
         /// <summary>
@@ -1051,8 +1061,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1138,8 +1148,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1224,8 +1234,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1311,8 +1321,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1402,8 +1412,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1494,8 +1504,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1524,10 +1534,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>InvitationSummaryList</returns>
-        public InvitationSummaryList GetAllInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public InvitationSummaryList GetAllInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<InvitationSummaryList> localVarResponse = GetAllInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<InvitationSummaryList> localVarResponse = GetAllInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -1544,8 +1555,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of InvitationSummaryList</returns>
-        public ApiResponse< InvitationSummaryList > GetAllInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public ApiResponse< InvitationSummaryList > GetAllInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations";
@@ -1579,6 +1591,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -1594,8 +1607,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1624,10 +1637,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of InvitationSummaryList</returns>
-        public async System.Threading.Tasks.Task<InvitationSummaryList> GetAllInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<InvitationSummaryList> GetAllInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<InvitationSummaryList> localVarResponse = await GetAllInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<InvitationSummaryList> localVarResponse = await GetAllInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -1645,8 +1659,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InvitationSummaryList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InvitationSummaryList>> GetAllInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InvitationSummaryList>> GetAllInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations";
@@ -1680,6 +1695,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -1695,8 +1711,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1774,8 +1790,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1854,8 +1870,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1936,8 +1952,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2019,8 +2035,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2098,8 +2114,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2178,8 +2194,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2208,10 +2224,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>PrivateInvitationList</returns>
-        public PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<PrivateInvitationList> localVarResponse = GetPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<PrivateInvitationList> localVarResponse = GetPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -2228,8 +2245,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of PrivateInvitationList</returns>
-        public ApiResponse< PrivateInvitationList > GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public ApiResponse< PrivateInvitationList > GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations/private";
@@ -2263,6 +2281,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -2278,8 +2297,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2308,10 +2327,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of PrivateInvitationList</returns>
-        public async System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<PrivateInvitationList> localVarResponse = await GetPrivateInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<PrivateInvitationList> localVarResponse = await GetPrivateInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -2329,8 +2349,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PrivateInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations/private";
@@ -2364,6 +2385,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -2379,8 +2401,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2409,10 +2431,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>UserInvitationList</returns>
-        public UserInvitationList GetPrivateUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
+        public UserInvitationList GetPrivateUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null)
         {
-             ApiResponse<UserInvitationList> localVarResponse = GetPrivateUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport);
+             ApiResponse<UserInvitationList> localVarResponse = GetPrivateUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -2429,8 +2452,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of UserInvitationList</returns>
-        public ApiResponse< UserInvitationList > GetPrivateUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
+        public ApiResponse< UserInvitationList > GetPrivateUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -2467,6 +2491,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -2482,8 +2507,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2512,10 +2537,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of UserInvitationList</returns>
-        public async System.Threading.Tasks.Task<UserInvitationList> GetPrivateUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
+        public async System.Threading.Tasks.Task<UserInvitationList> GetPrivateUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null)
         {
-             ApiResponse<UserInvitationList> localVarResponse = await GetPrivateUserInvitationsAsyncWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport);
+             ApiResponse<UserInvitationList> localVarResponse = await GetPrivateUserInvitationsAsyncWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -2533,8 +2559,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (UserInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPrivateUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
+        public async System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPrivateUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -2571,6 +2598,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -2586,8 +2614,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2668,8 +2696,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2751,8 +2779,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2781,10 +2809,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>PublicInvitationList</returns>
-        public PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<PublicInvitationList> localVarResponse = GetPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<PublicInvitationList> localVarResponse = GetPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -2801,8 +2830,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of PublicInvitationList</returns>
-        public ApiResponse< PublicInvitationList > GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public ApiResponse< PublicInvitationList > GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations/public";
@@ -2836,6 +2866,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -2851,8 +2882,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2881,10 +2912,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of PublicInvitationList</returns>
-        public async System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<PublicInvitationList> localVarResponse = await GetPublicInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more);
+             ApiResponse<PublicInvitationList> localVarResponse = await GetPublicInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -2902,8 +2934,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PublicInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations/public";
@@ -2937,6 +2970,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -2952,8 +2986,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2982,10 +3016,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>UserInvitationList</returns>
-        public UserInvitationList GetPublicUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
+        public UserInvitationList GetPublicUserInvitations (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null)
         {
-             ApiResponse<UserInvitationList> localVarResponse = GetPublicUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport);
+             ApiResponse<UserInvitationList> localVarResponse = GetPublicUserInvitationsWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -3002,8 +3037,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of UserInvitationList</returns>
-        public ApiResponse< UserInvitationList > GetPublicUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
+        public ApiResponse< UserInvitationList > GetPublicUserInvitationsWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -3040,6 +3076,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -3055,8 +3092,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3085,10 +3122,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of UserInvitationList</returns>
-        public async System.Threading.Tasks.Task<UserInvitationList> GetPublicUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
+        public async System.Threading.Tasks.Task<UserInvitationList> GetPublicUserInvitationsAsync (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null)
         {
-             ApiResponse<UserInvitationList> localVarResponse = await GetPublicUserInvitationsAsyncWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport);
+             ApiResponse<UserInvitationList> localVarResponse = await GetPublicUserInvitationsAsyncWithHttpInfo(invitationId, since, until, datetimeFilter, filter, filterBy, orderBy, more, includeRegistrationReport, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -3106,8 +3144,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeRegistrationReport">Optional flag to include basic registration information (optional)</param>
+        /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (UserInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPublicUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null)
+        public async System.Threading.Tasks.Task<ApiResponse<UserInvitationList>> GetPublicUserInvitationsAsyncWithHttpInfo (string invitationId, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationReport = null, bool? includeTotalCount = null)
         {
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
@@ -3144,6 +3183,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
             if (includeRegistrationReport != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationReport", includeRegistrationReport)); // query parameter
+            if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -3159,8 +3199,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3250,8 +3290,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3342,8 +3382,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3427,8 +3467,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3513,8 +3553,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3605,8 +3645,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3698,8 +3738,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3790,8 +3830,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3883,8 +3923,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            RestResponse localVarResponse = (RestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;

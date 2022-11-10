@@ -25,26 +25,26 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// UserInvitationList
+    /// PaginatedList
     /// </summary>
     [DataContract]
-    public partial class UserInvitationList : PaginatedList,  IEquatable<UserInvitationList>, IValidatableObject
+    public partial class PaginatedList :  IEquatable<PaginatedList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserInvitationList" /> class.
+        /// Initializes a new instance of the <see cref="PaginatedList" /> class.
         /// </summary>
-        /// <param name="userInvitations">A list of user invitation objects..</param>
-        public UserInvitationList(List<UserInvitationSchema> userInvitations = default(List<UserInvitationSchema>), string more = default(string)) : base(more)
+        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
+        public PaginatedList(string more = default(string))
         {
-            this.UserInvitations = userInvitations;
+            this.More = more;
         }
         
         /// <summary>
-        /// A list of user invitation objects.
+        /// Token for getting the next set of results, from the prior set of results.
         /// </summary>
-        /// <value>A list of user invitation objects.</value>
-        [DataMember(Name="userInvitations", EmitDefaultValue=false)]
-        public List<UserInvitationSchema> UserInvitations { get; set; }
+        /// <value>Token for getting the next set of results, from the prior set of results.</value>
+        [DataMember(Name="more", EmitDefaultValue=false)]
+        public string More { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,9 +53,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UserInvitationList {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  UserInvitations: ").Append(UserInvitations).Append("\n");
+            sb.Append("class PaginatedList {\n");
+            sb.Append("  More: ").Append(More).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -64,7 +63,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -76,24 +75,24 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UserInvitationList);
+            return this.Equals(input as PaginatedList);
         }
 
         /// <summary>
-        /// Returns true if UserInvitationList instances are equal
+        /// Returns true if PaginatedList instances are equal
         /// </summary>
-        /// <param name="input">Instance of UserInvitationList to be compared</param>
+        /// <param name="input">Instance of PaginatedList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserInvitationList input)
+        public bool Equals(PaginatedList input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
-                    this.UserInvitations == input.UserInvitations ||
-                    this.UserInvitations != null &&
-                    this.UserInvitations.SequenceEqual(input.UserInvitations)
+                    this.More == input.More ||
+                    (this.More != null &&
+                    this.More.Equals(input.More))
                 );
         }
 
@@ -105,9 +104,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
-                if (this.UserInvitations != null)
-                    hashCode = hashCode * 59 + this.UserInvitations.GetHashCode();
+                int hashCode = 41;
+                if (this.More != null)
+                    hashCode = hashCode * 59 + this.More.GetHashCode();
                 return hashCode;
             }
         }

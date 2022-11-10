@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.RusticiSoftware.Cloud.V2", "src\Com.RusticiSoftware.Cloud.V2\Com.RusticiSoftware.Cloud.V2.csproj", "{5F5BD1A1-1720-452D-8593-7B041B069126}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.RusticiSoftware.Cloud.V2", "src\Com.RusticiSoftware.Cloud.V2\Com.RusticiSoftware.Cloud.V2.csproj", "{2061AF70-AA1A-4504-BCA7-6D3E153A2818}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5F5BD1A1-1720-452D-8593-7B041B069126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F5BD1A1-1720-452D-8593-7B041B069126}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F5BD1A1-1720-452D-8593-7B041B069126}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F5BD1A1-1720-452D-8593-7B041B069126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2061AF70-AA1A-4504-BCA7-6D3E153A2818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2061AF70-AA1A-4504-BCA7-6D3E153A2818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2061AF70-AA1A-4504-BCA7-6D3E153A2818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2061AF70-AA1A-4504-BCA7-6D3E153A2818}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
