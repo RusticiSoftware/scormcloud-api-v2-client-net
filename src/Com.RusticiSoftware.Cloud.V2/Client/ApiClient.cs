@@ -36,12 +36,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
         /// </summary>
-        /// <param name="basePath">The base path.</param>
-        /// <param name="userAgent">Identifier for the client library.</param>
-        /// <param name="timeout">Maximum request duration in milliseconds.</param>
-        internal ApiClient(IReadableConfiguration Configuration)
+        /// <param name="configuration">
+        /// Configuration options for the API client, i.e. basepath, useragent, and timeout.
+        /// </param>
+        internal ApiClient(IReadableConfiguration configuration)
         {
-            this.Configuration = Configuration;
+            this.Configuration = configuration;
             Update();
         }
 
@@ -189,9 +189,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         public FileParameter ParameterToFile(string name, Stream stream)
         {
             if (stream is FileStream)
-                return FileParameter.Create(name, ReadAsBytes(stream), Path.GetFileName(((FileStream)stream).Name));
+                return FileParameter.Create(name, () => stream, Path.GetFileName(((FileStream)stream).Name));
             else
-                return FileParameter.Create(name, ReadAsBytes(stream), "no_file_name_provided");
+                return FileParameter.Create(name, () => stream, "no_file_name_provided");
         }
 
         /// <summary>
@@ -380,25 +380,6 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
         public static dynamic ConvertType(dynamic fromObject, Type toObject)
         {
             return Convert.ChangeType(fromObject, toObject);
-        }
-
-        /// <summary>
-        /// Convert stream to byte array
-        /// </summary>
-        /// <param name="inputStream">Input stream to be converted</param>
-        /// <returns>Byte array</returns>
-        public static byte[] ReadAsBytes(Stream inputStream)
-        {
-            byte[] buf = new byte[16*1024];
-            using (MemoryStream ms = new MemoryStream())
-            {
-                int count;
-                while ((count = inputStream.Read(buf, 0, buf.Length)) > 0)
-                {
-                    ms.Write(buf, 0, count);
-                }
-                return ms.ToArray();
-            }
         }
 
         /// <summary>
