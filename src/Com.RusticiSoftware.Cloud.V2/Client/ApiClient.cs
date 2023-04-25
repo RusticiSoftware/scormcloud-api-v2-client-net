@@ -70,7 +70,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
             var options = new RestClientOptions(Configuration.BasePath)
             {
                 UserAgent = Configuration.UserAgent,
-                Timeout = Configuration.Timeout
+                MaxTimeout = Configuration.Timeout
             };
             RestClient = new RestClient(options);
         }
