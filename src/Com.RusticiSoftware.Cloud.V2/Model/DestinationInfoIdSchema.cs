@@ -25,25 +25,33 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// DestinationListSchema
+    /// DestinationInfoIdSchema
     /// </summary>
     [DataContract]
-    public partial class DestinationListSchema :  IEquatable<DestinationListSchema>, IValidatableObject
+    public partial class DestinationInfoIdSchema :  IEquatable<DestinationInfoIdSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DestinationListSchema" /> class.
+        /// Initializes a new instance of the <see cref="DestinationInfoIdSchema" /> class.
         /// </summary>
-        /// <param name="destinations">destinations.</param>
-        public DestinationListSchema(List<DestinationIdSchema> destinations = default(List<DestinationIdSchema>))
+        /// <param name="id">id.</param>
+        /// <param name="data">data.</param>
+        public DestinationInfoIdSchema(string id = default(string), DestinationInfoSchema data = default(DestinationInfoSchema))
         {
-            this.Destinations = destinations;
+            this.Id = id;
+            this.Data = data;
         }
         
         /// <summary>
-        /// Gets or Sets Destinations
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="destinations", EmitDefaultValue=false)]
-        public List<DestinationIdSchema> Destinations { get; set; }
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public DestinationInfoSchema Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +60,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DestinationListSchema {\n");
-            sb.Append("  Destinations: ").Append(Destinations).Append("\n");
+            sb.Append("class DestinationInfoIdSchema {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +83,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DestinationListSchema);
+            return this.Equals(input as DestinationInfoIdSchema);
         }
 
         /// <summary>
-        /// Returns true if DestinationListSchema instances are equal
+        /// Returns true if DestinationInfoIdSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of DestinationListSchema to be compared</param>
+        /// <param name="input">Instance of DestinationInfoIdSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DestinationListSchema input)
+        public bool Equals(DestinationInfoIdSchema input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Destinations == input.Destinations ||
-                    this.Destinations != null &&
-                    this.Destinations.SequenceEqual(input.Destinations)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -104,8 +118,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Destinations != null)
-                    hashCode = hashCode * 59 + this.Destinations.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

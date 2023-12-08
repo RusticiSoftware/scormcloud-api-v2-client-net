@@ -40,7 +40,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         /// <param name="courseId">The id of the course for which to create an invitation. (required).</param>
         /// <param name="creatingUserEmail">The email of the user who is creating the invitation. (required).</param>
-        /// <param name="registrationCap">Integer value that limits the amount of registrations a public invitation can generate. (default to 0).</param>
+        /// <param name="registrationCap">Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation.  (default to 0).</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
         /// <param name="tags">Optional tags to be applied to this invitation..</param>
@@ -93,9 +93,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public string CreatingUserEmail { get; set; }
 
         /// <summary>
-        /// Integer value that limits the amount of registrations a public invitation can generate.
+        /// Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation. 
         /// </summary>
-        /// <value>Integer value that limits the amount of registrations a public invitation can generate.</value>
+        /// <value>Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation. </value>
         [DataMember(Name="registrationCap", EmitDefaultValue=false)]
         public int? RegistrationCap { get; set; }
 

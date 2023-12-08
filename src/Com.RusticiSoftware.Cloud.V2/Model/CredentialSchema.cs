@@ -38,13 +38,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="credential">The newly created API credential.</param>
         /// <param name="pensCredential">The PENS key for this credential.</param>
         /// <param name="status">status.</param>
-        public CredentialSchema(string id = default(string), string name = default(string), string credential = default(string), string pensCredential = default(string), string status = default(string))
+        /// <param name="created">The time the API credential was created in UTC.</param>
+        /// <param name="updated">The time the API credential was last updated in UTC.</param>
+        public CredentialSchema(string id = default(string), string name = default(string), string credential = default(string), string pensCredential = default(string), string status = default(string), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?))
         {
             this.Id = id;
             this.Name = name;
             this.Credential = credential;
             this.PensCredential = pensCredential;
             this.Status = status;
+            this.Created = created;
+            this.Updated = updated;
         }
         
         /// <summary>
@@ -82,6 +86,20 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// The time the API credential was created in UTC
+        /// </summary>
+        /// <value>The time the API credential was created in UTC</value>
+        [DataMember(Name="created", EmitDefaultValue=false)]
+        public DateTime? Created { get; set; }
+
+        /// <summary>
+        /// The time the API credential was last updated in UTC
+        /// </summary>
+        /// <value>The time the API credential was last updated in UTC</value>
+        [DataMember(Name="updated", EmitDefaultValue=false)]
+        public DateTime? Updated { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +112,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  Credential: ").Append(Credential).Append("\n");
             sb.Append("  PensCredential: ").Append(PensCredential).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +172,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
                 );
         }
 
@@ -174,6 +204,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.PensCredential.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                if (this.Updated != null)
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 return hashCode;
             }
         }

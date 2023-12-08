@@ -31,6 +31,45 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
     public partial class CreatePrivateInvitationSchema :  IEquatable<CreatePrivateInvitationSchema>, IValidatableObject
     {
         /// <summary>
+        /// Represents the possible values that determine how existing registrations will be handled when an invitation is sent to an email address that has already received an invitation:   - &#x60;FAIL&#x60;: Do not create a new invitation, do not send an email, and do nothing with registrations   - &#x60;INSTANCE_EXISTING&#x60;: Create a new instance of the existing registration and send it with the invitation   - &#x60;SEND_EXISTING&#x60;: Re-send the existing registration with the new invitation   - &#x60;CREATE_NEW&#x60;: Create a new registration for the invitation 
+        /// </summary>
+        /// <value>Represents the possible values that determine how existing registrations will be handled when an invitation is sent to an email address that has already received an invitation:   - &#x60;FAIL&#x60;: Do not create a new invitation, do not send an email, and do nothing with registrations   - &#x60;INSTANCE_EXISTING&#x60;: Create a new instance of the existing registration and send it with the invitation   - &#x60;SEND_EXISTING&#x60;: Re-send the existing registration with the new invitation   - &#x60;CREATE_NEW&#x60;: Create a new registration for the invitation </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DuplicateRegistrationOptionEnum
+        {
+            
+            /// <summary>
+            /// Enum FAIL for value: FAIL
+            /// </summary>
+            [EnumMember(Value = "FAIL")]
+            FAIL = 1,
+            
+            /// <summary>
+            /// Enum INSTANCEEXISTING for value: INSTANCE_EXISTING
+            /// </summary>
+            [EnumMember(Value = "INSTANCE_EXISTING")]
+            INSTANCEEXISTING = 2,
+            
+            /// <summary>
+            /// Enum SENDEXISTING for value: SEND_EXISTING
+            /// </summary>
+            [EnumMember(Value = "SEND_EXISTING")]
+            SENDEXISTING = 3,
+            
+            /// <summary>
+            /// Enum CREATENEW for value: CREATE_NEW
+            /// </summary>
+            [EnumMember(Value = "CREATE_NEW")]
+            CREATENEW = 4
+        }
+
+        /// <summary>
+        /// Represents the possible values that determine how existing registrations will be handled when an invitation is sent to an email address that has already received an invitation:   - &#x60;FAIL&#x60;: Do not create a new invitation, do not send an email, and do nothing with registrations   - &#x60;INSTANCE_EXISTING&#x60;: Create a new instance of the existing registration and send it with the invitation   - &#x60;SEND_EXISTING&#x60;: Re-send the existing registration with the new invitation   - &#x60;CREATE_NEW&#x60;: Create a new registration for the invitation 
+        /// </summary>
+        /// <value>Represents the possible values that determine how existing registrations will be handled when an invitation is sent to an email address that has already received an invitation:   - &#x60;FAIL&#x60;: Do not create a new invitation, do not send an email, and do nothing with registrations   - &#x60;INSTANCE_EXISTING&#x60;: Create a new instance of the existing registration and send it with the invitation   - &#x60;SEND_EXISTING&#x60;: Re-send the existing registration with the new invitation   - &#x60;CREATE_NEW&#x60;: Create a new registration for the invitation </value>
+        [DataMember(Name="duplicateRegistrationOption", EmitDefaultValue=false)]
+        public DuplicateRegistrationOptionEnum? DuplicateRegistrationOption { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CreatePrivateInvitationSchema" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -44,7 +83,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
         /// <param name="tags">Optional tags to be applied to this invitation..</param>
-        public CreatePrivateInvitationSchema(string courseId = default(string), string creatingUserEmail = default(string), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), List<string> tags = default(List<string>))
+        /// <param name="duplicateRegistrationOption">Represents the possible values that determine how existing registrations will be handled when an invitation is sent to an email address that has already received an invitation:   - &#x60;FAIL&#x60;: Do not create a new invitation, do not send an email, and do nothing with registrations   - &#x60;INSTANCE_EXISTING&#x60;: Create a new instance of the existing registration and send it with the invitation   - &#x60;SEND_EXISTING&#x60;: Re-send the existing registration with the new invitation   - &#x60;CREATE_NEW&#x60;: Create a new registration for the invitation  (default to DuplicateRegistrationOptionEnum.SENDEXISTING).</param>
+        public CreatePrivateInvitationSchema(string courseId = default(string), string creatingUserEmail = default(string), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), List<string> tags = default(List<string>), DuplicateRegistrationOptionEnum? duplicateRegistrationOption = DuplicateRegistrationOptionEnum.SENDEXISTING)
         {
             // to ensure "courseId" is required (not null)
             if (courseId == null)
@@ -76,6 +116,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             this.PostBack = postBack;
             this.ExpirationDate = expirationDate;
             this.Tags = tags;
+            // use default value if no "duplicateRegistrationOption" provided
+            if (duplicateRegistrationOption == null)
+            {
+                this.DuplicateRegistrationOption = DuplicateRegistrationOptionEnum.SENDEXISTING;
+            }
+            else
+            {
+                this.DuplicateRegistrationOption = duplicateRegistrationOption;
+            }
         }
         
         /// <summary>
@@ -119,6 +168,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
 
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -133,6 +183,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  PostBack: ").Append(PostBack).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  DuplicateRegistrationOption: ").Append(DuplicateRegistrationOption).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -196,6 +247,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.DuplicateRegistrationOption == input.DuplicateRegistrationOption ||
+                    (this.DuplicateRegistrationOption != null &&
+                    this.DuplicateRegistrationOption.Equals(input.DuplicateRegistrationOption))
                 );
         }
 
@@ -220,6 +276,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                if (this.DuplicateRegistrationOption != null)
+                    hashCode = hashCode * 59 + this.DuplicateRegistrationOption.GetHashCode();
                 return hashCode;
             }
         }

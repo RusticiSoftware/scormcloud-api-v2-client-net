@@ -35,15 +35,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         /// <param name="id">The invitationId for this invitation..</param>
         /// <param name="courseId">Course Id for this Invitation..</param>
-        /// <param name="allowLaunch">If true, then new registrations can be created for this invitation..</param>
+        /// <param name="allowLaunch">Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. .</param>
         /// <param name="invitationEmail">invitationEmail.</param>
-        /// <param name="allowNewRegistrations">If true, then new registrations can be created for this invitation..</param>
+        /// <param name="allowNewRegistrations">Determines if new registrations can be created for this public invitation. If false, no new registrations can be created for the invitation, so only learners with existing registrations can access the invitation. .</param>
         /// <param name="url">The launch URL for the invitation.</param>
         /// <param name="createDate">The create date for the invitation.</param>
         /// <param name="updated">updated.</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
-        /// <param name="registrationCap">Integer value that limits the amount of registrations a public invitation can generate. (default to 0).</param>
+        /// <param name="registrationCap">Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation.  (default to 0).</param>
         /// <param name="registrationCount">The count of registrations for this invitation.</param>
         public PublicInvitationSchema(string id = default(string), string courseId = default(string), bool? allowLaunch = default(bool?), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), bool? allowNewRegistrations = default(bool?), string url = default(string), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCap = 0, int? registrationCount = default(int?))
         {
@@ -84,9 +84,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public string CourseId { get; set; }
 
         /// <summary>
-        /// If true, then new registrations can be created for this invitation.
+        /// Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. 
         /// </summary>
-        /// <value>If true, then new registrations can be created for this invitation.</value>
+        /// <value>Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. </value>
         [DataMember(Name="allowLaunch", EmitDefaultValue=false)]
         public bool? AllowLaunch { get; set; }
 
@@ -97,9 +97,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public InvitationEmailSchema InvitationEmail { get; set; }
 
         /// <summary>
-        /// If true, then new registrations can be created for this invitation.
+        /// Determines if new registrations can be created for this public invitation. If false, no new registrations can be created for the invitation, so only learners with existing registrations can access the invitation. 
         /// </summary>
-        /// <value>If true, then new registrations can be created for this invitation.</value>
+        /// <value>Determines if new registrations can be created for this public invitation. If false, no new registrations can be created for the invitation, so only learners with existing registrations can access the invitation. </value>
         [DataMember(Name="allowNewRegistrations", EmitDefaultValue=false)]
         public bool? AllowNewRegistrations { get; set; }
 
@@ -138,9 +138,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
-        /// Integer value that limits the amount of registrations a public invitation can generate.
+        /// Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation. 
         /// </summary>
-        /// <value>Integer value that limits the amount of registrations a public invitation can generate.</value>
+        /// <value>Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation. </value>
         [DataMember(Name="registrationCap", EmitDefaultValue=false)]
         public int? RegistrationCap { get; set; }
 

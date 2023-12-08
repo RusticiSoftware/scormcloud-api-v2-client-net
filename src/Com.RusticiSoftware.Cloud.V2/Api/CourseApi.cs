@@ -34,7 +34,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>LaunchLinkSchema</returns>
-        LaunchLinkSchema BuildCoursePreviewLaunchLink (string courseId, LaunchLinkRequestSchema launchLinkRequest);
+        LaunchLinkSchema BuildCoursePreviewLaunchLink (string courseId, PreviewLaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
         /// Get a launch link to preview a Course 
@@ -46,7 +46,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
-        ApiResponse<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest);
+        ApiResponse<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithHttpInfo (string courseId, PreviewLaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
         /// Get a launch link to preview a Course Version 
         /// </summary>
@@ -58,7 +58,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>LaunchLinkSchema</returns>
-        LaunchLinkSchema BuildCoursePreviewLaunchLinkWithVersion (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
+        LaunchLinkSchema BuildCoursePreviewLaunchLinkWithVersion (string courseId, int? versionId, PreviewLaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
         /// Get a launch link to preview a Course Version 
@@ -71,7 +71,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
-        ApiResponse<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
+        ApiResponse<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionWithHttpInfo (string courseId, int? versionId, PreviewLaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
         /// Create a Course from a package fetched from an external source 
         /// </summary>
@@ -963,7 +963,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of LaunchLinkSchema</returns>
-        System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkAsync (string courseId, LaunchLinkRequestSchema launchLinkRequest);
+        System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkAsync (string courseId, PreviewLaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
         /// Get a launch link to preview a Course 
@@ -975,7 +975,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkAsyncWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest);
+        System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkAsyncWithHttpInfo (string courseId, PreviewLaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
         /// Get a launch link to preview a Course Version 
         /// </summary>
@@ -987,7 +987,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of LaunchLinkSchema</returns>
-        System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionAsync (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
+        System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionAsync (string courseId, int? versionId, PreviewLaunchLinkRequestSchema launchLinkRequest);
 
         /// <summary>
         /// Get a launch link to preview a Course Version 
@@ -1000,7 +1000,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkWithVersionAsyncWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest);
+        System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkWithVersionAsyncWithHttpInfo (string courseId, int? versionId, PreviewLaunchLinkRequestSchema launchLinkRequest);
         /// <summary>
         /// Create a Course from a package fetched from an external source 
         /// </summary>
@@ -1977,7 +1977,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>LaunchLinkSchema</returns>
-        public LaunchLinkSchema BuildCoursePreviewLaunchLink (string courseId, LaunchLinkRequestSchema launchLinkRequest)
+        public LaunchLinkSchema BuildCoursePreviewLaunchLink (string courseId, PreviewLaunchLinkRequestSchema launchLinkRequest)
         {
              ApiResponse<LaunchLinkSchema> localVarResponse = BuildCoursePreviewLaunchLinkWithHttpInfo(courseId, launchLinkRequest);
              return localVarResponse.Data;
@@ -1990,7 +1990,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
-        public ApiResponse< LaunchLinkSchema > BuildCoursePreviewLaunchLinkWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest)
+        public ApiResponse< LaunchLinkSchema > BuildCoursePreviewLaunchLinkWithHttpInfo (string courseId, PreviewLaunchLinkRequestSchema launchLinkRequest)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2069,7 +2069,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of LaunchLinkSchema</returns>
-        public async System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkAsync (string courseId, LaunchLinkRequestSchema launchLinkRequest)
+        public async System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkAsync (string courseId, PreviewLaunchLinkRequestSchema launchLinkRequest)
         {
              ApiResponse<LaunchLinkSchema> localVarResponse = await BuildCoursePreviewLaunchLinkAsyncWithHttpInfo(courseId, launchLinkRequest);
              return localVarResponse.Data;
@@ -2083,7 +2083,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkAsyncWithHttpInfo (string courseId, LaunchLinkRequestSchema launchLinkRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkAsyncWithHttpInfo (string courseId, PreviewLaunchLinkRequestSchema launchLinkRequest)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2163,7 +2163,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>LaunchLinkSchema</returns>
-        public LaunchLinkSchema BuildCoursePreviewLaunchLinkWithVersion (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest)
+        public LaunchLinkSchema BuildCoursePreviewLaunchLinkWithVersion (string courseId, int? versionId, PreviewLaunchLinkRequestSchema launchLinkRequest)
         {
              ApiResponse<LaunchLinkSchema> localVarResponse = BuildCoursePreviewLaunchLinkWithVersionWithHttpInfo(courseId, versionId, launchLinkRequest);
              return localVarResponse.Data;
@@ -2177,7 +2177,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>ApiResponse of LaunchLinkSchema</returns>
-        public ApiResponse< LaunchLinkSchema > BuildCoursePreviewLaunchLinkWithVersionWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest)
+        public ApiResponse< LaunchLinkSchema > BuildCoursePreviewLaunchLinkWithVersionWithHttpInfo (string courseId, int? versionId, PreviewLaunchLinkRequestSchema launchLinkRequest)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2261,7 +2261,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of LaunchLinkSchema</returns>
-        public async System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionAsync (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest)
+        public async System.Threading.Tasks.Task<LaunchLinkSchema> BuildCoursePreviewLaunchLinkWithVersionAsync (string courseId, int? versionId, PreviewLaunchLinkRequestSchema launchLinkRequest)
         {
              ApiResponse<LaunchLinkSchema> localVarResponse = await BuildCoursePreviewLaunchLinkWithVersionAsyncWithHttpInfo(courseId, versionId, launchLinkRequest);
              return localVarResponse.Data;
@@ -2276,7 +2276,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="versionId"></param>
         /// <param name="launchLinkRequest"></param>
         /// <returns>Task of ApiResponse (LaunchLinkSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkWithVersionAsyncWithHttpInfo (string courseId, int? versionId, LaunchLinkRequestSchema launchLinkRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<LaunchLinkSchema>> BuildCoursePreviewLaunchLinkWithVersionAsyncWithHttpInfo (string courseId, int? versionId, PreviewLaunchLinkRequestSchema launchLinkRequest)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
