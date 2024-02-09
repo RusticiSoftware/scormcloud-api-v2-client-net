@@ -25,25 +25,34 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// DestinationListSchema
+    /// DestinationInfoListSchema
     /// </summary>
     [DataContract]
-    public partial class DestinationListSchema :  IEquatable<DestinationListSchema>, IValidatableObject
+    public partial class DestinationInfoListSchema :  IEquatable<DestinationInfoListSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DestinationListSchema" /> class.
+        /// Initializes a new instance of the <see cref="DestinationInfoListSchema" /> class.
         /// </summary>
         /// <param name="destinations">destinations.</param>
-        public DestinationListSchema(List<DestinationIdSchema> destinations = default(List<DestinationIdSchema>))
+        /// <param name="more">Token for getting the next set of results, from the prior set of results..</param>
+        public DestinationInfoListSchema(List<DestinationInfoIdSchema> destinations = default(List<DestinationInfoIdSchema>), string more = default(string))
         {
             this.Destinations = destinations;
+            this.More = more;
         }
         
         /// <summary>
         /// Gets or Sets Destinations
         /// </summary>
         [DataMember(Name="destinations", EmitDefaultValue=false)]
-        public List<DestinationIdSchema> Destinations { get; set; }
+        public List<DestinationInfoIdSchema> Destinations { get; set; }
+
+        /// <summary>
+        /// Token for getting the next set of results, from the prior set of results.
+        /// </summary>
+        /// <value>Token for getting the next set of results, from the prior set of results.</value>
+        [DataMember(Name="more", EmitDefaultValue=false)]
+        public string More { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +61,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DestinationListSchema {\n");
+            sb.Append("class DestinationInfoListSchema {\n");
             sb.Append("  Destinations: ").Append(Destinations).Append("\n");
+            sb.Append("  More: ").Append(More).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,15 +84,15 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DestinationListSchema);
+            return this.Equals(input as DestinationInfoListSchema);
         }
 
         /// <summary>
-        /// Returns true if DestinationListSchema instances are equal
+        /// Returns true if DestinationInfoListSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of DestinationListSchema to be compared</param>
+        /// <param name="input">Instance of DestinationInfoListSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DestinationListSchema input)
+        public bool Equals(DestinationInfoListSchema input)
         {
             if (input == null)
                 return false;
@@ -92,6 +102,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Destinations == input.Destinations ||
                     this.Destinations != null &&
                     this.Destinations.SequenceEqual(input.Destinations)
+                ) && 
+                (
+                    this.More == input.More ||
+                    (this.More != null &&
+                    this.More.Equals(input.More))
                 );
         }
 
@@ -106,6 +121,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                 int hashCode = 41;
                 if (this.Destinations != null)
                     hashCode = hashCode * 59 + this.Destinations.GetHashCode();
+                if (this.More != null)
+                    hashCode = hashCode * 59 + this.More.GetHashCode();
                 return hashCode;
             }
         }

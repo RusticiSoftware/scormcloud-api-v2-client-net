@@ -260,8 +260,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <returns>DestinationSchema</returns>
-        DestinationSchema GetDestination (string destinationId);
+        /// <param name="includeDispatchCount">Include a count of dispatches for the destination. (optional, default to false)</param>
+        /// <returns>DestinationInfoSchema</returns>
+        DestinationInfoSchema GetDestination (string destinationId, bool? includeDispatchCount = null);
 
         /// <summary>
         /// Get detailed information about a Destination 
@@ -271,8 +272,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <returns>ApiResponse of DestinationSchema</returns>
-        ApiResponse<DestinationSchema> GetDestinationWithHttpInfo (string destinationId);
+        /// <param name="includeDispatchCount">Include a count of dispatches for the destination. (optional, default to false)</param>
+        /// <returns>ApiResponse of DestinationInfoSchema</returns>
+        ApiResponse<DestinationInfoSchema> GetDestinationWithHttpInfo (string destinationId, bool? includeDispatchCount = null);
         /// <summary>
         /// Get registration count for a Destination&#39;s Dispatches 
         /// </summary>
@@ -408,7 +410,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a list of Destinations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -420,15 +422,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeDispatchCount">Include a count of dispatches for each destination. (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
-        /// <returns>DestinationListSchema</returns>
-        DestinationListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        /// <returns>DestinationInfoListSchema</returns>
+        DestinationInfoListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeDispatchCount = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Destinations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -440,9 +443,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeDispatchCount">Include a count of dispatches for each destination. (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
-        /// <returns>ApiResponse of DestinationListSchema</returns>
-        ApiResponse<DestinationListSchema> GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        /// <returns>ApiResponse of DestinationInfoListSchema</returns>
+        ApiResponse<DestinationInfoListSchema> GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeDispatchCount = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get detailed information about a Dispatch 
         /// </summary>
@@ -1241,8 +1245,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <returns>Task of DestinationSchema</returns>
-        System.Threading.Tasks.Task<DestinationSchema> GetDestinationAsync (string destinationId);
+        /// <param name="includeDispatchCount">Include a count of dispatches for the destination. (optional, default to false)</param>
+        /// <returns>Task of DestinationInfoSchema</returns>
+        System.Threading.Tasks.Task<DestinationInfoSchema> GetDestinationAsync (string destinationId, bool? includeDispatchCount = null);
 
         /// <summary>
         /// Get detailed information about a Destination 
@@ -1252,8 +1257,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <returns>Task of ApiResponse (DestinationSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DestinationSchema>> GetDestinationAsyncWithHttpInfo (string destinationId);
+        /// <param name="includeDispatchCount">Include a count of dispatches for the destination. (optional, default to false)</param>
+        /// <returns>Task of ApiResponse (DestinationInfoSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DestinationInfoSchema>> GetDestinationAsyncWithHttpInfo (string destinationId, bool? includeDispatchCount = null);
         /// <summary>
         /// Get registration count for a Destination&#39;s Dispatches 
         /// </summary>
@@ -1389,7 +1395,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a list of Destinations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -1401,15 +1407,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeDispatchCount">Include a count of dispatches for each destination. (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
-        /// <returns>Task of DestinationListSchema</returns>
-        System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        /// <returns>Task of DestinationInfoListSchema</returns>
+        System.Threading.Tasks.Task<DestinationInfoListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeDispatchCount = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Destinations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -1421,9 +1428,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeDispatchCount">Include a count of dispatches for each destination. (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
-        /// <returns>Task of ApiResponse (DestinationListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        /// <returns>Task of ApiResponse (DestinationInfoListSchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DestinationInfoListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeDispatchCount = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get detailed information about a Dispatch 
         /// </summary>
@@ -3785,10 +3793,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <returns>DestinationSchema</returns>
-        public DestinationSchema GetDestination (string destinationId)
+        /// <param name="includeDispatchCount">Include a count of dispatches for the destination. (optional, default to false)</param>
+        /// <returns>DestinationInfoSchema</returns>
+        public DestinationInfoSchema GetDestination (string destinationId, bool? includeDispatchCount = null)
         {
-             ApiResponse<DestinationSchema> localVarResponse = GetDestinationWithHttpInfo(destinationId);
+             ApiResponse<DestinationInfoSchema> localVarResponse = GetDestinationWithHttpInfo(destinationId, includeDispatchCount);
              return localVarResponse.Data;
         }
 
@@ -3797,8 +3806,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <returns>ApiResponse of DestinationSchema</returns>
-        public ApiResponse< DestinationSchema > GetDestinationWithHttpInfo (string destinationId)
+        /// <param name="includeDispatchCount">Include a count of dispatches for the destination. (optional, default to false)</param>
+        /// <returns>ApiResponse of DestinationInfoSchema</returns>
+        public ApiResponse< DestinationInfoSchema > GetDestinationWithHttpInfo (string destinationId, bool? includeDispatchCount = null)
         {
             // verify the required parameter 'destinationId' is set
             if (destinationId == null)
@@ -3827,6 +3837,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (destinationId != null) localVarPathParams.Add("destinationId", this.Configuration.ApiClient.ParameterToString(destinationId)); // path parameter
+            if (includeDispatchCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDispatchCount", includeDispatchCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -3854,9 +3865,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DestinationSchema>(localVarStatusCode,
+            return new ApiResponse<DestinationInfoSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (DestinationSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DestinationSchema)));
+                (DestinationInfoSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DestinationInfoSchema)));
         }
 
         /// <summary>
@@ -3864,10 +3875,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <returns>Task of DestinationSchema</returns>
-        public async System.Threading.Tasks.Task<DestinationSchema> GetDestinationAsync (string destinationId)
+        /// <param name="includeDispatchCount">Include a count of dispatches for the destination. (optional, default to false)</param>
+        /// <returns>Task of DestinationInfoSchema</returns>
+        public async System.Threading.Tasks.Task<DestinationInfoSchema> GetDestinationAsync (string destinationId, bool? includeDispatchCount = null)
         {
-             ApiResponse<DestinationSchema> localVarResponse = await GetDestinationAsyncWithHttpInfo(destinationId);
+             ApiResponse<DestinationInfoSchema> localVarResponse = await GetDestinationAsyncWithHttpInfo(destinationId, includeDispatchCount);
              return localVarResponse.Data;
 
         }
@@ -3877,8 +3889,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
-        /// <returns>Task of ApiResponse (DestinationSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DestinationSchema>> GetDestinationAsyncWithHttpInfo (string destinationId)
+        /// <param name="includeDispatchCount">Include a count of dispatches for the destination. (optional, default to false)</param>
+        /// <returns>Task of ApiResponse (DestinationInfoSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DestinationInfoSchema>> GetDestinationAsyncWithHttpInfo (string destinationId, bool? includeDispatchCount = null)
         {
             // verify the required parameter 'destinationId' is set
             if (destinationId == null)
@@ -3907,6 +3920,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (destinationId != null) localVarPathParams.Add("destinationId", this.Configuration.ApiClient.ParameterToString(destinationId)); // path parameter
+            if (includeDispatchCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDispatchCount", includeDispatchCount)); // query parameter
 
             // authentication (APP_NORMAL) required
             // http basic authentication required
@@ -3934,9 +3948,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DestinationSchema>(localVarStatusCode,
+            return new ApiResponse<DestinationInfoSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (DestinationSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DestinationSchema)));
+                (DestinationInfoSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DestinationInfoSchema)));
         }
 
         /// <summary>
@@ -4813,7 +4827,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -4825,16 +4839,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeDispatchCount">Include a count of dispatches for each destination. (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
-        /// <returns>DestinationListSchema</returns>
-        public DestinationListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        /// <returns>DestinationInfoListSchema</returns>
+        public DestinationInfoListSchema GetDestinations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeDispatchCount = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DestinationListSchema> localVarResponse = GetDestinationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<DestinationInfoListSchema> localVarResponse = GetDestinationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeDispatchCount, includeTotalCount);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -4846,9 +4861,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeDispatchCount">Include a count of dispatches for each destination. (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
-        /// <returns>ApiResponse of DestinationListSchema</returns>
-        public ApiResponse< DestinationListSchema > GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        /// <returns>ApiResponse of DestinationInfoListSchema</returns>
+        public ApiResponse< DestinationInfoListSchema > GetDestinationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeDispatchCount = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/dispatch/destinations";
@@ -4882,6 +4898,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeDispatchCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDispatchCount", includeDispatchCount)); // query parameter
             if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -4910,13 +4927,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DestinationListSchema>(localVarStatusCode,
+            return new ApiResponse<DestinationInfoListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (DestinationListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DestinationListSchema)));
+                (DestinationInfoListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DestinationInfoListSchema)));
         }
 
         /// <summary>
-        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -4928,17 +4945,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeDispatchCount">Include a count of dispatches for each destination. (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
-        /// <returns>Task of DestinationListSchema</returns>
-        public async System.Threading.Tasks.Task<DestinationListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        /// <returns>Task of DestinationInfoListSchema</returns>
+        public async System.Threading.Tasks.Task<DestinationInfoListSchema> GetDestinationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeDispatchCount = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DestinationListSchema> localVarResponse = await GetDestinationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<DestinationInfoListSchema> localVarResponse = await GetDestinationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeDispatchCount, includeTotalCount);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Destinations  Returns a list of destinations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the dispatch count of a destination for 24 hours if the &#x60;includeDispatchCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of dispatches for a destination will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the dispatch count for a single destination within the caching period, use the GetDestination endpoint with &#x60;includeDispatchCount&#x60; set to &#x60;true&#x60;.  GetDestination *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that destination. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -4950,9 +4968,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to destination_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeDispatchCount">Include a count of dispatches for each destination. (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
-        /// <returns>Task of ApiResponse (DestinationListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DestinationListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        /// <returns>Task of ApiResponse (DestinationInfoListSchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DestinationInfoListSchema>> GetDestinationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeDispatchCount = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/dispatch/destinations";
@@ -4986,6 +5005,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeDispatchCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDispatchCount", includeDispatchCount)); // query parameter
             if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -5014,9 +5034,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DestinationListSchema>(localVarStatusCode,
+            return new ApiResponse<DestinationInfoListSchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (DestinationListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DestinationListSchema)));
+                (DestinationInfoListSchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DestinationInfoListSchema)));
         }
 
         /// <summary>

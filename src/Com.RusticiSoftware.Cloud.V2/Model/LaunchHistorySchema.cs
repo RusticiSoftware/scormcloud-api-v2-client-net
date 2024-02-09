@@ -95,7 +95,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaunchHistorySchema" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
+        /// <param name="id">Identifier for the registration associated with this record.</param>
         /// <param name="instance">instance.</param>
         /// <param name="score">score.</param>
         /// <param name="completionStatus">completionStatus (default to CompletionStatusEnum.UNKNOWN).</param>
@@ -105,7 +105,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="launchTime">The time of the launch in UTC.</param>
         /// <param name="exitTime">The time of the exit in UTC.</param>
         /// <param name="lastRuntimeUpdate">The time of the last runtime update in UTC.</param>
-        public LaunchHistorySchema(string id = default(string), int? instance = default(int?), ScoreSchema score = default(ScoreSchema), CompletionStatusEnum? completionStatus = CompletionStatusEnum.UNKNOWN, SuccessStatusEnum? successStatus = SuccessStatusEnum.UNKNOWN, string historyLog = default(string), double? totalSecondsTracked = default(double?), DateTime? launchTime = default(DateTime?), DateTime? exitTime = default(DateTime?), DateTime? lastRuntimeUpdate = default(DateTime?))
+        /// <param name="launchHistoryId">A unique identifier for this launch history record.</param>
+        public LaunchHistorySchema(string id = default(string), int? instance = default(int?), ScoreSchema score = default(ScoreSchema), CompletionStatusEnum? completionStatus = CompletionStatusEnum.UNKNOWN, SuccessStatusEnum? successStatus = SuccessStatusEnum.UNKNOWN, string historyLog = default(string), double? totalSecondsTracked = default(double?), DateTime? launchTime = default(DateTime?), DateTime? exitTime = default(DateTime?), DateTime? lastRuntimeUpdate = default(DateTime?), string launchHistoryId = default(string))
         {
             this.Id = id;
             this.Instance = instance;
@@ -133,11 +134,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             this.LaunchTime = launchTime;
             this.ExitTime = exitTime;
             this.LastRuntimeUpdate = lastRuntimeUpdate;
+            this.LaunchHistoryId = launchHistoryId;
         }
         
         /// <summary>
-        /// Gets or Sets Id
+        /// Identifier for the registration associated with this record
         /// </summary>
+        /// <value>Identifier for the registration associated with this record</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
@@ -189,6 +192,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public DateTime? LastRuntimeUpdate { get; set; }
 
         /// <summary>
+        /// A unique identifier for this launch history record
+        /// </summary>
+        /// <value>A unique identifier for this launch history record</value>
+        [DataMember(Name="launchHistoryId", EmitDefaultValue=false)]
+        public string LaunchHistoryId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -206,6 +216,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  LaunchTime: ").Append(LaunchTime).Append("\n");
             sb.Append("  ExitTime: ").Append(ExitTime).Append("\n");
             sb.Append("  LastRuntimeUpdate: ").Append(LastRuntimeUpdate).Append("\n");
+            sb.Append("  LaunchHistoryId: ").Append(LaunchHistoryId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -289,6 +300,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.LastRuntimeUpdate == input.LastRuntimeUpdate ||
                     (this.LastRuntimeUpdate != null &&
                     this.LastRuntimeUpdate.Equals(input.LastRuntimeUpdate))
+                ) && 
+                (
+                    this.LaunchHistoryId == input.LaunchHistoryId ||
+                    (this.LaunchHistoryId != null &&
+                    this.LaunchHistoryId.Equals(input.LaunchHistoryId))
                 );
         }
 
@@ -321,6 +337,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.ExitTime.GetHashCode();
                 if (this.LastRuntimeUpdate != null)
                     hashCode = hashCode * 59 + this.LastRuntimeUpdate.GetHashCode();
+                if (this.LaunchHistoryId != null)
+                    hashCode = hashCode * 59 + this.LaunchHistoryId.GetHashCode();
                 return hashCode;
             }
         }

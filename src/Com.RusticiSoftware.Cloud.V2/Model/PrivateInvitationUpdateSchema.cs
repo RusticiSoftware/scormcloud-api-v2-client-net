@@ -33,7 +33,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PrivateInvitationUpdateSchema" /> class.
         /// </summary>
-        /// <param name="allowLaunch">If true, then new registrations can be created for this invitation..</param>
+        /// <param name="allowLaunch">Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. .</param>
         /// <param name="invitationEmail">invitationEmail.</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
@@ -46,9 +46,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         }
         
         /// <summary>
-        /// If true, then new registrations can be created for this invitation.
+        /// Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. 
         /// </summary>
-        /// <value>If true, then new registrations can be created for this invitation.</value>
+        /// <value>Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. </value>
         [DataMember(Name="allowLaunch", EmitDefaultValue=false)]
         public bool? AllowLaunch { get; set; }
 

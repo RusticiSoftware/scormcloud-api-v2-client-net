@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <RootNamespace>Com.RusticiSoftware.Cloud.V2</RootNamespace>
     <PackageId>Com.RusticiSoftware.Cloud.V2</PackageId>
-    <PackageVersion>3.0.2</PackageVersion>
+    <PackageVersion>4.0.0</PackageVersion>
     <Authors>rustici-software-systems</Authors>
     <Copyright>https://cloud.scorm.com/sc/scorm_cloud_terms_of_service.html</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -23,7 +23,7 @@
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="109.0.0" />
-    <PackageReference Include="JsonSubTypes" Version="1.2.0" />
+    <PackageReference Include="JsonSubTypes" Version="1.4.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
   </ItemGroup>
 </Project>
