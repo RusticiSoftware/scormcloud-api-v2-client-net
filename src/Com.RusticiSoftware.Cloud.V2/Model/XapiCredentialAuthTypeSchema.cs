@@ -109,9 +109,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
 
             return 
                 (
-                    this.XapiCredentialAuthType == input.XapiCredentialAuthType ||
-                    (this.XapiCredentialAuthType != null &&
-                    this.XapiCredentialAuthType.Equals(input.XapiCredentialAuthType))
+                    this.XapiCredentialAuthType == input.XapiCredentialAuthType
                 );
         }
 
@@ -124,8 +122,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.XapiCredentialAuthType != null)
-                    hashCode = hashCode * 59 + this.XapiCredentialAuthType.GetHashCode();
+                hashCode = hashCode * 59 + this.XapiCredentialAuthType.GetHashCode();
                 return hashCode;
             }
         }

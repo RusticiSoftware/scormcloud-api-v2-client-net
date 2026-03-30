@@ -332,6 +332,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -342,7 +343,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DispatchListSchema</returns>
-        DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of a Destination&#39;s Dispatches 
@@ -353,6 +354,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -363,7 +365,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        ApiResponse<DispatchListSchema> GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        ApiResponse<DispatchListSchema> GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get user PII hashing status for a Destination 
         /// </summary>
@@ -585,6 +587,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -595,7 +598,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DispatchListSchema</returns>
-        DispatchListSchema GetDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        DispatchListSchema GetDispatches (string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Dispatches 
@@ -605,6 +608,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -615,7 +619,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        ApiResponse<DispatchListSchema> GetDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        ApiResponse<DispatchListSchema> GetDispatchesWithHttpInfo (string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
@@ -1317,6 +1321,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -1327,7 +1332,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of a Destination&#39;s Dispatches 
@@ -1338,6 +1343,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -1348,7 +1354,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get user PII hashing status for a Destination 
         /// </summary>
@@ -1570,6 +1576,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -1580,7 +1587,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Dispatches 
@@ -1590,6 +1597,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -1600,7 +1608,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get the information necessary to launch this dispatch using the IMS LTI 1.1 specification. 
         /// </summary>
@@ -4295,6 +4303,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -4305,9 +4314,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DispatchListSchema</returns>
-        public DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public DispatchListSchema GetDestinationDispatches (string destinationId, string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = GetDestinationDispatchesWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<DispatchListSchema> localVarResponse = GetDestinationDispatchesWithHttpInfo(destinationId, courseId, isEnabled, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -4317,6 +4326,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -4327,7 +4337,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        public ApiResponse< DispatchListSchema > GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public ApiResponse< DispatchListSchema > GetDestinationDispatchesWithHttpInfo (string destinationId, string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
             // verify the required parameter 'destinationId' is set
             if (destinationId == null)
@@ -4357,6 +4367,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             if (destinationId != null) localVarPathParams.Add("destinationId", this.Configuration.ApiClient.ParameterToString(destinationId)); // path parameter
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (isEnabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "isEnabled", isEnabled)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
@@ -4404,6 +4415,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -4414,9 +4426,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        public async System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public async System.Threading.Tasks.Task<DispatchListSchema> GetDestinationDispatchesAsync (string destinationId, string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = await GetDestinationDispatchesAsyncWithHttpInfo(destinationId, courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<DispatchListSchema> localVarResponse = await GetDestinationDispatchesAsyncWithHttpInfo(destinationId, courseId, isEnabled, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -4427,6 +4439,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="destinationId">Identifier for the destination</param>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -4437,7 +4450,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDestinationDispatchesAsyncWithHttpInfo (string destinationId, string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
             // verify the required parameter 'destinationId' is set
             if (destinationId == null)
@@ -4467,6 +4480,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
 
             if (destinationId != null) localVarPathParams.Add("destinationId", this.Configuration.ApiClient.ParameterToString(destinationId)); // path parameter
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (isEnabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "isEnabled", isEnabled)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
@@ -6010,6 +6024,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -6020,9 +6035,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>DispatchListSchema</returns>
-        public DispatchListSchema GetDispatches (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public DispatchListSchema GetDispatches (string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = GetDispatchesWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<DispatchListSchema> localVarResponse = GetDispatchesWithHttpInfo(courseId, isEnabled, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
         }
 
@@ -6031,6 +6046,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -6041,7 +6057,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of DispatchListSchema</returns>
-        public ApiResponse< DispatchListSchema > GetDispatchesWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public ApiResponse< DispatchListSchema > GetDispatchesWithHttpInfo (string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/dispatch/dispatches";
@@ -6067,6 +6083,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (isEnabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "isEnabled", isEnabled)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter
@@ -6113,6 +6130,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -6123,9 +6141,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of DispatchListSchema</returns>
-        public async System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public async System.Threading.Tasks.Task<DispatchListSchema> GetDispatchesAsync (string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
-             ApiResponse<DispatchListSchema> localVarResponse = await GetDispatchesAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<DispatchListSchema> localVarResponse = await GetDispatchesAsyncWithHttpInfo(courseId, isEnabled, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
              return localVarResponse.Data;
 
         }
@@ -6135,6 +6153,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
+        /// <param name="isEnabled">Optional boolean parameter used to filter the list of dispatches so that only enabled or disabled dispatches are retrieved.  (optional)</param>
         /// <param name="since">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="until">Filter by ISO 8601 TimeStamp inclusive (defaults to UTC) (optional)</param>
         /// <param name="datetimeFilter">Specifies field that &#x60;since&#x60; and &#x60;until&#x60; parameters are applied against (optional, default to updated)</param>
@@ -6145,7 +6164,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (DispatchListSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DispatchListSchema>> GetDispatchesAsyncWithHttpInfo (string courseId = null, bool? isEnabled = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/dispatch/dispatches";
@@ -6171,6 +6190,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
+            if (isEnabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "isEnabled", isEnabled)); // query parameter
             if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "since", since)); // query parameter
             if (until != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "until", until)); // query parameter
             if (datetimeFilter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "datetimeFilter", datetimeFilter)); // query parameter

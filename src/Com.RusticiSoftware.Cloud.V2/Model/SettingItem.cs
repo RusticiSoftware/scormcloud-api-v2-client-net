@@ -189,9 +189,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.EffectiveValue.Equals(input.EffectiveValue))
                 ) && 
                 (
-                    this.EffectiveValueSource == input.EffectiveValueSource ||
-                    (this.EffectiveValueSource != null &&
-                    this.EffectiveValueSource.Equals(input.EffectiveValueSource))
+                    this.EffectiveValueSource == input.EffectiveValueSource
                 ) && 
                 (
                     this.ExplicitValue == input.ExplicitValue ||
@@ -218,8 +216,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.EffectiveValue != null)
                     hashCode = hashCode * 59 + this.EffectiveValue.GetHashCode();
-                if (this.EffectiveValueSource != null)
-                    hashCode = hashCode * 59 + this.EffectiveValueSource.GetHashCode();
+                hashCode = hashCode * 59 + this.EffectiveValueSource.GetHashCode();
                 if (this.ExplicitValue != null)
                     hashCode = hashCode * 59 + this.ExplicitValue.GetHashCode();
                 if (this.Metadata != null)

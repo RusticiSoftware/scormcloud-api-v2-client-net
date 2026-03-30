@@ -349,19 +349,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.FirstSuccessTimeStamp.Equals(input.FirstSuccessTimeStamp))
                 ) && 
                 (
-                    this.ObjectiveCompletion == input.ObjectiveCompletion ||
-                    (this.ObjectiveCompletion != null &&
-                    this.ObjectiveCompletion.Equals(input.ObjectiveCompletion))
+                    this.ObjectiveCompletion == input.ObjectiveCompletion
                 ) && 
                 (
-                    this.ObjectiveSuccess == input.ObjectiveSuccess ||
-                    (this.ObjectiveSuccess != null &&
-                    this.ObjectiveSuccess.Equals(input.ObjectiveSuccess))
+                    this.ObjectiveSuccess == input.ObjectiveSuccess
                 ) && 
                 (
-                    this.PreviousObjectiveSuccess == input.PreviousObjectiveSuccess ||
-                    (this.PreviousObjectiveSuccess != null &&
-                    this.PreviousObjectiveSuccess.Equals(input.PreviousObjectiveSuccess))
+                    this.PreviousObjectiveSuccess == input.PreviousObjectiveSuccess
                 );
         }
 
@@ -394,12 +388,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.ProgressMeasure.GetHashCode();
                 if (this.FirstSuccessTimeStamp != null)
                     hashCode = hashCode * 59 + this.FirstSuccessTimeStamp.GetHashCode();
-                if (this.ObjectiveCompletion != null)
-                    hashCode = hashCode * 59 + this.ObjectiveCompletion.GetHashCode();
-                if (this.ObjectiveSuccess != null)
-                    hashCode = hashCode * 59 + this.ObjectiveSuccess.GetHashCode();
-                if (this.PreviousObjectiveSuccess != null)
-                    hashCode = hashCode * 59 + this.PreviousObjectiveSuccess.GetHashCode();
+                hashCode = hashCode * 59 + this.ObjectiveCompletion.GetHashCode();
+                hashCode = hashCode * 59 + this.ObjectiveSuccess.GetHashCode();
+                hashCode = hashCode * 59 + this.PreviousObjectiveSuccess.GetHashCode();
                 return hashCode;
             }
         }

@@ -147,9 +147,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.JobId.Equals(input.JobId))
                 ) && 
                 (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status == input.Status
                 ) && 
                 (
                     this.Message == input.Message ||
@@ -174,8 +172,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                 int hashCode = 41;
                 if (this.JobId != null)
                     hashCode = hashCode * 59 + this.JobId.GetHashCode();
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Message != null)
                     hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.ImportResult != null)

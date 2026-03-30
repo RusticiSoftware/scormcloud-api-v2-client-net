@@ -34,7 +34,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Initializes a new instance of the <see cref="DispatchRegistrationCountSchema" /> class.
         /// </summary>
         /// <param name="registrationCount">registrationCount.</param>
-        /// <param name="lastResetDate">lastResetDate.</param>
+        /// <param name="lastResetDate">The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. .</param>
         public DispatchRegistrationCountSchema(int? registrationCount = default(int?), DateTime? lastResetDate = default(DateTime?))
         {
             this.RegistrationCount = registrationCount;
@@ -48,8 +48,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public int? RegistrationCount { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastResetDate
+        /// The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. 
         /// </summary>
+        /// <value>The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. </value>
         [DataMember(Name="lastResetDate", EmitDefaultValue=false)]
         public DateTime? LastResetDate { get; set; }
 

@@ -1205,6 +1205,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarPostBody = tokenRequest; // byte array
             }
 
+            // authentication (APP_MANAGEMENT) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
             // authentication (APP_NORMAL) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
@@ -1286,6 +1292,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
                 localVarPostBody = tokenRequest; // byte array
             }
 
+            // authentication (APP_MANAGEMENT) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
             // authentication (APP_NORMAL) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))

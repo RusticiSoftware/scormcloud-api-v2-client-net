@@ -37,7 +37,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="invitationEmail">invitationEmail.</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
-        public PrivateInvitationUpdateSchema(bool? allowLaunch = default(bool?), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?))
+        public PrivateInvitationUpdateSchema(bool? allowLaunch = default(bool?), InvitationEmailUpdateSchema invitationEmail = default(InvitationEmailUpdateSchema), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?))
         {
             this.AllowLaunch = allowLaunch;
             this.InvitationEmail = invitationEmail;
@@ -56,7 +56,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// Gets or Sets InvitationEmail
         /// </summary>
         [DataMember(Name="invitationEmail", EmitDefaultValue=false)]
-        public InvitationEmailSchema InvitationEmail { get; set; }
+        public InvitationEmailUpdateSchema InvitationEmail { get; set; }
 
         /// <summary>
         /// Specifies a URL for which to post activity and status data in real time as the course is completed

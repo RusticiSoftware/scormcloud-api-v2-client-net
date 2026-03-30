@@ -197,7 +197,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a list of Private Invitations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -209,15 +209,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>PrivateInvitationList</returns>
-        PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Private Invitations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -229,9 +230,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of PrivateInvitationList</returns>
-        ApiResponse<PrivateInvitationList> GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        ApiResponse<PrivateInvitationList> GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get a list of Private User Invitations 
         /// </summary>
@@ -298,7 +300,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a list of Public Invitations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -310,15 +312,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>PublicInvitationList</returns>
-        PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Public Invitations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -330,9 +333,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of PublicInvitationList</returns>
-        ApiResponse<PublicInvitationList> GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        ApiResponse<PublicInvitationList> GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get a list of Public User Invitations 
         /// </summary>
@@ -637,7 +641,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a list of Private Invitations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -649,15 +653,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of PrivateInvitationList</returns>
-        System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Private Invitations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -669,9 +674,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PrivateInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get a list of Private User Invitations 
         /// </summary>
@@ -738,7 +744,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// Get a list of Public Invitations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -750,15 +756,16 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of PublicInvitationList</returns>
-        System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
 
         /// <summary>
         /// Get a list of Public Invitations 
         /// </summary>
         /// <remarks>
-        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
         /// </remarks>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -770,9 +777,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PublicInvitationList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null);
+        System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null);
         /// <summary>
         /// Get a list of Public User Invitations 
         /// </summary>
@@ -2212,7 +2220,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -2224,16 +2232,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>PrivateInvitationList</returns>
-        public PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public PrivateInvitationList GetPrivateInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
         {
-             ApiResponse<PrivateInvitationList> localVarResponse = GetPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<PrivateInvitationList> localVarResponse = GetPrivateInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeRegistrationCount, includeTotalCount);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -2245,9 +2254,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of PrivateInvitationList</returns>
-        public ApiResponse< PrivateInvitationList > GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public ApiResponse< PrivateInvitationList > GetPrivateInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations/private";
@@ -2281,6 +2291,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
             if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -2315,7 +2326,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -2327,17 +2338,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of PrivateInvitationList</returns>
-        public async System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public async System.Threading.Tasks.Task<PrivateInvitationList> GetPrivateInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
         {
-             ApiResponse<PrivateInvitationList> localVarResponse = await GetPrivateInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<PrivateInvitationList> localVarResponse = await GetPrivateInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeRegistrationCount, includeTotalCount);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Private Invitations  Returns a list of private invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the launched registration count and total registration count of all private invitations for 24 hours if the &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since these values are cached for an extended period, any changes made to the number of launched registrations for a private invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get up-to-date values of the launched or total registration counts for a single private invitation within the caching period, use the GetPrivateInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPrivateInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that private invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -2349,9 +2361,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PrivateInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PrivateInvitationList>> GetPrivateInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations/private";
@@ -2385,6 +2398,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
             if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -2797,7 +2811,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -2809,16 +2823,17 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>PublicInvitationList</returns>
-        public PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public PublicInvitationList GetPublicInvitations (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
         {
-             ApiResponse<PublicInvitationList> localVarResponse = GetPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<PublicInvitationList> localVarResponse = GetPublicInvitationsWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeRegistrationCount, includeTotalCount);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -2830,9 +2845,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>ApiResponse of PublicInvitationList</returns>
-        public ApiResponse< PublicInvitationList > GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public ApiResponse< PublicInvitationList > GetPublicInvitationsWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations/public";
@@ -2866,6 +2882,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
             if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required
@@ -2900,7 +2917,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         }
 
         /// <summary>
-        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -2912,17 +2929,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of PublicInvitationList</returns>
-        public async System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public async System.Threading.Tasks.Task<PublicInvitationList> GetPublicInvitationsAsync (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
         {
-             ApiResponse<PublicInvitationList> localVarResponse = await GetPublicInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeTotalCount);
+             ApiResponse<PublicInvitationList> localVarResponse = await GetPublicInvitationsAsyncWithHttpInfo(courseId, since, until, datetimeFilter, tags, filter, filterBy, orderBy, more, includeRegistrationCount, includeTotalCount);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request. 
+        /// Get a list of Public Invitations  Returns a list of public invitations.  Can be filtered using the request parameters to provide a subset of results.  &gt;**Note:** &gt;This request is paginated and will only provide a limited amount of resources at a time.  If there are more results to be collected, a &#x60;more&#x60; token provided with the response which can be passed to get the next page of results.  When passing this token, no other filter parameters can be sent as part of the request.  The resources will continue to respect the filters passed in by the original request.  &gt;**Info:** &gt;This endpoint caches the registration count of all public invitations for 24 hours if the  &#x60;includeRegistrationCount&#x60; parameter is set to &#x60;true&#x60;.  Since this value is cached for an extended period, any changes made to the number of registrations for a public invitation will not be reflected in the results of this endpoint until the caching period has passed.  &gt;If you want to get an up-to-date value of the registration count for a single public invitation within the  caching period, use the GetPublicInvitation endpoint with &#x60;includeRegistrationCount&#x60; set to &#x60;true&#x60;. GetPublicInvitation *always* gathers the most up-to-date values and overwrites them in the cache, resetting the caching period for that public invitation. 
         /// </summary>
         /// <exception cref="Com.RusticiSoftware.Cloud.V2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="courseId">Only retrieve resources having &#x60;courseId&#x60; (optional)</param>
@@ -2934,9 +2952,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="filterBy">Optional enum parameter for specifying the field on which to run the filter.  (optional, default to invitation_id)</param>
         /// <param name="orderBy">Optional enum parameter for specifying the field and order by which to sort the results.  (optional, default to updated_asc)</param>
         /// <param name="more">Pagination token returned as &#x60;more&#x60; property of multi page list requests (optional)</param>
+        /// <param name="includeRegistrationCount">Include the registration count in the results (optional, default to false)</param>
         /// <param name="includeTotalCount">Include the total count of results matching the provided filters as a header on the initial request.  The header will not be present on subsequent requests resulting from passing the &#x60;more&#x60; token.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (PublicInvitationList)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeTotalCount = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PublicInvitationList>> GetPublicInvitationsAsyncWithHttpInfo (string courseId = null, DateTime? since = null, DateTime? until = null, string datetimeFilter = null, List<string> tags = null, string filter = null, string filterBy = null, string orderBy = null, string more = null, bool? includeRegistrationCount = null, bool? includeTotalCount = null)
         {
 
             var localVarPath = "/invitations/public";
@@ -2970,6 +2989,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (filterBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filterBy", filterBy)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (more != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "more", more)); // query parameter
+            if (includeRegistrationCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeRegistrationCount", includeRegistrationCount)); // query parameter
             if (includeTotalCount != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeTotalCount", includeTotalCount)); // query parameter
 
             // authentication (APP_NORMAL) required

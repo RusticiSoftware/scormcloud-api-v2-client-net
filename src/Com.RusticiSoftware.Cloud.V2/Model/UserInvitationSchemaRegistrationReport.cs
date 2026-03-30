@@ -116,14 +116,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
 
             return 
                 (
-                    this.Complete == input.Complete ||
-                    (this.Complete != null &&
-                    this.Complete.Equals(input.Complete))
+                    this.Complete == input.Complete
                 ) && 
                 (
-                    this.Success == input.Success ||
-                    (this.Success != null &&
-                    this.Success.Equals(input.Success))
+                    this.Success == input.Success
                 ) && 
                 (
                     this.TotalSecondsTracked == input.TotalSecondsTracked ||
@@ -146,10 +142,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Complete != null)
-                    hashCode = hashCode * 59 + this.Complete.GetHashCode();
-                if (this.Success != null)
-                    hashCode = hashCode * 59 + this.Success.GetHashCode();
+                hashCode = hashCode * 59 + this.Complete.GetHashCode();
+                hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.TotalSecondsTracked != null)
                     hashCode = hashCode * 59 + this.TotalSecondsTracked.GetHashCode();
                 if (this.Score != null)

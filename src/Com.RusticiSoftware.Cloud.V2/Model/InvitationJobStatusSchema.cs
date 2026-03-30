@@ -153,9 +153,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
 
             return 
                 (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status == input.Status
                 ) && 
                 (
                     this.Errors == input.Errors ||
@@ -183,8 +181,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 if (this.Total != null)

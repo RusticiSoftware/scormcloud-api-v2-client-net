@@ -35,37 +35,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         /// <param name="id">The invitationId for this invitation..</param>
         /// <param name="courseId">Course Id for this Invitation..</param>
+        /// <param name="courseTitle">Title of the course associated with this invitation..</param>
         /// <param name="allowLaunch">Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. .</param>
-        /// <param name="invitationEmail">invitationEmail.</param>
         /// <param name="allowNewRegistrations">Determines if new registrations can be created for this public invitation. If false, no new registrations can be created for the invitation, so only learners with existing registrations can access the invitation. .</param>
         /// <param name="url">The launch URL for the invitation.</param>
         /// <param name="createDate">The create date for the invitation.</param>
         /// <param name="updated">updated.</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
-        /// <param name="registrationCap">Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation.  (default to 0).</param>
+        /// <param name="registrationCap">Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation. .</param>
         /// <param name="registrationCount">The count of registrations for this invitation.</param>
-        public PublicInvitationSchema(string id = default(string), string courseId = default(string), bool? allowLaunch = default(bool?), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), bool? allowNewRegistrations = default(bool?), string url = default(string), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCap = 0, int? registrationCount = default(int?))
+        public PublicInvitationSchema(string id = default(string), string courseId = default(string), string courseTitle = default(string), bool? allowLaunch = default(bool?), bool? allowNewRegistrations = default(bool?), string url = default(string), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCap = default(int?), int? registrationCount = default(int?))
         {
             this.Id = id;
             this.CourseId = courseId;
+            this.CourseTitle = courseTitle;
             this.AllowLaunch = allowLaunch;
-            this.InvitationEmail = invitationEmail;
             this.AllowNewRegistrations = allowNewRegistrations;
             this.Url = url;
             this.CreateDate = createDate;
             this.Updated = updated;
             this.PostBack = postBack;
             this.ExpirationDate = expirationDate;
-            // use default value if no "registrationCap" provided
-            if (registrationCap == null)
-            {
-                this.RegistrationCap = 0;
-            }
-            else
-            {
-                this.RegistrationCap = registrationCap;
-            }
+            this.RegistrationCap = registrationCap;
             this.RegistrationCount = registrationCount;
         }
         
@@ -84,17 +76,18 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public string CourseId { get; set; }
 
         /// <summary>
+        /// Title of the course associated with this invitation.
+        /// </summary>
+        /// <value>Title of the course associated with this invitation.</value>
+        [DataMember(Name="courseTitle", EmitDefaultValue=false)]
+        public string CourseTitle { get; set; }
+
+        /// <summary>
         /// Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. 
         /// </summary>
         /// <value>Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. </value>
         [DataMember(Name="allowLaunch", EmitDefaultValue=false)]
         public bool? AllowLaunch { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InvitationEmail
-        /// </summary>
-        [DataMember(Name="invitationEmail", EmitDefaultValue=false)]
-        public InvitationEmailSchema InvitationEmail { get; set; }
 
         /// <summary>
         /// Determines if new registrations can be created for this public invitation. If false, no new registrations can be created for the invitation, so only learners with existing registrations can access the invitation. 
@@ -161,8 +154,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("class PublicInvitationSchema {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CourseId: ").Append(CourseId).Append("\n");
+            sb.Append("  CourseTitle: ").Append(CourseTitle).Append("\n");
             sb.Append("  AllowLaunch: ").Append(AllowLaunch).Append("\n");
-            sb.Append("  InvitationEmail: ").Append(InvitationEmail).Append("\n");
             sb.Append("  AllowNewRegistrations: ").Append(AllowNewRegistrations).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  CreateDate: ").Append(CreateDate).Append("\n");
@@ -216,14 +209,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.CourseId.Equals(input.CourseId))
                 ) && 
                 (
+                    this.CourseTitle == input.CourseTitle ||
+                    (this.CourseTitle != null &&
+                    this.CourseTitle.Equals(input.CourseTitle))
+                ) && 
+                (
                     this.AllowLaunch == input.AllowLaunch ||
                     (this.AllowLaunch != null &&
                     this.AllowLaunch.Equals(input.AllowLaunch))
-                ) && 
-                (
-                    this.InvitationEmail == input.InvitationEmail ||
-                    (this.InvitationEmail != null &&
-                    this.InvitationEmail.Equals(input.InvitationEmail))
                 ) && 
                 (
                     this.AllowNewRegistrations == input.AllowNewRegistrations ||
@@ -280,10 +273,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.CourseId != null)
                     hashCode = hashCode * 59 + this.CourseId.GetHashCode();
+                if (this.CourseTitle != null)
+                    hashCode = hashCode * 59 + this.CourseTitle.GetHashCode();
                 if (this.AllowLaunch != null)
                     hashCode = hashCode * 59 + this.AllowLaunch.GetHashCode();
-                if (this.InvitationEmail != null)
-                    hashCode = hashCode * 59 + this.InvitationEmail.GetHashCode();
                 if (this.AllowNewRegistrations != null)
                     hashCode = hashCode * 59 + this.AllowNewRegistrations.GetHashCode();
                 if (this.Url != null)

@@ -264,14 +264,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Attempts.Equals(input.Attempts))
                 ) && 
                 (
-                    this.ActivityCompletion == input.ActivityCompletion ||
-                    (this.ActivityCompletion != null &&
-                    this.ActivityCompletion.Equals(input.ActivityCompletion))
+                    this.ActivityCompletion == input.ActivityCompletion
                 ) && 
                 (
-                    this.ActivitySuccess == input.ActivitySuccess ||
-                    (this.ActivitySuccess != null &&
-                    this.ActivitySuccess.Equals(input.ActivitySuccess))
+                    this.ActivitySuccess == input.ActivitySuccess
                 ) && 
                 (
                     this.Score == input.Score ||
@@ -330,10 +326,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Attempts != null)
                     hashCode = hashCode * 59 + this.Attempts.GetHashCode();
-                if (this.ActivityCompletion != null)
-                    hashCode = hashCode * 59 + this.ActivityCompletion.GetHashCode();
-                if (this.ActivitySuccess != null)
-                    hashCode = hashCode * 59 + this.ActivitySuccess.GetHashCode();
+                hashCode = hashCode * 59 + this.ActivityCompletion.GetHashCode();
+                hashCode = hashCode * 59 + this.ActivitySuccess.GetHashCode();
                 if (this.Score != null)
                     hashCode = hashCode * 59 + this.Score.GetHashCode();
                 if (this.TimeTracked != null)

@@ -44,11 +44,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="instanced">If true, then a new registration instance will be created if the client LMS doesn&#39;t provide launch data for an existing one. Otherwise, the same instance will always be used for the given cmi.learner_id. .</param>
         /// <param name="registrationCap">The maximum number of registrations that can be created for this dispatch, where &#39;0&#39; means &#39;unlimited registrations&#39;. .</param>
         /// <param name="registrationCount">The current number of registrations that have been created for this dispatch. .</param>
+        /// <param name="registrationResetDate">The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. .</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. .</param>
         /// <param name="tags">The tags to associate with this Dispatch..</param>
         /// <param name="email">SCORM Cloud user e-mail associated with this dispatch. If this is not provided, it will default to the owner of the Realm. .</param>
         /// <param name="notes">Any provided notes about this dispatch..</param>
-        public DispatchSchema(string destinationId = default(string), string destinationName = default(string), string courseId = default(string), string courseTitle = default(string), DateTime? updated = default(DateTime?), DateTime? created = default(DateTime?), bool? allowNewRegistrations = default(bool?), bool? enabled = default(bool?), bool? instanced = default(bool?), int? registrationCap = default(int?), int? registrationCount = default(int?), DateTime? expirationDate = default(DateTime?), List<string> tags = default(List<string>), string email = default(string), string notes = default(string))
+        public DispatchSchema(string destinationId = default(string), string destinationName = default(string), string courseId = default(string), string courseTitle = default(string), DateTime? updated = default(DateTime?), DateTime? created = default(DateTime?), bool? allowNewRegistrations = default(bool?), bool? enabled = default(bool?), bool? instanced = default(bool?), int? registrationCap = default(int?), int? registrationCount = default(int?), DateTime? registrationResetDate = default(DateTime?), DateTime? expirationDate = default(DateTime?), List<string> tags = default(List<string>), string email = default(string), string notes = default(string))
         {
             this.DestinationId = destinationId;
             this.DestinationName = destinationName;
@@ -61,6 +62,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             this.Instanced = instanced;
             this.RegistrationCap = registrationCap;
             this.RegistrationCount = registrationCount;
+            this.RegistrationResetDate = registrationResetDate;
             this.ExpirationDate = expirationDate;
             this.Tags = tags;
             this.Email = email;
@@ -143,6 +145,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public int? RegistrationCount { get; set; }
 
         /// <summary>
+        /// The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. 
+        /// </summary>
+        /// <value>The ISO 8601 TimeStamp (defaults to UTC) at which the registration count for this dispatch was reset. </value>
+        [DataMember(Name="registrationResetDate", EmitDefaultValue=false)]
+        public DateTime? RegistrationResetDate { get; set; }
+
+        /// <summary>
         /// The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. 
         /// </summary>
         /// <value>The ISO 8601 TimeStamp (defaults to UTC) after which this dispatch will be disabled. An empty value will represent no expiration date. </value>
@@ -189,6 +198,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  Instanced: ").Append(Instanced).Append("\n");
             sb.Append("  RegistrationCap: ").Append(RegistrationCap).Append("\n");
             sb.Append("  RegistrationCount: ").Append(RegistrationCount).Append("\n");
+            sb.Append("  RegistrationResetDate: ").Append(RegistrationResetDate).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
@@ -283,6 +293,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.RegistrationCount.Equals(input.RegistrationCount))
                 ) && 
                 (
+                    this.RegistrationResetDate == input.RegistrationResetDate ||
+                    (this.RegistrationResetDate != null &&
+                    this.RegistrationResetDate.Equals(input.RegistrationResetDate))
+                ) && 
+                (
                     this.ExpirationDate == input.ExpirationDate ||
                     (this.ExpirationDate != null &&
                     this.ExpirationDate.Equals(input.ExpirationDate))
@@ -335,6 +350,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.RegistrationCap.GetHashCode();
                 if (this.RegistrationCount != null)
                     hashCode = hashCode * 59 + this.RegistrationCount.GetHashCode();
+                if (this.RegistrationResetDate != null)
+                    hashCode = hashCode * 59 + this.RegistrationResetDate.GetHashCode();
                 if (this.ExpirationDate != null)
                     hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
                 if (this.Tags != null)

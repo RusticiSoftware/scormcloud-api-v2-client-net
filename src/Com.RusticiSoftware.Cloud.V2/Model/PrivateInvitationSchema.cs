@@ -35,6 +35,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// </summary>
         /// <param name="id">The invitationId for this invitation..</param>
         /// <param name="courseId">Course Id for this Invitation..</param>
+        /// <param name="courseTitle">Title of the course associated with this invitation..</param>
         /// <param name="allowLaunch">Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. .</param>
         /// <param name="invitationEmail">invitationEmail.</param>
         /// <param name="createDate">The create date for the invitation.</param>
@@ -42,10 +43,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
         /// <param name="registrationCount">The count of registrations for this invitation.</param>
-        public PrivateInvitationSchema(string id = default(string), string courseId = default(string), bool? allowLaunch = default(bool?), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCount = default(int?))
+        /// <param name="launchedRegistrationCount">The count of launched registrations for this invitation.</param>
+        public PrivateInvitationSchema(string id = default(string), string courseId = default(string), string courseTitle = default(string), bool? allowLaunch = default(bool?), InvitationEmailSchema invitationEmail = default(InvitationEmailSchema), DateTime? createDate = default(DateTime?), DateTime? updated = default(DateTime?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCount = default(int?), int? launchedRegistrationCount = default(int?))
         {
             this.Id = id;
             this.CourseId = courseId;
+            this.CourseTitle = courseTitle;
             this.AllowLaunch = allowLaunch;
             this.InvitationEmail = invitationEmail;
             this.CreateDate = createDate;
@@ -53,6 +56,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             this.PostBack = postBack;
             this.ExpirationDate = expirationDate;
             this.RegistrationCount = registrationCount;
+            this.LaunchedRegistrationCount = launchedRegistrationCount;
         }
         
         /// <summary>
@@ -68,6 +72,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <value>Course Id for this Invitation.</value>
         [DataMember(Name="courseId", EmitDefaultValue=false)]
         public string CourseId { get; set; }
+
+        /// <summary>
+        /// Title of the course associated with this invitation.
+        /// </summary>
+        /// <value>Title of the course associated with this invitation.</value>
+        [DataMember(Name="courseTitle", EmitDefaultValue=false)]
+        public string CourseTitle { get; set; }
 
         /// <summary>
         /// Determines if learners are allowed to launch the invitation. If false, the invitation is disabled and no new or existing learners are allowed to launch it. 
@@ -117,6 +128,13 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public int? RegistrationCount { get; set; }
 
         /// <summary>
+        /// The count of launched registrations for this invitation
+        /// </summary>
+        /// <value>The count of launched registrations for this invitation</value>
+        [DataMember(Name="launchedRegistrationCount", EmitDefaultValue=false)]
+        public int? LaunchedRegistrationCount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -126,6 +144,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("class PrivateInvitationSchema {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CourseId: ").Append(CourseId).Append("\n");
+            sb.Append("  CourseTitle: ").Append(CourseTitle).Append("\n");
             sb.Append("  AllowLaunch: ").Append(AllowLaunch).Append("\n");
             sb.Append("  InvitationEmail: ").Append(InvitationEmail).Append("\n");
             sb.Append("  CreateDate: ").Append(CreateDate).Append("\n");
@@ -133,6 +152,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             sb.Append("  PostBack: ").Append(PostBack).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  RegistrationCount: ").Append(RegistrationCount).Append("\n");
+            sb.Append("  LaunchedRegistrationCount: ").Append(LaunchedRegistrationCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,6 +198,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.CourseId.Equals(input.CourseId))
                 ) && 
                 (
+                    this.CourseTitle == input.CourseTitle ||
+                    (this.CourseTitle != null &&
+                    this.CourseTitle.Equals(input.CourseTitle))
+                ) && 
+                (
                     this.AllowLaunch == input.AllowLaunch ||
                     (this.AllowLaunch != null &&
                     this.AllowLaunch.Equals(input.AllowLaunch))
@@ -211,6 +236,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.RegistrationCount == input.RegistrationCount ||
                     (this.RegistrationCount != null &&
                     this.RegistrationCount.Equals(input.RegistrationCount))
+                ) && 
+                (
+                    this.LaunchedRegistrationCount == input.LaunchedRegistrationCount ||
+                    (this.LaunchedRegistrationCount != null &&
+                    this.LaunchedRegistrationCount.Equals(input.LaunchedRegistrationCount))
                 );
         }
 
@@ -227,6 +257,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.CourseId != null)
                     hashCode = hashCode * 59 + this.CourseId.GetHashCode();
+                if (this.CourseTitle != null)
+                    hashCode = hashCode * 59 + this.CourseTitle.GetHashCode();
                 if (this.AllowLaunch != null)
                     hashCode = hashCode * 59 + this.AllowLaunch.GetHashCode();
                 if (this.InvitationEmail != null)
@@ -241,6 +273,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
                 if (this.RegistrationCount != null)
                     hashCode = hashCode * 59 + this.RegistrationCount.GetHashCode();
+                if (this.LaunchedRegistrationCount != null)
+                    hashCode = hashCode * 59 + this.LaunchedRegistrationCount.GetHashCode();
                 return hashCode;
             }
         }

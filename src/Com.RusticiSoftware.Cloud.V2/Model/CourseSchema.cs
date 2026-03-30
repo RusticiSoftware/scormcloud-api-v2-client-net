@@ -306,9 +306,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.ActivityId.Equals(input.ActivityId))
                 ) && 
                 (
-                    this.CourseLearningStandard == input.CourseLearningStandard ||
-                    (this.CourseLearningStandard != null &&
-                    this.CourseLearningStandard.Equals(input.CourseLearningStandard))
+                    this.CourseLearningStandard == input.CourseLearningStandard
                 ) && 
                 (
                     this.Tags == input.Tags ||
@@ -357,8 +355,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.RegistrationCount.GetHashCode();
                 if (this.ActivityId != null)
                     hashCode = hashCode * 59 + this.ActivityId.GetHashCode();
-                if (this.CourseLearningStandard != null)
-                    hashCode = hashCode * 59 + this.CourseLearningStandard.GetHashCode();
+                hashCode = hashCode * 59 + this.CourseLearningStandard.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Dispatched != null)

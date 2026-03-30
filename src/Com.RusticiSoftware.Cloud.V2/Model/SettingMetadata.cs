@@ -220,9 +220,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.LearningStandards.SequenceEqual(input.LearningStandards)
                 ) && 
                 (
-                    this.LearningStandardVariant == input.LearningStandardVariant ||
-                    (this.LearningStandardVariant != null &&
-                    this.LearningStandardVariant.Equals(input.LearningStandardVariant))
+                    this.LearningStandardVariant == input.LearningStandardVariant
                 ) && 
                 (
                     this.Fallback == input.Fallback ||
@@ -255,8 +253,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.Level.GetHashCode();
                 if (this.LearningStandards != null)
                     hashCode = hashCode * 59 + this.LearningStandards.GetHashCode();
-                if (this.LearningStandardVariant != null)
-                    hashCode = hashCode * 59 + this.LearningStandardVariant.GetHashCode();
+                hashCode = hashCode * 59 + this.LearningStandardVariant.GetHashCode();
                 if (this.Fallback != null)
                     hashCode = hashCode * 59 + this.Fallback.GetHashCode();
                 if (this.ValidValues != null)
