@@ -220,9 +220,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Url.Equals(input.Url))
                 ) && 
                 (
-                    this.AuthType == input.AuthType ||
-                    (this.AuthType != null &&
-                    this.AuthType.Equals(input.AuthType))
+                    this.AuthType == input.AuthType
                 ) && 
                 (
                     this.UserName == input.UserName ||
@@ -235,9 +233,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Password.Equals(input.Password))
                 ) && 
                 (
-                    this.ResultsFormat == input.ResultsFormat ||
-                    (this.ResultsFormat != null &&
-                    this.ResultsFormat.Equals(input.ResultsFormat))
+                    this.ResultsFormat == input.ResultsFormat
                 ) && 
                 (
                     this.Legacy == input.Legacy ||
@@ -257,14 +253,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                 int hashCode = 41;
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
-                if (this.AuthType != null)
-                    hashCode = hashCode * 59 + this.AuthType.GetHashCode();
+                hashCode = hashCode * 59 + this.AuthType.GetHashCode();
                 if (this.UserName != null)
                     hashCode = hashCode * 59 + this.UserName.GetHashCode();
                 if (this.Password != null)
                     hashCode = hashCode * 59 + this.Password.GetHashCode();
-                if (this.ResultsFormat != null)
-                    hashCode = hashCode * 59 + this.ResultsFormat.GetHashCode();
+                hashCode = hashCode * 59 + this.ResultsFormat.GetHashCode();
                 if (this.Legacy != null)
                     hashCode = hashCode * 59 + this.Legacy.GetHashCode();
                 return hashCode;

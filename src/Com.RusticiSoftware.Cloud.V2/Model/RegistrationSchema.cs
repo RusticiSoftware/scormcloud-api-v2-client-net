@@ -296,9 +296,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Updated.Equals(input.Updated))
                 ) && 
                 (
-                    this.RegistrationCompletion == input.RegistrationCompletion ||
-                    (this.RegistrationCompletion != null &&
-                    this.RegistrationCompletion.Equals(input.RegistrationCompletion))
+                    this.RegistrationCompletion == input.RegistrationCompletion
                 ) && 
                 (
                     this.RegistrationCompletionAmount == input.RegistrationCompletionAmount ||
@@ -306,9 +304,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.RegistrationCompletionAmount.Equals(input.RegistrationCompletionAmount))
                 ) && 
                 (
-                    this.RegistrationSuccess == input.RegistrationSuccess ||
-                    (this.RegistrationSuccess != null &&
-                    this.RegistrationSuccess.Equals(input.RegistrationSuccess))
+                    this.RegistrationSuccess == input.RegistrationSuccess
                 ) && 
                 (
                     this.Score == input.Score ||
@@ -396,12 +392,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.DispatchId.GetHashCode();
                 if (this.Updated != null)
                     hashCode = hashCode * 59 + this.Updated.GetHashCode();
-                if (this.RegistrationCompletion != null)
-                    hashCode = hashCode * 59 + this.RegistrationCompletion.GetHashCode();
+                hashCode = hashCode * 59 + this.RegistrationCompletion.GetHashCode();
                 if (this.RegistrationCompletionAmount != null)
                     hashCode = hashCode * 59 + this.RegistrationCompletionAmount.GetHashCode();
-                if (this.RegistrationSuccess != null)
-                    hashCode = hashCode * 59 + this.RegistrationSuccess.GetHashCode();
+                hashCode = hashCode * 59 + this.RegistrationSuccess.GetHashCode();
                 if (this.Score != null)
                     hashCode = hashCode * 59 + this.Score.GetHashCode();
                 if (this.TotalSecondsTracked != null)

@@ -83,8 +83,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>StringResultSchema</returns>
-        StringResultSchema CreateFetchAndImportCourseJob (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        StringResultSchema CreateFetchAndImportCourseJob (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null);
 
         /// <summary>
         /// Create a Course from a package fetched from an external source 
@@ -97,8 +98,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        ApiResponse<StringResultSchema> CreateFetchAndImportCourseJobWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        ApiResponse<StringResultSchema> CreateFetchAndImportCourseJobWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null);
         /// <summary>
         /// Create a Course from a fetched or referenced external media file 
         /// </summary>
@@ -110,8 +112,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>StringResultSchema</returns>
-        StringResultSchema CreateNoUploadAndImportCourseJob (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        StringResultSchema CreateNoUploadAndImportCourseJob (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null);
 
         /// <summary>
         /// Create a Course from a fetched or referenced external media file 
@@ -124,8 +127,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        ApiResponse<StringResultSchema> CreateNoUploadAndImportCourseJobWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        ApiResponse<StringResultSchema> CreateNoUploadAndImportCourseJobWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null);
         /// <summary>
         /// Create a Course from an uploaded package 
         /// </summary>
@@ -136,11 +140,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
         /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
         /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>StringResultSchema</returns>
-        StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
+        StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
 
         /// <summary>
         /// Create a Course from an uploaded package 
@@ -152,11 +157,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
         /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
         /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        ApiResponse<StringResultSchema> CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
+        ApiResponse<StringResultSchema> CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
         /// <summary>
         /// Delete a Course 
         /// </summary>
@@ -1012,8 +1018,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        System.Threading.Tasks.Task<StringResultSchema> CreateFetchAndImportCourseJobAsync (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        System.Threading.Tasks.Task<StringResultSchema> CreateFetchAndImportCourseJobAsync (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null);
 
         /// <summary>
         /// Create a Course from a package fetched from an external source 
@@ -1026,8 +1033,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateFetchAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateFetchAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null);
         /// <summary>
         /// Create a Course from a fetched or referenced external media file 
         /// </summary>
@@ -1039,8 +1047,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        System.Threading.Tasks.Task<StringResultSchema> CreateNoUploadAndImportCourseJobAsync (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        System.Threading.Tasks.Task<StringResultSchema> CreateNoUploadAndImportCourseJobAsync (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null);
 
         /// <summary>
         /// Create a Course from a fetched or referenced external media file 
@@ -1053,8 +1062,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateNoUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null);
+        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateNoUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null);
         /// <summary>
         /// Create a Course from an uploaded package 
         /// </summary>
@@ -1065,11 +1075,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
         /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
         /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
+        System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
 
         /// <summary>
         /// Create a Course from an uploaded package 
@@ -1081,11 +1092,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
         /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
         /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
+        System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null);
         /// <summary>
         /// Delete a Course 
         /// </summary>
@@ -2360,10 +2372,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>StringResultSchema</returns>
-        public StringResultSchema CreateFetchAndImportCourseJob (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        public StringResultSchema CreateFetchAndImportCourseJob (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = CreateFetchAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl);
+             ApiResponse<StringResultSchema> localVarResponse = CreateFetchAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl, tags);
              return localVarResponse.Data;
         }
 
@@ -2375,8 +2388,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        public ApiResponse< StringResultSchema > CreateFetchAndImportCourseJobWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        public ApiResponse< StringResultSchema > CreateFetchAndImportCourseJobWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2410,6 +2424,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
             if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
             if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (importRequest != null && importRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
@@ -2458,10 +2473,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        public async System.Threading.Tasks.Task<StringResultSchema> CreateFetchAndImportCourseJobAsync (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        public async System.Threading.Tasks.Task<StringResultSchema> CreateFetchAndImportCourseJobAsync (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = await CreateFetchAndImportCourseJobAsyncWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl);
+             ApiResponse<StringResultSchema> localVarResponse = await CreateFetchAndImportCourseJobAsyncWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl, tags);
              return localVarResponse.Data;
 
         }
@@ -2474,8 +2490,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateFetchAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateFetchAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportFetchRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2509,6 +2526,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
             if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
             if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (importRequest != null && importRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
@@ -2557,10 +2575,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>StringResultSchema</returns>
-        public StringResultSchema CreateNoUploadAndImportCourseJob (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        public StringResultSchema CreateNoUploadAndImportCourseJob (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = CreateNoUploadAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl);
+             ApiResponse<StringResultSchema> localVarResponse = CreateNoUploadAndImportCourseJobWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl, tags);
              return localVarResponse.Data;
         }
 
@@ -2572,8 +2591,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        public ApiResponse< StringResultSchema > CreateNoUploadAndImportCourseJobWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        public ApiResponse< StringResultSchema > CreateNoUploadAndImportCourseJobWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2607,6 +2627,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
             if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
             if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (importRequest != null && importRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
@@ -2655,10 +2676,11 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        public async System.Threading.Tasks.Task<StringResultSchema> CreateNoUploadAndImportCourseJobAsync (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        public async System.Threading.Tasks.Task<StringResultSchema> CreateNoUploadAndImportCourseJobAsync (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = await CreateNoUploadAndImportCourseJobAsyncWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl);
+             ApiResponse<StringResultSchema> localVarResponse = await CreateNoUploadAndImportCourseJobAsyncWithHttpInfo(courseId, importRequest, mayCreateNewVersion, postbackUrl, tags);
              return localVarResponse.Data;
 
         }
@@ -2671,8 +2693,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="importRequest"></param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateNoUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null)
+        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateNoUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, ImportRequestSchema importRequest, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2706,6 +2729,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
             if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
             if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (importRequest != null && importRequest.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(importRequest); // http body (model) parameter
@@ -2753,13 +2777,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
         /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
         /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>StringResultSchema</returns>
-        public StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
+        public StringResultSchema CreateUploadAndImportCourseJob (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = CreateUploadAndImportCourseJobWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, uploadedContentType, contentMetadata, _file);
+             ApiResponse<StringResultSchema> localVarResponse = CreateUploadAndImportCourseJobWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, tags, uploadedContentType, contentMetadata, _file);
              return localVarResponse.Data;
         }
 
@@ -2770,11 +2795,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
         /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
         /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>ApiResponse of StringResultSchema</returns>
-        public ApiResponse< StringResultSchema > CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
+        public ApiResponse< StringResultSchema > CreateUploadAndImportCourseJobWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2805,6 +2831,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
             if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
             if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (uploadedContentType != null) localVarHeaderParams.Add("uploadedContentType", this.Configuration.ApiClient.ParameterToString(uploadedContentType)); // header parameter
             if (contentMetadata != null) localVarFormParams.Add("contentMetadata", this.Configuration.ApiClient.ParameterToString(contentMetadata)); // form parameter
             if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));
@@ -2847,13 +2874,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
         /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
         /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>Task of StringResultSchema</returns>
-        public async System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
+        public async System.Threading.Tasks.Task<StringResultSchema> CreateUploadAndImportCourseJobAsync (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
         {
-             ApiResponse<StringResultSchema> localVarResponse = await CreateUploadAndImportCourseJobAsyncWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, uploadedContentType, contentMetadata, _file);
+             ApiResponse<StringResultSchema> localVarResponse = await CreateUploadAndImportCourseJobAsyncWithHttpInfo(courseId, mayCreateNewVersion, postbackUrl, tags, uploadedContentType, contentMetadata, _file);
              return localVarResponse.Data;
 
         }
@@ -2865,11 +2893,12 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
         /// <param name="courseId">A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.</param>
         /// <param name="mayCreateNewVersion">Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. (optional, default to false)</param>
         /// <param name="postbackUrl">An optional parameter that specifies a URL to send a postback to when the course has finished uploading. (optional)</param>
+        /// <param name="tags">A list of tags to apply, allowing for more refined filtering of resources (optional)</param>
         /// <param name="uploadedContentType">The MIME type identifier for the content to be uploaded. This is required if uploading a media file (.pdf, .mp3, or .mp4). (optional, default to application/zip)</param>
         /// <param name="contentMetadata">Serialized &#39;mediaFileMetadata&#39; schema. (optional)</param>
         /// <param name="_file">The zip file of the course contents to import.  (optional)</param>
         /// <returns>Task of ApiResponse (StringResultSchema)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
+        public async System.Threading.Tasks.Task<ApiResponse<StringResultSchema>> CreateUploadAndImportCourseJobAsyncWithHttpInfo (string courseId, bool? mayCreateNewVersion = null, string postbackUrl = null, List<string> tags = null, string uploadedContentType = null, string contentMetadata = null, System.IO.Stream _file = null)
         {
             // verify the required parameter 'courseId' is set
             if (courseId == null)
@@ -2900,6 +2929,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Api
             if (courseId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "courseId", courseId)); // query parameter
             if (mayCreateNewVersion != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mayCreateNewVersion", mayCreateNewVersion)); // query parameter
             if (postbackUrl != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "postbackUrl", postbackUrl)); // query parameter
+            if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "tags", tags)); // query parameter
             if (uploadedContentType != null) localVarHeaderParams.Add("uploadedContentType", this.Configuration.ApiClient.ParameterToString(uploadedContentType)); // header parameter
             if (contentMetadata != null) localVarFormParams.Add("contentMetadata", this.Configuration.ApiClient.ParameterToString(contentMetadata)); // form parameter
             if (_file != null) localVarFileParams.Add("file", this.Configuration.ApiClient.ParameterToFile("file", _file));

@@ -37,22 +37,14 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="allowNewRegistrations">Determines if new registrations can be created for this public invitation. If false, no new registrations can be created for the invitation, so only learners with existing registrations can access the invitation. .</param>
         /// <param name="postBack">Specifies a URL for which to post activity and status data in real time as the course is completed.</param>
         /// <param name="expirationDate">The ISO 8601 TimeStamp (defaults to UTC) after which this invitation will expire and can no longer be launched. An empty value will represent no expiration date. .</param>
-        /// <param name="registrationCap">Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation.  (default to 0).</param>
-        public PublicInvitationUpdateSchema(bool? allowLaunch = default(bool?), bool? allowNewRegistrations = default(bool?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCap = 0)
+        /// <param name="registrationCap">Integer value that represents the maximum number of registrations that can be created for a public invitation. Setting this value to &#39;0&#39; allows an unlimited amount of registrations to be created for the invitation. .</param>
+        public PublicInvitationUpdateSchema(bool? allowLaunch = default(bool?), bool? allowNewRegistrations = default(bool?), PostBackSchema postBack = default(PostBackSchema), DateTime? expirationDate = default(DateTime?), int? registrationCap = default(int?))
         {
             this.AllowLaunch = allowLaunch;
             this.AllowNewRegistrations = allowNewRegistrations;
             this.PostBack = postBack;
             this.ExpirationDate = expirationDate;
-            // use default value if no "registrationCap" provided
-            if (registrationCap == null)
-            {
-                this.RegistrationCap = 0;
-            }
-            else
-            {
-                this.RegistrationCap = registrationCap;
-            }
+            this.RegistrationCap = registrationCap;
         }
         
         /// <summary>

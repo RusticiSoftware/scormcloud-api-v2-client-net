@@ -127,9 +127,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
 
             return 
                 (
-                    this.XapiCredentialPermissionsLevel == input.XapiCredentialPermissionsLevel ||
-                    (this.XapiCredentialPermissionsLevel != null &&
-                    this.XapiCredentialPermissionsLevel.Equals(input.XapiCredentialPermissionsLevel))
+                    this.XapiCredentialPermissionsLevel == input.XapiCredentialPermissionsLevel
                 );
         }
 
@@ -142,8 +140,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.XapiCredentialPermissionsLevel != null)
-                    hashCode = hashCode * 59 + this.XapiCredentialPermissionsLevel.GetHashCode();
+                hashCode = hashCode * 59 + this.XapiCredentialPermissionsLevel.GetHashCode();
                 return hashCode;
             }
         }

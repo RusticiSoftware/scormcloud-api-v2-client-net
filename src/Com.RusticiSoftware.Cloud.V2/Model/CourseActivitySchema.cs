@@ -213,9 +213,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.ResourceIdentifier.Equals(input.ResourceIdentifier))
                 ) && 
                 (
-                    this.ActivityType == input.ActivityType ||
-                    (this.ActivityType != null &&
-                    this.ActivityType.Equals(input.ActivityType))
+                    this.ActivityType == input.ActivityType
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -254,8 +252,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.ItemIdentifier.GetHashCode();
                 if (this.ResourceIdentifier != null)
                     hashCode = hashCode * 59 + this.ResourceIdentifier.GetHashCode();
-                if (this.ActivityType != null)
-                    hashCode = hashCode * 59 + this.ActivityType.GetHashCode();
+                hashCode = hashCode * 59 + this.ActivityType.GetHashCode();
                 if (this.Href != null)
                     hashCode = hashCode * 59 + this.Href.GetHashCode();
                 if (this.ScaledPassingScore != null)

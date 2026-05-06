@@ -249,9 +249,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Tags.SequenceEqual(input.Tags)
                 ) && 
                 (
-                    this.DuplicateRegistrationOption == input.DuplicateRegistrationOption ||
-                    (this.DuplicateRegistrationOption != null &&
-                    this.DuplicateRegistrationOption.Equals(input.DuplicateRegistrationOption))
+                    this.DuplicateRegistrationOption == input.DuplicateRegistrationOption
                 );
         }
 
@@ -276,8 +274,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.ExpirationDate.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
-                if (this.DuplicateRegistrationOption != null)
-                    hashCode = hashCode * 59 + this.DuplicateRegistrationOption.GetHashCode();
+                hashCode = hashCode * 59 + this.DuplicateRegistrationOption.GetHashCode();
                 return hashCode;
             }
         }

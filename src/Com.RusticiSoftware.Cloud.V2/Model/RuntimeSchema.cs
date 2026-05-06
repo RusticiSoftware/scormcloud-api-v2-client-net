@@ -364,9 +364,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.TimeTracked.Equals(input.TimeTracked))
                 ) && 
                 (
-                    this.RuntimeSuccessStatus == input.RuntimeSuccessStatus ||
-                    (this.RuntimeSuccessStatus != null &&
-                    this.RuntimeSuccessStatus.Equals(input.RuntimeSuccessStatus))
+                    this.RuntimeSuccessStatus == input.RuntimeSuccessStatus
                 ) && 
                 (
                     this.SuspendData == input.SuspendData ||
@@ -432,8 +430,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.TotalTime.GetHashCode();
                 if (this.TimeTracked != null)
                     hashCode = hashCode * 59 + this.TimeTracked.GetHashCode();
-                if (this.RuntimeSuccessStatus != null)
-                    hashCode = hashCode * 59 + this.RuntimeSuccessStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.RuntimeSuccessStatus.GetHashCode();
                 if (this.SuspendData != null)
                     hashCode = hashCode * 59 + this.SuspendData.GetHashCode();
                 if (this.LearnerComments != null)

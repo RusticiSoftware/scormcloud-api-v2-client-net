@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.IO;
-using System.Web;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -70,7 +69,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
             var options = new RestClientOptions(Configuration.BasePath)
             {
                 UserAgent = Configuration.UserAgent,
-                MaxTimeout = Configuration.Timeout
+                Timeout = TimeSpan.FromMilliseconds(Configuration.Timeout)
             };
             RestClient = new RestClient(options);
         }
@@ -108,7 +107,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
 
             if (postBody != null) // http body (model or byte[]) parameter
             {
-                request.AddBody(postBody, "application/json");
+                request.AddJsonBody(postBody);
             }
 
             return request;
@@ -137,7 +136,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Client
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
 
-            var response = RestClient.ExecuteAsync(request).GetAwaiter().GetResult();
+            var response = RestClient.Execute(request);
 
             return (Object) response;
         }

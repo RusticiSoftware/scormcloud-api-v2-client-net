@@ -72,15 +72,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <param name="member">member.</param>
         public XapiAgentGroup(ObjectTypeEnum objectType = default(ObjectTypeEnum), string name = default(string), string mbox = default(string), string mboxSha1sum = default(string), string openid = default(string), XapiAccount account = default(XapiAccount), List<XapiAgentGroup> member = default(List<XapiAgentGroup>))
         {
-            // to ensure "objectType" is required (not null)
-            if (objectType == null)
-            {
-                throw new InvalidDataException("objectType is a required property for XapiAgentGroup and cannot be null");
-            }
-            else
-            {
-                this.ObjectType = objectType;
-            }
+            this.ObjectType = objectType;
             this.Name = name;
             this.Mbox = mbox;
             this.MboxSha1sum = mboxSha1sum;
@@ -176,9 +168,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
 
             return 
                 (
-                    this.ObjectType == input.ObjectType ||
-                    (this.ObjectType != null &&
-                    this.ObjectType.Equals(input.ObjectType))
+                    this.ObjectType == input.ObjectType
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -221,8 +211,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ObjectType != null)
-                    hashCode = hashCode * 59 + this.ObjectType.GetHashCode();
+                hashCode = hashCode * 59 + this.ObjectType.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Mbox != null)

@@ -25,25 +25,35 @@ using SwaggerDateConverter = Com.RusticiSoftware.Cloud.V2.Client.SwaggerDateConv
 namespace Com.RusticiSoftware.Cloud.V2.Model
 {
     /// <summary>
-    /// ZoomiCompanyId
+    /// InvitationEmailUpdateSchema
     /// </summary>
     [DataContract]
-    public partial class ZoomiCompanyId :  IEquatable<ZoomiCompanyId>, IValidatableObject
+    public partial class InvitationEmailUpdateSchema :  IEquatable<InvitationEmailUpdateSchema>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ZoomiCompanyId" /> class.
+        /// Initializes a new instance of the <see cref="InvitationEmailUpdateSchema" /> class.
         /// </summary>
-        /// <param name="zoomiCompanyId">zoomiCompanyId.</param>
-        public ZoomiCompanyId(string zoomiCompanyId = default(string))
+        /// <param name="subject">The subject line for the email..</param>
+        /// <param name="body">The body of the email..</param>
+        public InvitationEmailUpdateSchema(string subject = default(string), string body = default(string))
         {
-            this._ZoomiCompanyId = zoomiCompanyId;
+            this.Subject = subject;
+            this.Body = body;
         }
         
         /// <summary>
-        /// Gets or Sets _ZoomiCompanyId
+        /// The subject line for the email.
         /// </summary>
-        [DataMember(Name="zoomi_company_id", EmitDefaultValue=false)]
-        public string _ZoomiCompanyId { get; set; }
+        /// <value>The subject line for the email.</value>
+        [DataMember(Name="subject", EmitDefaultValue=false)]
+        public string Subject { get; set; }
+
+        /// <summary>
+        /// The body of the email.
+        /// </summary>
+        /// <value>The body of the email.</value>
+        [DataMember(Name="body", EmitDefaultValue=false)]
+        public string Body { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +62,9 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ZoomiCompanyId {\n");
-            sb.Append("  _ZoomiCompanyId: ").Append(_ZoomiCompanyId).Append("\n");
+            sb.Append("class InvitationEmailUpdateSchema {\n");
+            sb.Append("  Subject: ").Append(Subject).Append("\n");
+            sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +85,29 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ZoomiCompanyId);
+            return this.Equals(input as InvitationEmailUpdateSchema);
         }
 
         /// <summary>
-        /// Returns true if ZoomiCompanyId instances are equal
+        /// Returns true if InvitationEmailUpdateSchema instances are equal
         /// </summary>
-        /// <param name="input">Instance of ZoomiCompanyId to be compared</param>
+        /// <param name="input">Instance of InvitationEmailUpdateSchema to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ZoomiCompanyId input)
+        public bool Equals(InvitationEmailUpdateSchema input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this._ZoomiCompanyId == input._ZoomiCompanyId ||
-                    (this._ZoomiCompanyId != null &&
-                    this._ZoomiCompanyId.Equals(input._ZoomiCompanyId))
+                    this.Subject == input.Subject ||
+                    (this.Subject != null &&
+                    this.Subject.Equals(input.Subject))
+                ) && 
+                (
+                    this.Body == input.Body ||
+                    (this.Body != null &&
+                    this.Body.Equals(input.Body))
                 );
         }
 
@@ -104,8 +120,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._ZoomiCompanyId != null)
-                    hashCode = hashCode * 59 + this._ZoomiCompanyId.GetHashCode();
+                if (this.Subject != null)
+                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
+                if (this.Body != null)
+                    hashCode = hashCode * 59 + this.Body.GetHashCode();
                 return hashCode;
             }
         }

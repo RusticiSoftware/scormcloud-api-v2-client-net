@@ -266,14 +266,10 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.ScoreRaw.Equals(input.ScoreRaw))
                 ) && 
                 (
-                    this.RuntimeObjectiveSuccessStatus == input.RuntimeObjectiveSuccessStatus ||
-                    (this.RuntimeObjectiveSuccessStatus != null &&
-                    this.RuntimeObjectiveSuccessStatus.Equals(input.RuntimeObjectiveSuccessStatus))
+                    this.RuntimeObjectiveSuccessStatus == input.RuntimeObjectiveSuccessStatus
                 ) && 
                 (
-                    this.RuntimeObjectiveCompletionStatus == input.RuntimeObjectiveCompletionStatus ||
-                    (this.RuntimeObjectiveCompletionStatus != null &&
-                    this.RuntimeObjectiveCompletionStatus.Equals(input.RuntimeObjectiveCompletionStatus))
+                    this.RuntimeObjectiveCompletionStatus == input.RuntimeObjectiveCompletionStatus
                 ) && 
                 (
                     this.ProgressMeasure == input.ProgressMeasure ||
@@ -306,10 +302,8 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     hashCode = hashCode * 59 + this.ScoreMax.GetHashCode();
                 if (this.ScoreRaw != null)
                     hashCode = hashCode * 59 + this.ScoreRaw.GetHashCode();
-                if (this.RuntimeObjectiveSuccessStatus != null)
-                    hashCode = hashCode * 59 + this.RuntimeObjectiveSuccessStatus.GetHashCode();
-                if (this.RuntimeObjectiveCompletionStatus != null)
-                    hashCode = hashCode * 59 + this.RuntimeObjectiveCompletionStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.RuntimeObjectiveSuccessStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.RuntimeObjectiveCompletionStatus.GetHashCode();
                 if (this.ProgressMeasure != null)
                     hashCode = hashCode * 59 + this.ProgressMeasure.GetHashCode();
                 if (this.Description != null)

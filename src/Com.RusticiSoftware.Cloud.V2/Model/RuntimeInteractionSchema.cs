@@ -252,9 +252,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type == input.Type
                 ) && 
                 (
                     this.Objectives == input.Objectives ||
@@ -314,8 +312,7 @@ namespace Com.RusticiSoftware.Cloud.V2.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Objectives != null)
                     hashCode = hashCode * 59 + this.Objectives.GetHashCode();
                 if (this.Timestamp != null)
